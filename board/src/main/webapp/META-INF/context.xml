@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Context>
+<Resource
+			  name="jdbc/myoracle" 
+			  auth="Container"
+              type="javax.sql.DataSource" 
+              driverClassName="oracle.jdbc.OracleDriver"
+              url="jdbc:oracle:thin:@127.0.0.1:1521:xe"
+              username="scott" 
+              password="tiger" 
+              maxTotal="20" 
+              maxIdle="10" 
+              maxWaitMillis="-1"/>
+</Context>
+
+<!--  maxIdle="10"  : 일을 안해도 놔두는 커넥션 갯수  -->
+<!--  maxWaitMillis="-1" : 컨넥션객체가 반납될 때 까지 무한정 대기 -->
+
+

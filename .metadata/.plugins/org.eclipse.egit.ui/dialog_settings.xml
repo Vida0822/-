@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="org.eclipse.egit.ui.internal.clone.GitSelectWizardPageWizardSel" value="0"/>
+	<list key="EGit.KnownHosts">
+		<item value="git.eclipse.org"/>
+		<item value="github.com"/>
+		<item value="bitbucket.org"/>
+	</list>
+	<list key="RepositorySelectionPage.UsedUris">
+		<item value="https://github.com/Vida0822/Vida0822.github.io.git"/>
+		<item value="https://github.com/Vida0822/Tumblbug_JSPProject_MVC.git"/>
+		<item value="https://github.com/plasticver2/Tumblcat.git"/>
+		<item value="https://github.com/gunner6603/tumblbug-replica.git"/>
+		<item value="https://github.com/soyoonJ/tumblbug_Clone_FE.git"/>
+		<item value="https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/plasticver2/Tumblcat.git"/>
+	</list>
+	<list key="CommitDialog.authorValues">
+		<item value="DESKTOP-DGFPD6H\SHIN HEEMIN &lt;sinhimin11@naver.com&gt;"/>
+	</list>
+	<list key="CommitDialog.committerValues">
+		<item value="DESKTOP-DGFPD6H\SHIN HEEMIN &lt;sinhimin11@naver.com&gt;"/>
+	</list>
+	<section name="org.eclipse.egit.ui.internal.staging.StagingView">
+		<item key="MAIN_SASH_FORM_ORIENTATION_VERTICAL" value="true"/>
+		<item key="HORIZONTAL_SASH_FORM_WEIGHT" value="500,500"/>
+		<item key="STAGING_SASH_FORM_WEIGHT" value="500,500"/>
+		<item key="sortItemState" value="false"/>
+	</section>
+	<section name="GitCommitMessageComponent">
+	</section>
+	<section name="org.eclipse.egit.ui.internal.push.PushResultDialog.dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="583"/>
+		<item key="DIALOG_Y_ORIGIN" value="186"/>
+		<item key="DIALOG_WIDTH" value="777"/>
+		<item key="DIALOG_HEIGHT" value="503"/>
+		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+		<list key="sashWeights">
+			<item value="600"/>
+			<item value="400"/>
+		</list>
+	</section>
+	<section name="GitImportWizard">
+	</section>
+</section>
