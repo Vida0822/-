@@ -1,0 +1,21 @@
+package days19;
+
+/**
+ * @author dlsgu
+ * @date 2023. 2. 21. 오후 5:10:35
+ * @subject
+ * @content
+ */
+public class Ex07_05 {
+
+	public static void main(String[] args) {
+		String url = "www.naver.com";
+		
+		// url 반드시 http:// 문자열로 시작을 해야된다
+		
+		String prefix = "http://";
+		System.out.println(url.startsWith(prefix));
+
+	}//main
+
+}//class

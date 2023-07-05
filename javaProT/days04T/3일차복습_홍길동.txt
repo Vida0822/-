@@ -1,0 +1,104 @@
+1. 이름, 국어, 영어, 수학의 값을 입력받아서
+   총점, 평균을 계산하고 , 출력하기
+   ( 조건 : 평균은 소수점 2자리까지 출력 )
+   출력형식 예)  이름="홍길동",국어=89,영어=78,수학=90,총점=257,평균=85.67
+   
+    %[argument_index$][flags][width][.precision]conversion
+   
+2. 아래 결과를 적으세요
+  1) System.out.println( 5 / 0 );    //  산술적예외
+  2) System.out.println( 5 % 0 );  //  산술적예외
+  3) System.out.println( 5.2 / 0 );// Infinity 무한대
+  4) System.out.println( 5.2 % 0 ); // NaN( Not a Number )
+
+3. 비교연산자 결과를 적으세요                결과값 .boolean
+  1) System.out.println(  3 > 5 );  거짓  false
+  2) System.out.println(  3 < 5 );  참 true
+  3) System.out.println(  3 >= 5 );    false
+  4) System.out.println(  3 <= 5 );    true
+  5) System.out.println(  3 = 5 );  에러          대입연산자     좌측 변수
+                                          같다  ==
+  6) System.out.println(  3 =! 5 );
+                                          다르다  !=   
+  7) System.out.println(  !3 > 5  );  
+
+4. 형변환에 대해서 설명하세요 . 
+  1) 정의 :  타입( 자료형, 데이터 형식 ) 변환
+                서로 다른 타입을 연산을 할 때 타입을  맞춰줘야 한다. 
+  2) 자동(묵시적,암시적)형변환 2가지
+           int + double
+            작    클
+            double + double 연산
+            
+            long x = int ;
+            
+            int y = (int)long; X
+      강제(명시적)형변환
+          cast 연산자 = cast 강제 형변환
+
+5. 래퍼( Wrapper ) 클래스에 대해서 설명하세요. 
+     
+     기본형 ( 8가지 )을 사용하기 쉽도록 기능(함수)을 구현해 놓은 클래스  
+     참조형 - 배열, 클래스, 인터페이스 
+     
+     int n = 21억;
+     int n = Integer.MAX_VALUE;
+     
+6. 용어 정리
+  1) 연산자( operator )  ?  연산 기호 +  -  *  / 등등
+  2) 피연산자( operand ) ?  연산자 대상
+  3) Full Name ? 패키지명 + 클래스명
+  
+7.  package와 import 문 설명에 대해서 설명하세요 . 
+    서 관 묶 : 패키지 
+    왜 ? 클래스 관리 목적
+    
+    서로 다른 패키지의 안의 클래스를 사용하려면 
+    
+    패키지명.클래스명 접근
+    import java.io.IOException;
+    
+    IOException e;
+
+8. [2의 보수법]으로 어떤 음수가 1011 0111 이렇게 저장되어 있다면 
+    음수값은 ? 
+    
+    -10                   [][][][][][][][][]   0/1  2진수 표현
+   1) 절대치 10     0000 1010
+   2) 1의 보수        1111 0101
+   3)  1더한다        1111 0110 
+   
+   [0]000 0000  0
+   [1]000 0000   0
+   
+   1011 0110
+   0100 1001   
+   64+ 8 + 1
+   -73
+    
+
+9.  문자열 "90"을 각 자료형으로 변환하는 코딩을 하세요 .
+      래퍼클래스.parse자료형( "90");
+      Byte.parseByte("90");
+      Integer.parseInt("90");
+      Double.parseDouble("90");
+ 
+    1) String s = "90" 을 byte 로 변환하는 코딩  
+     
+    2) String s = "90" 을 int 로 변환하는 코딩  
+    3) String s = "90" 을 double 로 변환하는 코딩  
+    4) String s = "90" 을 long 로 변환하는 코딩  
+    5) String s = "90" 을 float 로 변환하는 코딩  
+
+
+
+
+
+
+
+
+
+
+
+
+   

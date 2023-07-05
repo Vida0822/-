@@ -1,0 +1,256 @@
+1. 메모장 실행
+2. 카톡 단톡방 : SS18 Class5
+3. 이창익
+4. 즐겨찾기 - 질문/답변 ( 코드 생성 -> 원격 접속 )
+   https://remotedesktop.google.com/access
+5. 대면 / 비대면 병행
+   목/금 
+   다음 주 : 3조
+               월, 금 : 비대면 + 줌
+               화(1조)/수(2조)/목(3조) 
+6. 전공자/비전공자
+7. 하루 8시간 수업
+   지각/결석 X
+8. 수업 관련  - 강사
+   행정, 시스템 등등 - 매니저
+9. 
+   자바 + 6주  /  프로젝트 1
+   오라클 3주  /  프로젝트 2
+   JDBC  1주
+   h/c/j/j 3주
+   JSP/Servlet  3주  /  프로젝트 3
+   Spring/ mybatis 3주 / 프로젝트 4
+   AWS 1주
+   등
+
+10. 폴더 생성
+    "파일탐색기"
+    E:\Class 폴더 
+         ㄴ DownLoad 폴더 
+              ㄴ JDK( Java SE ) 11.x.x   
+              ㄴ Eclipse 2021.09 
+         ㄴ WorkSpace폴더 
+              ㄴ JavaClass 폴더
+
+10:00 수업시작
+11. 교재 목차
+   1) 자바의 특징 - 환경구축, 프로그램 작성,실행, 기초 문법
+   2) 변수와 연산자
+   3) 제어문 - 조건, 반복, 이동 제어문
+   4) 배열 - 기초, 다차원 배열, 정렬 알고리즘
+   5) 클래스
+   6) 상속   
+   7) 추상 클래스와 인터페이스
+   8) 예외와 예외 처리
+   9) java.lang 패키지
+   10) java.util 패키지
+   11) java.io 패키지
+   12) java.sql 패키지
+
+12. 자바란 ? 
+   1) 썬(sun)사 개발한 객체 지향적 프로그래밍 언어  -> 오라클사
+      ( 1996년 1월 )
+   2) 운영 체제( OS == 플랫폼 ) 독립적 ( 가장 중요한 특징 )
+       OS + JVM(가상 머신) + 자바프로그램 실행
+   3) p 6 자바 개발  환경 구축
+   시험문제 1)
+     (0) 이전 JDK 설치 확인, 버전 삭제.
+          C:\Program Files\Java  폴더
+
+          명령 프롬프트( cmd ) 열기
+          작업표시줄 - 돋보기( 검색 ) - cmd 입력 검색
+C:\Users\user>java -version
+java version "1.8.0_281"
+Java(TM) SE Runtime Environment (build 1.8.0_281-b09)
+Java HotSpot(TM) 64-Bit Server VM (build 25.281-b09, mixed mode)
+
+C:\Users\user>javac -version
+javac 1.8.0_281
+
+        - 삭제
+         작업표시줄 - 돋보기( 검색 ) - 프로그램 추가/삭제 입력 검색
+         java 검색 후 "제거" 삭제.
+
+     (1) JDK 다운로드 및 설치
+         https://www.oracle.com/
+         https://www.oracle.com/java/technologies/downloads/archive/
+         https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html
+         
+        Java SE Development Kit 11.0.17
+        내 PC > 우측 마우스 클릭 > 속성 메뉴 클릭
+         ㄴ     Windows 10 Pro  64비트 운영체제
+
+       E:\Class\Download
+         ㄴ jdk-11.0.17_windows-x64_bin.exe  다운로드 & 설치
+          설치 폴더 확인.
+
+      11:05 수업시작~
+       시험 문제3) JDK 설치 후 환경변수 설정 방법을 설명하세요. 
+       [ JDK 설치 후 환경변수 설정 ]
+        - 파일 탐색기 > 내 PC > 속성 메뉴 클릭~
+          우측에  "고급 시스템 설정" 클릭
+        - 시스템속성 창이 열리고
+             ㄴ 고급 탭을 선택
+                  ㄴ "환경변수(N)" 버튼을 클릭
+              (1)
+                 JAVA_HOME
+                 C:\Program Files\Java\jdk-11.0.17
+              (2) 
+                    Path 시스템 변수
+                    [%JAVA_HOME%\bin]
+              (3)   cmd 반드시 닫고 나서 새 cmd 열어서 확인
+
+       OS   +   JVM              + 응용프로그램
+운영체제      자바가상머신
+       시험문제 2) JDK에 대해서 설명하세요. 
+       JDK = 1) JRE( JVM + Java API ) + 2) 자바 개발 프로그램( java.exe, javac.exe 등등 )
+                   ㄴJava Runtime Environment
+                   ㄴ자바   실행     환경
+                   ㄴ 자바로 작성된 응용프로그램이 실행되기 위한 최소 환경.
+       java.exe - 자바 인터프리터 ( 자바 실행 도구 ) 
+       javac.exe - 자바 컴파일러 ( 자바 컴파일하는 도구 )
+       등등
+
+     (2) 오라클 계정 생성 / 로그인
+
+    JDK 1.5 == JDK 5.0
+    JDK 1.7 == JDK 7.0
+    JDK 1.8 == JDK 8.0 이상
+    JDK 9.0
+    JDK 11.0
+        :
+    JDK 19
+
+https://docs.oracle.com/en/java/javase/11/
+
+ 13. 본인의 이름을 출력하는 자바 프로그램 작성..
+   1) 편집기 : 메모장.
+   2) 자바 문법 X             Hello.java   자바파일
+       public class Hello{
+            //
+       }
+   p 4 
+              HelloWord.java    소스파일( Source 파일 ) == 원본파일
+
+               0/1  변환 : 자바 컴파일러  ( 번역기 )
+             Usage: javac <options> <source files>
+        E:\Class\SS18Class\Workspace\JavaClass>javac Hello.java
+
+E:\Class\SS18Class\Workspace\JavaClass>javac Hello.java
+Hello.java:3: error: unmappable character (0xEC) for encoding x-windows-949
+                System.out.println("?씠李쎌씡");
+                                    ^
+1 error
+  MS-949 인코딩
+
+E:\Class\SS18Class\Workspace\JavaClass>
+
+              Hello.class 파일 생성 (  클래스파일, 중간언어 )
+
+       .class 클래스파일  -> 특정 폴더 저장
+                                   CLASSPATH( 클래스 패스 )
+
+12:07 수업 시작~
+       클래스파일( Hell.class) 실행    java.exe 자바 인터프리터
+
+       JRE(  JVM + Java API ) 에서 실행 되어진다. 
+
+
+E:\Class\SS18Class\Workspace\JavaClass>java Hello
+kenik
+
+자바코딩
+cmd 컴파일
+cmd 실행
+
+VSCode IDE X
+Eclipse IDE O   소스코딩, 디버깅, 원격서버연동, 컴파일, 실행 등등
+https://eclipse.org/
+Eclipse 2021-09 (4.21)
+Eclipse IDE for Enterprise Java and Web Developers
+
+반디집 설치
+-- 
+시험문제4) 본인의 이름을 출력하는 Test.java 파일를 만들어서 
+컴파일 하고   >javac Test.java                    Test.class
+실행하세요..   >java Test
+
+ 14. 자바 프로그램의 기본 구조 설명 ( 시험문제 5 )
+   1) 자바는 객체 지향적 프로그래밍 언어이기 때문에 
+      프로그램을 시작하는 "시작 객체(==개체, 물건, Object)"가 하나 필요하다.
+      (예)  집에  출입 : 현관문
+   2) 프로그램을 시작하는 메서드를  main() 함수를 가진 클래스가 하나  필요하다. 
+       main()함수 + 클래스를   "시작개체"라고 한다. 
+   3) 자바 언어에서 클래스 선언 형식 ?
+     [] 대괄호는 생략 가능
+         public
+     [접근지정자] [기타제어자] class 클래스명{  
+     }
+       
+   (예) Hello.java
+    public class Hello{              // 시작 개체
+        // main() 함수 선언
+       // main 함수의 매개변수 String [] args 설명해 주세요.. 
+        public static  void main( String [] args ){
+                // 하고자 하는 코딩. - 본인의 이름을 출력...  
+                System.out.println("이창익");              
+                [S]ystem 클래스 == 개체 == 객체 == Object == 물건
+                     ㄴ 표준 입력 in
+                     ㄴ 표준 출력 out ***
+                               ㄴ  println(), printf(), print() 함수
+                // 예) 집   거실 못 칠려고 ...
+                망치 물건
+                     ㄴ *** 못치고 부분( 기능 )           +  망치질하다. 일(행위)
+                     ㄴ 못빼기( 기능 )                                       못
+         }
+    }
+
+     - 클래스명은 반드시 첫 문자는 대문자로 시작한다. (자바)
+     - 자바파일명 == 클래스명
+
+   4) 함수(메서드)를 선언 형식
+     제한자(modifier) = [접근지정자] + [기타제어자]
+     ...  0개~ 여러개 
+     [접근지정자] [기타제어자] 리턴자료형 함수명([매개변수...]){
+        [return 리턴값;]
+        return [리턴값];
+     }
+
+
+  15. 이클립스 압출 풀기
+       C:\eclipse-jee-2021-09-R-win32-x86_64
+       바탕화면 바로가기 
+  16. 이클립스를 실행
+       1) Window > Perferences 클릭
+             encoding 검색
+         General
+                ㄴ Workspace
+                         MS949 -> UTF8 수정.
+       2)  font 검색
+            General
+                ㄴ Appearance
+                   ㄴ Colors and Fonts
+
+          Verdana
+
+3:05 수업시작~
+  17.  java project 생성 
+    1) 프로젝트명 :     javaPro
+    2) 본인의 이름을 출력하는 Hello.java
+       컴파일
+       실행
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

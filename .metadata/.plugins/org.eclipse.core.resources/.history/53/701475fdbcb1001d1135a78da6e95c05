@@ -1,0 +1,24 @@
+package days19;
+
+/**
+ * @author dlsgu
+ * @date 2023. 2. 21. 오후 4:23:37
+ * @subject
+ * @content
+ */
+public class Ex07_04 {
+
+	public static void main(String[] args) {
+		// dir 문자열 속에 마지막 문자열이 '\\'인지 여부 체크해서
+		String dir = "C:\\temp\\test";
+		String fileName = "aaa.html";
+		String fullPath;
+		if(dir.charAt(dir.length()-1) == '\\') {
+			fullPath = dir.concat(fileName);
+		} else {
+			fullPath = dir.concat("\\").concat(fileName);
+		}
+		System.out.println(fullPath);
+	}//main
+
+}//class

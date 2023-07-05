@@ -1,0 +1,105 @@
+1. ASCII ( 0 ~255 ) 를  한 라인에 15개씩 출력하는 코딩을 하세요.
+
+     1) 앞에 라인번호를 붙이자.     
+     1 : 
+     2 : 
+ 
+ // 한 라인 = 15
+		// 0 1 2  ~  14 개행
+		// 15      ~  29 개행
+		
+		// 10:06 수업 시작~ 
+		// [문제] 5 라인을 출력한 후 엔터를 치면 다음 5 라인 출력..
+		
+		//  1) 5라인이 출력되었는지는 체크 할 수 있다.     - lineNumber 변수
+		//  2) for문이 더 이상 반복되지않고 멈춰야 된다. -  방법 ?   System.in.read(), scanner.next(), br.readLine()
+		//  1)+2) 반복~
+		
+		int lineNumber = 1;   // 라인번호를 출력하기 위한 저장변수 선언, 초기값 1 설정 
+		for (int i = 0; i < 256; i++) {  // ASCII 0 ~255   반복처리하기 위한 for문 선언
+			if( i % 15 == 0) {  // 한라인 15개씩 출력하고 앞에 라인번호 출력하기 위한 if문 
+				System.out.printf("%d : " , lineNumber++);  // 라인번호 출력 후에  라인번호 1 증가하는 코딩.
+			}
+			System.out.printf("[%c]", (char)i );
+			if( i % 15 == 14) {
+				System.out.println();  // 개행
+				// 5라인 출력 - 일시 정지.
+				// 1/                             lineNumber = 2
+				// 4/                            lineNumber = 5
+				
+				// if( i % 75 == 74 ) {
+				if( lineNumber  % 5 == 1 ) {
+					// 문제점)  처음엔 4라인 출력 ? , 그 다음부터 5라인씩 출력... +  30 분
+					//             원인 파악 , 문제 해결..         ((((  디버깅~  F11  )))) *****
+					System.out.print("\t 계속 할려면 엔터 치세요.");
+					System.in.read();  // 엔터  ( CR '\r' 13       LF '\n' 10  
+					System.in.skip( System.in.available()  ); // 13, 10 제거
+				} // if
+				
+				// lineNumber++;
+			} // if
+		} // for i
+ 
+2. 구구단 가로 출력             X
+2-2. 구구단 세로 출력        X
+
+3. 이등변 삼각형 별찍기.   X
+__*
+_***
+*****
+
+11:03 수업 시작~
+4.  int [] m 배열 선언
+     배열 크기는 20
+     각 요소에 5~150 사이의 임의의 정수를 채워 넣고
+     max, min 값을 구해서 출력하세요. 
+     
+       0~145                    + 5
+       
+		int [] m = new int[20];
+		for (int i = 0; i < m.length; i++) {
+			m[i] = (int)( Math.random() * 146 ) +5;                     // 0+5 <=   (int)( Math.random() * 146 ) +5  < 146 + 5
+		}
+		System.out.println(  Arrays.toString(m) );
+		// 최대값, 최소값
+		int max , min;
+		max = min = m[0];  
+		for (int i = 1; i < m.length; i++) {
+			if(  max < m[i] )  max = m[i];
+			else if(  min > m[i] )  min= m[i];
+		}
+		System.out.printf("max=%d, min=%d\n", max, min);     
+      
+5.  1-2+3-4+5-6+7-8+9-10=-5 출력하는 코딩을 하세요. ( 반복문 사용 )
+
+        int sum = 0,  i = 1;
+		while ( i <= 10) {
+			if ( i % 2 == 0 ) {
+				System.out.printf("%d+", i);
+				sum -= i;
+			} else {
+				System.out.printf("%d-", i);
+				sum += i;
+			}			
+			i++;
+		} // while
+		System.out.printf("\b=%d\n", sum );
+		
+		
+		// [  2 ]
+		// [ 1+2+...+9+10=55 출력 ]   순서도 
+		// i 짝수일 경우 :     2+ , sum -= i
+		// i 홀수일 경우 :     2- , sum += i
+		
+		int sum = 0,  i = 1;
+		boolean sw = false;  // 스위치 변수  false (홀수)         true(짝수)
+		while ( i <= 10) {			
+			System.out.printf( sw ? "%d+": "%d-", i);			
+			sum += sw? -i : i;
+			sw = !sw;
+			
+			i++;
+		} // while
+		System.out.printf("\b=%d\n", sum );
+		
+

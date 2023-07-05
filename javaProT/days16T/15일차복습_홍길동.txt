@@ -1,0 +1,107 @@
+1. private로 선언된 필드에 접근한 방법에 대해서 설명하세요.
+  접근지정자 private 용도 X  - 같은 클래스 내에서만 접근 가능
+  
+  [ setter / getter 개념 ]
+  왜? private 필드 선언하는가 ?
+     1)   읽기전용/ 쓰기전용
+     2)  유효한 값 필드 적용.
+
+2. 기본형/참조형 매개변수와 기본형/참조형 반환타입에 대해서 설명하세요.  ( 개념 )
+    1) 매개변수 ?   int a, int b                  메서드 선언할 때  인자,파라미터, 매개변수
+       변수의 값을 읽고 수정 가능  X
+       
+       public Person sum( Person p){  // Person p 참조형 매개변수
+       
+           return new Person();
+       }
+       
+       public in [] sum(int [] m){  // int [] m 참조형 매개변수
+       }
+       
+       public int sum(int a, int b){
+         int result = a+b;
+         return result; //  
+         리턴값 : result
+         리턴(반환) 자료형 : int 
+       }
+       
+
+3. 생성자에 대해서 설명하세요.
+    1) Counstructor
+    2) 호출시기 : 객체를 생성할 때 자동으로 호출되는 함수(메서드)     일종
+    3) 역할 :  필드를 초기화
+    4) 매개변수 X 생성자를 default constructor 라고 한다. 
+    5) 오버로딩 가능
+    6) 상속 불가능
+    7) 리턴자료형 붙이지 않는다 (void조차)
+    8) 생성자이름은 반드시 클래스의 이름으로 지정한다. 
+    
+    ( 주의사항 ) 생성자를 하나도 선언하지 않으면 컴파일러가 자동으로 디폴트 생성자를 추가해 준다.
+    하지만 개발자가 생성자를 선언하면 자동으로 디폴트 생성자를 추가하지 않는다.
+
+4. this 키워드에 대해서 설명하세요 
+  1) 정의 : 인스턴스 자신(self) X 을 가리키는 참조변수 
+                객체(클래스) 자기 자신의 주소값을 가지는  참조변수
+                
+                Person {
+                   String name;
+                   int age;
+                }
+                
+                Person p = new Person();
+                힙                                                            스택
+                [name][age][this0x100]                                   [0x100]p
+                0x100
+  
+  2) this의 3가지 용도
+       1) 멤버를 가릴킬 때 this
+       2) 생성자에서 또 다른 생성자를 호출할 때  this
+       3) 단독으로사용될 때의 this :    리턴값,  매개변수
+       this.addWindowListener( this )
+         1)                                           3)
+  
+5. 아래 코딩을 클래스( 객체) 배열 초기화를 사용해서 코딩하세요 
+		Student s1 = new Student();
+		Student s2 = new Student();
+		Student s3 = new Student();
+		
+		// 1) 객체 배열    X
+		Student [] s = new Student[3];		
+		// 2) 배열 초기화 X
+		for( int i=0 ; i < 3 ; i++){
+		    s[i] = new Student();
+		}
+		
+		// 1) + 2)
+		Student []s = {
+		      new Student(),
+		      new Student(),
+		      new Student()
+		};
+		
+6. 객체 복사(copy)와 객체 복제(clone)에 대해서 설명하세요.. 		
+       MyPoint p1 = new MyPoint(1,2);
+       // 1) 객체 복사
+       MyPoint p2 = p1;
+       
+       disp( p1 );
+       
+       void disp( MyPoint p){  // MyPoint p = p1  2) 객체 복사
+       }
+       
+       // 복제
+       MyPoint p3 = new MyPoint(  p1.x,  p1.y );
+       
+
+7. 에러 메시지 : The constructor System() [is not visible] 에 대해서 설명하세요.
+     접근지정자.
+ 
+
+8.   [취업 문제] ego(자아)
+  String n = "keNik";   
+  String m= "kKnie";   
+  
+  위의 두 문자열 n, m 이 알파벳과 알파벳갯수가 똑같은지 비교하는 코딩 
+  결과는 같을 경우 true/ 다를 경우 false 로 출력.
+  조건) 대소문자는 구분하지 않는다.  
+  

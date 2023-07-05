@@ -1,0 +1,42 @@
+package days19;
+
+/**
+ * @author dlsgu
+ * @date 2023. 2. 21. 오후 5:10:35
+ * @subject
+ * @content
+ */
+public class Ex07_05 {
+
+	public static void main(String[] args) {
+		String url = "www.naver.com";
+		
+		// url 반드시 http:// 문자열로 시작을 해야된다
+		
+		String prefix = "http://"; // 접두사
+		System.out.println(url.startsWith(prefix)); // 특정 문자열로 문자열이 시작되는지 boolean
+		
+		String dir = "c:\\temp\\test\\";
+		String suffix = "\\"; // 접미사
+		System.out.println(dir.endsWith(suffix)); // 특정 문자열로 문자열이 끝나는지 boolean
+		
+		String a = "AbC";
+		String b = "abc";
+		
+		System.out.println(a.compareTo(b)); // 같으면 0, 다르면 양수/음수	a - b == -32
+		
+		// 두 문자열 같냐?
+		System.out.println(a.equals(b)); // false
+		System.out.println(a.equalsIgnoreCase(b)); // true
+		
+		// "aaa" + "bbb" + "ccc"
+		// "aaa".concat("bbb").concat("ccc")
+		// 문자열 결합할 때 + 연산자, concate()
+		
+		// 1조 조원 중에 김지은 있냐?
+		String team01 = "이태규, 김지은, 설경인, 윤재민, 홍성철, 김동현, 박상범";
+		team01.contains("김지은");
+		
+	}//main
+
+}//class

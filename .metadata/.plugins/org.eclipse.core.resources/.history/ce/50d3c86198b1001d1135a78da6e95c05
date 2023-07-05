@@ -1,0 +1,54 @@
+package days19;
+
+/**
+ * @author dlsgu
+ * @date 2023. 2. 21. 오후 12:14:31
+ * @subject 모든 클래스의 최상위 부모 클래스 : java.lang.Object 클래스
+ * @content 멤버(메서드) 살펴보자
+ */
+public class Ex05 {
+
+	public static void main(String[] args) {
+
+		/*
+		// 1. Object.hashCode() 객체 자신의 해쉬코드를 반환하는 메서드
+		Value v1 = new Value(100);
+		int hashCode = v1.hashCode();
+		System.out.println(hashCode); // 1521118594
+
+		Value v2 = new Value(100);
+		hashCode = v2.hashCode();
+		System.out.println(hashCode); // 1940030785
+		*/
+		
+		/*
+		// 2. Object.toString() - 객체 자신의 정보를 문자열로 반환하는 메서드
+		// 패키지명.클래스명@5aaa6d82
+		Value v1 = new Value(100);
+		System.out.println(v1.toString()); // days19.Value@5aaa6d82
+		System.out.println(v1); // days19.Value@5aaa6d82
+		// 객체명.toString() == 객체명 (암기)
+		*/
+		
+		// 3. Object.getClass() - 객체의 클래스 정보를 담고있는 Class 인스턴스를 반환하는 메서드
+		//														Class != class 자바 대소문자 구분
+		Value v1 = new Value(10);
+		// <T> 제네릭스(지네릭스)
+		Class cls = v1.getClass();
+		
+		System.out.println(cls.getName()); // days19.Value
+
+	}//main
+
+}//class
+
+class Value { // extends Object 생략
+	// 필드
+	int value;
+	
+	// 생성자
+	public Value(int value) {
+		this.value = value;
+	}
+	
+}

@@ -1,0 +1,220 @@
+ 1. [ String 클래스의 메서드 활용 ]
+     String path = "C:\\SS18Class5\\JavaClass\\javaPro\\src\\days20\\SS18교육생명단.txt";
+    위의 절대경로에서 순수 파일명만  String fileName 변수에 저장하고            SS18교육생명단
+    파일명의 확장자만  String extender 변수에 저장하세요.                            .txt
+ 
+ 		String path = "C:\\SS18Class5\\JavaClass\\javaPro\\src\\days20\\SS18교육생명단.txt";
+		String fileName;
+		String extender;
+		
+		int idx1 , idx2;
+		idx1 = path.lastIndexOf("\\");
+		idx2 = path.lastIndexOf(".");
+		
+		fileName = path.substring(idx1+1, idx2);  // beginIndex, endIndex
+		System.out.println(  fileName );
+		
+		extender = path.substring(idx2);                 // beginIndex ~ 자동으로 문자열 끝까지~
+		System.out.println(  extender );
+ 
+ 2. 객체로 부터 [Class 객체]를 얻어오는 3가지 방법에 대해서 설명하세요 .
+     Class 객체 얻어오는 이유 ? 객체가   어떤 클래스를 가지고 생성되었는지 클래스 정보를 얻어올 필요가 있다.  
+     
+     Person     p1 = new Person();
+        클래스     객체    
+     
+   ㄱ.  Class    Object.getClass()
+   ㄴ.  Class    클래스명.class    static필드
+   ㄷ.  Class     Class.forName("fullName")       JDBC 수업 할때 이 코딩...
+    
+ 
+ 3. String 클래스의 메서드 설명 - 기능, 매개변수, 리턴값(리턴자료형)
+ ㄱ. length()  
+  ㄴ. charAt()  
+  ㄷ. compareTo() 
+  ㄹ. equals() / equalsIgnoreCase()  
+  ㅁ. concat()   
+  ㅅ. startsWith()  
+  ㅇ. endWith()     
+  ㅈ. indexOf()      
+      lastIndexOf()  
+  ㅊ. replace()     
+            replaceAll( regex )
+            replaceFirst(regex)
+  ㅋ. String [] split()
+  ㅌ. toUpperCase() / toLowerCase()
+  ㅍ. trim()           
+  ㅎ. valueOf()      
+  ㄱ. join()
+  ㄴ. format()  
+  ㄷ. matches()
+  ㄹ. substring() 
+  :
+  :    
+  
+  5. [기본형]을 String 으로 변환하는 코딩을 하세요..
+      자바의 자료형( Data Type)
+         1) 기본형 8가지
+            
+         2) 참조형 - 배열, 클래스(String), 인터페이스
+         
+         int n = 65;   --> "65"
+         char c = 'a';  --> "a"
+         boolean b = true --> "true"
+         double d = 3.14   -->  "3.14"
+         
+        1)          n + "" 
+        2)         new String( 자료형)  X
+        3)         String String.valueOf()  
+         
+  
+ 6.   아래 코딩을 이해하는 만큼 주석을 달아서 설명하세요.  
+	public static void main(String[] args) throws UnsupportedEncodingException {
+	   한글 한 문자 -> 인코딩 방식  바이트수 달라요..
+	                             euc-kr     [][]
+	    가                         utf-8      [][][]       
+	
+		String str = "가";	  // "가" 라는 문자열을   str 변수에 저장..	
+		byte [] bArr = str.getBytes("UTF-8");		
+		 // getBytes(   인코딩  ) 메서드로     문자열 str을 byte [] 로 변환
+		 //  
+		System.out.println("UTF-8 : " + new String(bArr,"UTF-8"));  
+	} 
+	
+ 7. [Object 클래스]의  equals() 메서드와   == 연산자를 비교해서 차이점을 설명하세요.	
+     1) ==  비교연산자 
+          기본형 == 기본형  ( 값 )
+         객체  == 객체     ( 참조주소값 )
+    2) equals()
+        객체.equals( 객체)     ( 참조주소값 )       
+        
+        객체 비교할 때는 같은 기능을 한다. 
+        물려받은 equals() 메서드를 모두 ( 대부분 ) 재정의 해서 사용한다. 
+ 
+        Point p1 = new Point(1,2);
+        Point p2 = new Point(1,2);
+        
+        p1 == p2 false;
+        p1.equals( p2)  false;
+        
+        x,y 두 좌표 값이 같으면 같은 객체라고 처리 하기 위해서   equals() 메서드를 오버라이딩 했다. 
+ 
+ 8. String 클래스의 메서드 사용
+    String str1 = "안녕하세요. 홍길동입니다."; 
+    1)  안녕 문자열 뒤에 (Hello) 문자열을  삽입(insert) =>  "안녕(Hello)하세요. 홍길동입니다."
+    2)  홍길동을 찾아서 "김동현"으로 수정.
+    3)  홍길동 찾아서 삭제                                             => "안녕하세요. 입니다.";
+    
+    String str1 = "홍길동님!  안녕하세요. 홍길동입니다. 안녕~~ 안녕"; 
+	    
+	     // System.out.println( str1.contains("홍길동") );  // true
+	     // System.out.println( str1.replace("홍길동", "김동현") );
+	    
+	    System.out.println( str1.replace("홍길동", "") );
+	    System.out.println( str1.replaceFirst("홍길동", "XXX") );
+	    
+	    System.out.println( str1  );  // 불변
+	    
+	    /*
+	    1)  안녕 문자열 뒤에 (Hello) 문자열을  삽입(insert) =>  "안녕(Hello)하세요. 홍길동입니다."
+	    int idx =  str1.indexOf("안녕");
+	    System.out.println( idx );  //  0
+	    
+	    String s1 =  str1.substring(0, "안녕".length() ) ;
+	    String s2 =  str1.substring( "안녕".length() ) ;
+	    System.out.println(   s1.concat("(Hello)").concat(s2)  );
+	    
+	   // 	    
+	    String str1 = "안녕하세요. 홍길동입니다."; 
+        String str2 = str1.replaceAll("안녕","안녕(Hello)");
+        System.out.println(str2);	    
+	    	    
+	    2)  홍길동을 찾아서 "김동현"으로 수정.
+	    3)  홍길동 찾아서 삭제                                             => "안녕하세요. 입니다.";
+	    */
+	    
+	    //  저 상황에서 replaceAll()이 아닌 그냥 replace()를 쓰면 안되나요?
+	    //   replaceAll(정규표현식,  바꿀문자열) ,  replace( CharSequence, String ) 차이점
+	 
+    11:03 수업 시작~~ 
+ 9. days01.Ex01.java  자바 파일을 읽어서 라인단위로 출력하는 코딩을 하세요.   
+ 
+ // E:\Class\SS18Class\Workspace\JavaClass\javaPro
+		// days01.Ex01.java  자바 파일을 읽어서 라인단위로 출력하는 코딩을 하세요.   
+		// [절대경로] / 상대경로
+		// String fileName = "E:\\Class\\SS18Class\\Workspace\\JavaClass\\javaPro\\src\\days01\\Ex01.java";
+		
+		// E:\Class\SS18Class\Workspace\JavaClass\javaPro\\days01\\Ex01.java
+		// 상대경로 기호 :    . 현재디렉토리       .. 상위디렉토리
+		String fileName = ".\\src\\days01\\Ex01.java";
+		
+		// String dir = System.getProperty("user.dir")+"\\src\\days01";
+		// String fileName = "Ex01.java"; 
+		
+		// try~with~resouces문 ( 이해 ) 
+		try (
+				FileReader fr = new FileReader( fileName );
+				BufferedReader br = new BufferedReader(fr);
+				){
+			
+			String line = null;			
+			while (   ( line =  br.readLine() )    != null  ) {
+				System.out.printf("%s\n", line);
+			} // while
+			
+		} catch (Exception e) {
+			// java.io.FileNotFoundException: days01\Ex01.java (지정된 경로를 찾을 수 없습니다)
+			System.out.println( e.toString() );
+		}	    
+		
+ 
+ 10. 
+  String s = "[팀장]하동호(*), 박진용(*), 이혜진(*), 김수민, 신희민, 진예림, 박현주 (수요일)";
+  문자열 s 에서 팀원명만 얻어와서..아래와 같이 실행되도록 코딩하세요. 
+  
+         실행결과)
+	<ol>
+		<li>하동호</li>
+		<li>박진용</li>
+		<li>이혜진</li>
+		<li>김수민</li>
+		<li>신희민</li>
+		<li>진예림</li>
+		<li>박현주 </li>
+	</ol>
+	
+	
+		String s = "[팀장]하동호(*), 박진용(*), 이혜진(*), 김수민, 신희민, 진예림, 박현주 (수요일)";
+		
+		String regex = "\\[팀장\\]|\\(\\*\\)|\\(.{3}\\)";
+		s =  s.replaceAll(regex, "");
+		System.out.println( s );
+		String [] names =  s.split("\\s*,\\s*");
+		
+		// Math.random();
+		// Random 클래스			
+		StringJoiner   sj = new StringJoiner(
+				             "</li>\r\n		<li>"
+				           , "	<ol>\r\n		<li>"
+				           , "</li>\r\n	</ol>");		
+		for (String name : names) {
+			sj.add(name );
+		}
+		
+		System.out.println( sj );
+		
+		// String.join()
+		/*
+		String result =  String.join("</li>\r\n		<li>", names);		
+		System.out.println( 	"	<ol>\r\n		<li>" +  result  +"</li>\r\n	</ol>");
+		*/
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

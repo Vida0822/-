@@ -1,0 +1,67 @@
+1.  지금까지 배운 컬렉션 클래스의  특징에 대해서 설명하세요 . 
+	C
+	ㄴ	L - ArrayList / Vector / LinkedList / Stack, Queue, Deque / PriorityQueue
+	ㄴ	S - HashSet
+	
+	M
+2. 열거자와 반복자에 대해서 설명하세요. 
+	- Enumeration(구) X
+	- Iterator(신) 예외 발생
+
+3. "tiger", "cat" , "Dog", "lion" 문자열을 ArrayList 컬렉션 클래스에 추가하고
+   대소문자 구분 없이 내림차순으로 정렬해서 
+   반복자를 사용해서 출력하세요. 
+   
+ 		ArrayList list = new ArrayList();
+		list.add("tiger");
+		list.add("cat");
+		list.add("Dog");
+		list.add("lion");
+		
+		list.sort(new Comparator<String>() {
+			@Override
+			public int compare(String o1, String o2) {
+				return o2.toUpperCase().compareTo(o1.toUpperCase());
+			}
+		});
+		
+		Iterator ir = list.iterator();
+		while (ir.hasNext()) {
+			String animal = (String) ir.next();
+			System.out.println(animal);
+		}
+   
+4. 로또번호를 HashSet을 사용해서 출력하는 코딩을 하세요 . 
+
+	public static void main(String[] args) {
+
+		HashSet<Integer> lotto = new HashSet<>();
+		
+		fillLotto(lotto);
+		dispLotto(lotto);
+		
+	}
+
+	private static void dispLotto(HashSet<Integer> lotto) {
+		Iterator<Integer> ir = lotto.iterator();
+		while (ir.hasNext()) {
+			Integer num = (Integer) ir.next();
+			System.out.println(num);
+		}
+	}
+
+	private static void fillLotto(HashSet<Integer> lotto) {
+		Random rnd = new Random();
+		while (lotto.size() < 6) {
+			int num = rnd.nextInt(45)+1;
+			lotto.add(num);
+		}
+		
+	}
+
+5. 게임횟수를 입력받아 로또 번호를 출력하는 코딩을 하세요 . 
+   		게임 횟수 입력 ? 3
+		 
+		1게임 : [17][9][4][15][16][38]   
+		2게임 : [17][9][4][15][16][38]   
+		3게임 : [17][9][4][15][16][38]   

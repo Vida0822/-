@@ -1,0 +1,77 @@
+1.   현재 날짜와 시간 정보를   LocalDateTime 클래스를 사용해서 
+     아래와 같은 형식으로 출력하세요 .     
+     출력 형식 ) 2023/02/28 화요일   12:17:57.356 
+     
+     	LocalDateTime dt = LocalDateTime.now();
+		String pattern = "yyyy/MM/dd E요일   hh:mm:ss.SSS";
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern(pattern);
+		String today = dtf.format(dt);
+		System.out.println(today);
+
+2.  String s = "2023.02.28 (화)" 문자열을 LocalDate 클래스로 변환시키세요.
+
+		String s = "2023.02.28 (화)";
+		String pattern = "yyyy.MM.dd (E)";
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern(pattern);
+		LocalDate d = LocalDate.parse(s, dtf);
+		System.out.println(d);
+
+3. 용어 정리
+  1)  프레임워크( framework ) 정의에 대해서 설명하세요. 
+  2) 컬렉션 프레임워크 정의에 대해서 설명하세요. 
+  3) 컬렉션 프레임워크의 핵심 인터페이스( 3가지 타입 ) 에 대해서 설명하세요. 
+
+4. ArrayList 컬렉션 클래스를 사용하여 
+  1) 팀원들 이름을 요소로 추가하기
+  2) 반복자(iteratror)를 사용해서 모든 요소 출력하기
+  3) 팀원 한명을 검색해서 있다면 "홍길동"으로 수정하기
+  4) "홍길동"을 검색해서 있다면 삭제하기.
+  
+		// 1)
+		ArrayList list = new ArrayList();
+		list.add("박민종");
+		list.add("홍찬기");
+		list.add("심성환");
+		list.add("이진우");
+		list.add("탁인혁");
+		list.add("김예지");
+		list.add("하지예");
+		// 2)
+		Iterator ir = list.iterator();
+		while (ir.hasNext()) {
+			String name = (String) ir.next();
+			System.out.println(name);
+		}
+		// 3)
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("수정할 팀원 : ");
+		String find = scanner.next();
+		int index = list.indexOf(find);
+		if (index != -1) list.set(index, "홍길동");
+		System.out.println(list);
+		// 4)
+		System.out.print("삭제할 팀원 : ");
+		find = scanner.next();
+		index = list.indexOf(find);
+		if (index != -1) list.remove(find);
+		System.out.println(list);  
+  
+5. 이름, 나이 필드를 가진 Person 클래스를 선언하고
+   ArrayList 컬렉션 클래스에  Person 객체를 요소로 추가하고 
+   이름으로 오름차순 정렬해서    출력하는 코딩을 하세요 .. 
+
+6.  java.time 패키지 클래스 사용. (   LocalDateTime )
+    1) 설문 시작일 23.2.15  09:00:00
+    2) 설문 종료일 23.2.28 09:00:00
+   오늘 현재 설문 가능한여부를 출력하세요.
+
+
+
+
+
+
+
+
+
+
+  

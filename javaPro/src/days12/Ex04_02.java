@@ -1,0 +1,38 @@
+package days12;
+
+import java.util.Arrays;
+
+/**
+ * @author dlsgu
+ * @date 2023. 2. 10. 오후 2:07:55
+ * @subject 등수처리
+ * @content
+ */
+public class Ex04_02 {
+
+	public static void main(String[] args) {
+		// 등수처리 -> [총점]으로 비교
+		/*						총점
+		[1]	맆퉞괅	68	67	16	151	50.33	1
+		[2]	솛헥곉	96	1	67	164	54.67	1
+		[3]	휞뢡홖	0	57	52	109	36.33	1
+		[4]	줎븿쟩	66	51	34	151	50.33	1
+		[5]	쾶헕댙	59	50	86	195	65.00	1
+		[6]	뫔뷜섉	38	58	28	124	41.33	1
+		*/
+		
+		int [] tots = {151,164,109,151,195,124};
+		int [] ranks = new int[6];
+		
+		for (int i = 0; i < tots.length; i++) {
+			ranks[i] = 1;
+			for (int j = 0; j < tots.length; j++) {
+				ranks[i] += tots[i]<tots[j] ? 1 : 0;
+				// if (tots[i] < tots[j]) ranks[i]++;
+			}//for j
+		}//for i
+		System.out.println(Arrays.toString(tots));
+		System.out.println(Arrays.toString(ranks));
+	}//main
+
+}//class

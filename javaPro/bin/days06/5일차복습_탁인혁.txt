@@ -1,0 +1,140 @@
+
+1. (if문 사용해서)
+    국어점수(kor)를 입력받아서 수,우,미,양,가 출력
+	int kor;
+	System.out.print("> 국어 점수 입력 ? ");
+	Scanner scanner = new scanner(System.in);
+	kor = scanner.nextInt();
+
+	if (kor >= 0 && kor <= 100) {
+		if (kor >= 90 %% kor <= 100) {
+		System.out.println("수");
+		} else if (kor >= 80 %% kor <= 89) {
+		System.out.println("우");
+		} else if (kor >= 70 %% kor <= 79) {
+		System.out.println("미");
+		} else if (kor >= 60 %% kor <= 69) {
+		System.out.println("양");
+		} else {
+		System.out.println("가");
+		}
+	} else {
+	System.out.println("입력 값이 잘못되었습니다(0~100)");
+	}
+
+2. (switch문 사용해서)
+    국어점수(kor)를 입력받아서 수,우,미,양,가 출력
+	int kor;
+	System.out.print("> 국어 점수 입력 ? ");
+	Scanner scanner = new scanner(System.in);
+	kor = scanner.nextInt();      
+ 
+	if (kor >= 0 && kor <= 100) {
+		switch (kor / 10) {
+		case 10: case 9:
+		System.out.println("수");
+		break;
+		case 8:
+		System.out.println("우");
+		break;
+		case 7:
+		System.out.println("미");
+		break;
+		case 6:
+		System.out.println("양");
+		break;
+		default:
+		System.out.println("가");
+		break;		
+	} else {
+	System.out.println("입력 값이 잘못되었습니다(0~100)");
+	}
+
+3. (for문 사용해서 코딩)       
+    "헬로우 월드" 문자열을 10번 출력하는 코딩
+	int i = 1;
+	for ( i ; i <= 10 ; i++) {
+		System.out.printf("%02d - 헬로우 월드\n", i);
+	}
+   
+   실행결과)
+   01 - 헬로우 월드  
+   02 - 헬로우 월드  
+   03 - 헬로우 월드  
+   04 - 헬로우 월드  
+   05 - 헬로우 월드  
+   06 - 헬로우 월드  
+   07 - 헬로우 월드  
+   08 - 헬로우 월드  
+   09 - 헬로우 월드  
+   10 - 헬로우 월드  
+
+4. (while문 사용해서 코딩)   
+    "헬로우 월드" 문자열을 10번 출력하는 코딩
+	int i = 1;
+	while ( i <= 10 ) {
+		System.out.printf("%02d - 헬로우 월드\n", i);
+		i++;
+	}
+    
+5. (for문 사용해서 코딩) 
+   1~10까지의 [홀수의 합]을 구해서 출력 
+   실행결과)
+        1 + 3 +  5 + 7 + 9  = 25
+	int i = 1;
+	int sum = 0;
+	for ( i ; i <= 10 ; i + 2) {
+		if ( i != 9) {
+		System.out.printf("%d + ", i);
+		sum += i;
+		} else {
+		System.out.printf("%d ", i);
+		sum += i;
+		}
+	}
+	System.out.printf("= %d\n, sum);
+
+6. (while문 사용해서 코딩) 
+   1~10까지의 [홀수의 합]을 구해서 출력
+	int i = 1;
+	int sum = 0;
+	while ( i <= 10 ) {
+		if ( i != 9) {
+		System.out.printf("%d + ", i);
+		sum += i;
+		i = i + 2;
+		} else {
+		System.out.printf("%d ", i));
+		sum += i;
+		i = i + 2;
+		}
+	}
+	System.out.printf("= %d\n, sum);
+    
+7. 10명의 국어점수를 저장할 kors 배열을 선언하고 
+    0~100 점 사이의 랜덤한 값을 발생시켜 배열을 초기화하고
+    출력하는 코딩을 하세요..
+    ( Math.random() 사용, 반복문 사용 )
+
+     
+
+8. 제어문의 형식과 처리 과정에 대한 설명을 하세요 
+    1) if 
+    2) if  ~ else
+    3) if ~ else if ~ else if ~ else
+    4) switch
+    5) break
+    6) for
+    7) while
+
+9. 한 문자를 입력받아서 알파벳, 한글, 숫자, 특수문자( #, @,%, ! ) 출력
+ 
+          
+10.  두 정수 n, m을 입력받아서 
+      두 정수 사이의 합을 구해서 출력
+      예) 입력형식)
+                                두 정수 입력 ? 3 5 엔터
+           출력형식)       
+                                3+4+5=12
+      
+      

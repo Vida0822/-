@@ -1,0 +1,98 @@
+1. 지금까지 배운 컬렉션 클래스의  특징에 대해서 설명하세요 . 
+
+            TreeSet - [Set] + 이진트리구조 - 검색,범위검색,정렬
+            Hashtable/HashMap - 해싱기법 - 빠른 검색    Map
+
+2. String fileName = "days25\\Ex01.java";
+    파일의 0-9, A-Z, a-z 각 문자의 갯수를 파악해서 출력하는 코딩을 하세요 . 
+    
+    HashMap<key           ,value>
+                       Character, Integer
+
+   파일 한 문자씩 읽어와서  읽어온 문자가 HashMap 객체의 키로 포함되어 있는지 유무를 
+   체크해서 value를 1증가 시키는 코딩을....
+   문제점) 파일에 없는 문자는 HashMap에 엔트리로 포함되지 않았다. -> 출력  X
+   해결 ) 파일을 읽기 전에 미리   0-9, A-Z, a-z 이문자를 key로 value=0으로 엔트리 추가.
+                            
+
+3. 1조, 2조, 3조 각 팀원들을  각각 ArrayList에 추가하고
+    그 각팀 ArrayList를 HashMap에 저장해서 iterator를 사용해서 출력하세요.
+        
+/*
+ * 1조_연봉1조          : [팀장]이태규(*), 김지은(*), 설경인(*), 윤재민(*), 홍성철, 김동현, 박상범 (화요일)
+ * 2조_귀염2(이)조  : [팀장]하동호(*), 박진용(*), 이혜진(*), 김수민, 신희민, 진예림, 박현주 (수요일)
+ * 3조_자바를 잡아  : [팀장]박민종(*), 심성환(*), 이진우(*), 홍찬기(*), 김예지, 하지예 , 탁인혁 (목요일)
+ */    
+    
+4. 코딩을 분석해서 주석을 달아주세요 .
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map.Entry;
+import java.util.Set;
+
+public class Sample {
+                             // 그룹이름                    이름       연락처
+	static HashMap<String, HashMap<String, String>> phoneBook = new HashMap<>();
+	
+	public static void main(String[] args) {
+		// 12:05 소스분석   수업 시작~ 
+		String groupName, name, tel;
+		
+		addPhoneNo( "친구","이자바","010-1111-1111" );
+	    addPhoneNo( "친구","김자바","010-2222-2222" );
+	    addPhoneNo( "친구","김자바","010-3333-3333" );
+	    
+	    addPhoneNo( "회사","이대리","010-4444-4444" );
+	    addPhoneNo( "회사","김대리","010-5555-5555" );
+	    addPhoneNo( "회사","박대리","010-6666-6666" );
+	    
+	    addPhoneNo( "동아리","김동아","010-7777-7777" );
+	    
+	    addPhoneNo( null, "세탁소","010-8888-8888" );
+	    addPhoneNo( null, "PC방","010-9999-8888" );
+		
+
+	    printList();
+	    
+	} // main
+
+	private static void printList() { 
+		
+		Set<Entry<String, HashMap<String, String>>> es	= phoneBook.entrySet();
+		Iterator<Entry<String, HashMap<String, String>>> ir = es.iterator();
+		
+		while (ir.hasNext()) {
+			Entry<String, HashMap<String, String>> entry = 
+					(Entry<String, HashMap<String, String>>) ir	.next();
+			
+			String groupName = entry.getKey();
+			HashMap<String, String> groupMap = entry.getValue();
+			System.out.printf("* %s [%d]\n",  groupName, groupMap.size() );
+			
+			Iterator<Entry<String, String>>  ir2 = groupMap.entrySet().iterator();
+			while (ir2.hasNext()) {
+				Entry<String, String> entry2 = (Entry<String, String>) ir2.next();
+				String name  = entry2.getKey();
+				String tel = entry2.getValue();
+				System.out.printf("\t%s : %s\n", name, tel);
+			}
+		}
+	}
+
+	private static void addPhoneNo(String groupName, String name, String tel) {
+		groupName = groupName == null ? "기타" : groupName;
+		 addGroup(  groupName );
+		
+		  HashMap<String, String>  group = phoneBook.get(groupName);
+		  group.put(name, tel);
+	}
+
+	private static void addGroup(String groupName) {
+		
+		if (     !phoneBook.containsKey(groupName)   ) {
+			phoneBook.put(groupName, new HashMap<String, String>());
+		}
+		
+	}
+
+} // class
