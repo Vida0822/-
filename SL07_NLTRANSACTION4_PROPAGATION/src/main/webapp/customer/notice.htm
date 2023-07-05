@@ -1,0 +1,41 @@
+[notice.htm] 요청 URL
+Ctrl + F11
+
+
+[전파 방식]
+p512 표12.1 스프링 지원하는 전파 방식 - REQUIRED
+
+@Transactional
+[계좌 이체 트랜잭션]
+[1.출금 + 1.5.로그 + 2.입금]
+
+@Transactional
+[로그 메서드]
+[A + B]
+
+첫번째 트랜잭션과 두번째 트랜잭션이 하나의 트랜잭션으로 처리되어야 하는지
+또는 각각 독립적으로 트랜잭션을 처리해야 하는지 등을 결정해야 합니다
+이를 결정하는 것을 PROPAGATION(전파방식)이라고 합니다
+
+@Trans X / O
+[ insertAndPointUpMember() ]
+1) 공지사항 등록 + 2) 작성자 point 1 증가
+@Trans O  		@Trans O
+insert()		insert()
+
+-- 트랜잭션이 제대로 안되고있는 이유
+같은 클래스 내에서 다른 메서드를 호출하는 구조는
+AOP 방식이므로 트랜잭션 처리가 되지 않는다
+
+-- 위 문제를 해결하는 방법
+iapum()	i() 분리
+별도의 서비스 클래스를 추가해서 두 함수를 분리하는 코딩이 필요
+
+org.doit.ik.service 패키지
+	ㄴ MemberShipService 인터페이스
+	ㄴ MemberShipServiceImpl 클래스
+	
+	
+	
+	
+	

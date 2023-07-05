@@ -1,0 +1,58 @@
+[notice.htm] 요청 URL
+Ctrl + F11
+	
+[전파 방식]
+p512 표12.1 스프링 지원하는 [격리레벨] 
+
+트랜잭션을 처리하는 과정 속에서 
+	두 개 이상의 트랜잭션이 서로 동시에 같은 자원을 접근하게 된다면 
+	각각의 트랜잭션 처리를 어떻게 서로 영향받지 않게 처리할까 ? 
+	
+hitup() 조회수를 증가 
+getHit() 조회수를 얻어오는 메서드 
+	
+[상황1] Dirty Read 상황 
+hitUp() 
+[		 hit = hit+1            			commit          ]	
+		11										롤백
+							getHit(seq)
+							 	11 
+		
+							
+							
+[상황2] Non-Repeatable Read 상황 
+조건) 반드시 2번 조회수를 읽어가는 중 (반복작업) 
+[   getHit(1)           		getHit(1)                 ]
+	10					↑				11 
+					hitUp(1)
+						11
+
+=> 서로 다른 조회수 값을 가지게 되는 상황을 넌-리피티블 리드 상황 
+	->	@Transactional(isolation = Isolation.REPEATABLE_READ) 
+
+
+
+[상황3] Phantom Read 상황 
+조건) 여러개의 레코드를 한번에 읽어오는 상황 
+	SELECT * 
+	FROM emp 
+	WHERE deptno = 30; 
+[		A						A			]	
+					↑
+					deptno = 30 특정 사원 이름변경 
+					또는 삭제 
+					또는 추가 
+					
+	-> //	@Transactional(isolation = Isolation.SERIALIZABLE)  -> 팬텀리더 상황 x 
+
+
+
+
+
+
+
+
+
+
+
+	

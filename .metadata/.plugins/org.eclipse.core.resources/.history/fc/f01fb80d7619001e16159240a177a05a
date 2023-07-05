@@ -1,0 +1,16 @@
+package org.doit.ik.service;
+
+import org.doit.ik.domain.Project;
+import org.doit.ik.domain.ViewInfo;
+import org.springframework.stereotype.Service;
+
+@Service
+public interface ViewProjectService {
+	
+	// 프로젝트 얻어오기 
+	Project getProject(String pro_cd) ;
+
+	ViewInfo getViewInfo(Project project); 
+	
+	
+} // ViewProjectService

@@ -1,0 +1,18 @@
+[notice.htm] 요청 URL
+Ctrl + F11
+
+1. servlet-context.xml 타일즈 설정
+beans:bean id="tilesConfigurer"
+
+2. tiles 폴더 tiles.xml 추가
+
+3. 페이징 모듈화(집중화)
+webapp
+	ㄴ customer 폴더 : 공지사항
+		ㄴ inc 폴더 추가
+	ㄴ joinus 폴더 : 멤버( 회원가입, 로그인 )
+		ㄴ inc 폴더 추가
+	ㄴ inc 폴더 추가 : 모든 페이지에서 공통으로 사용할 모듈 저장
+		ㄴ header.jsp
+		ㄴ footer.jsp
+		ㄴ layout.jsp

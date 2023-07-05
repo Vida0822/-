@@ -1,0 +1,32 @@
+[notice.htm] 요청 URL
+Ctrl + F11
+
+[p.505] 스프링 트랜잭션 관리~
+
+1. 트랜잭션 의미 - 두개 이상의 업무가 하나의 논리적인 작업 단위를 이루고 있는 상태  
+ex) 계좌이체 
+	1) A 통장 출금 + 2) B 통장 입금 => 두개 이상의 작업에서 모두 성공해야 커밋, 하나라도 실패시 롤백 
+	
+2. 트랜잭션 처리 
+	1) 게시글(공지사항) 쓰기 INSERT + 2) 작성자의 포인트 1증가 
+	
+3. 실습 : 칼럼 추가 , 제약조건 추가. 
+
+ALTER TABLE member 
+ADD (point number(10) default(0) ) ; 
+
+ALTER TABLE notices
+ADD CONSTRAINT ck_notices_title UNIQUE(title) 
+
+point 칼럼값은 3이상은 x 제약조건 (트랜잭션 확인용) 
+ALTER TABLE member
+ADD CONSTRAINT ck_notices_point CHECK(point < 3) 
+
+4. MemberVO 필드 추가 
+
+5. NoticeDao 인터페이스 
+- 추상 메서드 추가 = [공지사항 INSERT + 포인트 UPDATE] 
+ 
+
+
+

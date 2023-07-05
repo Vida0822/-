@@ -1,0 +1,40 @@
+[notice.htm] 요청 URL
+Ctrl + F11
+
+[member 회원 테이블과 JDBC 연동해서 스프링 시큐리티와 연동해 인증/권한 처리]
+
+ Developer 에서 Member 테이블 확인 
+
+1. 스프링 시큐리티 -  users, authorities 테이블 이름이 정해져 있다
+
+	users : username(아이디), password(비밀번호), enabled(사용여부) 
+	authorities : username FK , authority 
+	
+
+2. 근데 우린 users => member 테이블 생성 
+
+DESC member 
+
+이름       널? 유형            
+-------- -- ------------- 
+ID          VARCHAR2(50)  				== username 
+PWD         VARCHAR2(50)  				== password 	
+NAME        VARCHAR2(50)  
+GENDER      VARCHAR2(10)  			!= enabled 컬럼은 없음 
+BIRTH       VARCHAR2(10)  
+IS_LUNAR    VARCHAR2(10)  
+CPHONE      VARCHAR2(15)  
+EMAIL       VARCHAR2(200) 
+HABIT       VARCHAR2(200) 
+REGDATE     DATE          
+POINT       NUMBER(10)    
+
+3. member 테이블 : enabled 칼럼 추가 
+ALTER TABLE member 
+ADD (enabled CHAR(1) DEFAULT '1')
+COMMIT ; 
+
+4. 
+
+
+

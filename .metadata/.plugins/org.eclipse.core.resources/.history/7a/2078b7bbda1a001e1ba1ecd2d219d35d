@@ -1,0 +1,8 @@
+package org.doit.ik.domain;
+
+import lombok.Data;
+
+@Data
+public class AuthVO {
+
+}

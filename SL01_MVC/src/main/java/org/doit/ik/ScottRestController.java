@@ -1,0 +1,53 @@
+package org.doit.ik;
+
+
+import org.doit.ik.domain.DeptDTO;
+import org.doit.ik.mapper.scott.DeptMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import lombok.extern.log4j.Log4j;
+ 
+// Ajax 처리를 하는 컨트롤러 
+@RestController // 'Rest' Controller -> ajax 처리를 하는 컨트롤러 
+@RequestMapping("/scott/*") 
+@Log4j 
+public class ScottRestController {
+	@Autowired
+	private DeptMapper deptMapper ;
+	
+	// scott/dept/new 
+	@PostMapping("/dept/new")
+	public ResponseEntity<String> insertDept(@RequestBody DeptDTO dto){ // json 의 dept 형태를 자바의 dto 형태로 변환해주는 어노테이션
+		
+		log.info(">/scott/dept/now POST...") ; 
+		int insertResult = this.deptMapper.insertDept(dto);  // 1, 0 
+		
+		return insertResult==1? new ResponseEntity<>("SUCCESS",HttpStatus.OK) // ResponseEntity : 응답 결과값과 응답 상태를 같이 보낼 수 있는 entity 
+											:new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR) ;  // 상태값만 넘길 수도 있음 
+	} // insertDept
+	
+	// scott/dept/10  
+	// scott/dept/50 + delete
+	
+	// /board/10 + GET vs /board/10 +DELETE  --> 같은 url (요청)이지만 방식을 다르게 지정할 수 있음 
+//	@DeleteMapping("/dept/{변수명}") 	// get, post 처럼 하나의 요청방식 : delete 방식 
+	@DeleteMapping(value =  "/dept/{deptno}" , produces = {MediaType.TEXT_PLAIN_VALUE} ) 
+	public ResponseEntity<String> deleteDept(@PathVariable("deptno") int deptno){  // 요청 url에 담긴 deptno 변수에 담긴 값을 이 int deptno 에 저장하겠다~
+		
+		log.info(">/scott/dept/"+deptno+" DELETE...") ; 
+		int deleteResult = this.deptMapper.deleteDept(deptno);  // 1, 0 
+		
+		return deleteResult==1? new ResponseEntity<>("SUCCESS",HttpStatus.OK)
+				:new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR) ;  // 상태값만 넘길 수도 있음 
+	} // deleteDept
+	
+} // ScottRestController

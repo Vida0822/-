@@ -1,0 +1,11 @@
+[notice.htm] 요청 URL
+Ctrl + F11
+
+p. 563 mybatis
+
+
+
+There is no PasswordEncoder mapped for the id "null"
+=> password encoding이 필요하다 
+
+=> password="{noop}1234"

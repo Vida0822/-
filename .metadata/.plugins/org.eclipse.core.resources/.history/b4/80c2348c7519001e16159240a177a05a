@@ -1,0 +1,6 @@
+package org.doit.ik.service;
+
+public interface ViewProjectService {
+	
+	// 프로젝트 얻어오기 
+}

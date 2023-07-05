@@ -1,0 +1,79 @@
+[notice.htm] 요청 URL
+Ctrl + F11
+
+p. 563 mybatis
+
+[스프링 시큐리티]
+[1] Spring Web Security - pom.xml
+
+	<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		
+		
+	[2] security-context.xml 
+	<security:http> 
+	   <security:form-login/>  
+	</security:http>	
+		   
+		   
+	[3] web.xml 설정 
+	1) 
+	<context-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>
+         /WEB-INF/spring/root-context.xml
+         /WEB-INF/spring/security-context.xml
+      </param-value>
+   </context-param>
+   
+	2) 
+	<filter>
+      <filter-name>springSecurityFilterChain</filter-name>
+      <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+   </filter>
+   <filter-mapping>
+      <filter-name>springSecurityFilterChain</filter-name>
+      <url-pattern>/*</url-pattern>
+   </filter-mapping>
+   
+   [4] 시큐리티가 필요한 uri 설계 
+   	ㄱ. 게시판 글쓰기는 인증(로그인) 해야만 사용가능 
+   	ㄴ. 게시글 작성자는 인증받은 id로 사용가능 
+   	ㄷ. 게시글 수정/ 삭제는 작성자 확인 후 가능 
+   	ㄹ. 그 외는 인증받지 않도록 모두가 사용 가능 
+	
+	
+	[5] 시큐리티 개요
+   1) 인증(Authentication)과 권한(==인가)(Authorization)
+   2) 스프링 시큐리티 구조
+      (1) AuthenticationManager 인증관리자 - 가장 중요한 역할, 다양한 방식의 인증을 처리할 수 있도록 구조 설계됨.(인터페이스)
+      (2) ProviderManager 제공관리자 - 인증처리를 AuthenticationProvoider 객체를 이용해서 처리를 위임하는 역할.(인터페이스)
+      (3) AuthenticationProvoider 인증제공자 - 실제 인증 작업을 진행(처리)하는 역할(인터페이스)
+      (4) UserDetailsService 사용자상세서비스 - 인증된 실제 사용자의 정보와 권한 정보를 처리해서 반환하는 객체(인터페이스)        
+      
+      (3) 또는 (4) 직접 구현할 경우가 있다.  - 대부분 (4)을 직접 구현 , 새로운 프로토콜이나 인증 구현 방식을 직접 구현하는 경우에는 (3) 구현.
+      
+    
+    [7] 실습 

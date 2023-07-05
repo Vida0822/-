@@ -1,0 +1,66 @@
+[notice.htm] 요청 URL
+Ctrl + F11
+
+p. 563 mybatis
+
+[스프링 시큐리티]
+[1] Spring Web Security - pom.xml
+
+	<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		
+		
+	[2] security-context.xml 
+	<security:http> 
+	   <security:form-login/>  
+	</security:http>	
+		   
+		   
+	[3] web.xml 설정 
+	1) 
+	<context-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>
+         /WEB-INF/spring/root-context.xml
+         /WEB-INF/spring/security-context.xml
+      </param-value>
+   </context-param>
+   
+	2) 
+	<filter>
+      <filter-name>springSecurityFilterChain</filter-name>
+      <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+   </filter>
+   <filter-mapping>
+      <filter-name>springSecurityFilterChain</filter-name>
+      <url-pattern>/*</url-pattern>
+   </filter-mapping>
+   
+   [4] 시큐리티가 필요한 uri 설계 
+   	ㄱ. 게시판 글쓰기는 인증(로그인) 해야만 사용가능 
+   	ㄴ. 게시글 작성자는 인증받은 id로 사용가능 
+   	ㄷ. 게시글 수정/ 삭제는 작성자 확인 후 가능 
+   	ㄹ. 그 외는 인증받지 않도록 모두가 사용 가능 
+	

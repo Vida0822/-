@@ -1,0 +1,9 @@
+[notice.htm] 요청 URL
+Ctrl + F11
+
+[1] 실제 프로젝트 
+	인증 사용자 정보 (username, password) -> 이것만으로는 완전 부족! 
+	+ 추가정보 (이메일, 연락처... + 권한들)
+
+[2] 해결) 직접 UserDetailsService 구현하는 방법 
+

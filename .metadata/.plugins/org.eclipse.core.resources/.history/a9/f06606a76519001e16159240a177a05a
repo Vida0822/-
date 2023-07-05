@@ -1,0 +1,25 @@
+
+
+
+
+			 ~main 호출하세요~ 
+
+			 
+<구현기능>
+- MemberController - 
+회원가입 
+로그인 
+---
+
+- ProjectController - 
+프로젝트 목록보기
+프로젝트 검색하다
+프로젝트 상세보기 
+후원하기 
+
+----
+- ManageController - 
+관리자 ...? 
+
+			 
+			 
