@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+	<pre>
+[중첩된 객체]
+: 객체안에 있는 객체 (객체 안 속성의 속성값이 객체인경우 )
+
+</pre>
+
+	<script>
+		var person = {
+			name : "admin",
+			age : 29,
+			cars : [ {
+				name : "BMW",
+				models : [ "a", "b", "c" ]
+			}, {
+				name : "Volvo",
+				models : [ "a", "b", "c" ]
+			}, {
+				name : "Kia",
+				models : [ "a", "b", "c" ]
+			} ]
+		}
+		console.log(person.name); // admin
+		console.log(person["name"]); // admin
+		console.log(person.cars[0].name); // BMW
+		console.log(person.cars[0].models[0]); // a
+
+		for ( var prop in person) {
+			console.log(prop); // name age cars 
+		}
+
+		alert(typeof person); //object
+		// String -> JSON으로 바꾸는 방법 : string.parse(); 
+		// js 객체를 ->  String으로 바꾸는 방법 : stringify(person)
+		// (string : 'Json 형태의' 문자열)		
+		let jsonPerson = JSON.stringify(person);
+		 
+		alert(jsonPerson);
+		//{"name":"admin","age":29,"cars":[{"name":"BMW","models":["a","b","c"]},{"name":"Volvo","models":["a","b","c"]},{"name":"Kia","models":["a","b","c"]}]}
+		alert(typeof jsonPerson); // string
+		
+		// [문제] cars 속성의 name , model 속성 출력 
+		for ( var i in person.cars) {
+			console.log(person.cars[i].name) // BMW  Volvo  Kia
+			console.log(person.cars[i].models)  // a b c 
+		}
+		
+	</script>
+</body>
+</html>

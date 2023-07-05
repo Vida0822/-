@@ -1,0 +1,299 @@
+
+2.  버튼 3개 선언 후 클릭 이벤트 처리해서 경고창을 띄우세요.. 
+  ㄱ. onclick 속성
+  ㄴ. js 동적으로 이벤트 등록
+  ㄷ. jquery 사용
+    
+<button onclick="warning();">onclick</button>
+<!-- <button id="js">js</button> -->
+<button id="jquery">jquery</button>
+
+<script type="text/javascript">
+	function warning() {
+		alert("경고창");
+	}
+	
+	var button = document.createElement("button");
+	button.innerText = "js";
+	button.id = "js";
+		
+	document.body.appendChild(button);
+	
+	document.querySelector("button#js").onclick = function() {
+		alert("경고창");
+	}
+	
+	$("#jquery").click( function() {
+		alert("경고창");
+	} );
+</script>
+
+3. 위의 버튼이 클릭되면 class 속성을 active 로 설정 후 임의의 스타일 지정
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>2023. 4. 21. 오후 4:04:36</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<style type="text/css">
+	.active {
+		background-color: #333;
+		color: white;
+	}
+</style>
+
+</head>
+<body>
+
+<button onclick="warning();">onclick</button>
+<!-- <button id="js">js</button> -->
+<button id="jquery">jquery</button>
+
+<script type="text/javascript">
+	function warning() {
+		alert("경고창");
+	}
+	
+	var button = document.createElement("button");
+	button.innerText = "js";
+	button.id = "js";
+		
+	document.body.appendChild(button);
+	
+	document.querySelector("button#js").onclick = function() {
+		alert("경고창");
+	}
+	
+	$("#jquery").click( function() {
+		alert("경고창");
+	} );
+</script>
+<script type="text/javascript">
+$("button").click( function() {
+	$("button").not(this).removeClass("active"); 
+	
+	$(this).addClass("active"); 
+} );
+</script>
+
+</body>
+</html>
+
+4.   document.querySelectorAll("button")
+      document.querySelector("button") 
+    위의 두 함수와 코딩에 대해서 설명하세요.
+
+	document.querySelectorAll("button")는 button 요소의 모든 값을 배열로 가져온다.
+	document.querySelector("button")는 button요소의 값 하나만 가져온다.
+        
+5. tr:hover:not(:first-child){
+     background-color: #4caf50;
+  }
+  코딩에 대해서 설명하세요.  
+
+	테이블의 첫 번째 행만 제외한 나머지 행에 마우스를 올리면 배경색이 지정색한 색으로 변한다.
+
+6. display="none"          
+    visibility="hidden"     
+   위의 두 속성의 차이점을 설명하세요.
+
+	display="none"는 요소와 요소가 있는 위치까지 모두 사라지고
+	visibility="hidden"는 요소는 사라지지만 요사기 있는 위치는 사라지지 않는다.
+
+7. jquery  메서드 설명
+  ㄱ. css() : css 속성을 사용한다. css("속성명", "속성값")식으로 사용한다.
+  ㄴ. show() : 해당 요소를 보여준다.
+  ㄷ. hide() : 해당 요소를 가린다.
+  ㄹ. toggle() : 이벤트가 일어날 때마다 가린 것은 보여지고, 보여진 것은 가려진다.
+  ㅁ. slideToggle() : toggle()와 결과는 같으나 애니메이션이 추가된다.
+  ㅂ. addClass() : 해당 요소에 클래스를 추가한다.   
+  ㅅ. removeClass() : 해당 요소에 클래스를 삭제한다.
+  
+8.  position(위치) 속성에 대해 설명하세요.
+  ㄱ. static : 정적이란 뜻으로 원래의 위치를 의미한다.  
+  ㄴ. relative : static 상태를 기준으로 위치를 이동한다.
+  ㄷ. fixed : 전체화면을 기준으로 요소를 고정한다. 스크롤을 해도 위치는 변하지 않는다.
+  ㄹ. absolute : 자신과 가장 가까운 부모를 기준으로 위치를 이동한다.
+  ㅁ. sticky : static을 기준으로 스크롤이 기준보다 이동하면 화면에 고정되어 따라다닌다.
+  
+9-1. [ DOM ]을  사용해서 (js를 사용) <button> 요소를 10개 동적으로 생성하고
+      버튼을 클릭하면 숨기도록 코딩하세요..
+
+<script type="text/javascript">
+	for(var i = 1; i <= 10; i++) {
+		var button = document.createElement("button");
+		button.innerText = "Button " + i;
+		document.body.appendChild(button);
+		
+		button.onclick = function() {
+			this.style.display="none";
+		}
+	}
+</script>
+
+9-2. 위의 문제8번을 jquery로 코딩해 보세요...
+
+<div id="button"></div>
+
+<script type="text/javascript">
+	for(var i = 1; i <= 10; i++) {
+		$("#button").append("<button>Button " + i + "</button>");
+		
+		$("button").click( function() {			
+			$(this).hide();
+		} );
+	}
+</script>
+
+10-1. 아래 코딩에 대해서 각 라인 별로 주석을 달아서 설명하세요 
+
+<div class="topnav"> // 클래스명이 topnav인 div 선언
+   <a href="#"></a> // a 태그 선언
+   <a href="#"></a>
+   <a href="#"  class="active"></a> // active인 클래스 지정
+   <a href="#"></a>
+</div>
+
+
+<script>   
+                                                                      
+  var links = document.querySelectorAll(    "div.topnav a"    ); // links 변수에 div.topnav a의 모든 값을 배열로 할당함.
+  links.length = 4 // links의 길이를 4로 할당.
+  for (var i = 0; i < links.length; i++) { // links의 길이만큼 for문 실행
+	   links[i].onclick = function (){ // links의 i 번째에 클릭 이벤트가 일어나면 함수 실행
+		   for (var i = 0; i < links.length; i++) { // links의 길이만큼 for문 실행
+			  links[i].classList.remove("active"); // 클래스 리스트에 이전에 있던 active클래스를 삭제
+		  }  
+		   this.classList.add("active"); // 이벤트가 일어난 요소의 클래스 리스트에 active 클래스 추가
+	   };
+  }
+</script>
+
+10-2. 위의 10-1번 문제를 jquery로 코딩하세요. 
+
+<div class="topnav">
+   <a href="#">1번</a> 
+   <a href="#">2번</a>
+   <a href="#" class="active">3번</a>
+   <a href="#">4번</a>
+</div>
+
+<script>
+    $("div.topnav a").click(function(event) { 
+    	$("div.topnav a").not(this).removeClass("active"); 
+    	$(this).addClass("active");
+    });
+</script>
+
+11. 아래 js코딩에 대해서 각 라인 별로 주석을 달아서 설명하세요
+
+1 2 3 4 5 6 [7] 8 9 >  >>
+
+<style>
+   .active{ // active 클래스에 스타일 지정
+      back
+      col
+   }
+</style>
+
+<div class="pagination"> // pagination 클래스 지정
+   <a>1</a>
+   <a  class="active">[2]</a> // active 클래스 지정
+   :
+</div> 
+ 
+<script>
+
+
+    $(".pagination a").click(function(event) { // pagination클래스의 a태그에 클릭 이벤트가 발생하면 함수 실행
+    	$(".pagination a").not(this).removeClass("active"); // pagination클래스의 a태그에 클릭한 요소를 제외한 나머지 요소에 있는 active 클래스 삭제
+    	$(this).addClass("active"); // 클릭 이벤트가 일어난 요소에 active 클래스 추가
+    });
+</script>
+
+12.  아래  css코딩을 설명하세요.
+  #mySidenav a{ // id가 mySidenav인 태그 아래의 a태그의 스타일 지정
+    transition:0.5s ease; // 변화가 일어날 때 0.5초의 등속으로 변화 지정.
+  }
+        
+    <button>버튼 1</button> // button 선언
+    
+    <style>
+	  button{ // button 스타일 지정
+	    width:100px; // 너비 100px
+	    border:1px solid gray; // 테두리 1px 실선 회색 지정
+	    
+	    transition:0.5s ease; // 변화가 일어날 때 0.5초의 등속으로 변화 지정.
+	  }
+	  
+	  button:hover{ // button에 마우스를 올릴 때 스타일 지정
+	    width:200px; // 너비 200px
+	    
+	  }
+	</style>
+        
+13.  "문제01_결과.png"   css 적용하세요 .
+    - 수업 자료 참조하지 말고 html, css, 등 모든 코딩을 해 보세요~
+    - 마지막에 문제 푸세요~        
+        
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style type="text/css">
+	body {
+		margin: 0;
+		padding: 0;
+	}
+	
+	.icon-bar {
+		background-color: #555;
+		width: 90px;
+	}
+	
+	.icon-bar a {
+		display: block;
+		text-align: center;
+		color: white;
+		font-size: 36px;
+		padding: 16px;
+	}
+	.icon-bar a:hover {
+		background-color: #000;
+	}
+	.icon-bar a.active {
+		background-color: #4caf50;
+	}
+</style>
+
+</head>
+<body>
+
+<div class="icon-bar">
+	<a href="#" class="active"><i class="fa fa-home"></i></a>
+	<a href="#"><i class="fa fa-search"></i></a>
+	<a href="#"><i class="fa fa-envelope"></i></a>
+	<a href="#"><i class="fa fa-globe"></i></a>
+	<a href="#"><i class="fa fa-trash"></i></a>
+</div>
+
+</body>
+</html>
+        
+        
+        
+        
+        
+        
+        

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+* {
+	box-sizing: border-box; /* width를 padding에 영향 받지 않도록 */
+}
+
+.box {
+	width: 33.33%;
+	float: left;
+	height: 200px;
+	padding: 50px;
+}
+
+.clearfix::after {
+	content: "";
+	display: table;
+	clear: both;
+}
+</style>
+</head>
+<body>
+<h3>동일 폭 상자(div) / 상자 그리드</h3>
+<!-- CSS Flexbox 속성을 사용해서 레이아웃 모듈 -->
+
+<!--    .clearfix>.box*3>p>lorem4 -->
+<div class="clearfix">
+   <div class="box" style="background-color: #bbb">
+      <p>Lorem ipsum dolor sit.</p>
+   </div>
+   <div class="box" style="background-color: #ccc">
+      <p>Aliquam illum doloremque a.</p>
+   </div>
+   <div class="box" style="background-color: #ddd">
+      <p>Dignissimos beatae obcaecati aliquam!</p>
+   </div>
+</div>
+
+<!-- p>strong{Note:}+lorem -->
+<p>
+   <strong>Note:</strong>Lorem ipsum dolor sit amet, consectetur
+   adipisicing elit. Architecto harum necessitatibus accusamus doloribus
+   provident. Dolorem aut sequi quidem velit ipsam neque nihil nulla
+   fugiat dolore ab. Repudiandae nisi esse tempore!
+</p>
+</body>
+</html>

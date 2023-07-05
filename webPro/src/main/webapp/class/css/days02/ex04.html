@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+ul li {
+	background-color: red;
+	display: inline;
+}
+/* 
+span {
+	background-color: blue;
+	display: block;
+}
+*/
+span {
+	background-color: blue;
+	width: 100px;
+	/* display: block; */
+	display: inline-block;
+}
+</style>
+</head>
+<body>
+<h3>css display 속성</h3>
+<pre>
+[display 속성]
+1. 레이아웃을 제어하기 위한 가장 중요한 css 속성
+2. 기본값 : block, inline
+   block - div, p, header, hn, hr 등등
+     ㄴ 특징 : 항상 새로운 라인에서 시작
+               부모 너비의 사용 가능한 전체 너비( width 100% )
+   inline - a, img, span 등등
+     ㄴ 특징 : 새로운 라인에서 시작 X
+               너비는 필요한 내용(content)만큼만 차지한다
+3. 요소가 표시되는 여부를 지정하는 속성
+4. display: none;
+   요소를 삭제 또는 숨기기 + js
+5. li 블럭모드
+   [       100%       ] - block
+   li {
+       display: inline;
+   }
+</pre>
+
+<!-- ul>li*3>a[href=#]>lorem1 -->
+<ul>
+	<li><a href="#">Lorem.</a></li>
+	<li><a href="#">Quae.</a></li>
+	<li><a href="#">Obcaecati.</a></li>
+</ul>
+<hr>
+
+<!-- 엔터치면 스페이스 하나 잡힌다 -->
+<span>Lorem.</span>
+<span>Porro.</span>
+<span>Magnam.</span>
+</body>
+</html>

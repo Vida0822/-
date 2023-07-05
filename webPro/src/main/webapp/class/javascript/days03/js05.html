@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+<p id="demo"></p>
+
+<script>
+// [js 호이스팅]
+age = 30;
+var age;
+document.getElementById("demo").innerHTML = age;
+</script>
+<script>
+/*
+// var 변수 재선언
+//  ㄴ 에러 X, 값(20)도 유지
+var age = 20;
+var age;
+document.getElementById("demo").innerHTML = age;
+*/
+/*
+// let 변수 재선언
+//  ㄴ caught SyntaxError: Identifier 'age' has already been declared
+let age = 20;
+let age;
+document.getElementById("demo").innerHTML = age;
+*/
+</script>
+<script>
+/* 
+// 1. var, let name
+// var name; // 
+let name; // undefined
+// console.log( name );
+document.getElementById("demo").innerHTML = name;
+*/
+</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<style>
+  .container{
+    width: 400px;
+    height: 200px;
+    border:1px solid gray;
+    position: relative;
+    overflow: hidden;
+  }
+   .container div{
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      color:white;
+      text-align: center;
+   }
+   #box1{ background-color: red ; z-index:100;}
+   #box2{ background-color: blue }
+</style>
+
+</head>
+<body>
+
+<button> start </button>
+
+<div class="container">
+	<div id="box1">A</div>
+	<div id="box2">B</div>
+</div>
+
+<script>
+//stop(stopAll, goToEnd)
+$("#box2").css("left",$("#box2").width()); 
+
+$("button").click(function() {
+	
+	setInterval(function() {
+		$(".container div:first") // A div 
+		.stop(true, true)  //??????????????
+		.animate({		left:"-=400px" }, {queue:false})  // 첫번째꺼 슬라이딩 (두번째 div는 유지된채 있음)
+		
+	//queue : 이 애니메이션 대기열에 추가할레? 
+	// true : oo 
+	// false : ㄴㄴ <-> 즉시실행 
+		.next() // B div 
+			.stop(true, true) // 이거 들여쓰기 하고 안하고가 달라????????????
+			.animate({		left:"-=400px" }, function() {
+				let box =$(this).prev().detach(); 
+				// detach() :  잘라오다 
+				$(".container").append(box); 
+				box.css("left", "400px"); 			
+			})  
+	}, 2000);
+
+})
+
+
+</script>
+</body>
+</html>

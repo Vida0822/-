@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+<a href="#">ex08.html</a>
+
+
+<script>
+//[BOM 객체]  window, screen , location , <history>  
+// history 
+//	ㄴ 브라우저 기록목록 
+//	 뒤로가기, 앞으로가기 -> 이런 기록목록이 어딘가엔 있을것..
+ 
+history.back() ;// 이전목록 url 로딩  == history.go(-1)
+history.forward(); // 이후목록 url 로딩 ==  history.go(1)  
+//ex08 버튼에 history.forward()
+
+$("a").click(function() {
+	var msg = "hello world"; 
+	var age = 20; 
+	location.href = "ex08.html?msg="+msg+"&age="+age ; 
+	
+})
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

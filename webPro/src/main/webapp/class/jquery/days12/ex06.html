@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<!-- <button> one </button> -->
+
+<pre>
+
+jquery DOM 조작 
+1. 내용(content) 가져오기 
+	js innerHTML = html()
+	js innerText = text() 
+	input' value = val() 
+	
+	
+	
+	<img src ="" alt=" "> 
+	
+2. 속성 가져오기 
+	js getAttribute("src")  =   attr("src")
+	js img.src						prop("src") 		
+											
+	ㄴ 두개의 차이점은 checkbox의 속성값을 가져올때만 다르고 나머진 같당!
+
+3. 속성 설정하기 
+	$("img").attr("src","http://~~~"); 
+	
+	(js : img.src = ~~ / setAttribute(속성명, 속성값))
+	
+	
+	* 여러개 설정 => 객체를 사용 
+	
+	$("img").attr({
+		"src":"XXXXX",
+		"alt":"YYYYYY" 
+	}); 
+
+</pre>
+
+
+<script>
+/* 	$("button").one("click", function() {
+		alert("버튼 클릭 ");
+		// 처음에만 이벤트 발생하고 그 이후로 클리 안먹음 
+	}) ; 
+	 */	 
+</script>
+
+<script>
+alert($("pre").text()); 
+
+</script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>2023. 5. 3. 오전 9:21:12</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+<pre>
+     [js 문자열 메서드]
+     1. length
+     2. trim()  trimStart() trimEnd()     
+     3. slice()     substring()     substr()     
+     4. replace() replaceAll()
+     5. toUpperCase()   toLowerCase()
+     6. concat()
+     7. padStart()  padEnd()
+     8. charAt()     charCodeAt()
+     9 . split()
+</pre>
+<script>
+     // [split()]
+     var text = "hello, world, all";
+     // text.split([pattern], [limit])
+     var myArray = text.split(",");
+     var myArray = text.split(); 
+     // alert(  typeof  myArray ); // object  3가지 - Object, [Array]
+     alert(  myArray[0]    );  // h
+     alert(  myArray[1]    );   // e
+     alert(  myArray[2]    );   // l
+     
+</script>
+
+<script>
+    var text = "hello world";
+    // alert(   text.charAt(  0 )   );  // 'h'
+    // 마지막 한 문자 d
+    // alert( text.charAt(  text.length - 1 )  );
+    
+    // charCodeAt()           인덱스 위치의 한 문자
+    //  UTF-16 ㅋ코드(0 ~65535 ) 정수 
+    // alert( text.charCodeAt( 0 )); // 104
+    
+    // [문제] 모든 한 문자를 읽어와서 출력하세요.
+    // js   ES5 : 문자열에 대한 인덱스[] 을 사용할 수 있다.
+   for (var i = 0; i < text.length; i++) {
+	  // console.log(  text.charAt(i) );
+	  console.log( text[i]   );
+   }
+    
+    // X    text[0] = 'H';
+    
+</script>
+<script>
+   // [padStart()  padEnd()]  ES2017
+   //  패드 == 덧대는 것, 패드, 채워 넣기..
+   //var text = "5";
+   //  "0005" 출력
+   //alert( text.padStart(4, "0") );  // 4 길이, "0" 채울문자
+   
+   var no = 5;
+   // alert(  typeof no );  // number
+   // 0005 출력
+   // no   js number ->string 형변환
+   // alert( typeof  String(no)  ); // string
+   // alert(   String(no).padStart(4, "0") );
+   
+   // no.toString().paddStart(4, "0")
+</script>
+<script>
+     var text1 = "hello";
+     var text2 = "world";
+     // var text = text1 + " " + text2 ;
+     //var text = text1.concat(" ").concat(text2);
+     var text = text1.concat(" ", text2);
+     // alert( text );
+</script>
+<script>
+    var text = "Admin";
+    //alert(  text.toUpperCase()  ); // ADMIN
+    //alert(  text.toLowerCase()  ); // admin
+</script>
+<script>
+   // [replace() replaceAll()]
+   var text = "Please visit Microsoft and Microsoft!";
+   var searchword = "Microsoft";  // 검색 후 수정, 삭제
+   
+   var idx = text.indexOf(searchword);
+   // alert( idx );  // 13
+   var from = idx + searchword.length;
+   idx = text.indexOf(searchword,  from);
+   //alert( idx );  // 27
+   
+   // [수정]
+   //                   pattern 정규표현식
+   //                   replacement 바꿀문자열
+   // text.replace(pattern, replacement)
+   //                               처음 일치하는 Microsoft -> XXX
+   // var newText = text.replace("Microsoft", "XXX");
+   
+   // 대소문자를 구분한다.
+   // var newText = text.replace("MICROSOFT", "XXX");
+   
+   // 10:00 수업 시작~ 
+   // [ js 정규표현식 형식 ]
+   //  /pattern/modifiers
+   // var pattern =  /MICROSOFT/i ;  //i 플래그 : 대소문자 구분 X
+   //var pattern =  /Microsoft/g ;  // g 플래그 : 모든 일치하는 항목 바꾸자.
+   //var newText = text.replace( pattern, "XXX");
+   
+   // replaceAll()  ES2021
+   var newText = text.replaceAll("Microsoft", "YYY");
+   //var newText = text.replaceAll("/Microsoft/g", "YYY");
+   //alert( newText );
+   
+   
+</script>
+<script>
+   // [ trim()  trimStart() trimEnd() ]
+   var text = "     hello world     ";
+   //alert("["+ text.trim()  +"]");  // [hello world]
+   //alert("["+ text.trimStart()  +"]");  // [hello world]
+   //alert("["+ text.trimEnd()  +"]");  // [hello world]
+</script>
+<script>
+   // [ slice()     substring()     substr() ]
+   // 기능: 문자열의 일부분을 추출해서 새 문자열을 반환.
+   var text = "Apple, Banana, Kiwi";
+   //text.slice(0 from, [to]);
+   // alert( text.slice( 7, 13 )  );   // "Banana"
+   //text.substring(from, [to]);
+   //alert( text.substring( 7, 13 )  );   // "Banana"
+   // alert( text.substring( 7 )  );   // "Banana, Kiwi" 
+   
+   //text.substr(from, [length])
+   // alert( text.substr( 7, 6) );
+   
+   // slice(from, to) , substring(from, to)  차이점?
+	//          음수(끝 인덱스)              음수 0	   
+   
+	var rrn = "901223-1700001";
+    // 년도
+    //alert(  rrn.slice( 0, 2)  );
+    // 월
+    //alert(  rrn.slice( 2, 4)  );
+    // 일
+    // alert(  rrn.slice( 4, 6)  );
+    // 성별
+    //alert(  rrn.substring( 7, 8)  );    
+    // 주민번호 뒷자리 7자리
+    //alert(  rrn.substring( 7)  );   
+    //alert(  rrn.slice( -7)  );   
+   
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

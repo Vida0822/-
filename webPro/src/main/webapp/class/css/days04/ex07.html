@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+h1 {
+	/* text-shadow: 수평 수직 색상; */
+	/* text-shadow: 2px 2px red; */
+	                /* 흐림효과 */
+	/* text-shadow: 2px 2px 5px red; */
+	
+	/* 다중 그림자 효과 */
+	/* text-shadow: 0 0 3px red, 0 0 10px blue; */
+	
+	color: white;
+	text-shadow: -1px 0 black, 0 -1px black, 1px 0 black, 0 1px black;
+}
+
+p {
+	width: 300px;
+	height: 100px;
+	background-color: yellow;
+	
+	/* box-shadow: 수평 수직 흐림효과 번짐효과 색상; */
+	/* spread(번짐효과) : 양수 - 그림자 크기 커짐, 음수 - 그림자 크기 작아짐 */
+	box-shadow: 10px 10px 5px 12px lightblue;
+}
+</style>
+</head>
+<body>
+<h3>그림자 효과</h3>
+<pre>
+1. 텍스트 그림자 효과( text-shadow )
+2. 박스 그림자 효과( box-shadow )
+</pre>
+
+<h1>텍스트 그림자 효과( text-shadow )</h1>
+<p>박스 그림자 효과( box-shadow )</p>
+</body>
+</html>

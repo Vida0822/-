@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+	
+구혀할 기능 : 텍스트 한글자씩 좌라라 써지는 애니메이션 
+	<button> TypeWriter </button>
+	<p id = "demo"></p> 
+
+	<script>
+		let content ;  // 내용 
+		let contentLength;  // 내용 총 글자수 
+		let timer1;  // 타이머 객체  
+		
+		$("button").on("click", function() {
+			content = $("html").html(); 
+			// <html></html>의 내용을 변수 content에 담아 (문자열)
+			contentLength = content.length;  // 이거 안해주니 밑에서 실행 x : undefined이기 때문
+			// 그 텍스트의 길이를 변수에 저장 
+			typeWriter();
+			// 함수실행 왜??? 이거 없어도 실행되는데?? 
+			timer1 = setInterval(typeWriter, 10)
+			// 10초마다 typeWriter()를 반복실행하는 timer객체 생성 
+		}); 
+		
+		let i =0; 
+		// 함수가 끝나면 다음 글자부터 적용해야하기 때문에 전역변수로 선언해줘야함 
+		function typeWriter() {
+			if(i < contentLength){
+				let oneChar = content[i++];
+				// 텍스트, 즉 문자열의 한글자씩 oneChar에 저장 -> 그 i값 1더해줌 (다음 반복에서 함수 호출시 다음 글자 읽어야한까 )
+				$("#demo").html(function(index, oldHtml) {
+					// html은 그 함수 안에 함수가 있으므로 안에 있는 중첩함수의 '리턴값'을 매개변수로 받음
+					// 중첩함수 먼저 실행해야한다 : 값을 먼저 만들어냄
+					// id=demo인 p태그로부터 우선적으로 중첩함수에 oldHtml값을 넘겨주고
+					return oldHtml + (oneChar == '\n' ? '<br>' : oneChar) ;
+					// 그 기존 텍스트에 새로 읽은 글자를 더해서 반환 (\n일시 <br> )
+				}) // 이 함수를 타이머 없애줄때까지 10초마다 반복 
+				
+				window.scrollTo(0, document.body.scrollHeight); 
+			}else{ // i = contentLength , 즉 문서텍스트 글자수만큼 출력을 다했다면 
+				clearInterval(timer1); // 타이머 없앰 -> 함수호출중단 (작성중단)
+				alert("출력완료")
+			}
+		}
+	
+	</script>
+</body>
+</html>

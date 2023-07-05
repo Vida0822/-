@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+
+<style>
+#container{
+	width: 400px; 
+	height: 400px;
+	position: relative;
+	background-color: yellow;
+}
+
+.animate{
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	background-color: red;
+	border-radius: 50% ; 
+}
+</style>
+
+
+<body>
+
+<!-- button>{Click Me}^br*2+#container>#animate -->
+<button onclick = "make();"> Click me </button> 
+<br> 
+<br> 
+<div id= "container">
+	<!-- <div id = "animate"></div>  공 여러개 만들거라 지움 
+	 => 여기에 동적으로 만들거임 ! ! -->
+	
+</div>
+
+
+<script> 
+let no = 1;  // 공에 붙일 번호 
+function make() {
+	// 동적으로 class = animate 인 공 만들거임! 
+	let newCircle = document.createElement("div"); 
+	
+	//newCircle.setAttribute("class", "animate"); 
+	newCircle.classList.add("animate");
+	//newCircle.classname = "animate";
+	
+	// newCircle.id = "animate" + no  ;
+	newCircle.setAttribute("id", "animate" + no  );
+	
+	document.getElementById("container").appendChild(newCircle); // 왜 안되징...
+	myMove(newCircle); // 함수 만들거임 => 얘 자체가 움직이는 거니까 공요소 자체를 매개변수로 넣어줌 
+	
+	no++; 
+}// make 
+
+function myMove(elem) { 
+	// var elem = document.getElementById("animate");  // 빨간공 
+	// left , top 이동 
+	//var pos = 0; 
+	// 움직이는 거리 (movex, movey)했던거 그냥 이 변수 하나로 처리하겠다는 뜻인듯 (일정하게 이동)
+	var posX = 0	, posY =0 ;  // 일정 x 이동
+	
+	var x= parseInt(Math.random()*8)+2 ; // 랜덤하게 이동하고자 하는 정수값 (이 공이 한번에 움직이는 거리)
+	var y= parseInt(Math.random()*8)+2 ; // 랜덤하게 이동하고자 하는 정수값 
+	
+	var timer = setInterval(function() {
+		// 변수를 받는건 그냥 timer를 멈출 용도로 사용 -> 변수로 받지 않아도 함수 실행되는듯?? 
+				
+		// 바운딩 : 증가되던 방향 , 즉 move에 더해지던 값의 부호를 바꿔줘 진행방향을 반대로 바꿔줘야함 
+		// 아래, 위 부딫이면 y값 방향을 , 왼,오른쪽벽에 부딫이면 x값 바꿈
+		if ( posY >= 350 || posY <= 0 )  y *= -1;  // y 방향 바꾼다.
+        if ( posX >= 350 || posX <= 0 )  x *= -1;
+        
+         
+             posX += x;  // 6
+             posY += y; // 9
+             
+             // ??????????????
+             if(  posX < 0  ) posX = 0;
+             else if( posX > 350 ) posX = 350; 
+             // 이동이 ex 340 -> 360이 되면 공이 넘어가는게 되니까 이동시키기 전에 
+             // 그 보정값을 350으로 맞춰줘 테두리 안에 붙여줌 
+             
+             if(  posY < 0  ) posY = 0;
+             else if( posY > 350 ) posY = 350;
+             
+             elem.style.left = posX+"px";
+             elem.style.top = posY+"px";
+             
+	}, 10)
+} //myMove()
+</script>
+</body>
+</html>

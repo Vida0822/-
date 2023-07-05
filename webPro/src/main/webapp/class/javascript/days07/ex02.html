@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+
+<style>
+*{
+	box-sizing: border-box; /* 테두리까지 width값으로 포함*/ 
+}
+body{
+	margin: 0; /* 화면 꽉참(가로로) */
+	font-family: Verdana, sans-serif;
+}
+.slideshow-container{
+	max-width: 1000px; /* 화면을 아무리 늘려도 1000px 이상으로 늘어나지 않는다*/ 
+	position: relative; /*부모 기준으로 위치잡기위해*/ 
+	margin: auto; /*?? */ 
+}
+
+
+.numbertext{
+	color: #2f2f2f;
+	font-size: 12px;
+	padding:  8px 12px;
+	position: absolute; /* 얘도 겹쳐짐 (부모기준 absolute값이니까 동일할수밖에) -> 얘도 나중에 하나씩 보이게 하기 우함*/
+	top:0;
+}
+
+img{
+	vertical-align: middle;
+}
+
+/* 캡션 */ 
+.text{
+	color: #2f2f2f;
+	font-size: 15px;
+	text-align: center;
+	padding: 8px 12px;
+	position: absolute; /* 캡션 3개 같은 위치에 똑같이 겹쳐져있음 -> 나중에 하나씩만 보이게 하기 위해 */ 
+	bottom: 8px;
+	width: 100%;
+}
+
+/*<> 버튼*/ 
+.prev, .next{
+	position: absolute;
+	cursor: pointer;
+	top:50%;
+	color: white;
+	width: auto;
+	padding: 16px;
+	margin-top: -22px;
+	font-weight: bold; 
+	font-size: 18px; 
+	border-radius: 0 3px 3px 0; 
+	transition : 0.6s ease; 
+}
+
+.next{
+	right: 0;
+	border-radius:  3px 0 0 3px ; 
+}
+
+.prev:hover, .next:hover{
+	background-color: rgba(0,0,0,0.8);
+}
+
+/* ooo */
+.dots{
+	position: absolute;
+	top: 10px;
+	width: 100%;
+	text-align: center;
+}
+
+.dot{
+	cursor: pointer;
+	height: 15px;
+	width: 15px;
+	margin: 0 2px;
+	background-color: #bbb;
+	border-radius: 50%;
+	display: inline-block;
+	transition : background-color 0.6s ease; 
+}
+
+.active, .dot:hover{
+	background-color: #717171;
+}
+
+
+/*애니메이션 */ 
+@keyframes fade{
+	from {opacity : 0.4}
+	to{opacity : 1}
+}
+
+@-webkit-keyframes fade{
+	from{opacity : 0.4}
+	to {opacity: 1} 
+}
+
+.fade{
+	animation-name : fade; 
+	animation-duration : 1.5s ;
+	-webkit-animation-name : fade;
+	-webkit-animation-duration : 1.5s
+}
+
+
+</style>
+
+
+<body>
+<h3> 슬라이딩쇼 </h3>
+
+<div class="slideshow-container">
+   <div class="mySlides fade">
+      <div class="numbertext">1 / 3</div>
+      <img src="../images/img_mountains_wide.jpg" style="width:100%" alt="" />
+      <div class="text">Caption One</div>
+   </div>
+   <div class="mySlides fade">
+      <div class="numbertext">2 / 3</div>
+      <img src="../images/img_nature_wide.jpg" style="width:100%" alt="" />
+      <div class="text">Caption Two</div>
+   </div>
+   <div class="mySlides fade">
+      <div class="numbertext">3 / 3</div>
+      <img src="../images/img_snow_wide.jpg" style="width:100%" alt="" />
+      <div class="text">Caption Three</div>
+   </div>
+     
+     <!--  <>    -->
+   <a class="prev"  onclick="changeSlide(-1)">&#10094;</a>
+   <a class="next"  onclick="changeSlide(1)">&#10095;</a>
+    
+   <div class="dots" style="text-align:center">
+      <span class="dot" onclick="dotSlide(0)"></span>
+      <span class="dot"  onclick="dotSlide(1)"></span>
+      <span class="dot" onclick="dotSlide(2)"></span>
+   </div>
+</div>
+
+
+
+<script>
+
+// div들중 하나씩 띄우도록 함 
+showSlides(0);
+
+function showSlides(slideIndex) { 
+	// 모두 초기화 하는 함수 
+	$(".slideshow-container .mySlides").css("display", "none");
+	// 전체 감싸고 있는 div 태그 
+	$(".dots span.dot").removeClass("active"); 
+	
+	// 0번째 슬라이드만 나타나게끔 
+	$(".slideshow-container .mySlides")
+		.eq(slideIndex)
+		.css("display", "block"); 
+	$(".dots span.dot")
+		.eq(slideIndex)
+		.addClass("active");
+}
+
+
+// <> 
+function changeSlide(value) { // prev를 누르면 -1이, next를 누르면 1이 넘어감 
+	slideIndex += value; 
+	
+	if(slideIndex == 3) slideIndex=0;
+	else if(slideIndex == -1) slideIndex=2;
+	
+	showSlides(slideIndex);
+}
+	
+// ooo 
+function dotSlide(value) {
+	slideIndex = value; 
+	showSlides(slideIndex);
+}
+</script>
+</body>
+</html>

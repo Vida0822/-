@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<h3> ex02_04 </h3>
+
+<div>
+   <p>1. Lorem ipsum dolor.</p>
+   <p>2. Ab vero laudantium.</p>
+</div>
+<br>
+<div>
+   <p>3. Lorem ipsum dolor.</p> 
+</div>
+<br>
+<div>
+   <span> 4. Lorem ipsum dolor.</span>
+   <p>5. Ab vero laudantium.</p>
+</div>
+
+<script>
+	$("div").css("border","1px solid gray"); 
+	
+	$("p:only-child").css("background-color","red");  // 3만 빨강
+	// 부모의 유일한 자식이 p태그인 선택자 
+	
+// 	$("p:only-of-type")
+	$("p:only-of-type").css("background-color","red");  // 3, 5 빨강
+	// 부모의 여러 자식중에 p태그는 유일한 선택자 
+
+</script>
+</body>
+</html>

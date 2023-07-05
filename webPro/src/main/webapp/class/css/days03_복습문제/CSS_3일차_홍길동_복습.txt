@@ -1,0 +1,80 @@
+1. css 선택자(selector)에 대해서 설명하세요. 
+  ㄱ.   .form-container input[type="text"] : form-container 클래스의 자식요소이면서 text타입의 input 요소
+         ,    .form-container input[type="password"] : form-container 클래스의 자식요소이면서 password타입의 input 요소
+  ㄴ. .form-container .btn:hover, .open-button:hover
+  ㄷ. .form-container .btn
+  ㄹ. input[type=submit]:hover
+  ㅁ. div:last-child
+  ㅂ. .pagination a:hover:not(.active)
+  ㅅ. tr:nth-child(even)
+        tr:nth-child(odd)
+  ㅇ. tr:hover:not(:first-child) 
+  ㅈ. div:nth-child(2)
+                             div:nth-of-type(2)
+  ㅊ. :first-child
+       :last-child
+                           :firt-of-type
+                           :last-of-type
+
+2. css 결합자 설명하세요. 
+  ㄱ. div  공백 p      
+  ㄴ. div > p           
+  ㄷ. div + p         
+  ㄹ. div ~ p       
+  
+3. 의사클래스와 의사요소에 대해서 설명하세요 . 
+   ㄱ. 의사클래스     
+   ㄴ. 의사요소         
+
+4.  js 코딩을 jquery로 변경하세요 
+<script>
+   document.querySelector("button.open-button").onclick = function (){
+	   document.getElementById("myForm").style.display = "block";
+   }
+   
+   document.querySelector("button.btn.cancel").onclick = function (){
+	   document.getElementById("myForm").style.display = "none";
+   }
+</script>
+
+ 
+5.  반응형 웹을 만드는 미디어 쿼리에 대해서 설명하세요 
+<style> 
+   @media   only screen and  ( max-width:600px ){   
+       .col-25, .col-75, input[type=submit]{
+          width:100%;
+          margin-top:0;
+       }
+   }
+</style>
+
+
+6.   아래 "Hello World!" 문자열이 수평/수직 가운데로 배치되도록 css 설정을 추가하세요. 
+   ( 조건 :  여러가지 방법 중에  transform 속성을 사용하세요 )
+<div class="center">
+	<p>Hello World!</p>
+</div>  
+
+<style>
+  .center{
+    width:50%;
+    border:3px solid green;
+    margin:0 auto; 
+    height: 200px; 
+     
+}
+
+
+8. 아래 버튼에 마우스를 올릴때와 내릴때 이벤트를 처리해서 배경색을 바꾸는 js 코딩을 하세요 .
+   ( mouseover 이벤트일 경우 배경색 파랑)
+   ( mouseout 이벤트일 경우 배경색 빨강)
+   
+ <style>
+   button{
+     background-color:red;
+   }
+ </style> 
+  <button>마우스 롤오버효과</button>
+  <button>마우스 롤오버효과</button>
+  <button>마우스 롤오버효과</button>
+   

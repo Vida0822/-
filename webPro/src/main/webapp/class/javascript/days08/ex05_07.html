@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="https://jqueryui.com/resources/demos/style.css">
+  <style>
+  #draggable { width: 150px; height: 150px; padding: 0.5em; }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script>
+
+  $( function() { // $(document).ready(function() {}) 
+    $( "#draggable" ).draggable();
+	$("h3").draggable(); 
+	// 이 draggable() 메서드를 script 문서에서 얻어올 수 있으므로 항상 연결되어있는지 잘 확인해야함 
+  } );
+  </script>
+</head>
+
+
+<body>
+<h3> ex05_07.html dragdrop </h3>
+<div id="draggable" class="ui-widget-content">
+  <p>Drag me around</p>
+</div>
+</body>
+</html>

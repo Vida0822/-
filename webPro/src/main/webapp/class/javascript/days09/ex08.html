@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+
+<pre>
+[window.screen 객체]
+ - 사용자 화면에 대한 정보를 가지고 있는 객체 
+ screen.width 화면 너비
+ screen.height 화면 높이
+ screen.availWidth 사용가능한 화면 너비 (작엽표시줄 기능 제외한 너비 )
+ screen.availHeight 사용가능한 화면 높이 
+ screen.colorDepth  색농도 
+ 16비트 : 65536 가지 
+ 32비트 : 42억가지 
+등등 
+
+</pre>
+
+<p id="demo"></p>
+
+<button onclick="history.forward()"> history.forward()</button> 
+<script>
+
+var output=""; 
+output+=  screen.width+"/"+ screen.height+"<br>"; 
+output+=  screen.availWidth+"/"+screen.availHeight +"<br>";
+output+= screen.colorDepth +"<br>";
+$("#demo").html(output); 
+//1280/720
+//1280/680
+// 24
+</script>
+
+</body>
+</html>

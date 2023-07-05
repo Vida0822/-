@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+div {
+	width: 300px;
+	height: 100px;
+	background-color: yellow;
+	border: 1px solid black;
+	
+	/* 변환 - [이동-우(좌),하(상)], 회전, 크기, 기울기 */
+	/* transform: translate(50px,100px); */
+	
+	/* 변환 - 이동, [회전-각도(양수:시계방향,음수:반시계방향)], 크기, 기울기 */
+	/* transform: rotate(20deg); */
+	
+	/* 변환 - 이동, 회전, [크기-너비,높이], 기울기 */
+	/* transform: scale(0.5,1.1); */
+	/* transform: scaleX(0.5); */
+	/* transform: scaleY(1.5); */
+	
+	/* 변환 - 이동, 회전, 크기, [기울기] */
+	/* skewX(Y): 지정된 각도만큼 X(Y)축을 따라 요소를 기울인다 */
+	/* transform: skewX(45deg); */
+	/* transform: skewY(20deg); */
+	/* transform: skew(45deg, 20deg); */
+	
+	/* scaleX, skewY, skewX, scaleY, translateX, translateY */
+	transform: matrix(1,-0.3,0,1,0,0)
+}
+</style>
+</head>
+<body>
+<h3>css 2D 변환</h3>
+<pre>
+- 2D 변환 : 요소 1.이동, 2.회전, 3.비율, 4.기울기
+- transform 속성
+
+이동 - translate()
+회전 - rotate()
+크기 - scale(), scaleX(), scaleY()
+기울기 - skew(), skewX(), skewY()
+
+약식 - matrix()
+</pre>
+
+<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores optio quas id ipsum rem molestiae omnis nulla minima error harum!</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Callback 함수 예제 </title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+<p id="demo"></p>
+
+<script>
+const myNumbers = [4,1,-20,-7,5,9,-6]; 
+
+function removeNeg(numbers, callback) {
+	const myArray = [];
+
+	for (let x of numbers) {
+		if(callback(x)){ //(x)=>x>=0
+			myArray.push(x); // 0,양수만 담게되는 myArray[ ] 
+		}
+	}
+	return myArray;
+} //removeNeg 
+
+// 실행 
+const posNumbers = removeNeg(myNumbers, (x)=>x>=0) ; 
+//(x)=>x>=0)
+/*  function (x) {
+	return x>=0 ; // 들어온 값이 0이상이면 리턴
+} */
+document.getElementById("demo").innerHTML =posNumbers ;  // 4,1,5,9
+
+
+
+</script>
+</body>
+</html>

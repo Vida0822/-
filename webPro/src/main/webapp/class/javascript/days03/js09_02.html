@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+#demo {
+	width: 300px;
+	height: 200px;
+	border: 1px solid gray;
+	overflow: auto;
+}
+</style>
+</head>
+<body>
+설문조사 항목 개수:
+<select id="itemCount">
+	<!-- option value 생략되면 text 값과 동일하게 자동 설정 -->
+	<option value="" selected="selected">선택</option>
+	<!-- 
+	<option value="1">1</option>
+	<option value="2">2</option>
+	<option value="3">3</option>
+	<option value="4">4</option>
+	<option value="5">5</option>
+	<option value="6">6</option>
+	<option value="7">7</option>
+	<option value="8">8</option>
+	<option value="9">9</option>
+	<option value="10">10</option>
+	<option value="11">11</option>
+	<option value="12">12</option>
+	<option value="13">13</option>
+	<option value="14">14</option>
+	<option value="15">15</option>
+	-->
+</select>
+<p id="demo"></p>
+
+<script>
+window.onload = function() {
+	// 초기화
+	/*
+	for (var i = 1; i <= 50; i++) {
+		let op = document.createElement("option");
+		op.setAttribute("value",i);
+		// op.innerText = i;
+		op.text = i;
+		document.querySelector("#itemCount").appendChild(op);
+	};
+	*/
+	
+	// Option() 생성자를 사용해서 <option> 생성해서 추가
+	let s = document.getElementById("itemCount");
+	for (var i = 1; i <= 50; i++) {
+		// <option value="i">i</option>
+		// s.options[i] = new Option(i,i);
+		s[i] = new Option(i,i);
+	};
+};
+</script>
+<script>
+document.querySelector("#itemCount").onchange = function() {
+	let count = this.options[this.selectedIndex].value;
+	// alert(count);
+	document.querySelector("#demo").innerHTML = "";
+	for (var i = 0; i < count; i++) {
+		let no = document.createTextNode("항목" + (i + 1) + " : ");
+		document.querySelector("#demo").appendChild(no);
+		
+		/* 
+		let index = document.createElement("span");
+		index.innerHTML = "항목" + (i + 1) + " : ";
+		document.querySelector("#demo").appendChild(index);
+		*/
+		
+		// 동적으로 input type="text" 요소 생성
+		let textbox = document.createElement("input");
+		// <input type="text" name="item1" id="item1" class="box">
+		textbox.setAttribute("type","text");
+		textbox.setAttribute("name","item" + i);
+		textbox.setAttribute("id","item" + i);
+		// textbox.classList.add("box");
+		// textbox.setAttribute("class","box");
+		textbox.className = "box";
+		
+		// document.body == <body> 요소
+		// document.body.appendChild(textbox);
+		document.querySelector("#demo").appendChild(textbox);
+		
+		let br = document.createElement("br");
+		document.querySelector("#demo").appendChild(br);
+	}
+};
+</script>
+</body>
+</html>

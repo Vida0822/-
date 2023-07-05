@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+</head>
+<body>
+	<h3>ex02.html - 시멘트( semantic == 의미론적인 ) 태그</h3>
+	[시계]
+	<br>
+	<!-- width, height 너비, 높이 -->
+	<iframe src="http://localhost/webPro/html/days03/ex10_clock.html"
+		title="clock" style="border: 1px solid red"></iframe>
+	<pre>
+ 1. 시멘틱 태그 ? 의미가 있는 태그(요소)
+ 2. 누구한테 의미?   브라우저와 개발자에게 의미가 있는 태그
+ 3. 의미 O - header ( div id='header'), form, table, section, nav 등등 
+     의미 X - div , span
+  4. 시멘틱 태그의 종류
+     1) header - 소개 내용이나 탐색 링크의 집합에 대한 컨테이너
+     2) section - 문서의 섹션(제목이 있는 주제별 컨텐츠 그룹)을 정의하는 태그
+            장/소개/뉴스 항목/ 연락처 정보
+     3) article -  기사(그 자체에 의미), 독립적인 자체에 포함된 내용을 지정하는 태그
+           - 웹 페이지의 나머지 부분과 독립적으로 배포할 수 있어야 된다.
+           신문기사들, 제품 카드, 사용자 의견, 블로그 게시글, 포럼 게시글.
+       참고)  section 태그 안에  article 중첩되어질 수 도 잇고,
+                 article  태그 안에 section 중첩 되어질 수도 있다. 
+      4)footer - 바닥글, 문서나 구역의 바닥글을 정의하는 태그      
+             - 저작권 정보, 연락처 정보, 사이트 맵 , 맨 위로 링크, 관련된 문서
+       5) nav - 탐색 링크의 집합을 정의하는 태그
+                문서의 모든 탐색링크들이 nav 태그 안에 있어야 되는 것은 아니다. 
+                주요 링크      
+       6) aside - 한쪽으로 , 따로
+                       - 어떤 주요 내용과 관련된 어떤 콘텐츠를 정의하는 태그     
+ --------------------------------------------------------------------------------------
+        7) figure/figcaption - 그림, 도표, 사진, 코드 목록 내용을 정의하는 태그 
+            예)
+            <figure>
+               <img />
+               <figcaption>이미지 설명</figcaption>
+            </figure>  
+        8) details, main, mark, summary, time                
+</pre>
+</body>
+</html>

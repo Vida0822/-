@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<style>
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+</style>
+</head>
+<body>
+	<!-- table>tr*5>td*4>lorem1 -->
+	<table>
+		<colgroup>
+			<!--
+  	 1. 열 그룹에 대한 스타일을 지정하기 위한 태그
+  	 2. width, visibility, background, border 속성만 제한적으로 설정할 수 있다
+  	-->
+			<col span="2" style="background-color: #D6EEEE">
+			<col span="1" style="visibility: collapse;">
+			<col span="1" style="background-color: pink">
+		</colgroup>
+		<thead>
+			<tr>
+				<td>Lorem.</td>
+				<td>Reiciendis.</td>
+				<td>Nesciunt!</td>
+				<td>Possimus.</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Lorem.</td>
+				<td>Inventore.</td>
+				<td>Ex!</td>
+				<td>Consequuntur!</td>
+			</tr>
+			<tr>
+				<td>Lorem.</td>
+				<td>Placeat.</td>
+				<td>Maxime!</td>
+				<td>Tenetur.</td>
+			</tr>
+			<tr>
+				<td>Lorem.</td>
+				<td>Ipsam.</td>
+				<td>Delectus.</td>
+				<td>Aspernatur.</td>
+			</tr>
+			<tr>
+				<td>Lorem.</td>
+				<td>Consequatur.</td>
+				<td>Eius.</td>
+				<td>Error.</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<!-- tr>td*4>lorem1 -->
+			<tr>
+				<td>Lorem.</td>
+				<td>Nemo.</td>
+				<td>Fuga.</td>
+				<td>Velit.</td>
+			</tr>
+		</tfoot>
+	</table>
+</body>
+</html>

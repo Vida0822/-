@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+<pre>
+[뷰포트(viewport)]
+1. 웹 페이지를 사용자가 화면상에 볼 수 있는 영역
+2. 여러 디바이스(스마트폰, 테블릿, 컴퓨터 등등)에 따라 화면 표시 영역이 다르다
+3. 여러 장치의 크기에 맞게 웹 페이지의 크기를 제어해서 화면에 보여줄 필요가 있다
+4. 뷰포트 설정
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+width=device-width  너비는 장치의 너비에 맞게
+initial-scale=1.0   비율 1.0 조정(확대/축소)
+
+[미디어쿼리]
+1. css2 미디어쿼리 + 확장 => css3 미디어쿼리
+2. 여러 장치의 화면 표시
+   여러 장치마다 서로 다른 스타일을 적용할 필요가 있다
+3. 미디어쿼리를 사용
+   - 뷰포트의 너비와 높이
+   - 장치의 너비와 높이
+   - 방향(가로/세로 모드)
+   등등
+4. 반응형 웹 구현
+5. 미디어쿼리 형식
+   @media [only|not mediatype and] (조건식 true/false) {
+   		css 코딩;
+   		css 코딩;
+   		   :
+   }
+5-2. link 태그를 사용할 수도 있다
+<link ref="stylesheet" media="mediatype and|only|not (조건식)" href="print.css">
+   mediatype : [all], print, screen 등등
+</pre>
+</body>
+</html>

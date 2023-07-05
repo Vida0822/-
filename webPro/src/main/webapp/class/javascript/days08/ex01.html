@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+<pre>
+[js 함수(function)] 
+</pre>
+
+<script>
+
+// 1) 정식 선언? 
+function sumfun(a,b) {
+	return a+b; 
+}
+alert(sumfun(2,3)); 
+
+// 2) 표현식을 사용해 js 함수를 정의(선언)할 수 있다 : '함수표현식'
+// => 변수명을 함수처럼 사용할 수 있다. 
+// let hello = 함수 선언 코딩 ; (익명, 무명함수 )
+// ㄴ 변수 = 함수표현식
+let sum = function (a,b) {
+	return a+b; 	
+}
+alert(sum(2,3)) ; 
+// -> 이 변수명을 마치 함수처럼 사용할 수 있다
+</script>
+
+<script>
+// 3) 함수를 선언하고 사용하는 3번째 방법! 
+// 		: js 대문자F를 가진 Function() 이라는 함수 생성자를 통해 함수를 선언, 사용할 수 있다
+// 객체 생성자 ! : 함수긴한데 객체를 생성하는 함수 
+// -> 함수의 객체생성자 : 함수를 생성하는 함수 생성자!(함수도 객체중 하나니까!)
+const myfunc = new Function("a","b","return a*b"); 
+alert(myfunc(1,2));
+
+// 근데 이걸 실제로 사용할 필욘 굳이 없음... 
+</script>
+
+<script>
+test();  
+// 함수 호출 코딩 -> 얘가 위에 있는데도 잘뜸 : 호이스팅 (변수 뿐 아니라 함수 선언부분도 호이스팅된다!)
+// ※ BUT! 함수 표현식을 사용해 정의된 함수는 호이스팅 되지 않는다 
+function test() {
+	return "test" ; 
+}
+
+</script>
+</body>
+</html>

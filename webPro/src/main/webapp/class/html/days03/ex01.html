@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ex01.html</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+</head>
+<body>
+	<!-- 5행 5열 테이블 -->
+	<!-- bgcolor="red" 테이블 배경색 -->
+	<table border="1" width="500px" height="500" cellpadding="10"
+		cellspacing="10">
+		<tr>
+			<!-- 가로 왼쪽 정렬, 세로 가운데 정렬 -->
+			<td valign="top">1</td>
+			<td valign="top" align="center">2</td>
+			<td valign="top" align="right">3</td>
+			<td>4</td>
+			<td rowspan="4">5, 10, 15, 20</td>
+		</tr>
+		<tr>
+			<td>6</td>
+			<td align="center">7</td>
+			<td align="right">8</td>
+			<td rowspan="2">9, 14</td>
+		</tr>
+		<tr>
+			<td valign="bottom">11</td>
+			<td valign="bottom" align="center">12</td>
+			<td valign="bottom" align="right">13</td>
+		</tr>
+		<tr>
+			<td>16</td>
+			<td colspan="2">17 ~ 18</td>
+			<td>19</td>
+		</tr>
+		<tr>
+			<td colspan="5">21 ~ 25</td>
+		</tr>
+	</table>
+</body>
+</html>

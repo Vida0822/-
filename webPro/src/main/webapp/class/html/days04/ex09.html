@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+</head>
+<body>
+<h3>html form</h3>
+<!-- 모든 사용자 입력을 수집하는 태그 -> 서버 전송(submit == 제출하다) -->
+<form action="ex09_ok.jsp" method="get" target="_blank" autocomplete="off" novalidate="novalidate">
+	<!-- 한 줄 텍스트 입력 -->
+	이메일 : <input type="email"><br>
+	아이디 : <input type="text" value="" id="userid" autofocus
+	placeholder="아이디를 입력하세요" name="userid" tabindex="1"><br>
+	<!-- autofocus 이용해서 처음부터 커서 깜빡이게 -->
+	<!-- placeholder 빈칸일 때 메시지 띄우기 -->
+	<label for="username">이름 : </label><input type="text" value="" id="username" name="username" tabindex="2"><br>
+	<!-- label 이용해서 동기화 -->
+	<!-- tabindex 이용해서 tab 순서 설정 -->
+	<!-- name 속성 필수 -->
+	<input type="submit">
+</form>
+<form action="ex09_ok.jsp" method="post">
+	<!-- 한 줄 텍스트 입력 -->
+	이메일 : <input type="email"><br>
+	아이디 : <input type="text" value="" id="userid" autofocus
+	placeholder="아이디를 입력하세요" name="userid" tabindex="1"><br>
+	<!-- autofocus 이용해서 처음부터 커서 깜빡이게 -->
+	<!-- placeholder 빈칸일 때 메시지 띄우기 -->
+	<label for="username">이름 : </label><input type="text" value="" id="username" name="username" tabindex="2"><br>
+	<!-- label 이용해서 동기화 -->
+	<!-- tabindex 이용해서 tab 순서 설정 -->
+	<!-- name 속성 필수 -->
+	<input type="submit">
+	<input type="reset">
+</form>
+<form action="ex09_02_ok.jsp">
+	<p>좋아하는 웹 언어를 선택하세요</p>
+	<input type="radio" checked name="fav_language" id="html" value="HTML">HTML<br>
+	<input type="radio" name="fav_language" id="css" value="CSS">CSS<br>
+	<input type="radio" name="fav_language" id="jsp" value="JSP"><label for="jsp">JSP</label><br>
+	
+   <p>보유하고 있는 탈 것</p>
+   <input type="checkbox" name="vehicle" id="bike" value="BIKE" checked="checked">자전거<br>
+   <input type="checkbox" name="vehicle" id="auto" value="AUTO" >오토바이<br>
+   <input type="checkbox" name="vehicle" id="car" value="CAR" checked="checked">자동차<br>
+   <input type="checkbox" name="vehicle" id="boat" value="BOAT">보트<br>
+   
+</form>
+</body>
+</html>
+
+<!-- 
+[ex09.html] -> 요청 -> [웹서버 톰캣]
+            <- 응답 <-
+아이디 : hong
+이름 : 홍길동
+[제출] 클릭                               WAS
+action : ex09_ok.jsp -> 요청(request) -> [웹서버 톰캣]
+					  get [아이디,이름] 			ex09_ok.jsp
+			404오류	 <- 응답 <-           아이디, 이름 => DB저장, 처리
+					 
+-->
+
+<!-- 
+method="get"
+1) action=""	?이름=값&이름=값..
+	URL에 ?로 추가되어진다
+2) 보안상 좋지 않다
+3) 길이 제한이 있다 ( 2048자 )
+method="post"
+1) http 요청 body 내부에 추가되어진다
+2) 길이 제한이 없다
+
+-->

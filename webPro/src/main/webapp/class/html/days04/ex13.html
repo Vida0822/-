@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+<form action="ex13_02.jsp" id="form1" method="get" target="_self" enctype="application/x-www-form-urlencoded">
+	First Name : <input type="text" name="fname"><br>
+	<input type="submit">
+	<input type="submit" formaction="ex13_03.jsp" formenctype="multipart/form-data"
+	formmethod="post" formtarget="_blank" formnovalidate="formnovalidate">
+</form>
+	Last Name : <input type="text" name="lname" form="form1"><br>
+</body>
+</html>

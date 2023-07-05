@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script
+   src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<style>
+div {
+   border: 3px solid #4caf50;
+   padding: 5px;
+   overflow: auto; /* img를 div 안으로 */
+   /* 부동요소(div)가 포함요소(img)가 컨테이너 외부로 넘치게 되면 해결 > overflow : auto; */
+}
+
+div>img.img1 {
+   float: left;
+}
+/* 요렇게 까지하면 이상! 이미지를 포함해서 border 가 그려져야 하는데 텍스트만 그려지고 이미지는 벗어남 
+   > 요거 어떻게 수정할래~가 문제 
+   >  div태그로 가서! */
+   
+   
+.clearfix::after {
+   content: "";
+   display: table;
+   clear: both;
+}
+/* 가상요소 사용해서 해결 */
+
+
+</style>
+</head>
+<body>
+
+   <!-- div>img.img1+lorem12 -->
+   <div class="clearfix">
+      <img src="../images/pineapple.jpg" alt="" class="img1" width="170"
+         height="170" /> Lorem ipsum dolor sit amet, consectetur adipisicing
+      elit. Corrupti amet dolore nobis.
+   </div>
+   
+
+</body>
+</html>

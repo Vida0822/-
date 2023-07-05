@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<script>
+// tip  나중에 괄호 맞추기 힘드니까 크게 틀 잡아주고 그 안에 코드 넣기 
+var counterObject = (
+								function () {
+									let counter = 0; // 지역변수 -> 폐쇄됨 (이 변수자체를 '함수클로저' 라고 부르는것?)  
+									
+									function changeBy(value) { // 중첩함수 
+										counter += value; 
+									}
+									return {// 객체 반환할거임 => 변수 counterObject가 최종적으로 저장할 반환값
+										
+										increment : function() {
+											changeBy(1);
+										}, // increment		
+										decrement : function () {
+											changeBy(-1)
+										},
+										value : function() {
+											return counter; 
+										}
+										
+									}; // return 
+								}// changeBy
+							
+							)() ;  // 자체 호출함수! 
+							
+console.log(counterObject.value()); // 0 
+counterObject.increment();
+counterObject.increment();
+counterObject.increment();
+console.log(counterObject.value()); // 3
+counterObject.decrement();
+console.log(counterObject.value()); //2 
+	
+</script>
+</body>
+</html>

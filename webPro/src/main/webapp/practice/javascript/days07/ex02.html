@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<style>
+*{
+	box-sizing: content-box; 
+	/* 패딩, 테두리까지 포함한 넓이값
+	=> 이미지 : width를 100%를 잡아놨기 때문에 가로로 꽉...차야하는데
+	여기서 100%로 잡아주면 마진은 자동으로 없어지는거 아닌가? 왜 옆이 남지*/
+}
+
+body{
+	margin: 0; 
+	font-family:  Verdana, sans-serif;
+}
+	
+/* 슬라이드 3개 감싸고 있는 div태그 */
+
+.slideshow-container{
+	max-width: 1000px;
+	position: relative;
+	/* 따로 left, right 값 등을 주지 않음 -> jus 자식 요소들 위치를 부모기준으로 잡기 위해 설정 */ 
+	margin: auto ;
+	/* 브라우저 창 크기에 따라 달라지는 듯 (커지면 marin up , 작을수록 margin 0)*/ 
+	/* body보다 우선순위가 앞서기 때문에 이게 적용 
+	=> 무엇보다! 가운데 정렬하기 위함 */
+}
+
+ /* 페이지 넘버 */
+.numbertext{
+	color: #2f2f2f;
+	font-size: 12px; 
+	padding: 8px 12px;
+ 	position : absolute; 
+ 	top : 0;
+}
+
+/* 이미지 */ 
+img {
+	width : 100%; 
+	vertical-align: middle; 
+}
+
+/* 하단 캡션 */ 
+
+.text{
+	color: #2f2f2f;
+	font-size: 15px; 
+	text-align: center;
+	padding: 8px 12px; 
+	/* 테두리까지 가로로 8px 세로로 12px 띄우기 
+	=> 패딩값을 주면 뭔가 컨텐츠가 가운데로 쑥 들어가는것 같음*/
+	
+	position: absolute;
+	/*?? 근데 relative 속성은 자기 부모인 mySlides fade가 아닌 slideshow-container에 줌 
+	-> 근데도 slideshow-container의 상대위치 기준 절대 위치가 잡힘? ㄴㄴ 제대로 큰 블락기준 위치 잡혀서 밑에 다 모임 */ 
+	bottom : 8px ; 
+	/* 밑에서 8px라는 뜻? */
+	width: 100% ;
+	/*부모(큰 div)의 100%*/ 
+}
+
+/*<> 버튼*/ 
+.prev, .next{
+	position: absolute;  /* 부모 : 젤큰 div*/ 
+	top: 50%;
+	/* 부모의 '위' 기준 20% 내려옴*/   
+	cursor: pointer; 
+	color: white;
+	padding: 16px;
+	margin-top: -22px; /*	부모의 기준위치라는게 정확히 어디? -22px이면 어케 이동한거임? */ 
+	font-weight: bold; 
+	font-size: 18px; 
+	border-radius: 0 3px 3px 0 ; 
+	transition : 0.6s ease; 
+}
+
+
+.next{
+	right: 0;
+	/* next 버튼은 오른쪽으로 바짝 붙임*/ 
+	border-radius:  3px 0 0 3px; 
+}
+
+.prev:hover, .next:hover{
+	background-color:  rgba(0,0,0,0.8);
+}
+/*이거 왜 안되지*/
+
+/* ooo */ 
+.dots{
+/* 버튼 3개 묶은 div*/ 
+	position: absolute;
+	top:10px; 
+	width: 100%;
+	text-align: center; 
+}
+
+.dot{
+	/* 버튼 각각 */ 
+	cursor : pointer; 
+	height: 15px;
+	width: 15px;
+	margin: 0 2px;
+	background-color: #bbb;
+	/* 사각형 색 채우고 */ 
+	border-radius: 50%; 
+	/* 원을 만듬*/ 
+	display: inline-block; /*옆으로 좌라락 붙게끔*/
+	transition : background-color 0.6s ease; 
+	
+}
+
+.active, .dot:hover{
+/* 활성화된애들 & 마우스 올라간 애들 배경색 바꿔줌*/ 
+	background-color: #717171;
+}
+
+/* 애니메이션 */ 
+@keyframes fade {
+	/* 기본*/ 
+	from {opacity : 0.4}
+	to{opacity : 1}
+}
+
+@-webkit-keyframses fade{
+/*다른 엡사이트에 위에 기본 이벤트가 호환 안될 수도 있으니 호한 가능한 이벤트인 @-webkit-keyframses 등록 */ 
+	from {opacity : 0.4}
+	to{opacity : 1}
+}
+
+.fade{
+	animation-name : fade; 
+	animation-duration : 1.5s ;
+	-webkit-animation-name : fade;
+	-webkit-animation-duration : 1.5s
+}
+
+
+</style>
+
+</head>
+<body>
+<div class="slideshow-container">
+<!--  총 구성 :( 이미지, 페이지 넘버, 하단 텍스트 , <> 버튼 , ooo 버튼) x3->
+	<!--  슬라이드1 -->
+   <div class="mySlides fade1">
+      <!--  페이지 넘버  --> <div class="numbertext">1 / 3</div> 
+   
+       <!--  이미지  -->  <img src="../images/img_mountains_wide.jpg"  alt="" />
+   
+        <!--  하단 캡션 --> <div class="text">Caption One</div>
+   </div>
+   
+
+   <!--  슬라이드2 -->
+   <div class="mySlides fade2">
+      <div class="numbertext">2 / 3</div>
+      <img src="../images/img_nature_wide.jpg"alt="" />
+      <div class="text">Caption Two</div>
+   </div>
+   
+   <!--  슬라이드3 -->
+   <div class="mySlides fade3">
+      <div class="numbertext">3 / 3</div>
+      <img src="../images/img_snow_wide.jpg" alt="" />
+      <div class="text">Caption Three</div>
+   </div>
+     
+     <!--  <> 버튼 : 페이지 앞뒤로    -->
+   <a class="prev"  onclick="changeSlide(-1)">&#10094;</a>
+   <a class="next"  onclick="changeSlide(1)">&#10095;</a>
+    
+    <!--  ooo 버튼 : 원하는 페이지로  -->
+   <div class="dots" style="text-align:center">
+      <span class="dot" onclick="dotSlide(0)"></span>
+      <span class="dot"  onclick="dotSlide(1)"></span>
+      <span class="dot" onclick="dotSlide(2)"></span>
+   </div>
+</div>
+
+<script>
+showSlides(0); 
+// 웹 새로고침 시 첫번째 슬라이드가 기본적으로 뜨도록 로딩시 매개변수로 0넣어줌 
+
+function showSlides(slideIndex) {
+	
+	$(".slideshow-container .mySlides").css("display", "none");
+	$(".dots span.dot").removeClass("active"); 
+	
+	$(".slideshow-container .mySlides")
+		.eq(slideIndex)
+		.css("display","block"); 
+	
+	$(".dots span.dot")
+		.eq(slideIndex)
+		.addClass("active"); 
+
+} 
+
+function showSlides(slideIndex) {
+// 1) 일단 새로고침, 버튼으로 인해 슬라이드 변화가 발생시 모든 슬라이드를 숨기고 도트 활성화도 싹 빼준다 
+//  (1) -  
+$(".slideshow-container .mySlides").css("display", "none");
+// 가장 큰 div 클래스 안 자식들 중 각 슬라이드 div'들'을 가져와 '모두' display 속성을 none을 주고 
+// (일단 함수가 실행되면 모든 슬라이드 div를 숨긴다 )
+// (2)-  
+$(".dots span.dot").removeClass("active"); 
+// 도트 클래스 자식의 스판태드'들'을 가져와 (만약 active 클래스가 부여되어 있으면) '모두' active 클래스를 제거한다 
+
+// 2) 슬라이드 보이게 하기 
+// (1)+
+$(".slideshow-container .mySlides")
+// 가장 큰 div태그안에 각 슬라이드 div 요소'들'을 가져와 
+	.eq(slideIndex)
+	// 그 슬라이드 div들 중 넘겨받은 인덱스번째의 슬라이드 요소에 접근해
+	.css("display","block"); 
+	// 스타일 속성 중 display 속성을 block으로, 즉 none-> (원래속성인) block으로 바뀜으로써 얘만 나타나게함
+
+// 3) 도트 활성화 시켜 스타일 부여하기 
+// (2)+
+$(".dots span.dot")
+// 도트묶음요소의 스판태그의?? 와?? dot 클래스를 가져와 어이거다!!!!!!!!!!!!!!!!!!!!!!!!!
+	.eq(slideIndex)
+	// 넘겨받은 선택한 슬라이드 인덱스로 그 요소에 접근해 
+	.addClass("active"); 
+	// active 클래스를 부여함 (style태그 -> active 클래스 부여시 background-color: #717171;)
+
+} 
+
+//<이제 그 index를 넘겨주는법~~!!>
+//		= 보여줄 슬라이드를 입력받는 두가지 방법 -> 각각 함수 마지막에 showSlides() 함수를 호출함  >
+
+/*    
+  <a class="prev"  onclick="changeSlide(-1)">&#10094;</a>
+   <a class="next"  onclick="changeSlide(1)">&#10095;</a> 
+   (핸들러 등록 방법 중 요소에 직접 올리기 )  
+ */
+   
+// 1) <> 
+	// a 태그에서 클릭 발생해 changeSlide 함수가 호출되는데 (1번호출)
+	// prev 링크를 클릭하면 -1값이, next 링크를 클릭하면 1값을 매개변수 value로 넘겨받는다  
+
+function changeSlide(value) {
+	// value값이 넘어와 (-1 : prev ,1: next) changeSlide(value)가 실행되면
+	
+	slideIndex += value; 
+	// 함수 showSlides(slideIndex)에 넘겨줄 전역변수 slideIndex에 value값을 반환해준다 
+	// slideIndex가 전역변수인 이유 : 보여지는 slideIndex는 유지되어야 
+	// 버튼 누를때마다 특정 페이지로 초기화되지 않고 슬라이드가 기존 상태에서 변경된다 
+	if(slideIndex == 3) slideIndex = 0;
+	// index=3(4번째) 3번째 슬라이드에서 오른쪽 화살표 누르면 다시 첫번째 이미지를 보여줌
+	else if(slideIndex == -1) slideIndex = 2; 
+	// index=0 for 첫번째 슬라이드에서 왼쪽 화살표 누르면 다시 마지막 이미지를 보여줌 
+	
+	showSlides(slideIndex); 	
+	// 그렇게 구한 슬라이드 인덱스를 슬라이드 넘기는 함수에 넣어준다
+}
+
+/* <div class="dots" style="text-align:center">
+<span class="dot" onclick="dotSlide(0)"></span>
+<span class="dot"  onclick="dotSlide(1)"></span>
+<span class="dot" onclick="dotSlide(2)"></span>
+</div> */
+
+// 2)  ooo 
+function dotSlide(value) {
+	// 첫번때 도트 누르면 0을, 두번째 도트 누르면 1을, 세번째 도트 누르면 2를 반환해줌
+	slideIndex = value; 
+	// 그 값을 그대로 slideIndex에 대입 (첫번째도트 - 첫번째 슬라이드, 두번째도트 - 두번째 슬라이드)
+	showSlides(slideIndex); 
+	// 그렇게 구한 슬라이드 인덱스 슲라이드 페이지 넘기는 함수에 매개변수로 대입 
+}
+
+
+</script>
+</body>
+</html>

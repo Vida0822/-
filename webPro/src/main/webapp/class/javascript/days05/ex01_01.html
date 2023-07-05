@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>2023. 5. 3. 오전 7:27:01</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+<pre>
+  [js 문자열 - 메서드, 템플릿] ***
+  1. js 문자열     '문자열' ,   "문자열"
+</pre>
+
+<p id="demo"></p>
+
+<script>
+    let str = "hello\n \"world\"~";
+    // 1. 문자열 길이
+    // alert(  str.length  );  // 12
+    
+    // 2. 이스케이프 문자   \"   \'   \\
+    //                                 \n  \r  \b 등등
+    // alert( str );
+    // 80자 이상의  긴 문자열일 경우에는 중간에 끊고 싶다면 
+    //document.getElementById("demo").innerHTML = "hello \
+    //world~";
+    document.getElementById("demo").innerHTML = "hello "
+     +"world~";
+    
+    // 3. 성능 저하( 권장하지 않는다. )
+    // let str2 = new String("hello world~");
+    // let str3 = new String("hello world~");
+    // alert( str2 === str3 );  // 항상 false
+    
+    // 4. js 두 문자열을 비교할때      :   ==              ===
+    //    java 두 문자열을 비교할 때  :   == X  equals() 
+    let a = "xy";   //  alert( typeof a );  string
+    let b = "xy";   //  alert( typeof b );  string
+    // alert( a == b );  // true
+    // alert( a === b );  // true   + type 일치
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

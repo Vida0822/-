@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+div {
+	width: 100px;
+	height: 100px;
+	background: red;
+	
+	/* 약식 animation:sample 4s linear 3s 3 alternate; */
+	animation-name: sample;
+	animation-duration: 4s;
+	animation-timing-function: linear;
+	animation-iteration-count: 3;
+	/* animation-iteration-count: infinite; */
+	animation-direction: alternate; /* normal, reverse */
+	/* 애니메이션 시작 전, 종료 후 요소의 스타일 */
+	/* 
+	forwards 마지막 키프레임 스타일 유지
+	backwards 시작 키프레임 스타일 유지
+	both, none
+	*/
+	animation-fill-mode: backwards;
+	position: relative;
+}
+
+@keyframes sample {
+	/* 
+	from { background-color: red; }
+	to { background-color: yellow; }
+	*/
+	0% {background-color: red;  left:0 ; top:0; }
+    25% {background-color: green;  left:200px ; top:0; }
+    50% {background-color: blue;  left:200px ; top:200px; }
+    75% {background-color: yellow;  left:0 ; top:200px; }
+    100% {background-color: red;  left:0 ; top:0;}
+}
+</style>
+</head>
+<body>
+<h3>css 애니메이션</h3>
+<pre>
+js 또는 Flash를 사용하지 않고도 html 요소의 애니메이션 처리 가능
+- 애니메이션 : 하나의 스타일에서 다른 스타일로 점차 변환되는 것
+- css 속성
+  @keyframes
+  animation-name
+  animation-duration
+  animation-iteration-count
+  animation-direction
+  animation-timing-function
+  animation-fill-mode
+  animation 약식
+  
+  - 키프레임(keyframe)
+    특정 시간에 가지는 요소의 스타일
+    키프+키프+키프+키프+키프+...
+</pre>
+
+<div></div>
+</body>
+</html>

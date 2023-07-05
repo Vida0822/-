@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<pre>
+[js Object(객체, 개체)]
+1. js의 객체는 기본형을 제외한 모두가 js 객체이다! 
+2. js 기본형 ? string , number,  boolean, null, undefined, bigInt 
+3. js 객체 ? object , array , function / new String() , new Number() , new Date(), new Boolean / Math 등등 
+4. js 배열 []
+5. js 객체 {} -> js 객체도 변수로 받을 수 있다.  
+ex) let person = {name : "홍길동", age : 20} ; 
+	ㄴ name, age -> 객체의 속성 / info : function(){} -> 객체의 메서드   
+	
+	/*위랑 같은 코딩 */ 
+const person = {};  // 객체만 먼저 생성 
+// (같음) const person = new Object(); 
+ person.name = "홍길동"; // 생성 후 속성 추가 
+ person.age = 20; 
+
+// person 객체가 이미 존재할 때 새로운 속성을 지정하기 	 
+
+</pre>
+
+<script>
+const person = {
+		name : "admin",
+		age : 20 , 		
+		
+		// 메서드
+		print:function () {
+			return this.name +"/"+this.age; 
+		}
+};
+// 이렇게 이미 존재하는 person객체에 성별을 추가하고 시음 
+person.gender=true; // 그냥 이렇게 바로 써주면 추가됨 .. 
+console.log(person.gender);
+console.log(person["gender"]);
+
+// person 객체에 age 속성을 제거 (삭제)
+delete person.age ; 
+console.log(person.age); // undefined
+
+// 객체의 print() 메서드 호출 
+console.log(person.print());   // admin/undefined
+
+console.log(person.print ) 
+/* ƒ () {
+			return this.name +"/"+this.age; 
+		}
+	*/ 
+// ※ person.print -> 객체 내 메서드의 정의가 반환된다 
+
+// 객체에 새로운 메서드를 추가
+person.print2 = function() {
+	return this.name +"//"+this.age; 
+}
+person.print2(); 
+
+// 모든 속성명을 출력
+for ( var p in person) {
+	console.log(p+"/"+person[p]);
+}
+</script>
+</body>
+</html>

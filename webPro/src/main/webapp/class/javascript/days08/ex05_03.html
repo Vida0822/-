@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<button> counter 증가 </button>
+<p id= "demo"></p>
+
+<script>
+// [ js의 중첩함수 이해 ] (중첩함수 : 함수  안의 함수 )
+// 1. 모든 함수에서 전역 범위의 변수에 접근할 수 있다 : 바깥에 선언되어 있으니까...
+// 2. js에서 모든 함수가 상위 범위에 접근할 수 있다 
+//		-> 함수1 {지역변수a : 함수2 (){}   }  : 함수2 -> 지역변수 a에 접근가능 
+
+function add() {
+	let counter = 0;  // 지역변수 
+	function plus() { // 중첩함수 
+		counter += 1; 	
+	}
+	plus(); //중첩함수 호출
+	return counter; 
+}// add 
+
+$("#demo").html(add()); 
+
+// [문제]  add()를 호출해서 plus() 실행해서 1증가 
+// 			-> add() 없이 plus()를 실행 
+
+/* 버튼을 누를때 지역변수가 계속 초기화되는 add()를 사용하는게 아니라 
+(여기서 add()를 못쓰게 막기 때문에 함수 '클로저'인거임)
+그 안에 있는 plus() ,즉 중첩함수를 호출해 
+add()의 지역변수는 한번만 값이 초기화되고 그 이후 값이 쌓이도록 함 
+ */
+</script>
+
+
+<body>
+<button> counter 증가 </button>
+<p id= "demo"></p>
+
+<script>
+// add() x -> plus() 중첩함수 호출 + 자체호출함수 사용 
+// 바깥에선 그 변수에 접근 못하고 함수 안의 중첩함수로만 접근할 수 있음 
+
+var plus = (
+	function() { //  <- add( )
+		let counter = 0;
+		// 지역변수  -> 접근할 수 없음 ('폐쇄') ! 
+		// 하지만 전역변수 역할을 한다 (함수가 끝나도 살아있는 변수로서 기능한다 )
+		return function() { // 중첩함수 <- plus( )
+			counter +=1 ; 
+			return counter ; 
+		}; 
+	}
+)(); 
+
+// 여기서 plus 는 자체함수가 아니라 그 리턴값인 중첩함수이다
+// : plus 에 담기는 함수가 return 뒤의 function()이기 때문에 그 변수를 함수로써 호출하면 그 안에있는 중첩함수를 사용한다
+// => 근데 이때 자체호출함수 안의 지역변수는 중첩함수에서 접근할 수 있기 때문에 그 지역변수를 전역변수로 사용할 수 있음 
+$("button").on("click", function() {
+	$("#demo").html(plus()); 
+});
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

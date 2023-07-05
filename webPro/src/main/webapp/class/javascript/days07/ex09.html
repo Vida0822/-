@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<h3> js 호이스팅(hosting )</h3>
+
+
+<script>
+
+x=5; // 값 대입
+console.log(x); // 5 
+// 1. 변수를 선언되기 전에 사용할 수 있다 
+// 2. 이유? 호이스팅 (hosting) : 모든 선언을 현재 범위의 맨위로 이동하는 js 기본동작(처리)를 호이스팅이라고 한다 
+
+
+var x; // 변수선언 -> 자동으로 블럭의 맨 위로 올라감 
+
+try {
+	y="hong"; 
+	console.log(y);
+	//let y; 
+	 // Cannot access 'y' before initialization -> 호이스팅이 적용되면 여기서 오류가 안되야하는데 
+	// 이유 : 코드블럭 {} 을 주게되면 맨 위로 호이스팅은 되지만 선언구문이 올때까지는 사용할 수 없다 
+	const y ; 
+	
+} catch (e) {
+	console.log(e); 
+}
+
+</script>
+</body>
+</html>

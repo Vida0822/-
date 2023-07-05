@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+<pre>
+1. CSS
+	1) Cascading Style Sheets 약어
+        계단식
+        떨어뜨리다
+        작은폭포
+        단계적으로 행하다
+	2) html 문서 + 스타일 지정하는 데 사용되는 언어
+	3) 많은 작업(유지 보수) 절약
+	4) 여러 웹 패이지의 스타일 일괄적으로 관리할 수 있다
+	5) 외부 스타일 시트(.css) 사용
+         ㄴ 장점 : 여러페이지(전체 웹 사이트)에  적용
+       외부 자바스크립트 파일(.js)사용
+	6) 다양한 장치의 회면크기, 레이아웃 및 변경 등등
+      - css적용
+      - 화면 스타일 적용
+      - 인쇄 스타일 적용
+      - 미디어에 스타일 적용
+
+2. CSS 구문 형식
+	스타일을 적용할 대상 {
+	( 선택자, selector )
+	
+		적용할 스타일
+		속성명: 속성값;
+		속성명: 속성값;
+			  :
+	}
+	(주의) html의 속성은 단위를 생략하면 기본단위 px
+	       css의 속성은 단위를 생략하면 적용되지 않는다
+	       ( 속성값이 0일 때는 단위 생략 가능 )
+	       
+3. jquery, [css]의 selector(선택자) ex02.html
+	1) 태그명, #ID, .클래스명
+	   ID명은 숫자로 시작 X
+	2) 요소들 간의 특정 관계 ex03.html
+	3) 의사 클래스( 특정 상태 기반 요소 )
+	   :의사 클래스명
+	4) 의사 요소( 요소의 일부 선택 및 스타일 지정 )
+	   ::의사 요소
+	   #section::after {
+	   	clear: both;
+	   	display: table;
+	   	content: "";
+	   }
+	5) 속성
+	   [속성명=속성값]
+	   [속성명*=속성값]
+	   [속성명|=속성값]
+	   [속성명^=속성값]
+	   [속성명$=속성값]
+	   [속성명~=속성값]
+	
+4. CSS 적용하는 3가지 방법
+	1) 외부 css 적용방법 ex02_style.css
+	2) 내부(internal) css 적용방법 - head>style
+	3) 인라인 css 적용방법
+
+5. html 주석처리 <!--  -->
+   css 주석처리 /*  */
+   js 주석처리 //	/*  */
+</pre>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+  div{
+    width:100px;
+    height:100px;
+    position: absolute;    /* 위치 이동 */
+    background-color: aqua;   
+  }
+</style>
+</head>
+<body>
+
+<h3> ex04_03 </h3>
+
+<pre>
+	jquery의 animate() 메서드는 대기열(큐) 기능과 함께 사용할 수 있다 
+	 
+	대기열(큐)?  
+	
+	[A , B , C, D,E] 대기중... => 줄 서있으면 누구부터? A부터!
+	ㄴ 대기열(큐)기능 : 담아둔 '순서대로' 데이터를 처리한다 
+		※ 동시에 xx ! 
+		
+	<button>Run</button>
+	<div>Sample</div>
+	
+	<script>
+	$("button").on("click", function() {
+		$("div") // 체이닝
+			.animate({ height: "300px", opacity:"0.4" }, "slow") // 높이 up aniA
+			.animate({ width: "300px", opacity:"0.8" }, "slow")  // 너비 up anib
+			.animate({ height: "100px", opacity:"0.4" }, "slow")   // 높이 down aniA
+			.animate({ width: "100px", opacity:"0.8" }, "slow")  // 너비 down anib
+			// .animate({ font-size:"3em" }, "slow");  => -(바) 때문에 에러 
+			// .animate({ "font-size":"3em" }, "slow")  // 해결1) 
+			.animate({ "fontSize":"3em" }, "slow");  // 해결2) 
+	})
+
+	
+	</script>
+	
+	
+</pre>
+</body>
+</html>

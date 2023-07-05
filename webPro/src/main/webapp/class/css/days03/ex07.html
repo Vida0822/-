@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+/* p::first-letter { */ /* 첫번째 문자 */
+p::first-line { /* 첫번째 라인 */
+	color: red;
+	font-variant: small-caps;
+}
+
+h3::before { /* 요소의 content(내용) 앞에 일부 내용을 삽입 */
+	content: url("../images/arr.gif");
+}
+
+h3::after { /* 요소의 content(내용) 뒤에 일부 내용을 삽입 */
+	content: url("../images/arr.gif");
+}
+
+::selection { /* 선택된 영역 */
+	color: red;
+	background-color: yellow;
+}
+</style>
+</head>
+<body>
+<h3>Lorem ipsum dolor sit amet.</h3>
+<pre>
+:의사 클래스 - 요소의 특정 상태
+[::의사요소] - 요소의 "지정된 부분"에 스타일 지정
+선택자(selector)::의사요소 {
+	속성명: 속성값;
+	속성명: 속성값;
+		  :
+}
+1)
+2)
+  :
+</pre>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta sunt expedita fugit suscipit tempore animi consequatur architecto deleniti distinctio temporibus hic illo labore quibusdam cumque voluptatem mollitia nihil voluptate incidunt!</p>
+</body>
+</html>

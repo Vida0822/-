@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+<pre>
+	[js getter , setter] (ES6~) 
+</pre>
+<script>
+let person = {
+	firstname : "john",
+	lastname : "Doe",
+	language : "kr",
+	
+	
+	
+	set lang(lang) {
+		this.language = lang.toUpperCase(); 
+	},
+
+	get lang() {
+		return this.language
+	}
+}
+
+//person.language = "en"; 
+console.log(person.language);  // en 
+
+// 근데! language는 반드시 대문자만 저장되도록 하고 싶음 (원하는 데이터만 집어넣고 싶음)
+//  => set함수를 통해서만 저장되도록! (line 20 )
+//  -> 객체의 속성값에 바로 접근하는 것이 아닌 객체의 메서드에 접근하는 것
+
+person.lang("en"); 
+console.log(person.language) ; // EN 
+console.log(person.lang()); 
+
+
+
+
+
+</script>
+
+</body>
+</html>

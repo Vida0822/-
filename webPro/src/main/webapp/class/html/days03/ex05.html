@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<style>
+body {
+	margin: 0;
+	padding: 0; /* 값이 0일 때는 단위를 붙이지 않아도 된다 */
+}
+
+ul {
+	border: 1px solid gray;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	background-color: #333;
+	overflow: hidden;
+}
+/* a 태그 : 인라인모드 */
+ul li a {
+	color: white;
+	/* border: solid 1px red; */
+	display: block;
+	text-align: center;
+	padding: 16px;
+	text-decoration: none;
+}
+
+ul li a:hover {
+	background-color: #111;
+	color: orange;
+}
+
+ul li:nth-child(1) {
+	background-color: red;
+}
+
+ul li {
+	float: left;
+}
+</style>
+</head>
+<body>
+
+	<!-- ul>li*4>a[href=#] -->
+	<ul>
+		<li><a href="#">Home</a></li>
+		<li><a href="#">News</a></li>
+		<li><a href="#">Contact</a></li>
+		<li><a href="#">About</a></li>
+	</ul>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+/* 
+p#demo:hover {
+	color: red;
+	font-size: 35px;
+	border: 1px solid gray;
+}
+*/
+.demostyle {
+	color: red;
+	font-size: 35px;
+	border: 1px solid gray;
+}
+</style>
+</head>
+<body>
+<h3>ex01_03.html</h3>
+
+<p id="demo">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo quo aperiam voluptate similique blanditiis quod accusamus ducimus fuga inventore impedit modi eos quam incidunt mollitia perspiciatis voluptatibus perferendis dolor deserunt?</p>
+
+<script>
+// demo
+// 1. 글색상
+// 2. 글크기
+// 3. 테두리
+// document.getElementById("demo")
+var pdemo = document.querySelector("#demo");
+pdemo.onmouseover = function() {
+	// alert("test");
+	// event.srcElement
+	/* 1번 
+	this.style.color = "red";
+	this.style.fontSize = "35px";
+	this.style.border = "1px solid gray";
+	*/
+	// 2번
+	// js로 class="demostyle" 추가
+	// this.className = "demostyle";
+	this.classList.add("demostyle");
+	
+	// 3번
+	// this.setAttribute(속성명,속성값);
+	this.setAttribute("class","demostyle");
+	// this.getAttribute("속성명");
+};
+</script>
+</body>
+</html>

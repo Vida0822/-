@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<h3> js - 제어문 </h3>
+<pre>
+1. if 
+2. switch + break 
+3. for / forEach 
+4. while / do~while 
+</pre>
+
+정수 : 
+<input type ="text" id="n"> 
+<br>
+<p id="demo"></p>
+
+<script>
+// $("#n").keydown(function() {
+	// null , undefinded , false --> 0
+	// 리터럴 -> 상수 '값'임 // undefinded 는 진짜로 아무 값이 없는것 
+
+ 	if(event.which == 13){
+			let num = $("input[type=text]").val(); 
+			//console.log(num);
+			alert(typeof num);
+			if (num%2==1){
+				alert("홀수입니다")
+			}else if(num%2==0){
+				alert("짝수입니다")
+			}else if (Number.isInteger(num) && !(num.inNaN) ){
+			// }else if (Number.isInteger(num) && (typeof num!="undefined") ){
+				alert("잘못된 입력값 입니다")
+		} 
+	} 
+	
+/* 	if(event.which == 13){
+		if(!$(this).val().trim()) {  // 빈공간이면 false가 나온다느널 이해해야함
+		// js 정규표현식   /^\d+$/ -> text 
+		// 짝수, 홀수 진행
+		}
+		// switch(n%2) 도 가능
+		
+	}
+}) */
+
+// for 
+
+$("#n").keydown(function() {
+	if(event.which == 13){
+		let sum = 0; 
+		let content = ""; 
+		for (var i = 1; i <= $(this).val(); i++) {
+			sum += i; 
+			content += i+"+"; 
+		}
+		content = content.substr(0,content.lastIndexOf("+"))
+		$("#demo").html(content+"="+sum); 
+	}
+});
+
+// while 
+	while(i<=10){
+		content += i+"+";
+		sum += i; 
+		i++ ; 
+	}
+</script>
+
+<script>
+// break문  -> label명이 들어갈 수 있다 
+// continue문 -> label명이 들어갈 수 있다
+const cars = ["bmw", "volvo", "saab", "ford"];
+
+OUT: 
+{
+	console.log(cars[0]);	
+	console.log(cars[1]);	
+	break OUT; 
+	console.log(cars[2]);	
+	console.log(cars[3]);	
+}
+for (var i = 0; i < cars.length; i++) {
+	OUT: if(i==3) break OUT;
+	console.log(cars[i]); 
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+p:first-child { /* body / div 태그의 첫자식이 p이면 */
+	color: blue;
+}
+
+p:first-of-type { /* body / div 태그의 자식 p중 첫자식 */
+	color: blue;
+}
+
+p:last-child { /* body / div 태그의 마지막자식이 p이면 */
+	color: red;
+}
+
+p:last-of-type { /* body / div 태그의 자식 p중 마지막자식 */
+	color: red;
+}
+
+p:nth-child(2) { /* body / div 태그의 두번째자식이 p이면 */
+	background-color: yellow;
+}
+
+p:nth-of-type(2) { /* body / div 태그의 자식 p중 두번째자식 */
+	background-color: green;
+}
+
+p:nth-last-child(2) { /* body / div 태그의 뒤에서 두번째자식이 p이면 */
+	
+}
+
+p:nth-last-of-type(2) { /* body / div 태그의 자식 p중 뒤에서 두번째자식 */
+	
+}
+</style>
+</head>
+<body>
+<div>first-div</div>
+<div>second-div</div>
+
+<p>Lorem ipsum dolor sit amet.</p>
+<p>Doloremque ab rem totam nam.</p>
+
+<div>
+	<span>111</span>
+	<p>Magni repudiandae debitis optio aspernatur.</p>
+	<p>Ipsa saepe quam cumque perferendis!</p>
+	<span>999</span>
+</div>
+
+<p>Unde ea earum ipsa fugit.</p>
+
+<div>last-div</div>
+</body>
+</html>

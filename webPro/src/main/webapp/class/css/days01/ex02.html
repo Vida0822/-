@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<!-- 외부 CSS 적용방법 -->
+<link href="ex02_style.css" rel="stylesheet">
+<style>
+/* 내부 CSS 적용방법 */
+#hthree { /* #아이디명 */
+	color: blue;
+	text-align: center;
+	border: 1px solid gray;
+}
+
+.first { /* .클래스명 */
+	background-color: yellow;
+}
+
+p.first { /* 태그점수 + 클래스명점수 */
+	background-color: blue;
+}
+
+p { /* 태그명 */
+	color: blue;
+}
+
+p { /* 태그명 */ /* 덮어쓰기 */
+	color: red;
+}
+
+.box {
+	border: 2px solid gray;
+}
+</style>
+<style>
+* { /* 웹 페이지의 모든 html 요소를 선택 : 범용 선택자 */
+	padding: 0;
+	margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 { /* 그룹화 선택자 */
+	border: 1px solid gray;
+}
+</style>
+</head>
+<body>
+<!-- h$*6>{Hello World} -->
+<h1 class="first">Hello World</h1>
+<!-- 인라인 CSS 적용방법( 우선 ) -->
+<h2 style="color: gray;">Hello World</h2>
+<h3 id="hthree">Hello World</h3>
+<h4>Hello World</h4>
+<h5 class="box">Hello World</h5>
+<h6>Hello World</h6>
+
+<!-- p>h1>lorem3 -->
+<p>
+	<h1>Lorem ipsum dolor.</h1>
+</p>
+
+<!-- p*5>lorem7 -->
+<p class="first">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+<p>Aperiam placeat aspernatur ipsa quae eum. Iusto.</p>
+<p>Quibusdam iure temporibus asperiores odio magnam natus!</p>
+<p class="box">Sapiente excepturi mollitia numquam obcaecati labore eum!</p>
+<p>Porro quod eaque fugiat ducimus doloremque assumenda.</p>
+
+<!-- div*5>lorem5 -->
+<div class="first box">Lorem ipsum dolor sit amet.</div>
+<div>Sapiente dolorum beatae facere illo.</div>
+<div>Sapiente architecto voluptates dignissimos aspernatur.</div>
+<div>Vel officia excepturi voluptatem labore.</div>
+<div>Dolor eaque neque aperiam architecto!</div>
+</body>
+</html>

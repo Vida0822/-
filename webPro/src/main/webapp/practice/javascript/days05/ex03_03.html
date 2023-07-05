@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+팀원입력 : 
+<input type ="text" value = "탁인역, 설경인, 이예진, 신희민, 윤재민 , 홍성철, 박진용">
+<!--  텍스트 박스 입력란을 만들고 기본적으로 나타날 값으로 탁인혁~박진용 설정  -->
+
+<p id="demo">
+<!--  키보드 눌렸을 때 출력값 넣을 p태그  -->
+
+<script>
+	document.querySelector("input[type=text]").onkeydown= function() {
+		// 텍스트 박스인 입력란 요소를 가져와 거기에 키보드를 누르는 이벤트 발생시, 익명함수 실행
+		// 키보드 아무거나 누를때마다 이 함수가 매번 실행되고 있는거임 
+		
+		if( event.keyCode==13){
+			// 만약 그렇게 치다가 입력된 값이 'enter'라면 (본격적인 함수 실행)
+			
+			const tlist = this.value.split(/\s*,\s*/); 
+			let content = "<h3> 1조 팀원 </h3>"; 
+			
+			content +="<ul><li>"; 
+			// <ul>
+			//		<li> 
+			content += tlist.join("</li><li>"); 
+			// tlist에 담긴 배열 요소들을 다 연결하는데, 그 연결할때마다 구분기호 </li><li> 삽입 
+			//				탁인역 </li>
+			//		<li> 설경인 </li>
+			//		</li> 박진용 					
+			content += "</li></ul>";
+			// 반복이 끝나면 ul 태그 닫아주기 
+			//						</li>
+			// </ul>
+			document.getElementById("demo").innerHTML = content; 
+			// 그렇게 완성된 html 텍스트를 html 서식 적용하여 id=demo인 p 태그에 출력
+		}
+	}
+	</script>
+</body>
+</html>

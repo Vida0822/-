@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+  
+  open() , close() : 새창열기, 창닫기 
+  <br> 
+  
+<button onclick="windowOpen()"> 새창 열기 </button>
+<button onclick="windowClose()"> 창 닫기 </button>
+
+<script>
+let handle; 
+function windowOpen() {
+	const windowFeatures = "left=100,top=100,width=600,height=500";
+	 handle = window.open(
+	  "ex05_03.html",
+	  "pop",
+	  windowFeatures
+	);
+}
+
+function windowClose() {
+	handle.close(); 
+}
+
+// ※ 새창열기는 여러번 누르면 누르는대로 창 뜸 vs 창 닫기는 한번밖에 안됨 
+
+</script>
+</body>
+</html>

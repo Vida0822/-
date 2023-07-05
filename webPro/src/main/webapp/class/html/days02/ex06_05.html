@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ex06_05.html</title>
+</head>
+<body>
+	<!-- 다른 페이지의 책갈피에 대한 링크도 구현 가능 -->
+	<a href="ex06_04.html#top">ex06_04.html의 html 책갈피로 이동</a>
+
+	<hr>
+	<!-- 
+a 링크 태그로 가능
+ 1) 다른 문서로 링크
+ 2) 책갈피 기능
+ 3) javascript 처리
+ -->
+	<a href="javascript:window.alert('경고창')">js 경고창 띄우기</a>
+	<br>
+
+	<!-- 
+1. 방문한 링크 텍스트 : 보라색 + 밑줄
+2. 방문하지 않은 링크 텍스트 : 파랑색 + 밑줄
+3. Active(활성화) 링크 텍스트 : 빨강색 + 밑줄
+
+href 속성 : 링크의 목적지(target)
+ -->
+
+	<hr>
+	<!-- (기본) target="_self" 기존창(윈도우) -->
+	<a href="http://www.naver.com" target="_self">naver</a>
+	<br>
+	<!-- target="_blank" 새창(윈도우) -->
+	<a href="http://www.daum.net" title="다음" target="_blank">daum</a>
+	<br>
+	<!-- _parent, _top, 프레임name -->
+	<a href="http://www.sist.co.kr">sist</a>
+	<br>
+</body>
+</html>

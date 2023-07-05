@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+input[name=search] {
+	width: 30%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	
+	background: white url('../images/searchicon.png') no-repeat 10px center;
+	
+	padding-left: 40px;
+	
+	/* width: 30% -> 100% 부드럽게 전환 */
+	transition: width 0.5s ease;
+}
+
+input[name=search]:hover {
+	width: 100%;
+}
+</style>
+</head>
+<body>
+<form action="">
+	<input type="text" name="search" value="Search...">
+</form>
+</body>
+</html>

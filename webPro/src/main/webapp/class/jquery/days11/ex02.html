@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<script>
+/* 	$("p").click(function() {
+		/* "p" : jquery selector
+		click : action  
+	}) */
+	
+	//document 객체 로딩되어서 준비가 완료되었을 때 이 함수 호출 
+/* 	$(document).ready(function() {
+		$("p")
+			.css({
+				"border":"1px solid gray",
+				"padding":"10px"
+			})
+			.on("click", function() {
+				$(this).hide(1000);
+			}) ;     
+	}) */
+//	이거랑 똑같음 
+	$(function() { // 객체 로딩이 되어서 준비 완료했을때 
+		// 이거 안되던 이유 못들음....???????????????=> 암튼 이거 꼭 써주기... 
+		$("p")
+		.css({
+			"border":"1px solid gray",
+			"padding":"10px"
+		})
+		.on("click", function() {
+			$(this).hide(1000);
+		}) ;   
+	})
+
+</script>
+</head>
+
+<body>
+
+<p>Lorem ipsum dolor sit amet.</p>
+<p>Illo nam amet rem animi.</p>
+<p>Alias eius voluptate doloribus laudantium.</p>
+<p>Dolor quis laudantium ratione quaerat?</p>
+<p>Enim nam ipsam minus praesentium!</p>
+<p>Architecto aliquam inventore minus iure?</p>
+<p>Repellendus vitae quisquam laudantium iure!</p>
+<p>Quidem nobis rem tenetur ullam?</p>
+<p>Quo necessitatibus similique quos pariatur.</p>
+<p>Perspiciatis alias cumque inventore iste!</p>
+
+
+</body>
+</html>

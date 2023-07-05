@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<h3> ex02_02 html </h3>
+
+<pre>
+쿠키 생성, 수정, 삭제, 조회(확인) 
+
+document.cookie 객체 
+</pre>
+
+쿠키이름: <input type = "text" id="cookieName"><br>
+쿠키 값 :  <input type = "text" id="cookieValue"><br> 
+
+<br>
+
+<button onclick="setCookie()">쿠키생성</button>
+<button onclick="getAllCookie()">모든쿠키확인</button>
+<button onclick="getCookie()">쿠키확인</button>
+<button onclick="delCookie()">쿠키삭제</button>
+
+
+<p id="demo"> </p>
+
+
+<script>
+// 쿠키 생성 
+function setCookie() {
+	let cName = document.getElementById("cookieName").value; 
+	let cValue= document.getElementById("cookieValue").value; 
+
+	// ※ 쿠키값은 한글을 저장하지 못한다 => escape() 함수로 변환을 시켜 저장한다
+	alert(escape(cValue)); // %uD64D%uAE38%uB3D9
+	// 다시 그값 가져올땐 unescape() 
+	
+	//오늘부터 10일동안 쿠키 저장 유지 
+	let now = new Date(); 
+	now.setDate(now.getDate()+10); // now = 10일후 날짜객체 
+	let expire = now.toUTCString(); //?
+	
+	// 쿠키를 생성하는 코딩 
+	document.cookie = `${cName}=${cValue}; expires=${expire}`;
+	
+	cName = document.getElementById("cookieName").value =""; 
+	cValue= document.getElementById("cookieValue").value=""; 
+	
+}
+// 쿠키조회 
+function getAllCookie() {
+	// 쿠키를 읽어오는 코딩 
+	let cookies = document.cookie ; 
+	document.getElementById("demo").innerHTML = cookies+"<br>"; 
+}
+
+//chrome://settings/cookies?search=%EC%BF%A0%ED%82%A4
+
+// 쿠키확인 : 개발자도구 - Application - Cookies 
+// 파일 이동해도 쿠키 계속 따라옴 
+// path =/ : 로컬호스트 밑에 모든 요청 url이 ?????
+	
+	//	name = 쿠키값;_expires=날짜;_path=~~days10;_domain=도메인명;_secure
+// => days10 : days10일 폴더에서 어떤 파일을 이동하더라도 쿠키 따라다님 <-> days09는 안댐
+
+
+// 쿠키수정 :  같은 이름으로 쿠키 다시 생성 <-> 옛날거 삭제하고 다시 만드는거  
+
+function getCookie() {
+	// "color=red; auth=admin; fontSize=22" 로 수정 
+	// "color" "red"
+	// "auth" "admin"
+	// "fontSize" "22"
+	
+	// 쿠키이름을 입력하면 그 값을 받아오는 함수 구현 
+	let cName = document.getElementById("cookieName").value; 
+	let cValue; 
+	let cookies = document.cookie; 	
+	let cookieArr = cookies.split(/;\s/); // ; + 공백으로 자름 
+	// console.log(cookieArr);
+	
+	cookieArr.forEach(function(elt, i, array) {
+		// for문 그냥쓰면 [] [] 로 써줘야하니까 제발 forEach문좀 연습해.... 
+		let cnv = elt.split("=");
+		if(cnv[0] == cName){
+			cValue = unescape( cnv[1]) ;// 한글일 경우 다시 변환시켜주는 작업 필요  
+			// break;  
+			// Uncaught SyntaxError: Illegal break statement 
+			// forEach()는 중간에 break문으로 나올 수 없음 ! (구글링... )
+			// => for문이 나음 (중간에 끊고 나올 수 있으니끼ㅏ )
+		}
+	})// foreach 
+	
+	if(cValue){
+		 document.getElementById("cookieValue").value = cValue; 
+	}else{ 
+		// undefined = false 
+		alert("쿠키가 없습니당"); 
+		// 이거만 계쏙 나옴 ㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠ
+	}
+} // getCookie()
+
+
+// 쿠키 삭제  : 만료시점을 과거로 설정 
+function delCookie() {
+	let cName = document.getElementById("cookieName").value; 
+
+	let now = new Date(); 
+	now.setDate(now.getDate()-10); 
+	// now = 10일전 날짜객체 (현재 날짜를 넣어주면 무조건 과거)
+	let expire = now.toUTCString(); //?
+	
+	// 쿠키를 생성하는 코딩 
+	document.cookie = `${cName}=; expires=${expire}`;
+	
+	cName = document.getElementById("cookieName").value =""; 
+	cValue= document.getElementById("cookieValue").value=""; 
+	
+	getAllCookie() ; // 삭제한거 바로 보여주기 위해 있음 
+	
+	// 없는 쿠키를 입력했는지 확인하는 작업 필요 (각자)
+} // delCookie
+
+// cookie.js
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

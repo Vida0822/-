@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>2023. 5. 3. 오후 2:26:27</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+<pre>
+  [ js 배열(array)]
+  1. 배열 개념 : 둘 이상의 값을 보유할 수 있는 특수한 변수.
+  2. 배열 사용 목적
+  3. 배열 선언 형식
+     자바 :   int [] m = new int[3];
+                 m[0] = 1;
+                 m[1] = 2;
+     배열 초기화    int [] m =    { 1, 2 };         
+     js     :   var n = [];
+                  n[0] = 1;
+                  n[1] = 2;
+       배열 초기화  var n  =    [ 1, 2 ]; 
+       
+    3-2. js 배열 선언 2번째 형식
+    var n = new Array();  ==      var n = []; (권장)
+    var n = new Array(1,2) ==   var n  =  [ 1, 2 ](권장);
+    
+    4. 배열 선언할 때 키워드는   let, var, [const ] 권장
+     
+</pre>
+<script>
+      // [ js  배열의 크기 ]
+      const m = [1,2];
+      console.log(  m[0] ); // 1
+      console.log(  m[1] );  // 2
+      // console.log(  m[2] );  // undefined      
+      m[2] = 100;
+      m[3] = 200;
+      m[10] = 400;
+      
+      console.log(  m[2] ); // 100
+      console.log(  m[3] );  // 200
+      console.log(  m[4] );  // undefined
+      console.log(  m[10] );  // 400
+      
+      // alert( typeof   m );  // object
+      // 배열은 객체이다. 
+      const person = { 
+    		                           name:"홍길동"
+    		                           , age:20
+    		                      };
+      console.log(  person.name  );
+      console.log(  person["name"]  );
+      
+      // 1. 배열의 크기 
+      alert(   m.length ); // 11
+      
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

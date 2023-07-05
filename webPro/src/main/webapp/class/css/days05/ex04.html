@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+.flex-container {
+	background-color: #f1f1f1;
+	
+	display: flex;
+	/* align-items: stretch; 플렉스 항목 style="order:숫자" 순서대로 정렬 */
+}
+
+.flex-container > div {
+	background-color: DodgerBlue;
+	color: white;
+	width: 100px;
+	margin: 10px;
+	text-align: center;
+	line-height: 75px;
+	font-size: 30px;
+}
+</style>
+</head>
+<body>
+<pre>
+[플렉스 항목(item) 속성]
+1. order 순서 				ex04.html
+2. flex-grow 커지는 속성	ex04_02.html
+3. flex-shrink 				ex04_03.html
+4. flex-basis
+5. flex
+6. align-self 				ex04_04.html
+</pre>
+
+<div class="flex-container">
+	<div style="order:3">1</div>
+	<div style="order:2">2</div>
+	<div style="order:4">3</div>
+	<div style="order:1">4</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<input type="date" id = "birth">
+ <br>
+ <input type="radio" name = "age" value = "1" id="a_age" checked="checked"> 만 나이  
+ <br>
+ <input type="radio" name = "age" value = "0" id="k_age"> 세는 나이  
+ <br>
+ <br>
+ 
+ <button> 나이 계산 </button>
+ <p id = "demo"></p>
+
+<script>
+$("button").on("click", function() {
+	let birth = $("#birth").val(); 
+ 	// $("#demo").html(birth); 
+ 	
+  	// 만나이 = 올해년도 - 생일년도 -1 (생일 지났는지 여부) 
+ 	// 세는나이 = 올해년도 - 생일년도 + 1 
+ 	
+ 	const b = new Date(birth); 
+ 	console.log(b.toLocaleString()); // 1999. 9. 2. 오전 9:00:00
+ 	const t = new Date(2023,5-1,4,9,0,0,0); 
+ 	console.log(t.toLocaleString());  
+  	
+ 	const byear = b.getFullYear();
+ 	const tyear = t.getFullYear();
+  	
+ 	let content = ""; 
+ 	let age = 0; 
+	// if("#a_age:checked"){ 이거 왜 안되지~~!!???  요소 $로 안묶어줌!!!!!!!!!! 
+ 	if($("#a_age").prop("checked")){
+ 		age = tyear - byear  // 생일 지남 여부 코딩 추가 
+ 		content+=`만 나이 :${age}살`; 
+ 	
+ 	}else{
+ 		age = tyear - byear + 1; 
+ 		content+=`세는 나이 :${age}살` ; 
+ 	}
+ 	 $("#demo").html(content); 
+}) ;
+</script>
+</body>
+</html>

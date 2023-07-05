@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<h3> ex02_08 </h3>
+
+<button class = "btn1"> change color </button>
+
+<div>Div 1</div>
+<div>Div 2</div>
+<div>Div 3</div>
+
+
+<script>
+$("div:first-of-type").css("background-color", "red")
+// first-child x 
+// $("div:eq(1)").css("background-color", "green")
+$("div:nth-of-type(2)").css("background-color", "green")
+$("div:last-of-type").css("background-color", "blue")
+
+function aniDiv() {
+	$("div:eq(0)")
+		.animate({width:"50%"},"slow")
+		.animate({width:"100%"},"slow", aniDiv ); 
+	
+	// setTimeout(() => {	}, ms);
+}
+
+ aniDiv() ; 
+
+ $(".btn1").on("click", () => {
+	 // alert("test");
+ 	$("div:animated").css("background-color", "yellow"); 
+ })
+
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

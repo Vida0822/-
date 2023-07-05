@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+<form>
+	<!-- size="50" 입력 필드의 표시 너비(문자)를 지정하는 속성 -->
+	이름 : <input type="text" name="name" size="50" required="required"><br>
+	나이 : <input type="number" name="age" min="1" max="150"><br>
+	<!-- pattern : type=text, date, search, url, tel, email, password 등등 함께 사용 가능 -->
+	우편번호 : <input type="text" name="zipcode" pattern="[0-9]{3}-[0-9]{3}" placeholder="000-000" maxlength="7"><br>
+	<input type="submit">
+</form>
+
+<hr>
+<input type="text" list="browsers">
+<datalist id="browsers">
+ <option value="IE">IE</option>
+ <option value="Chrome">Chrome</option>
+ <option value="Opera">Opera</option>
+</datalist>
+<hr>
+<input type="button" value="클릭해주세요" disabled="disabled"><br>
+<input type="text" value="클릭해주세요" disabled="disabled"><br>
+<input type="text" value="클릭해주세요" readonly="readonly"><br>
+<hr>
+<input type="color">
+<hr>
+<input type="date" min="1970-01-01" max="2025-12-31"><br>
+<input type="datetime"><br>
+<input type="datetime-local"><br>
+<input type="time"><br>
+<hr>
+<input type="file"><br>
+<input type="file" multiple="multiple"><br>
+<hr>
+<!-- 숨겨진 입력값 -->
+<input type="hidden" name="age" value="20"><br>
+<hr>
+<input type="image" src="../images/img_submit.gif">
+<hr>
+<input type="month"><br>
+<input type="week"><br>
+<hr>
+<!-- step 속성 : type=number, range, date, datetime-local, month, time, week -->
+<input type="number" min="1" max="50" step="3">
+<hr>
+<input type="range" min="0" max="100" value="20">
+<hr>
+<input type="search">
+<hr>
+<input type="tel">
+<hr>
+<input type="url">
+</body>
+</html>

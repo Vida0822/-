@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<pre>
+
+1. js에서 bind() 함수는 왜 사용하는가?
+
+	call() , apply() -> 다른 객체의 메서드를 불러와 '호출'까지함 
+	vs 
+	bind() : '묶다, 감싸다' -> 호출하는게 아니라(호출기능 x) 단지 다른 객체의 메서드를 내 객체에 묶음(빌림) 
+							=> 사용하려면 ()를 붙여 실제 호출하는 코딩 해줘야함 
+	ㄴ 호출할거면 걍 apply쓰지 왜 굳이 사용?
+	
+
+</pre>
+
+<p id = "demo"></p>
+
+<script>
+const person = {
+		firstName : "John", 
+		lastName : "Doe" , 
+		display : function () {
+			let x = document.getElementById("demo");
+			x.innerHTML = this.firstName + "/" + this.lastName ; 
+		}
+}; 
+person.display();  // John/Doe
+display.apply
+
+// ms 밀리세컨드가 지난 후에 f 함수 호출하겠다 
+// 콜백함수 : 시간이 지나고 호출하는 함슈??? 
+// setTimeout(person.display, 3000) ; 
+// ㄴ 문제 : 3000ms후 = 3초후,  undefined/undefined 라고 뜸 <-> 호출은 하는데, firstName, lastName 인식을 못함(못불러옴)..  
+
+// 해결법 : bind()
+let f = person.display.bind(person);
+setTimeout(f,3000); 
+// 이거 실행 안대뮤 ㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠ
+
+</script>
+</body>
+</html>

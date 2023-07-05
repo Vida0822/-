@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<script>
+// var 변수 선언
+// 1) 재선언 O
+/* 
+var x = "admin";
+document.write(x + "<br>");
+var x = 0;
+document.write(x + "<br>");
+*/
+// 2) 변수 선언을 나중에 하고 변수에 값할당을 먼저 해도 문제없다
+/*
+age = 30;
+var age;
+document.write(age + "<br>");
+*/
+
+// [js 블럭(지역) 범위]
+// ES6(2015) Gloval Scope, Function Scope
+//           let, const 키워드 추가
+{
+	// 블럭이 다르면 let 재선언 가능
+	let z = 10;
+	{
+		let z = 30; // 블럭변수
+	}
+	document.write(z + "<br>"); // 10
+}
+</script>
+<script>
+// let 변수 선언
+// 1) 재선언 X
+// caught SyntaxError: Identifier 'y' has already been declared
+/* 
+let y = "admin";
+document.write(y + "<br>");
+let y = 0;
+document.write(y + "<br>");
+*/
+// 2) 변수 선언을 나중에 하고 변수에 값할당을 먼저 하면 안된다
+// caught ReferenceError: Cannot access 'age' before initialization
+/* 
+age = 30;
+let age;
+document.write(age + "<br>");
+*/
+</script>
+</body>
+</html>

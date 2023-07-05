@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+
+<script>
+// [js 클래스]
+
+class Car {
+	constructor(brand) {
+		this.carname = brand; 
+	}
+	present(){ // 이거 function 안붙여줘도 되나? 
+		return ">carname : " + this.carname ; 
+	}
+}
+
+// [js 상속]
+class Model extends Car { // 상속 
+	constructor(brand, mod) {
+		super(brand);
+		this.model = mod; 
+	} 
+	show(){
+		return this.present() +"/" + this.model; 
+	}	
+	
+	static hello(){
+		return "Hello World"; 
+	}
+}
+let myCar = new Model("Ford", "Mustang"); // 객체 생성 
+console.log(myCar.show());  // >carname : Ford/Mustang
+
+
+// [js 정적 (static)]
+// 정적 : 이미 메모리가 올라가 있기 때문에 그냥 클래스명.메서드()로 사용가능 (new 생성자 필요 없음)
+console.log(Model.hello());  // Hello World
+
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

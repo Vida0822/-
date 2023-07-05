@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+<pre>
+
+[js Map 객체]
+1. key - value 한쌍 (엔트리) 저장 
+2. key는 중복 x
+3. new Map() 맵 객체 생성 
+	1) 배열형태로
+	2) Set함수 
+</pre>
+<script>
+//	1) 배열형태로
+const fruits = new Map([
+	["apple", 500], ["banana", 300]
+])
+
+// 2) 
+fruits.set("orange", 600);
+fruits.set("orange", 200);
+console.log(fruits.size); // 3
+console.log(fruits.get("orange")); // 200
+
+//fruits.delete("orange"); 
+console.log(fruits.size); //2
+
+//fruits.clear("orange"); 
+console.log(fruits.size); //0
+
+fruits.has("orange"); // true , false 
+
+fruits.forEach(function(value, key, map) {
+	console.log(key+"/"+value); 	
+})
+
+for (let entry of fruits.entries()) {
+	console.log(entry); //  ['apple', 500]   배열형식으로 나옴!  -> 0번째값 : key / 1번째값 : value 
+	console.log(entry+"/"+entry[0]+"/"+entry[1]); // apple,500/apple/500
+} 
+</script>
+</body>
+</html>

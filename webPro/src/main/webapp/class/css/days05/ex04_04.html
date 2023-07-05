@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+.flex-container {
+	background-color: #f1f1f1;
+	height: 300px;
+	display: flex;
+}
+
+.flex-container > div {
+	background-color: DodgerBlue;
+	color: white;
+	width: 100px;
+	margin: 10px;
+	text-align: center;
+	line-height: 75px;
+	font-size: 30px;
+}
+</style>
+</head>
+<body>
+<pre>
+[플렉스 항목(item) 속성]
+1. order 순서 				ex04.html
+2. flex-grow 커지는 속성	ex04_02.html
+   나머지 플렉스 항목에 비해 플렉스 항목이 얼마나 커질지 지정하는 속성
+   기본값 : 0 - 확대 X
+3. flex-shrink 축소			ex04_03.html
+   나머지 플렉스 항목에 비해 플렉스 항목이 얼마나 줄어들지(축소) 지정하는 속성
+   기본값 : 1
+4. flex-basis 사전적 의미 : 기초, 근거, 주성분
+   이 플렉스 항목의 초기 길이를 200px로 설정
+   <div style="flex-basis:200px">3</div>
+5. flex = flex-grow + flex-shrink + flex-basis
+   약식속성
+   <div style="flex:0 0 200px;"></div>
+6. align-self 				ex04_04.html
+   선택한 플렉스 항목의 정렬을 지정할 수 있다
+</pre>
+
+<div class="flex-container">
+	<div style="align-self:flex-start">1</div>
+	<div style="align-self:flex-end">2</div>
+	<div style="align-self:center">3</div>
+	<div>4</div>
+</div>
+</body>
+</html>

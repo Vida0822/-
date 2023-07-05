@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+
+body{
+margin: 0;
+font-size:  28px
+}
+
+.header{
+	position: fixed;
+	top:0;
+	z-index : 1;
+	width: 100%;
+	background-color: #f1f1f1;
+}
+
+.header h2 {
+	text-align: center ; 
+	}
+
+.process-container{
+	width: 100%;
+	height: 8px;
+	background-color: #ccc;
+}
+
+.progress-bar{
+	height: 8px;
+	background-color: red;
+	/*  width: 50%; */
+	 width: 0%;
+}
+
+.content{
+	padding: 100px 0;
+	margin: 50px auto 0 auto;; 
+	width: 80%;
+}
+
+#btnTop{
+	position: fixed;
+	bottom: 20px;
+	right: 30px;
+	z-index: 99;
+	
+	outline: none;
+	background: red;
+	color: white;
+	padding: 15px;
+	border-radius: 10px ;
+		
+	display: none;
+	border : none; 	
+}
+
+#btnTop:hover{
+
+	background: #555;
+}
+
+</style>
+
+
+</head>
+<body>
+
+<h3> ex03.html </h3>
+
+<div class="header">
+   <h2>스크롤 표시하기</h2>
+   <div class="process-container">
+      <div class="progress-bar" id="myBar"></div>
+   </div>
+</div>
+<!-- .content>p*40>lorem8  -->
+<div class="content">
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+   <p>Atque libero maiores ut sit facilis voluptate asperiores.</p>
+   <p>Architecto incidunt molestias itaque at totam dignissimos tempore.</p>
+   <p>Facilis quam a cupiditate magni eius odit obcaecati.</p>
+   <p>Quam alias ratione hic incidunt aliquid tempora repellat.</p>
+   <p>Sint neque vel eos quae delectus voluptatem distinctio.</p>
+   <p>Quae eligendi voluptates repellat quam id quas veniam.</p>
+   <p>Cupiditate earum omnis laborum adipisci reprehenderit libero obcaecati.</p>
+   <p>Quia illo quo veniam cumque non sint sapiente.</p>
+   <p>Commodi minima voluptatem et voluptates odit modi vitae.</p>
+   <p>Voluptatibus impedit ducimus in magnam omnis animi illum.</p>
+   <p>Neque optio ipsa sequi eaque numquam doloribus fugit.</p>
+   <p>Consequuntur maxime voluptas earum quis in recusandae aperiam.</p>
+   <p>Hic fugiat animi deleniti culpa repudiandae sapiente quaerat.</p>
+   <p>Doloribus quo tempora itaque officia nesciunt labore iure.</p>
+   <p>Officiis eaque incidunt distinctio repellendus adipisci fugiat voluptate.</p>
+   <p>Assumenda accusantium voluptatibus quisquam alias facilis dolorem consequuntur.</p>
+   <p>Fugit iure officiis error dolorem nisi deleniti ut.</p>
+   <p>Provident consequatur eum neque ullam architecto inventore reprehenderit?</p>
+   <p>Nulla tempore commodi eveniet accusantium qui quasi praesentium.</p>
+   <p>Unde quibusdam natus itaque aliquam sequi debitis delectus.</p>
+   <p>Voluptate tempore error sint possimus cupiditate molestias nisi.</p>
+   <p>Animi doloribus harum dolorum aliquam minima vero ut.</p>
+   <p>Suscipit quas vero itaque quaerat tempore soluta quia.</p>
+   <p>Fugiat minima sit quis sed similique itaque placeat.</p>
+   <p>Maxime nemo ad itaque doloremque nisi repudiandae quibusdam.</p>
+   <p>Deleniti vel ipsum ipsam harum reprehenderit alias error!</p>
+   <p>Tenetur voluptate voluptatibus cupiditate sequi rem labore illum!</p>
+   <p>Dignissimos pariatur ad voluptatem maiores minima odio id?</p>
+   <p>Saepe amet illo voluptates earum repudiandae blanditiis voluptate?</p>
+   <p>Mollitia eligendi inventore sed vero modi animi nisi.</p>
+   <p>Ducimus id quas mollitia suscipit eum rerum placeat?</p>
+   <p>Eaque consequatur odio earum perspiciatis obcaecati deleniti eveniet.</p>
+   <p>Nobis nesciunt ex cupiditate perferendis voluptate. Est maxime?</p>
+   <p>Nisi mollitia sint voluptatibus totam veritatis facilis illum?</p>
+   <p>Sapiente mollitia praesentium maxime repellendus et id error.</p>
+   <p>Ullam omnis doloremque impedit quam eveniet eos modi?</p>
+   <p>Asperiores vero delectus adipisci id quaerat voluptatum assumenda!</p>
+   <p>Accusantium ut dolor eveniet itaque eius ipsa eaque!</p>
+   <p>Tenetur officiis ut maiores iste eum a rerum.</p>
+</div> 
+
+<!-- button#btnTop[title="Go  To Top"]>{Top} -->
+<button id="btnTop" title="Go  To Top">Top</button>
+
+<script>
+/*
+offsetWidth, offsetHeight, clientWidth, clientHeight, scrollWidth, scrollHeight 정리
+(https://blog.naver.com/minhyupp/222632543245
+*/
+
+// 작업 1 ) 스크롤을 올리고 내림에 따라 이 컨텐츠를 얼마만큼 봤는지 빨간 스크롤바에 출력하는 함수 
+window.onscroll = function() {
+	var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+	// 브라우저 종류에 따라 선자가 참일수도, 후자가 참일수도 있음 ! 
+	// => 브라우저에 따라 적용되는 코딩이 다를 수 있기 때문에 둘다 적용되도록 해줘야함 
+	// console.log(scrollTop); // 0 -> xxx : 스크롤 위 -> 아래
+	var scrollHeight = document.documentElement.scrollHeight; 
+	var clientHeight = document.documentElement.clientHeight; 
+	
+	console.log(scrollTop + "/" +scrollHeight +"/"+clientHeight); 
+	// scrollHeight = scrollTop+clientHeight 
+	
+	var hiddenHeight = scrollHeight - clientHeight ;
+	// 숨겨진 높이(hiddenHeight)를 100%로 했을 때 
+	// 스크롤을 올릴경우 scrollTop이 숨겨진 높이의 몇 퍼센트인지 확인해서  
+	// <div class="progress-bar" id="myBar"></div>의 너비 속성으로 설정하면된다 
+	
+	// 100 : x  = hiddenHeight : scrollTop 
+	//<->  x = (scrollTop * 100) / hiddenHeight  
+	
+	var barWidthParcent =  (scrollTop * 100) / hiddenHeight  ;
+	document.getElementById("myBar").style.width = barWidthParcent+"%"; 
+
+
+
+	// 작업2) 페이지를 다 내리면 top 버튼을 보이도록 함 
+//	 	<-> 한 페이지가 다 위에 있으면 top버튼을 보이도록 함 
+
+	if (scrollTop >= clientHeight) {
+		document.getElementById("btnTop").style.display = "block";
+	} else {
+		document.getElementById("btnTop").style.display = "none";
+	}
+	
+	// 작업 3) top을 누르면 맨 위로 올라가는 기능 
+
+
+}		
+
+</script>
+</body>
+</html>

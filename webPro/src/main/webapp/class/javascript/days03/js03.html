@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="js02_myscript.js"></script>
+</head>
+<body>
+<pre>
+[js 출력]
+1. html 요소 - innerHTML, innerText
+2. console.log
+3. window.alert() - 경고창
+4. document.write()
+</pre>
+<div></div>
+<script>
+document.querySelector("div").innerHTML="출력1";
+// document.getElementById("id명")
+// document.getElementsByName("name");
+// alert(document.getElementsByTagName("div")); // HTMLCollection
+document.getElementsByTagName("div")[0].innerHTML="출력2";
+
+console.log("디버깅 - 출력3");
+
+document.write(5+6);
+document.writeln(7+6); // 한 칸 띄우는 효과
+document.write("<br>"); // 개행은 이렇게
+document.write(5*6+"<br>");
+document.write("end");
+</script>
+</body>
+</html>

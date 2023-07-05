@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<button> 페이지 이동 (redirect) </button>
+<script>
+// [BOM 객체]  window, screen , location , history 
+
+// location : 위치 (현재페이지 주소 url)를 가져오고 , 새 페이지로 이동 (리다이레션 redirection ) 
+// redirection:  '방향을 돌리다' 
+
+alert(location.href);  // get // http://localhost/webPro/class/javascript/days09/ex09.html
+
+/* 
+location.href = "ex01.html"; // set // redirect  -> 속성 ** (이거 더 많이씀)
+location.assign("ex01.html") ; // redirect  -> 함수  */
+
+
+console.log(location.hostname); // 도메인명 반환 
+console.log(location.protocol); // 프로토콜 (http: https:)
+console.log(location.port); // 포트번호 
+
+</script>
+
+<script>
+$("button").click(function() {
+	location.href = "ex01.html";
+})
+
+
+</script>
+</body>
+</html>

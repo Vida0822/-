@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<script>
+// [const] 키워드 == 상수
+// 자바 : final double PI = 3.14;
+// 블럭 변수
+// 1. 재선언 X
+//  ㄴ caught SyntaxError: Identifier 'pi' has already been declared
+const pi = 3.14;
+// const pi = 3.141592;
+// 2. 재할당 X
+//  ㄴ caught TypeError: Assignment to constant variable.
+// pi = 3.141592;
+// 3. const 변수를 선언할 때 초기화
+//  ㄴ caught SyntaxError: Identifier 'pi' has already been declared
+// const pi;
+// pi = 3.14;
+
+/* 
+ 1. 상수 배열
+ const cars = ["kia", "volvo", "bmw"];
+ cars = ["xx", "yy"]; X
+ 2. 상수 객체
+ const person = { name:"hong", age:20 };
+ person.name = "kim"; X
+ */
+</script>
+</body>
+</html>

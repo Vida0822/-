@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<pre>
+	새로운 요소 추가 
+	append()
+	appendTo() 
+</pre>
+
+<script>
+/* 	// 부모							// 자식 
+	$("body").append($("<div>바디의 마지막 자식 추가</div>")); 
+	// <script> 뒤에  
+	
+	$("<div>바디의 마지막 자식 추가</div>")
+		.appendTo($("body") )
+		.css("color","red"); 
+	// 체이닝 활용에 따라 다름 
+	// append~ 뒤에 
+	
+	$("body")
+		.prepend($("<div>바디의 마지막 자식 추가</div>")); 
+	// <body>의 첫번째 자식으로 추가  => pre앞 
+	//prepentTo()
+ */
+</script>
+<script>
+	// after()  선택한 요소 뒤에 추가 
+	$("pre")
+		.after("<b>뒤~! </b>")
+		.before("<b>앞~! </b>"); 
+		// ※ 뒤~ 앞에 <b>앞</b> 이 붙는게 아니라 <pre>앞에 붙음
+		// => 체이닝은 결국 한 대상에 적용하던걸 줄여서 표현한거니까! 
+	
+	
+	//before()  선택한 요소 앞에 추가  	
+	
+	
+	
+	
+</script>
+</body>
+</html>

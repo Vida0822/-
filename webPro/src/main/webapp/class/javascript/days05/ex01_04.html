@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>2023. 5. 3. 오전 11:22:09</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+팀원 입력 : 
+<input type="text"  value="탁인혁  , 설경인  ,  이예진, 신희민, 윤재민, 홍성철, 박진용 ">
+<p id="demo">
+<!-- 
+  <ul>   
+     <li>탁인혁</li>
+     <li>설경인</li>
+  </ul>
+ -->   
+</p>
+<pre>
+</pre>
+<script>
+  
+  document.querySelector("input[type=text]").onkeydown = function (){
+	  if ( event.keyCode == 13 ) {
+	    // alert( this.value );
+	    //                       ,                 __  __ trim()
+	    const tlist = this.value.split(/\s*,\s*/);
+	    // console.log( tlist );
+	    /*
+	    for (var i = 0; i < tlist.length; i++) {
+			console.log(  tlist[i] );
+		} //
+		*/
+		let content = "<h3>1조 팀원</h3>";
+		content += "<ul>";
+		for (let name of tlist) {
+			// console.log( name );
+			// content += "<li>"+ name +"</li>";
+			content += `<li>${ name }</li>`;
+		}
+		content += "</ul>";
+		document.getElementById("demo").innerHTML = content;
+	  } // if
+  }
+  
+</script>
+<script>
+   // js 문자열    ''        ""
+   //                  ` 백틱( back-tic ) 기호를 사용해서 문자열 정의
+   //       이유 ? 변수와 표현식을   이 백틱을 사용한 문자열에서 사용하기 위해서.
+   //                    ${  문자열변수 }		   
+   // let text = `hello world!`;
+   // alert( typeof text ); // string
+   
+   var name = "hong gil dong";
+   var age = 20;
+   
+   // 출력 형식 :   이름은 "hong gil dong"이고, 나이는 20살이다.
+   // var text = "이름은 \""+ name +"\"이고, 나이는 "+ age+"살이다.";
+   var text = `이름은 \"${name}\"이고, 나이는 ${ age }살이다.`;
+   console.log( text );
+   
+   var price = 10;
+   var vat = 0.25;
+   
+   var total = `Total : ${  (price*(1+vat)) }`;
+   console.log( total );
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<!-- font-awesome 라이브러리-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+	margin: 0;
+	padding: 0; 
+}
+
+.icon-bar {
+	background-color: #555;
+	width: 90px;
+	/* 
+	position: relative;
+	left: -80px;
+	*/
+}
+
+.icon-bar a{
+	display: block;
+	text-align: center;
+	color: white;
+	font-size: 36px;
+	padding: 16px;
+}
+
+.icon-bar a:hover {
+	background-color: #000;
+}
+
+.icon-bar a.active {
+	background-color: #4CAF50;
+}
+</style>
+</head>
+<body>
+<!-- .icon-bar>a[href=#]*5>i[class] -->
+<div class="icon-bar">
+	<a href="#" class="active"><i class="fa fa-home"></i></a>
+	<a href="#"><i class="fa fa-search"></i></a>
+	<a href="#"><i class="fa fa-envelope"></i></a>
+	<a href="#"><i class="fa fa-globe"></i></a>
+	<a href="#"><i class="fa fa-trash"></i></a>
+</div>
+</body>
+</html>

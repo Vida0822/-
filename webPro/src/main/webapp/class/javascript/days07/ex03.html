@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<h3> js Math (내장 클래스 객체) - 수학 기능 </h3>
+
+
+<script>
+// new Math -> 이렇게 사용못함  (생성자 x 클래스! )
+// : 정적(static) , 즉 이미 메모리가 올라가 있기 때문에 그냥 클래스명.메서드()로 사용가능 
+// Math.속성, Math.메서드명()
+
+console.log(Math.E); // 2.718281828459045
+console.log(Math.PI); //3.141592653589793
+
+console.log(Math.round(4.6)); // 5
+console.log(Math.ceil(4.6)); //5
+console.log(Math.floor(-4.6)); //-5(내림) -> 가장 가까운 정수로만 내림 
+console.log(Math.trunc(-4.6)); //-4(내림) -> 4.6의 정수부분 반환 	// 양수는 동일한 결과값 
+
+Math.abs(-3); 
+
+
+</script>
+<script>
+// min~max 랜덤한 정수를 얻어오는 함수(암기) 
+function getRndInt(min, max) {
+	return Math.floor(Math.random()*(max-min+1)) + min ; 
+}
+</script>
+</body>
+</html>

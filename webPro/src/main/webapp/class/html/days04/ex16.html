@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+<h3>html 멀티미디어 - 웹상에서 사운드, 음악, 비디오, 영화, 애니메이션</h3>
+<!--
+멀티미디어 형식 : wav, mp3, mp4, mpg, wmv, avi 등등
+YouTube : mp4 권장
+-->
+<h3>html 비디오</h3>
+<!-- video 태그 : 웹 페이지에서 비디오를 표시 -->
+<!-- width, height 속성을 지정하지 않으면 깜빡인다 -->
+<!-- controls 속성 : 재생, 일시정지, 볼륨 등등 비디오 제어 -->
+<video src="days06/movie.mp4" width="320" height="240" controls="controls">
+</video>
+<hr>
+<video width="320" height="240" autoplay="autoplay" muted="muted">
+	<source src="days06/movie.mp4" type="video/mp4">
+	<source src="days06/movie.ogg" type="video/ogg">
+	현재 브라우저는 지원하지 않습니다
+</video>
+</body>
+</html>

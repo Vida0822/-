@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+/* 
+p#demo:hover {
+	color: red;
+	font-size: 35px;
+	border: 1px solid gray;
+}
+*/
+.demostyle {
+	color: red;
+	font-size: 35px;
+	border: 1px solid gray;
+}
+</style>
+</head>
+<body>
+<h3>ex01_03.html</h3>
+
+<p id="demo">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo quo aperiam voluptate similique blanditiis quod accusamus ducimus fuga inventore impedit modi eos quam incidunt mollitia perspiciatis voluptatibus perferendis dolor deserunt?</p>
+
+<script>
+// jquery 변경
+$(document).ready(function() { // jquery 코딩 무조건 여기 안에
+	// $("p#demo").on("mouseover",Function(){});
+	$("p#demo").mouseover(function(event) {
+		// 1번
+		/* 
+		$(this).css("color","red");
+		$(this).css("font-size","35px");
+		$(this).css("border","1px solid gray");
+		*/
+		// 체이닝
+		/* 
+		$(this).css("color","red")
+		       .css("font-size","35px")
+		       .css("border","1px solid gray");
+		*/
+		/*
+		$(this).css({
+			"color":"red",
+			"font-size":"35px",
+			"border":"1px solid gray"
+		});
+		*/
+		// 2번
+		// addClass()/removeClass()/hasClass()/toggleClass()
+		// $(this).addClass("demostyle");
+		
+		// 3번
+		$(this).attr("class","demostyle");
+	});
+	// $("p#demo").mouseout(function(event) {
+	$("p#demo").on("mouseout", function(event) {
+		// 2번
+		// $(this).removeClass("demostyle");
+		// 3번
+		$(this).attr("class","");
+	});
+});
+</script>
+</body>
+</html>

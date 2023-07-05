@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+.flex-container {
+	background-color: DodgerBlue;
+	display: flex;
+	
+	/* justify-content: flex-start; 기본값 플렉스 항목(item)이 컨테이너의 좌측에 정렬 */
+	/* justify-content: center; 플렉스 항목(item)이 컨테이너의 중앙에 정렬 */
+	/* justify-content: flex-end; 플렉스 항목(item)이 컨테이너의 우측에 정렬 */
+	/* justify-content: space-between; 좌우 끝에 붙이고 사이 공백을 균일하게 정렬 */
+	/* justify-content: space-around; 좌우 끝에 공백을 두고 사이 공백을 균일하게 정렬 */
+}
+
+.flex-container > div {
+	background-color: #f1f1f1;
+	margin: 10px;
+	font-size: 30px;
+	
+	width: 100px;
+	text-align: center;
+}
+</style>
+</head>
+<body>
+<pre>
+[플렉스 컨테이너]
+1. flex-direction 방향
+2. flex-wrap 포장
+3. flex-flow = flex-direction + flex-wrap
+4. justify-content 정렬(수평)
+5. align-items 정렬(수직)
+6. align-content 정렬(내용)
+</pre>
+
+<div class="flex-container">
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<pre>
+$(jquery selector).action()
+	1) 대상에				2) 동작 
+=> jquery의 모든 동작 구조가 이렇다 <-> 각각의 종류를 알면 jquery 끝! 
+
+[ jquery 선택자(selector)]
+
+1. * 		$("*") 		=> 모든요소
+2. #아이디명 	$("#demo") 		=>  id = demo 인 객체
+3. .클래스명		$(".active")		=> active라는 클래스를 가진 객체
+	ex) $("li.a.b") => li태그 -> 클래스 a,b를 가짐  <li class = "a b"> 
+
+4. 태그명			$("p")				=> 모든 p 태그들을 가져옴 
+	$("h1, div, p") 					=> h1 태그에도 action 적용, div에도 action 적용, p 에도 action 적용
+
+5. :first 			$("p:first")			 -> 첫번째 p태그 ※ 속성 (!= $(p).first() -> 메서드 )	
+	 :last		
+=> ex02_02
+
+6. :even :odd -> 짝수, 홀수 
+=> ex02_03
+
+7. 이거 이름모더라 암튼 css seclector 배울때 한거랑 똑같 
+	:first-child
+	:last-child
+	:first-of-type
+	:last-of-type
+	:nth-child(n)
+	:nth-of-type(n)
+	:nth-last-child(n)
+	:nth-last-of-type(n)
+
+8. :only-child 
+	:only-of-type
+	=> ex02_04.html 
+	
+9. 연결선택자 (css seclector 배울때 한거) 
+	_ > + ~ 
+	parent child
+	parent > child 
+	parent + child
+	parent ~ child
+
+10.
+:eq(index)  (.eq(i)랑 다름 -> 얜 메서드 )
+:gt(no)
+:lt(no)
+=> ex02_05
+
+
+11. 
+:not(선택자)  ex) $("input:not(:empty)")  :empty인 애를 제외한 나머지 input 태그 
+ ※ .not()  -> jquery method () 
+ 
+ => ex02_06 
+
+12. 
+:header == 모든 h태그들  (h1,h2,h3...h6)
+=> ex02_07
+
+13. 
+:animated 
+-> ex02_08
+
+14.
+:focus
+=> ex02_09 
+
+15. 
+:has(selector) -> 이 선택자를 포함하고 있니? 
+= 메서드 has()
+
+:contain(text) -> 이 문자열을 포함하고 있니?
+
+=> ex02_10
+
+
+16. 
+:empty
+:parent 
+
+=> ex02_11
+
+
+17. 
+:root          루트엘리먼트
+:hidden       숨겨진것 (display = "hidden")
+:visible        보여지는 것 (display = "visible")
+
+=> ex02_12 
+ 
+18. [css selector]
+
+[attribute]
+[attribute = value]
+[attribute ^= value]
+[attribute $= value]
+[attribute ~= value]
+[attribute *= value]
+[attribute |= value]
+
+19. 
+:text   ==   input[type=text]
+:input  == 모든 input  ?? 이거 앞에 : 왜붙지 
+:password  == input[type=password]
+:radio == input[type=radio]
+:submit == input[type=submit]
+:reset == input[type=reset]
+:checkbox == input[type=checkbox]
+:button == input[type=button]
+:image == input[type=image]
+:file == input[type=file]
+
+
+20. 
+:checked  => 모든 체크된 요소 
+:selected  => 선택된 option 
+:enabled  => 활성화된 요소
+:disabled  => 비활성화된 요소
+
+21. 
+
+</pre>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

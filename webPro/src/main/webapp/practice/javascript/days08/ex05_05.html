@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<script> 
+
+// 객체를 반환받을거임 
+var counterObject = (
+							function() {
+								let counter = 0; 
+								
+								function changeBy(value) {
+									counter += value; 
+								}
+								return {
+									increment : function() {
+										changeBy(1);
+									},
+									decrement : function() {
+										changeBy(-1); 
+									},
+									value : function() {
+										return counter; 
+									}
+								} // return 
+							}
+		)(); // 자체호출함수 
+
+		console.log(counterObject.value()); // 0 
+		counterObject.increment();
+		counterObject.increment();
+		counterObject.increment();
+		console.log(counterObject.value()); // 3
+		counterObject.decrement();
+		console.log(counterObject.value()); //2 
+		
+
+</script>
+</body>
+</html>

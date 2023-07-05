@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>2023. 5. 3. 오후 3:54:27</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+<script>
+
+    
+const m = ["a","b","c","d","e","f"]; 
+var n = []; 
+   // s[p]lice()  와  slice()
+   // 잇다,붙이다.      잘라내기.
+
+   
+   //                   2  3
+   //           a,b,[X,Y,]c,d,e,f
+   // 2,3 요소 수정
+   // m[2] = 'X';   m[3] = 'Y';
+   // amount 제거할 요소 수
+   // newelt
+   // m.splice(2, 0, 'X', 'Y'); // a,b,X,Y,c,d,e,f
+    m.splice(2, 2, 'X', 'Y'); // a,b,X,Y,e,f
+   //m.splice(2, 2 ); // a,b,e,f
+   console.log( m.toString() );
+   
+   
+   // m.slice(from, to)
+   // m.slice(from)
+   var n = m.slice( 2 );
+   console.log( n.toString() );
+   var n = m.slice(0, 4); // 1,2,3
+   console.log( n.toString() );
+
+   // m 원래 배열은 변경되지 않습니다. 
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

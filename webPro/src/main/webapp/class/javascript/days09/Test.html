@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+<p id="demo"></p>
+
+<script>
+
+// 해결시도 2) 콜백함수 
+function myDisplayer(some) {  
+	document.getElementById("demo").innerHTML = some ;	
+}
+
+function myCalculator(num1, num2, callback) { 
+	// callback 매개변수에 myDisplay라는 함수를 인자값으로 받아 사용 
+	let sum = num1 + num2 ; 
+	callback(sum) 	; 		
+}
+
+myCalculator(10, 20, myDisplayer); 
+// ※ callback 함수에 () 붙이지 않음  : () 는 함수를 실행한다는 의민데 여기선 그냥 전달만 해죽 실행은 따로 해주기 때문 
+
+// 사용장점 : A함수 -> B함수 라는 비동기적 처리???????를 할때 콜백함수가 좋다 
+
+</script>
+
+
+</body>
+</html>

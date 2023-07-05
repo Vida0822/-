@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+맘대로 매개변수를 지워버려도 될까? 
+
+<script>
+function test(name, age, gender) {
+	console.log(name);
+	console.log(age);
+	console.log(gender);
+	// argement 컬렉션 -> 이 함수에 들어온 모든 인자값을 가지고 있음 (자동)
+	for (let arg of arguments) {
+		console.log(arg); 
+	}
+}
+
+test("홍길동", 20, '남자'); // 홍길동, 20 , 남자
+test("홍길동", 20, '남자', 75.45); 
+// 홍길동, 20 , 남자 
+// -> 매개변수 많은데 오류 안나고 잘 실행됨 
+// (마지막건 출력은 안됨 안에서 처리는 안해주니까 )
+test("홍길동", 20); // 홍길동, 20 , undefined 
+
+
+//argement 컬렉션 -> 이 함수에 들어온 모든 인자값을 가지고 있음 (자동) -> 19라인에 만들어주기 ! 
+test("홍길동", 20, '남자', 75.45); // 홍길동, 20 , 남자, 75.45
+
+
+</script>
+</body>
+</html>

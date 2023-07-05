@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+<button>실행</button>
+<div id="demo" style="border: 1px solid gray; display: none;"></div>
+<script>
+var content = "";
+content += "<table border='1' width='300'>";
+content += "	<tr>                      ";
+content += "		<td>Lorem.</td>       ";
+content += "		<td>Quo.</td>         ";
+content += "		<td>Ex!</td>          ";
+content += "	</tr>                     ";
+content += "	<tr>                      ";
+content += "		<td>Lorem.</td>       ";
+content += "		<td>Quos.</td>        ";
+content += "		<td>Quisquam!</td>    ";
+content += "	</tr>                     ";
+content += "	<tr>                      ";
+content += "		<td>Lorem.</td>       ";
+content += "		<td>Rem!</td>         ";
+content += "		<td>Dicta!</td>       ";
+content += "	</tr>                     ";
+content += "</table>                      ";
+
+document.querySelector("button").onclick = () => {
+	document.write(content);
+	document.getElementById("demo").show();
+};
+</script>
+</body>
+</html>

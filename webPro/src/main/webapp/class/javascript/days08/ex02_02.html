@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<h3>  setInterval()/ clearInterval() </h3>
+
+<h1 id = "out"></h1>
+<button> setInterval </button>
+<button> clearInterval </button>
+
+<script>
+
+$("button").first().on("click", function() {
+	//dispTime() 
+	
+	// 1초마다(1초 간격으로)  dispTime() 함수를 호출하라
+	timer1 = setInterval(dispTime, 1000);
+});
+
+let timer1; 
+function dispTime() {
+	const now = new Date(); 
+	$("#out").html(now.toLocaleString());
+}
+
+$("button").last().on("click", function() {
+	clearInterval(timer1)
+})
+
+
+
+</script>
+</body>
+</html>

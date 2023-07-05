@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+<pre>
+
+4-1. 로또 번호 발생기 버튼을 클릭하면 로또 번호가 p 태그에 출력되도록 js 코딩 하세요
+ ( 조건 : 오름차순 정렬 해서 출력 )
+ 
+</pre>
+<button>로또 번호  발생기</button>
+<p id="demo"></p>
+
+<script>
+// Set 객체는 값 콜렉션으로, 삽입 순서대로 요소를 순회할 수 있습니다. (!= 자바 )
+//하나의 Set 내 값은 한 번만 나타날 수 있습니다. 즉, 어떤 값은 그 Set 콜렉션 내에서 유일합니다.
+// set 의 특성 : 중복을허용하지 않는다였나??????????? 확인 
+
+//for -> java 의 map 과 유사 (순서대로 key값만 , value값만 얻어오는 등 )
+
+
+$("button").click(function(event) {
+	let lotto = new Set();  
+	while (lotto.size <= 6) { // length -> size 
+		let n = Math.floor(Math.random()*45 + 1);
+		//Uncaught TypeError: lotto.push is not a function at HTMLButtonElement.<anonymous>
+		// lotto.push(n); 
+		lotto.add(n); 
+	}// while 
+	// lotto.sort((a,b)=> a-b); // 얘는 배열 함수니까 못씀 -> 주석
+	
+	let content = "<ul>"; 
+	// content += lotto.join("</li><li>");  // 얘도 배열함수니까 못씀 -> 주석 
+	for (let value of lotto) {
+		content += `<li>${value}</li>`  ; 
+	}
+	content += "</ul>";
+	$("p#demo").html(content);  
+}); 
+
+function isDuplicateLotto(lotto, n) {
+	for (var i = 0; i < lotto.length; i++) {
+		if (lotto[i]==n) return true; 
+	}
+}
+
+
+
+</script>
+</body>
+</html>

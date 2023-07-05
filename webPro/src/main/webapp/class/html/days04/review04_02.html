@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+div {
+	padding: 20px;
+	background-color: black;
+	color: white;
+	display: inline-block;
+}
+</style>
+
+</head>
+<body>
+	<button id="btnHide">숨기기</button>
+	<button id="btnShow">보이기</button>
+	<div>
+		<h3>London</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+			Architecto tempore quam vel vero animi recusandae optio sint at ullam
+			expedita fuga sunt! Ducimus nam vitae unde quibusdam accusantium
+			minima est.</p>
+		<p>Tempore molestias dignissimos sapiente excepturi laudantium
+			amet enim eum! Quas repellendus labore optio dolorem. Eaque tempore
+			suscipit beatae delectus et explicabo velit vero voluptatibus est hic
+			fugiat iusto neque minima.</p>
+	</div>
+	<script>
+	$("#btnHide").click(function() {
+		$("div").hide();
+	});
+	$("#btnShow").click(function() {
+		$("div").show();
+	});
+</script>
+</body>
+</html>

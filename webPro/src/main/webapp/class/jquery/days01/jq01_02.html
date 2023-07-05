@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<input type="text" name="txtMessage" value="배고프다">
+<!-- <button onclick="btn_click()">입력</button> -->
+<button>입력</button>
+<br>
+<div id="demo"></div>
+
+<script>
+/* 
+var btn = document.querySelector("button");
+var demo = document.getElementById("demo");
+var txtMsg = document.querySelector("input[name=txtMessage]");
+
+btn.onclick = function() {
+	// alert("button");
+	// alert(txtMsg.value);
+	demo.innerHTML = "RESULT : " + txtMsg.value;
+	// txtMsg.value = "";
+	txtMsg.select();
+}
+*/
+</script>
+<script>
+// jquery coding
+$(document).ready(function() {
+	// js innerHTML == jquery html()
+	$("#demo").html("RESULT : ");
+	// $("input[type=text]") css selector
+	// $(":text[name=txtMessage]")
+	// val() : value 속성값을 설정, 얻어오는 jquery 메서드
+	$("input[name=txtMessage]").val("hungry");
+	
+	$("button").click(function(event) {
+		// alert("click");
+		var message = "RESULT : " + $("input[name=txtMessage]").val();
+		$("#demo").html(message);
+		$("input[name=txtMessage]").select();
+	});
+});
+
+
+</script>
+</body>
+</html>

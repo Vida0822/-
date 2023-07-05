@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+
+<button>0</button>
+<button>0</button>
+<button>0</button>
+<button>0</button>
+<button>0</button>
+<button>0</button>
+<button>0</button>
+<button>0</button>
+<button>0</button>
+<button>0</button>
+<button>0</button>
+<button>0</button>
+<button>0</button>
+<button>0</button>
+<button>0</button>
+<button>0</button>
+<button>0</button>
+<button>0</button>
+<button>0</button>
+<button>0</button>
+
+<script>
+// 1) js 
+/*  var btns = document.getElementsByTagName("button"); 
+// 버튼들을 다 가져와 변수 btns에 담고 
+for (var i = 0; i < btns.length; i++) {
+	btns[i]
+	// 버튼의 개수만큼 하나씩 조회하다가 
+		.onclick = function() {
+	// 클릭이 발생하면 익명함수 실행 
+		let counter = event.srcElement.innerHTML; 
+	// 이벤트가 발생한 요소의 내용(클릭된 버튼에 적힌 숫자)을 변수 counter에 담고 
+		event.srcElement.innerHTML = ++counter; 
+	// 그 값에 1을 더해서 이벤트 요소에 다시 넣어준다  
+	}
+} 
+
+// 2) jquery 
+$("button").on("click", function() {
+	// 버튼들을 다 가져와 (jquery의 장점) 그중 하나라도 클릭 발생시 익명함수 실행 
+	$(this).html(function (index, oldHtml) {
+		// 클리된 버튼(핸들러에서의 this = 이벤트 발생한 객체)의 내용을 넘겨서 
+		return ++oldHtml; 
+		// 1을 증가시켜서 반환 (콜백?)-> 외부함수 html에 넣어서 내용 삽입 
+	})
+})  */
+
+// 3) js 배열 
+let counts = []; 
+for (var i = 0; i < 20; i++) {
+	counts.push(0); 
+	// count 배열에 0을 20개 요소로 채운다 (index : 0~19) 
+}
+$("button").click(function() {
+	let idx = $(this).index(); 
+	// jquery' index()
+	// : Search for a given element from among the matched elements.
+	// 요소.index() : 요소타입이 일치하는 애들(button들) 중 이 요소의 순번을 반환한다  (없으면 -1)
+	//  얘도 0부터 돌려줌  
+	// alert(idx) ; 
+	$(this).html(++counts[idx]); 
+	/* 	$(this).html(++counts[idx-1]);  */
+	// 이벤트가 발생한 인덱스 값으로 배열에서 해당 인덱스로 값을 찾아와 1을 더해 버튼에 넣어줌 
+	// => 배열의 요소값 --연결 : index--  버튼의 innerHtml  
+	// 배열요소들과 버튼들의 index값을 일치시켜주믕로써 배열의 값을 조정해 해당 index값을 갖는 버튼에 넣어줌
+})
+
+/* //4) 함수 클로저 
+var btns = document.getElementsByTagName("button"); 
+// 버튼들을 얻어와서 
+for (var i = 0; i < btns.length; i++) {
+	// 버튼의 개수만큼 반복문을 돌면서 
+	btns[i].onclick =	// function() {event.srcElementinnerHtml = ++counter; }
+		(function() {
+		let counter = 0; // 얘는 전역변수처럼  
+		return function() {
+			event.srcElementinnerHtml = ++counter; 
+		}
+	})() 
+}// for */
+
+</script>
+
+<script>
+</script>
+
+</body>
+</html>

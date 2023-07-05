@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<h3> setTimeout() / clearTimeout() / setInterval()/ clearInterval() </h3>
+
+<h1 id = "out"></h1>
+<button> setTimeout </button>
+<button> clearTimeout </button>
+
+<script>
+
+$("button").first().on("click", function() {
+	// console.log("1");
+	dispTime() 
+})
+// 1초마다 이 버튼(setTimeout) 클릭하면 자동적으로 진행되는 시계처럼 보임 
+// => 함수 dispTime() 생성 
+let timer1; 
+function dispTime() {
+	const now = new Date(); 
+	$("#out").html(now.toLocaleString());
+	timer1 = setTimeout(dispTime , 1000) 
+	// 어떤 코드를 바로 실행하지 않고 일정 시간 기다린 후 실행
+	// timeer1 : 타임아웃 아이디(Timeout ID)라고 불리는 숫자반환
+	// - > 타임아웃 아이디는 setTimeout() 함수를 호출할 때 마다 내부적으로 생성되는 타이머 객체
+	// -> 멈출땐 이 타이머 객체를 호라용해 멈춰줌 
+	
+/* 	setTimeout(dispTime() , 1000) */
+ //  첫번째 인자로 실행할 코드를 담고 있는 함수를 받고, 두번째 인자로 지연 시간을 밀리초(ms) 단위
+ 
+}
+
+$("button").last().on("click", function() {
+	// console.log("2");
+	clearTimeout(timer1); 
+	// 실행되고있는 Timeout(timer1) 중지
+	// 어떤 코드를 바로 실행하지 않고 일정 시간 기다린 후 실행
+})
+
+
+
+</script>
+</body>
+</html>

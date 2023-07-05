@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+div {
+	width: 300px;
+	height: 100px;
+	background-color: yellow;
+	border: 1px solid black;
+}
+</style>
+</head>
+<body>
+<h3>css 2D 변환</h3>
+<pre>
+2D 변환 - 이동, 회전, 크기, 기울기
+transform 속성
+- translate()
+- rotate()
+- scale()
+- skew()
+- matrix()
+</pre>
+<input type="radio" name="direction" value="1" checked="checked">시계방향
+<input type="radio" name="direction" value="-1">반시계방향
+
+<br>
+
+<button>회전 시작</button>
+<button disabled="disabled">회전 멈춤</button>
+
+<p>.</p>
+<p>.</p>
+<p>.</p>
+
+<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste adipisci dignissimos ratione suscipit incidunt quidem.</div>
+<script>
+var angle = 0; // 회전 각도
+var direction = 1; // 회전 방향 <= 라디오버튼이 체크된 value
+var timer;
+
+function target_rotate() {
+	// 회전코딩
+	var target = document.querySelector("div");
+	// js "1" -> 1 : parseInt()
+	angle += parseInt(direction);
+	console.log("> angle : " + angle);
+	// style transform: rotate(20deg) -> js 코딩
+	target.style.transform = "rotate("+angle+"deg)";
+}
+
+// 회전 시작 버튼 클릭
+document.querySelector("button:first-of-type").onclick = function () {
+	// 시계방향, 반시계방향 처리
+	// 1) 라디오버튼 체크
+	var radios = document.querySelectorAll("input[name=direction]");
+	// alert(radios.length); // 2
+	// 2) 채크된 라디오 버튼의 value(1,-1) 읽어와서 direction = 1,-1 대입
+	for (var i = 0; i < radios.length; i++) {
+		console.log(radios[i].checked + "/" + radios[i].value);
+		if (radios[i].checked == true) {
+			direction = radios[i].value;
+			break;
+		}
+	}//for
+	
+	// 일정한 간격으로 target_rotate() 함수가 호출되면 자동으로 회전
+	//            함수 등록    ms
+	timer = setInterval(target_rotate, 10);
+	
+	//this.disabled = "true"; // 비활성화
+	document.querySelector("button:last-of-type").disabled = false; // 활성화
+}
+
+// 회전 멈춤 버튼 클릭
+document.querySelector("button:last-of-type").onclick = function () {
+	// 회전 멈춤
+	clearInterval(timer);
+	
+	this.disabled = "true"; // 비활성화
+	document.querySelector("button:first-of-type").disabled = false; // 활성화
+}
+</script>
+</body>
+</html>

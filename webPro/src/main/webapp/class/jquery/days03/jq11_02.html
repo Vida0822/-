@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+.active {
+	color: red;
+	background-color: yellow;
+}
+</style>
+</head>
+<body>
+팀원 이름 입력 : <input type="text" id="name" name="name">
+<br>
+<p id="demo"></p>
+<select multiple="multiple" size="5"></select>
+
+<script>
+$(":text").keyup(function(event) {
+	if (event.keyCode == 13) {
+		// alert("test")
+		$("#demo div").removeClass("active");
+		
+		$("#demo").append($("<div class='active'>"+$(":text").val()+"</div>"));
+		
+		$("select").append($("<option value='"+$(":text").val()+"'>"+$(":text").val()+"</option>"))
+	};
+});
+/*
+function teamAdd(tbox) {
+	if (event.keyCode == 13) {
+		// 이전 newdiv 클래스 속성 active 제거
+		for (var i = 0; i < document.querySelectorAll("#demo div").length; i++) {
+			// document.querySelectorAll("#demo div")[i].removeAttribute("class"); // class 모두 삭제
+			document.querySelectorAll("#demo div")[i].classList.remove("active"); // active만 삭제
+		};
+		
+		var name = tbox.value;
+		var newdiv = document.createElement("div");
+		newdiv.innerText = name;
+		newdiv.classList.add("active");
+		document.getElementById("demo").appendChild(newdiv);
+		
+		var opt = document.createElement("option");
+		document.querySelector("select").appendChild(opt);
+		opt.value = name;
+		opt.innerText = name;
+	};
+};
+*/
+</script>
+</body>
+</html>

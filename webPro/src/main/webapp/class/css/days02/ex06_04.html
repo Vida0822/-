@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+div.sticky_test {
+	border: 2px solid #4CAF50;
+	background-color: #CAE8CA;
+	padding: 3px;
+	text-align: center;
+	
+	/* 사용자의 스크롤 위치에 따라 배치 */
+	position: sticky;
+	position: -webkit-sticky; /* Safari */
+	top: 0;
+}
+
+div:last-of-type {
+	padding-bottom: 2000px;
+	border: 1px solid gray;
+}
+</style>
+</head>
+<body>
+<!-- p>lorem^.sticky_test>{hello world}^div>p*3>lorem -->
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi doloribus blanditiis veritatis tempora harum molestiae debitis. Eum esse voluptatum animi sit quaerat eaque iure doloremque vero rem maxime facere dolorem?</p>
+<div class="sticky_test">hello world</div>
+<div>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi nobis magnam nesciunt officia et asperiores repellendus delectus corrupti ut! Unde corrupti at eveniet incidunt aliquam nostrum pariatur! Eveniet neque perspiciatis.</p>
+	<p>Quae harum fugit nobis eius officia a enim iste voluptatibus quo earum ducimus ad temporibus vero velit blanditiis excepturi ab nesciunt laboriosam fugiat consectetur. Error aperiam reprehenderit similique animi atque.</p>
+	<p>Optio ipsum numquam fuga voluptates minus aspernatur qui et excepturi porro voluptatum quas doloribus ex maxime velit animi doloremque harum nemo modi unde nostrum quo ullam molestias beatae? Animi deleniti.</p>
+</div>
+</body>
+</html>

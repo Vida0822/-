@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<h3> ex02_10.html </h3>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate ipsam?</p>
+<p>Soluta harum placeat <span>magnam</span> at porro esse tempora dolorum provident!</p>
+<p>Autem eius veniam exercitationem doloribus officia quia dignissimos corporis dicta.</p>
+<p>Hic voluptatum voluptates iure eos ad consequuntur tempore porro illo!</p>
+<p>Nulla repellat fugiat ut molestias quaerat commodi similique at architecto!</p>
+
+<script>
+// 자식으로 span태그를 가지고 있는 p태그만 빨간색
+$("p:has(span, .box)").css("color","red"); 
+// span을 가지거나 클래스가 box 거나 
+$("p").has("span, .box").css("color","red"); 
+
+$("p:contains(eius)").css("color","red"); 
+// 문자열 ' ' 로 안묶어줘도 되네...? 
+
+</script>
+</body>
+</html>
