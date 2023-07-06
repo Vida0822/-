@@ -1,0 +1,91 @@
+1.  truncate / delete / drop 대해서 설명하세요
+    turncate - 테이블 안의 모든 레코드를 삭제와 동시에 자동 커밋
+    delete - 테이블 안의 모든 레코드 삭제
+    drop - 테이블, 컬럼, 제약조건 삭제
+
+2.  insert 문 수행 중 다음과 같은 오류가 발생했다면 이유에 대해 설명하세요
+  ㄱ. 00947. 00000 -  "not enough values"
+  입력하는 컬럼보다 값의 개수가 더 적어서
+  ㄴ. ORA-00001: unique constraint (SCOTT.SYS_C007770) violated  
+  유일성 제약조건 위배
+  ㄷ. ORA-02291: integrity constraint (SCOTT.FK_DEPTNO) violated - parent key not found
+  부모키를 찾을 수 없어 무결성 제약조건 위배
+   
+3. 서브쿼리를 사용해서 테이블 생성
+  ㄱ. deptno, dname, empno, ename, sal+nvl(comm,0) pay, grade 컬럼을 가진 새로운 테이블 생성
+  ㄴ. 테이블명 : tbl_empdeptgrade   
+  CREATE TABLE tbl_empdeptgrade
+  AS (
+    SELECT d.deptno, dname, empno, ename, sal+nvl(comm,0) pay, grade
+    FROM dept d, emp e, salgrade s
+    WHERE d.deptno = e.deptno
+      AND e.sal BETWEEN s.losal AND s.hisal
+  );
+
+4-1. insa 테이블에서 num, name 가져와서 tbl_score 테이블 생성
+     (tbl_score 테이블이 있으면 삭제 후 시작하세요 )
+     CREATE TABLE tbl_score
+     AS (
+        SELECT num, name
+        FROM insa
+     );
+4-2. kor, eng, mat, tot          , avg , grade, rank 컬럼 추가
+ALTER TABLE tbl_score
+ADD (
+      kor NUMBER(3) DEFAULT 0
+    , eng NUMBER(3) DEFAULT 0
+    , mat NUMBER(3) DEFAULT 0
+    , tot NUMBER(3)
+    , avg NUMBER(5,2)
+    , grade NVARCHAR2(3)
+    , rank NUMBER(3)
+);
+4-3. 각 학생들의 kor,eng,mat 점수 0~100 랜덤하게 채워넣기.
+UPDATE tbl_score
+SET   kor = TRUNC( dbms_random.VALUE(0,101) )
+    , eng = TRUNC( dbms_random.VALUE(0,101) )
+    , mat = TRUNC( dbms_random.VALUE(0,101) );
+COMMIT;
+4-4. 총점, 평균, 등급, 등수 수정
+    조건)
+     등급은 모든 과목이 40점이상이고, 평균 60 이상이면 "합격"
+           평균 60 이상이라도 한 과목이라 40점 미만이라면  "과락"
+           그외는 "불합격" 이라고 저장.
+UPDATE tbl_score a
+SET   tot = kor + eng + mat
+    , avg = ( kor + eng + mat ) / 3
+    , grade = CASE
+                WHEN kor >= 40 AND eng >= 40 AND mat >= 40 AND avg >= 60 THEN '합격'
+                WHEN (kor < 40 OR eng < 40 OR mat < 40) AND avg >= 60 THEN '과락'
+                ELSE '불합격'
+               END
+     , rank = ( SELECT COUNT(*)+1 FROM tbl_score WHERE tot > a.tot );
+COMMIT;
+             
+5.  emp 테이블의 구조를 확인하고, 제약조건을 확인하고, 임의의 사원 정보를 추가하는 INSERT 문을 작성하세요.
+   ㄱ. 구조확인 쿼리 
+   ㄴ. 제약조건 확인 쿼리
+   ㄷ. INSERT 쿼리 
+
+6-1. emp 테이블의 구조만 복사해서 새로운 tbl_emp10, tbl_emp20, tbl_emp30, tbl_emp40 테이블을 생성하세요. 
+    CREATE TABLE tbl_emp10  AS ( SELECT * FROM emp WHERE 1=0 );
+    CREATE TABLE tbl_emp20  AS ( SELECT * FROM emp WHERE 1=0 );
+    CREATE TABLE tbl_emp30  AS ( SELECT * FROM emp WHERE 1=0 );
+    CREATE TABLE tbl_emp40  AS ( SELECT * FROM emp WHERE 1=0 );
+    
+6-2. emp 테이블의 각 부서에 해당하는 사원정보를  위에서 생성한 테이블에 INSERT 하는 쿼리를 작성하세요.   
+    INSERT ALL
+        WHEN deptno = 10 THEN
+            INTO tbl_emp10 VALUES ( empno, ename, job, mgr, hiredate, sal, comm, deptno )
+        WHEN deptno = 20 THEN
+            INTO tbl_emp20 VALUES ( empno, ename, job, mgr, hiredate, sal, comm, deptno )
+        WHEN deptno = 30 THEN
+            INTO tbl_emp30 VALUES ( empno, ename, job, mgr, hiredate, sal, comm, deptno )
+        ELSE
+            INTO tbl_emp40 VALUES ( empno, ename, job, mgr, hiredate, sal, comm, deptno )
+    SELECT * FROM emp;
+    
+7. 조건이 있는 다중 INSERT 문에서  INSERT ALL 과 INSERT FIRST 문에 대한 차이점을 설명하세요.
+INSERT ALL - 조건을 만족하는 모든 값을 넣는다
+INSERT FIRST - 조건을 가장 먼저 만족하는 값만 넣는다
+
