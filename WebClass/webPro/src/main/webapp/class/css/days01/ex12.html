@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+body {
+	/* 텍스트 색상 */
+	color: blue;
+	background-color: lightgrey;
+}
+
+h3 {
+	/* color: rgb(0,255,0); */
+	color: white;
+	background-color: black;
+	
+	/* 텍스트 정렬 */
+	text-align: center;
+}
+
+p#p1 {
+	border: 1px solid black;
+	padding: 5px;
+	width: 250px;
+	height: 100px;
+	
+	text-align: justify;
+	/* 출력되는 텍스트의 행의 끝을 나란히 맞추겠다 */
+	
+	overflow: hidden;
+}
+
+div {
+	color: red;
+	/* 텍스트의 출력 방향 : 오 -> 왼 */
+	direction: rtl;
+}
+
+/* 텍스트에서 이미지의 수직(세로) 정렬 설정 : vertical-align */
+img.a { vertical-align: baseline;}
+img.b { vertical-align: text-top;}
+img.c { vertical-align: text-bottom;}
+img.d { vertical-align: sub;}
+img.e { vertical-align: super;}
+</style>
+</head>
+<body>
+<h3>텍스트( text )</h3>
+
+<pre>
+[css 텍스트 서식 지정]
+1. 색상 : 표준색상명(140개), #16진수, rgb(0,0,0)
+2. 정렬
+   text-align : 수평 정렬을 설정하는 속성
+   text-align-last
+   direction : 텍스트의 출력 방향을 변경하는 속성
+   unicode-bidi : 텍스트의 방향을 변경하는 속성
+   vertical-align : 수직 정렬을 설정하는 속성
+3. 장식 ex13.html
+4. 변환 ex14.html
+5. 간격 ex15.html
+6. 그림자 ex16.html
+</pre>
+
+<div>Lorem ipsum dolor sit amet.</div>
+
+<p id="p1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus temporibus enim officia quas doloribus velit cum error ipsa iste vitae maiores voluptatibus laborum numquam ipsam ipsum. Hic consequuntur possimus provident.</p>
+
+<p>Lorem ipsum<img src="../images/sqpurple.gif" class="a" style="width:9px;height:9px"> dolor sit amet.</p>
+<p>Earum quia<img src="../images/sqpurple.gif" class="b" style="width:9px;height:9px"> accusantium aliquid ducimus.</p>
+<p>Ut cum<img src="../images/sqpurple.gif" class="c" style="width:9px;height:9px"> molestiae quas exercitationem.</p>
+<p>Laborum iusto<img src="../images/sqpurple.gif" class="d" style="width:9px;height:9px"> nihil iure non!</p>
+<p>Nisi molestias<img src="../images/sqpurple.gif" class="e" style="width:9px;height:9px"> ad! Perferendis libero.</p>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+
+<script>
+// ES6에 도입된 화살표 연산자, 즉 '람다식' 
+
+// 변수에 함수 선언부분 등록! 
+var hello = function () {
+	//alert("Hello...")
+	return "hello world" ; 
+}
+hello() ; // 변수명으로 함수 호출 가능 
+
+
+/* var hello = () => {
+	alert("Hello...");
+	return "hello world" ; 
+} */
+// 이렇게 바꿔쓸 수 있따! (대신 이렇게 쓰려면 안에 코딩 한줄만 있어야함 )
+var hello = () =>  "hello world" ; 
+hello() ; 
+// 엥 이거 안쓰고 위에서 hello() 호출했는데 이 람다안에 있는거 실행안됨 
+// => 호이스팅 됐다면 실행 됐어야하는거 아님? 
+		
+		
+var hello = (name, age) => name +"/" +age; 		
+
+// 매개변수가 1개일 경우에만 괄호 생략 가능하다 
+var hello = name => "hello : " +name ;
+
+
+</script>
+</body>
+</html>

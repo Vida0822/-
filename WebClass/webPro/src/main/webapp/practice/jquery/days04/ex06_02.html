@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>2023. 5. 2. 오후 12:36:37</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+<input type="text"  autofocus="autofocus">
+
+<select name="operator" id="operator">
+    <option>선택하세요.</option>
+	<option value="" >+</option>
+	<option value="">-</option>
+	<option value="">*</option>
+	<option value="">/</option>
+	<option value="">%</option>
+	<option value="">**</option>
+</select> 
+
+<input type="number" >
+ = 
+ <input type="text"  disabled="disabled">
+ 
+ <script>
+ 
+ $(":text").first().on("keydown", function(event) {
+	 // 텍스트 박스 중 첫번째걸 클릭하면, 익명함수 실행 
+	if(event.which==13){
+		// 다 입력하고 enter를 친다면
+		$(this).next().focus();
+		// 이 요소, 즉 첫번째 텍스트 박스의 다음 요소, 즉 select에 포커스를 준다. 
+	}
+});
+let op; 
+$("#operator").change(function(event) {
+	// id=operator인 select 요소에서 변화 발생시, 즉 다른 선택지(option)을 선택시 
+	// $("#operator option:selected").text(); 
+	// 이 요소, 즉 select의 option 요소들 중 선택된 애들의, value값을 가져온다
+	///??????엥 이거 원래 select에서 찾아줘야하는거 아냐? oo 맞음. $("#operator")는 select자나
+	
+		// 다 입력하고 enter를 친다면(which, 즉 js의 keyCode가 13이라면)
+		op = $(this).find(":selected").text();
+		// *find() :  Get the descendants of each element in the current set of matched elements, filtered by a selector, jQuery object, or element.
+		//   ㄴ 어떤 요소의 하위요소를 찾을때 사용하는 함수 
+		// select요소의 하위요소들 중! 속성이 :selectd인 요소(선택한 사칙연산기호 option)를 찾아, 그 text 값 (+,-,* 등) 반환
+		$(this).next().focus();
+		// 이 select요소의 다음 형제요소인 <input type="number" >로 포커스 이동한다. 
+}); 
+
+$("input[type=number]").on("keydown", function() {
+	// 두번째 숫자 입력칸에 키보드를 누르면 익명함수 실행 
+	// -> 이 익명함수는 지금까지 입력한 두 숫자를, 사칙연산 기호에 따라 계산해 마지막 disabled input 요소에 담아줘야함 
+	if(event.which == 13){
+		// 입력 다하고 enter 입력시 
+		let result; 
+		// ?? 
+		switch (op) { 
+		// 여기에 들어오는 사칙연산 기호에 따라 계산 달리해야함 
+		// >  두번째 버튼에서 도출한 사칙연산 기호 여기까지 가져와야함 
+		// > 위에서 가져온 사칙연산 text를 담아주는 전역변수 선언! -> 36라인에 만들어줌 / 45라인에서 담아줌
+		case '+':
+			result = Number( $(":text").first().val() ) +  parseInt(  $(this).val() );				
+			// (첫번째 입력값의 value값 -> number로 변환) + (두번째 입력값의 value값 -> number로 변환) => result에 담아줌 
+			
+			// let result =   Number( $(":text").first().val() ) +  parseInt(  $(this).val() );				
+			// 두 값을 더해 변수 result에 담아줌 
+			 // $(this).next().val( result );
+			// 물론 result를 안빼면 이렇게 모든 case문에서 그 변수를 담아주는 코딩 중복되게 해줘야함 
+			// -> 이 switch문 밖으로 빼고 switch문 종료 후 한번에 넣어주는 코딩에서 한줄로 사용함 : XXX라인
+			break;
+		case '-' :
+			result = Number($(":text").first().val()) -$(this).val();
+			 // $(this).next().val( result );
+			 // ????여기선 $(this).val()만 써줘도 ㄱㅊ
+			break;
+		default:
+			break;
+		} // switch
+		$(this).next().val(result); 
+		// 그렇게 얻는 result값을 this, 즉 select요소의 다음 형제요소인 <input type="text"  disabled="disabled">의 value 값으로 넣어줌
+		
+	}
+}); 
+ </script>
+ 
+ 
+ 
+</body>
+</html>

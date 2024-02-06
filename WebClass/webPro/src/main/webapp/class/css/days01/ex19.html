@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+/* :의사클래스( 요소의 특정 상태 ) 링크 상태 순서 고정 */
+/*
+a:link{ /* 미방문 상태
+	text-decoration: none;
+}
+a:visited{ /* 방문 상태
+	text-decoration: none;
+}
+a:hover{ /* 마우스 올려놓은 상태
+	text-decoration: underline;
+}
+a:active{ /* 클릭하는 상태
+	text-decoration: underline;
+}
+*/
+
+a:link, a:visited {
+	text-decoration: none;
+	border: 2px solid green;
+	
+	color: black;
+	background-color: white;
+	padding: 10px 20px;
+}
+
+a:hover, a:active {
+	background-color: red;
+	color: white;
+}
+</style>
+</head>
+<body>
+<h3>css 링크 + 스타일 지정 == 스타일링 링크</h3>
+<!-- a[href=# target=_blank]{This is a link} -->
+<a href="#" target="_blank">This is a link</a>
+</body>
+</html>

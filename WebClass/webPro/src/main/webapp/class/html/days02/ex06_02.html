@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ex06_02.html</title>
+</head>
+<body>
+	<h3>html 링크 - 하이퍼링크</h3>
+	<!-- 
+- 링크를 클릭하고 다른 문서로 이동
+- 링크 위에 마우스를 올리면 작은 손 모양으로 바뀐다
+ -->
+	<!-- 
+ A link if the href attribute is present,
+ [ href 속성 ]
+ <a href="uri"></a>
+ and the target for a link if the name attribute is present
+ [ name 속성 ] - 링크 대상
+ <a name=""></a>
+  -->
+	<a href="http://www.naver.com">naver</a>
+	<br>
+
+	<!-- 기준 http://localhost/webPro/html/days02/ -->
+	<!-- filename 상대경로/절대경로 -->
+	<a href="ex01.html">ex01.html</a>
+	<br>
+	<!-- .. 상위 디렉토리 -->
+	<!-- . 현재 디렉토리 -->
+	<a href="./ex01.html">ex01.html</a>
+	<br>
+
+	<!-- days01/ex01.html -->
+	<!--절대경로, 상대경로 -->
+	<a href="http://localhost/webPro/html/days01/ex01.html">ex01.html</a>
+	<br>
+	<!-- 기준 http://localhost/webPro/html/days02/ ../ 상위폴더 이동 -->
+	<!-- 기준 http://localhost/webPro/html/ -->
+	<a href="../ex01.html">ex01.html</a>
+	<br>
+	<!-- 기준 http://localhost/webPro/ -->
+	<a href="../../ex01.html">ex01.html</a>
+	<br>
+	<!-- 기준 http://localhost/webPro/html/ 후 이동 -->
+	<a href="../days01/ex01.html">ex01.html</a>
+	<br>
+
+	<!-- 문제 : 상대경로 표현하기 -->
+	<!-- 기준 http://localhost/webPro/ -->
+	<a href="../../index.html">index.html</a>
+</body>
+</html>

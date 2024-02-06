@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src = "cookie.js"></script>
+
+</head>
+<body>
+<h3> ex02_03 html </h3>
+
+<table border="1" style="background-color: white;width:400px;margin:0 auto">
+   <tr>
+     <td><img src="../images/item01.gif" alt="" /></td>
+     <td><img src="../images/item02.gif" alt="" /></td>
+     <td><img src="../images/item03.gif" alt="" /></td>
+  </tr>
+  <tr>
+     <td><input type="radio" checked="checked"  name="bgImages" id="item01" value="item01" />item01</td>
+     <td><input type="radio" name="bgImages"  id="item02" value="item02" />item02</td>
+     <td><input type="radio" name="bgImages" id="item03" value="item03" />item03</td>
+  </tr>
+  </table>
+ 
+ <script>
+ // 상태유지 해보자!!
+ 
+ let cName = "bgimg"; 
+ let cValue = "item01"; 
+ let cPath = "/"; 
+ let expiresDays = 10; 
+ 
+ window.onload = function() {
+	// 1. bgimg 쿠키명으로 쿠키값이 있는지 확인 
+	cValue = getCookie(cName); 
+	
+	if (!cValue) { // 배경이미지 쿠키 x 
+		cValue="item01"; 
+		setCookie(cName, cValue, cPath, expiresDays); 
+		//  안댐 ㅠㅠ 
+	}else{
+		//라디오버튼... =>체크해준 값(cValue)로 쿠키에 반영(상태유지)
+		document.getElementById(cValue).checked = "checked";
+	}
+	document.body.style.backgroundImage
+	=`url(../images/${cValue}.gif)`; 	
+	
+	// 1. 모든 라디오 버튼을 찾아 클릭할때 그 item01 쿠키값으로 쿠키를 저장하는 작업 
+	// 2. 배경이미지 설정 
+	let rdbs = document.getElementsByName("bgImages"); 
+	for (let rdb of rdbs) {
+		rdb.onclick = function() {
+			// 1. 
+			cValue=event.srcElement.value; 
+			setCookie(cName, cValue, cPath, expiresDays)
+			// 2.
+			document.body.style.backgroundImage
+			=`url(../images/${cValue}.gif)`; 	
+			
+			
+			// path를 / 를 줬기 떄문에 모든 localhost 페이지에서 쿠키값이 유지된다 
+		}
+	}
+}
+ 
+ 
+ 
+ </script>
+</body>
+</html>

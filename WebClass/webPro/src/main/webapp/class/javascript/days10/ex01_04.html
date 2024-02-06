@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+	전체 선택 :
+	<input type="checkbox" />
+	<table border="1">
+		<tr>
+			<td><input type="checkbox" />1</td>
+			<td>hong</td>
+			<td>seoul</td>
+		</tr>
+		<tr>
+			<td><input type="checkbox" />2</td>
+			<td>admin</td>
+			<td>seoul</td>
+		</tr>
+		<tr>
+			<td><input type="checkbox" />3</td>
+			<td>kenik</td>
+			<td>pohang</td>
+		</tr>
+	</table>
+
+	<button id="btn">버튼</button>
+	<p id="demo"></p>
+
+
+	<script>
+/* 		$("input").first().click(function() { // 이거 :checked왜 안되는지 확인 
+			$("input").attr("checked", "checked");
+		})
+
+		var cbxs = $("input");
+
+		$("button").click(function() {
+
+			for (var i = 0; i < this.length; i++) {
+				if ("input.eq(i):checked" ) {
+					let name = $(this).parent().next().html(); 
+					// 제발 jquery할때.....document 쓰지마 ..... 
+					alert(name);
+				} else {
+				}
+			}
+		}) */
+	
+		$(":checkbox").first().click(function() {
+			$("table :checkbox").prop("checked", $(this).prop("checked")); 
+		}); 
+		let content ;
+		$("button").click(function() {
+			// alert($("table :checkbox:checked").length) ; 
+			$("table :checkbox:checked").each(function(i, element) {
+				let no = element.nextSibling.nodeValue; 
+				let name = element.parentElement.nextElementSibling.firstChild.nodeValue ; //parent()
+				let loc = element.parentElement.nextElementSibling.nextElementSibling.firstChild.nodeValue;; 
+				// 노드 자체만 바로 출력하는거 x -> 텍스트 노드의 텍스트가 필요하면 value!!! 
+				
+				content += `${no} / ${name} / ${loc} <br>`; 
+				
+			});
+		$("#demo").html(content); 
+		});
+		
+		
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

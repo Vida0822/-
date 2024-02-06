@@ -1,0 +1,373 @@
+
+2.  버튼 3개 선언 후 클릭 이벤트 처리해서 경고창을 띄우세요.. 
+  ㄱ. onclick 속성
+
+<button onclick="alert('첫 번째 버튼 클릭!')">버튼 1</button>
+<button onclick="alert('두 번째 버튼 클릭!')">버튼 2</button>
+<button onclick="alert('세 번째 버튼 클릭!')">버튼 3</button>
+
+
+  ㄴ. js 동적으로 이벤트 등록
+
+<button id="btn1">js버튼 1</button>
+<button id="btn2">js버튼 2</button>
+<button id="btn3">js버튼 3</button>
+
+<script>
+  const btn1 = document.getElementById('btn1');
+  const btn2 = document.getElementById('btn2');
+  const btn3 = document.getElementById('btn3');
+
+  btn1.addEventListener('click', function() {
+    alert('첫 번째 버튼 클릭!');
+  });
+  btn2.addEventListener('click', function() {
+    alert('두 번째 버튼 클릭!');
+  });
+  btn3.addEventListener('click', function() {
+    alert('세 번째 버튼 클릭!');
+  });
+</script>
+
+
+  ㄷ. jquery 사용
+    
+
+<button id="btn1">jq버튼 1</button>
+<button id="btn2">jq버튼 2</button>
+<button id="btn3">jq버튼 3</button>
+
+
+<script>
+  $('#btn1').click(function() {
+    alert('첫 번째 버튼 클릭!');
+  });
+  $('#btn2').click(function() {
+    alert('두 번째 버튼 클릭!');
+  });
+  $('#btn3').click(function() {
+    alert('세 번째 버튼 클릭!');
+  });
+</script>
+
+================================================================
+================================================================
+
+3. 위의 버튼이 클릭되면 class 속성을 active 로 설정 후 임의의 스타일 지정
+ jquery에서-
+
+.active {
+  background-color: yellow;
+  color: red;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+<button id="btn1" class="active">jq버튼 1</button>
+<button id="btn2">jq버튼 2</button>
+<button id="btn3">jq버튼 3</button>
+
+================================================================
+================================================================
+
+4.   document.querySelectorAll("button")
+      document.querySelector("button") 
+    위의 두 함수와 코딩에 대해서 설명하세요.
+    
+
+document.querySelectorAll("button")는
+class가 "btn"인 모든 요소를 선택하고, forEach() 메소드를 사용하여 각각의 요소에 대해 addEventListener() 메소드를 호출하여 클릭 이벤트를 추가
+클릭 이벤트가 발생하면 alert() 함수를 호출하여 "You clicked the button!"이라는 메시지를 보여준다.
+
+document.querySelector("button")는
+class가 "btn"인 첫 번째 요소만 선택하고, addEventListener() 메소드를 호출하여 클릭 이벤트를 추가
+클릭 이벤트가 발생하면 alert() 함수를 호출하여 "You clicked the first button!"이라는 메시지를 보여준다.
+
+
+================================================================
+================================================================
+
+
+        
+5. tr:hover:not(:first-child){
+     background-color: #4caf50;
+  }
+  코딩에 대해서 설명하세요.  
+
+ "tr" 요소의 하위 요소인 모든 요소들 중 첫 번째 자식 요소를 제외한 요소들에 대해서 
+마우스가 올려졌을 때 배경색을 #4caf50으로 변경하는 스타일을 정의한다.
+
+예를들면
+<style>
+table {
+  border-collapse: collapse;
+}
+
+tr:hover:not(:first-child) {
+  background-color: #4caf50;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+		
+</style>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>John Doe</td>
+    <td>35</td>
+    <td>USA</td>
+  </tr>
+  <tr>
+    <td>Jane Smith</td>
+    <td>28</td>
+    <td>Canada</td>
+  </tr>
+  <tr>
+    <td>Bob Johnson</td>
+    <td>42</td>
+    <td>Australia</td>
+  </tr>
+</table>
+
+여기서 첫번째 자식 요소 <th>Name</th> / <td>John Doe</td> /  <td>Jane Smith</td> / <td>Bob Johnson</td> 를
+제외한 나머지 자식들에 대해서만 background-color: #4caf50; 배경색으로 변경된다.
+================================================================
+================================================================
+
+
+6. display="none"          
+    visibility="hidden"     
+   위의 두 속성의 차이점을 설명하세요.
+
+none은 완전히 제거의 의미며 개발자 도구에서도 보이지 않는다.
+hidden은 숨기기의 의미며 개발자 도구에서 볼 수 있지만 요소는 페이지에서 볼 순 없다.
+
+================================================================
+================================================================
+
+7. jquery  메서드 설명
+  ㄱ. css()    
+	선택한 요소의 CSS 속성 값을 설정하거나 반환 
+  ㄴ. show()  
+	선택한 요소를 보이게 한다.
+  ㄷ. hide() 
+	선택한 요소를 숨긴다.
+  ㄹ. toggle()  
+	 요소가 표시되어 있으면 숨겨지고 숨겨져 있으면 표시된다.
+  ㅁ. slideToggle()
+	선택한 요소를 슬라이딩 효과와 함께 토글
+  ㅂ. addClass()   
+	택한 요소에 클래스를 추가
+  ㅅ. removeClass() 
+	  택한 요소에서 클래스를 제거
+
+
+================================================================
+================================================================
+  
+8.  position(위치) 속성에 대해 설명하세요.
+  ㄱ. static   
+	기본값
+  ㄴ. relative 
+	 top, right, bottom, left 속성을 사용하여 위치를 조정
+  ㄷ. fixed    
+	브라우저 창을 기준으로 배치
+	top, right, bottom, left 속성을 사용하여 위치를 조정할 수 있으며, z-index 속성을 사용하여 다른 요소들보다 우선적으로 표시할 수 있다.
+  ㄹ. absolute  
+	요소를 가장 가까운 조상 요소를 기준으로 배치
+  ㅁ. sticky    
+	요소를 일반적인 문서 흐름에 따라 배치하다가 스크롤이 일정 위치를 지나면 지정된 위치에 고정
+
+================================================================
+================================================================
+  
+9-1. [ DOM ]을  사용해서 (js를 사용) <button> 요소를 10개 동적으로 생성하고
+      버튼을 클릭하면 숨기도록 코딩하세요..
+          
+<script>
+	for(var i = 1; i <= 10; i++) {
+		var button = document.createElement("button");
+		button.innerHTML = "버튼" + i;
+		document.body.appendChild(button);
+		
+		button.onclick = function() {
+			this.style.display="none";
+		}
+	}
+</script>
+
+================================================================
+================================================================
+9-2. 위의 문제8번을 jquery로 코딩해 보세요...
+
+
+
+================================================================
+================================================================
+10-1. 아래 코딩에 대해서 각 라인 별로 주석을 달아서 설명하세요 
+
+<div class="topnav">
+   <a href="#"></a>
+   <a href="#"></a>
+   <a href="#"  class="active"></a>
+   <a href="#"></a>
+</div>
+
+
+<script>   
+                                                                      
+  var links = document.querySelectorAll(    "div.topnav a"    );  
+  links.length = 4
+  for (var i = 0; i < links.length; i++) {
+	   links[i].onclick = function (){ 
+		   for (var i = 0; i < links.length; i++) { 
+			  links[i].classList.remove("active");
+		  }  
+		   this.classList.add("active");
+	   };
+  }
+</script>
+
+
+
+================================================================
+================================================================
+10-2. 위의 10-1번 문제를 jquery로 코딩하세요. 
+
+
+
+================================================================
+================================================================
+11. 아래 js코딩에 대해서 각 라인 별로 주석을 달아서 설명하세요
+
+1 2 3 4 5 6 [7] 8 9 >  >>
+
+<style>
+   .active{
+      background-color: gray;
+      color: black;
+   }
+	/* 2번에 해당하는 .active의 배경색상은 회색, 글자색은 검정 */
+</style>
+
+<div class="pagination">
+   <a>1</a>
+   <a  class="active">[2]</a>
+   <a>3</a>
+   <a>4</a>
+   <a>5</a>
+   <a>6</a>
+   <a>7</a>
+   <a>8</a>
+   <a>9</a>
+   <a>></a>
+   <a>>></a>
+</div> 
+ 
+<script>
+
+ /* 페이지 번호를 클릭하면 다른 페이지 번호의 active 클래스를 제거하고 
+	클릭한 페이지 번호에 active 클래스를 추가하는 이벤트 핸들러 */
+
+    $(".pagination a").click(function(event) {    /*페이지 번호들의 a 태그를 선택 */  /*페이지 번호를 클릭하면 실행될 이벤트 핸들러입니다. */
+    	$(".pagination a").not(this).removeClass("active");  /*클릭한 페이지 번호를 제외한 다른 페이지 번호들의 active 클래스를 모두 제거*/
+    	$(this).addClass("active");  /*클릭한 페이지 번호에 active 클래스를 추가*/
+    });
+ 
+</script>
+
+
+
+================================================================
+================================================================
+12.  아래  css코딩을 설명하세요.
+  #mySidenav a{
+    transition:0.5s ease;
+  }
+        
+    <button>버튼 1</button>
+    
+    <style>
+	  button{
+	    width:100px;
+	    border:1px solid gray;
+	    
+	    transition:0.5s ease;
+	  }
+	  
+	  button:hover{
+	    width:200px; 
+	    
+	  }
+	</style>
+        버튼에 대한 스타일 적용인데,
+	버튼을 너비 100px에 회색 테두리가 적용되게 하며,
+	마우스가 올려지게되면 0.5초동안 너비 200px로 부드럽게 전환효과가 일어난다,
+	
+
+
+
+================================================================
+================================================================
+13.  "문제01_결과.png"   css 적용하세요 .
+    - 수업 자료 참조하지 말고 html, css, 등 모든 코딩을 해 보세요~
+    - 마지막에 문제 푸세요~        
+        
+        
+ <style>
+	body{
+
+		margin: 0;
+		padding: 0;
+		}
+
+	.icon-bar {
+		
+		background-color: #555;
+		width: 90px;
+		
+		}
+		
+	.icon-bar a {
+					
+		display: block;
+		text-align: center;
+		color: white;
+		font-size: 36px;
+		padding: 16px;
+							
+		}
+
+	.icon-bar a:hover{
+		background-color: #000;
+		}
+
+	.icon-bar a.active{
+		background-color: #4caF50;
+		}
+
+		
+</style>       
+<body>
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+<div class="icon-bar">
+	<a href="#" class="active"><i class="fa fa-home"></i></a>
+	<a href="#"><i class="fa fa-search"></i></a>
+	<a href="#"><i class="fa fa-envelope"></i></a>
+	<a href="#"><i class="fa fa-globe"></i></a>
+	<a href="#"><i class="fa fa-trash"></i></a>
+</div>
+        
+        
+        
+        
+        
+        

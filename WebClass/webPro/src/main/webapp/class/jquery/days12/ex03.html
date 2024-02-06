@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<pre>
+$(선택자).액션() 
+
+[액션()]
+
+1. 효과(Effects) 
+ 
+	ㄱ. Basics : hide(), show() , toggle() 
+	
+1) hide( [duration ] [, complete ] )
+	duration : 몇초동안 숨길거야? 숨기는 과정...에 걸리는시간 (ms, slow(600), fast(200) - default : 400 ) 
+	complete : 완료시 발생하는 action? 콜백함수 ..! 
+	
+	* 객체가 사라지는게 아니라 그냥 display 속성만 none
+	=> 객체까지 없애는거 : remove( )
+	
+	
+	 arguments.callee ??  넘겨주는 인자없이 계속 함수를 호출하겠다? 
+	 
+
+$( "<div>" ).appendTo( document.body );
+=> body의 마지막 자식으로 div 추가 
+== $("body").append($("<div>"))
+
+ㄴ 굳이 2개를 만들어놓은 이유 ? 체이닝 
+$( "<div>" )
+	.appendTo( document.body ) // 밑에 다른 action()들이랑 같이 체이닝 해주려면 div 기준으로 써야함  
+	.css()
+	.action() ;
+	
+2) show()
+	* submit 원래 submit 버튼 눌러야하는데 텍스트박스?가 하나일땐 enter치면 자동으로 일어남 
+
+3) toggle()
+: 보이는애 -> 안보이게/ 안보이는애-> 보이게 (서로 바뀌는것처럼 보이는데 그건 ㄴㄴ )
+
+.toggle( duration [, easing ] [, complete ] )
+.toggle( display )
+display
+Type: Boolean
+
+※ 함수 찾을 때 오버라이딩 부분 자세히 보기
+
+	ㄴ. Custom : animate() 관련 -> ex04 
+	ㄷ. Fading : fadeIn(), fadeOut(), fadeTo(), fadeToggle() => ex03_02
+	ㄹ. Sliding : slideDown(), slideUp(), slideToggle()  => ex03_03 
+
+
+</pre>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+
+<script>
+//2. 날짜 정보 설정하기 : set 
+//(생성자로 날짜 객체를 만들면서 설정할 수 있지만 이번엔 객체를 먼저 만들고! 값을 설정해보겠음)
+
+const d = new Date(); 
+
+//setYear() : 입력해준 숫자에 1900을 더해 연도를 설정해준다 
+d.setYear(20) // 1920년으로 설정해준거임 
+
+//d.setFullYear(year); 
+d.setFullYear(2020); 
+//d.setFullYear(year, month, date); 
+d.setFullYear(2020,11,21); // 2020 . 12 . 21  
+console.log(d.toLocaleString()); // 2020. 12. 21. 오후 2:35:15
+
+d.setMonth(4); 
+d.setDate(4); 
+d.setDate(d.getDate()+50); // 오늘 날짜에 50일을 더해 날짜객체 d의 날짜로 설정  54-31 = 23 -> 6월의 23일
+
+console.log(d.toLocaleString()); // 2020. 6. 23. 오후 2:36:47
+
+
+</script>
+
+<script>
+// 문제1) 생일(99/5/3) 생일이 지났는지 유무! 
+
+const b = new Date("1999-05-03");  
+console.log(b.toLocaleString()); //Mon May 03 1999 09:00:00
+//const t = new Date() ; 
+//console.log(t.toLocaleString()); // Thu May 04 2023 15:07:05
+//시간값을 절삭해줘야함 ! 안그러면 생일 당일이라도 같다고 안나옴 ~! 
+
+//console.log(t-b); // 757490859795
+// 이게 양수면 생일지남, 음수면 생일 안지남 (엥 근데 이렇게 하면 시간 절삭 안된거 아냐? )
+
+const b = new Date("1999-05-03"); 
+console.log(b); 
+const t = new Date() ; 
+console.log(t); 
+
+let diff = today.getMonth() - birthday.getMonth()
+if( diff>0){	
+	alert("생일 안지남 ")
+}else if (diff<0) {
+	alert("생일 지남")	
+}else{
+	diff = today.getDate () - birthday.getDate (); 
+	if( diff>0){
+		alert("생일 안지남 ")
+	}else if (diff<0) {
+		alert("생일 지남")	
+	}else {
+		alert("생일임! ")	
+		// 이거 절대 안나옴! 시간값을 절삭해줘야함 ! 
+	}
+} 
+
+
+//문제2) 2023.05의 1일이 무슨  요일 ? 
+/* const d = new Date( "2023-05-01"); 
+// const t = new Date(2023,5-1); // 요러케만 해도 1일로 나옴
+const days = "일월화수목금토"; 
+console.log(days[d.getDay()]); 
+ */
+
+//문제3) 2023.5월의 마지막날짜 며칠까지? 
+const t = new Date(2023, 6-1); 
+// 2023년, 5월을 입력해 날짜객체 생성 -> 변수 t에 담음 
+console.log(t.toLocaleString()); // 2023. 6. 1. 오전 12:00:00
+
+// 월을 입력 안해줬지만 자동으로 1일로 설정됨 (2023.5.1)
+
+t.setDate(t.getDate()-1);
+// t.getDate():  생성한 객체의 날짜를 얻어와 1을 빼줌 <-> date = 0  => underflow발생 => 전달 마지막날 반환 ? 달은 바뀌지 않고 날짜만 그 달의 마지막날로 변환 ?
+		// 날짜가 1보다 작아지면 전달의 마지마날로 변환 ? 그 달의 마지막날로변환? 
+// t.setDate() : 그 마지막 날로 날짜객체 날짜...를 지정해줌 
+console.log( t.toLocaleString() ); // 2023. 5. 31. 오전 12:00:00
+console.log( t.getDate() );
+
+
+
+</script> 
+
+</body>
+</html>

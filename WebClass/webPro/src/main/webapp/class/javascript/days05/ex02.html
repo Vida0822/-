@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>2023. 5. 3. 오후 12:25:32</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+<script>
+   // js  숫자 ( number )     8바이트(부동소수점)
+   let x = 3;
+   let y = 3.14;
+   let z = 123e-5;
+   
+   // js 숫자는  최대 15자리까지만 정확하다.
+   x = 999999999999999;  // 15개
+   x = 9999999999999999;  // 16개  10000000000000000
+   // alert( x );
+   
+   // let a = 0.1 + 0.2;  // 0.30000000000000004
+   // 오차가 없는 0.3 처리..
+   let a = ((0.1*10) + (0.2*10))/10;  // 0.3
+   // alert( a );
+   
+   x = 10;
+   y = 20;
+   z = x + y;
+   // alert( z );  // 30
+   
+   x = "10";
+   y = 20;
+   z = x + y;  // s + n
+   // alert( z );  // "1020"
+   
+   x = "100";
+   y = "10";
+   z = x - y; 
+   // alert( z  );  // 100-10 => 10
+   
+   // alert(     100/ "admin"  );  // NaN(Not a Number)
+   // alert(   isNaN(  100/ "admin" )    ); // true
+</script>
+<script>
+    x = 100/ "admin";
+    y = 5;
+    //y = "5";  // "NaN5"
+    z = x + y;  // NaN + 숫자
+    // alert( z ); // NaN 산술연산자 처리 => NaN
+    
+    // alert(    typeof   NaN );  // number
+</script>
+<script>
+    // 16진수
+    x = 0xFF;
+    // 8진수
+    y = 012;
+</script>
+<script>
+   x = 10;
+   console.log(    x.toString()   ); // string + 10진수
+   console.log(    x.toString(2)   ); // string + 2진수
+   console.log(    x.toString(8)   ); // string + 8진수
+   console.log(    x.toString(16)   ); // string +16진수
+</script>
+<script>
+    x = 10;                           // number
+    y = new Number(10); // object
+    // alert(  x == y );  // true
+    alert(  x === y );  // false
+</script>
+<script>
+    // BigInt 자료형 :
+    x =  999999999999999;  // 15개  정확하다.
+    
+    // BigInt 정수
+    // 1) y =  9999999999999999n; // 16개
+    // 2)  alert( typeof       BigInt(9999999999999999) )
+    
+    
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

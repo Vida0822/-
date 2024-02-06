@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+p {
+	/* text-indent: 50px; */
+}
+</style>
+<style>
+h2 {
+	letter-spacing: 5px;
+}
+
+h3 {
+	letter-spacing: -2px;
+}
+</style>
+<style>
+p {
+	/* line-height: 0.7; */
+	/* line-height: 1.8; */
+}
+</style>
+<style>
+div {
+	border: 1px solid red;
+	/* word-spacing: 10px; */
+	/* word-spacing: -2px; */
+	
+	/* 텍스트의 줄바꿈을 비활성화 */
+	white-space: nowrap;
+}
+</style>
+<style>
+p#wb {
+	border: 1px solid blue;
+	width: 200px;
+	
+	/* 너비보다 한 단어가 더 길면 다음 라인으로 줄바꿈 강제 */
+	word-wrap: break-word;
+	
+	/* 라인의 끝에 도달할 때까지 단어 출력 후 남는 단어는 끊어서 출력 */
+	word-break: break-all;
+}
+</style>
+</head>
+<body>
+<p id="wb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboru mdolo ribus accus antium quo. Assumend aculpa ametadtemporibusatquedignissimosesseadipiscisuscipitporromagni. Eligendi nihil ea nisi repellendus quas.</p>
+
+<!-- <h3>텍스트 간격</h3> -->
+<h2>This is heading 1</h2>
+<h3>This is heading 2</h3>
+
+<pre>
+[텍스트 간격]
+text-indent : 첫 번째 라인에 들여쓰기
+letter-spacing : 문자와 문자 사이의 간격
+line-height : 라인과 라인 사이의 간격
+word-spacing : 단어와 단어 사이의 간격
+white-space : 공백 처리 방법 지정
+word-wrap : 한 단어가 너무 길 때 강제 개행
+word-break : 단어 쪼개서 개행
+</pre>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione et adipisci voluptate quisquam quaerat dicta non alias in quo officiis minima ad dolores delectus vitae ut enim excepturi doloribus aliquam.</p>
+
+<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae odio soluta totam architecto enim assumenda debitis accusantium omnis ratione optio hic quia cupiditate. Obcaecati sunt nemo rem molestias odio quaerat.</div>
+</body>
+</html>

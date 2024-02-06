@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+<button>Turn on</button>
+<button>Turn off</button>
+<br>
+<img src="" alt="">
+<br>
+<button></button>
+</body>
+<script>
+$(document).ready(function() {
+	/* 
+	$("button:nth-of-type(2)").attr("disabled","disabled")
+							  .attr("alt","bulb on");
+	*/
+	$("button:nth-of-type(2)").attr({
+		disabled:"disabled",
+	 	alt:"bulb on"
+	});
+	$("img").attr({
+		src:"../images/pic_bulboff.gif",
+	 	alt:"bulb"
+	});
+	$("button:last-of-type").html("Turn on");
+	
+	// button:first-of-type
+	$("button").first().click(function(event) {
+		// alert("1");
+		$(this).prop("disabled",true)
+			.next().prop("disabled",false); // next() 다음요소
+		$("img").attr("src","../images/pic_bulbon.gif");
+	});
+	
+	// button:nth-of-type(2)
+	$("button").eq(1).click(function(event) {
+		// alert("2");
+		$(this).prop("disabled",true)
+			.prev().prop("disabled",false); // prev() 이전요소
+		$("img").attr("src","../images/pic_bulboff.gif");
+	});
+	
+	$("img").hover(
+		function() { // mouseover
+			$("button").first().prop("disabled",true)
+				.next().prop("disabled",false);
+			$("img").attr("src","../images/pic_bulbon.gif");
+		},
+		function() { // mouseout
+			$("button").eq(1).prop("disabled",true)
+				.prev().prop("disabled",false);
+			$("img").attr("src","../images/pic_bulboff.gif");
+		}
+	);
+	
+	var sw = false;
+	// button:last-of-type
+	$("button").last().click(function(event) {
+		// alert("3");
+		if (!sw) {
+			$("button").first().prop("disabled",true)
+				.next().prop("disabled",false);
+		} else {
+			$("button").eq(1).prop("disabled",true)
+				.prev().prop("disabled",false);
+		}
+		$("img").attr("src","../images/pic_bulb"+(sw?"off":"on")+".gif");
+		$(this).html(sw?"Turn on":"Turn off");
+		sw = !sw;
+	});
+	/*
+	$("#off").attr("disabled","disabled");
+	$("img").attr("src","../images/pic_bulboff.gif");
+	
+	$("#on").click(function(event) {
+		$(this).attr("disabled","disabled");
+		$("#off").removeAttr("disabled");
+		$("img").attr("src","../images/pic_bulbon.gif");
+	});
+	
+	$("#off").click(function(event) {
+		$(this).attr("disabled","disabled");
+		$("#on").removeAttr("disabled");
+		$("img").attr("src","../images/pic_bulboff.gif");
+	});
+	
+	$("img").mouseover(function(event) {
+		$("img").attr("src","../images/pic_bulbon.gif");
+	});
+	
+	$("img").mouseout(function(event) {
+		$("img").attr("src","../images/pic_bulboff.gif");
+	});
+	 */
+});
+
+</script>
+</html>

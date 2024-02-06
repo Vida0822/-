@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+
+
+<script>
+//[ js bollean : 참(true) 거짓(false)] 
+// > >= <= == != 
+console.log(Boolean(10>9) ) ;  // 함수 Boolean , true
+console.log(10>9) ; // true -> 없어도 ㄱㅊㄱㅊ
+
+//*** value가 있는 모든 항목은 js에서는 참이다 ***
+
+if(100){
+	alert("참이다"); // 자바에선 오류! 참거짓 x -> 근데 js에선 값이있으면 그냥 true로 인식 
+}
+if("hello"){
+	alert("참이다"); // true 
+}
+if(3,14){
+	alert("참이다"); //true 
+}
+
+// ※ js에선 어떤 경우에 거짓? 
+// 1) undefined 
+var x ; // undefinded -> false
+if(x){
+	alert("참");
+}else{
+	alert("거짓"); // false  
+}
+
+// 2) 0 
+var x = 0; // 0, -0 
+if(x){
+	alert("참");
+}else{
+	alert("거짓"); // false  
+}
+// 3) "" 
+// 4) null 
+// 5) NaN   ex) 10/"hello"  -> false 
+
+</script>
+</body>
+</html>

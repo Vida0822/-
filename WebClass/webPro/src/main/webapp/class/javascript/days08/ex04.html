@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<style>
+#out{
+	background-color: coral;
+	padding: 50px;
+}
+#in{
+	background: white;
+	font-size: 20px; 
+	border: 1px solid; 
+	padding: 20px ;
+}
+
+</style>
+</head>
+<body>
+<pre>
+
+1. 이벤트 버블링
+: 자식요소(p)에 이벤트가 발생하면 부모요소(div)에 이벤트가 전달(전파) 발생
+※ 이거 프로젝트에서 실수 많이하는 부분임! 주의 
+=> 막아주는 방법까지 
+2. 이벤트 캡처링  -> pass 
+
+</pre>
+
+<div id = "out" > 
+	<h2> 버블링 체크 </h2>
+	<p id = "in">자식 p태그  </p>
+</div>
+
+
+<script>
+$("#out").on("click", function() {
+	alert("out div click"); 
+})
+
+$("#in").on("click", function() {
+	alert("in p click"); 
+    event.cancelBubble = true;  // 1) 
+	// jquery : stopPropagation() ;  // 2) 
+})
+// 문제 : 이때 p 태그를 눌렀을 때 div 버튼 알림창도 뜨고 p 버튼 알림창도 뜬다 
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+<pre>
+
+ [js 컬렉션]
+ 1. options 컬렉션
+ 2. arguments 컬렉션 
+ 3. forms 컬렉션  
+
+ 4. element 컬렉션  
+ 5. images 컬렉션 - ex04_02
+ 6. links 컬렉션 - ex04_02
+ 
+  document.styleSheets -> 컬렉션 !!  -> css days01 sample.html 
+  
+</pre>
+<form id="form1" name="form1" action="">
+	  Name : <input type="text" name="name" value="admin" />
+	  <br>
+	  Age : <input type="text" name="age" value="20" />
+	  <br>
+	  Email : <input type="email" name="email" value="admin@naver.com" />  
+	  <button type="button" value="ok">확인</button>
+</form>  
+
+<p id="demo"></p>
+
+<script>
+
+
+ $("button").click(function() {
+ 	// document.getElementById("form1"); 
+ 	// document.querySelector("#form1"); 
+ 	
+ 	let form1 = document.forms["form1"] ; // 클릭시 폼가져옴 -> 변수 
+ 	// document.forms[0] ;
+	// alert(form1.elements.length); //4 
+	 
+	 for (var i = 0; i < form1.elements.length; i++) {	 
+		$("#demo").html( function(index, oldHtml) { 
+			return oldHtml + "<br>" + form1.elements[i].value ; 
+		})
+	}// for
+ })
+ 
+ 
+
+</script>
+</body>
+</html>

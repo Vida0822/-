@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+<input type="text" id="age" value="20">
+<button>실행</button>
+<p id="demo"></p>
+<script>
+document.querySelector("button").onclick = function() {
+	// 18 이상 : old
+	// 18 미만 : young
+	// document.querySelector("#demo").innerHTML = 
+	// document.querySelector("#age").value >= 18 ? "old" : "young";
+	
+	// input value 20 : 문자열 "20"
+	// let age = document.getElementById("age").value; // string
+	let age = Number( document.getElementById("age").value ); // number
+	// alert( typeof age ); // 자료형 확인
+	// js 정규표현식 : RegExp
+	// 문자열 -> 숫자 변환 함수 : parseInt(), Number()
+	let result;
+	// 문자열 숫자 비교하면 자동으로 문자열 ->  숫자 변환
+	if ( isNaN( age ) ) {
+		result = "잘못된 입력입니다";
+	} else {
+		result = age >= 18 ? "old" : "young";
+	};
+	document.getElementById("demo").innerHTML = result;
+	document.getElementById("age").select();
+};
+</script>
+</body>
+</html>

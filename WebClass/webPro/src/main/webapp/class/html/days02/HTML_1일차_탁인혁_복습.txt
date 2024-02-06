@@ -1,0 +1,60 @@
+1. html5 구조에 대해서 설명하세요.  
+
+	ㄱ. 모든 html 문서는 <!DOCTYPE> 문서유형 선언문
+	ㄴ. html5 문서 <!DOCTYPE html> 선언\
+	ㄷ. 대소문자 상관 없다 ( DOCTYPE 대문자 권장 )
+	ㄹ. html 요소( 태그, element ) : 문서 자체 시작 ~ 끝
+	ㅁ. 자식요소
+		ㄴ head 요소
+			ㄴ meta 요소
+			ㄴ title 요소
+		ㄴ body 요소 : 필수, html 문서의 보이는 부분
+
+2. 웹 동작 원리에 대해서 설명하세요.
+ 
+	클라이언트				서버
+	전용웹브라우저				웹서버 + WAS( 아파치 톰캣 )
+	URL		-> 요청 request    ->	
+			<- 응답 response <-
+
+3. [요소(Element)]에 대해서 설명하세요. 
+
+	요소 = <시작태그 속성명="속성값" 속성명="속성값">내용</닫기태그>
+	html 요소는 루트(root) 요소(element)
+	<br>, <meta> 닫기태그 X ( 내용이 없는 태그 )
+	대소문자를 구분하지 않지만, 소문자 사용 권장
+
+3-2. [속성(Attribute)]에 대해서 설명하세요.
+
+	- html 요소에 대한 추가 정보를 제공하는 것
+	- 모든 html 요소는 속성을 가질 수 있다
+	- 항상 시작 태그에 설정(지정)한다
+	- name="value" 한쌍으로 제공(지정)된다
+	  name='value'
+	  name=value
+	  name=value 속성명과 속성값이 같은 경우에는 name을 속성으로 지정해도 된다
+	- 대소문자를 구분하지 않지만 소문자 사용 권장
+    
+4. 웹 표준 기술 = [ ㉠ 웹 페이지 구성 html ] + [ ㉡ 스타일 적용 css ] + [ ㉢ 사용자 반응 처리 javascript ]  ...
+     ㉠, ㉡, ㉢ 을 적으세요.~
+
+5.  html entity 에 대해서 설명하세요. 
+
+	- html의 예약문자(특수문자)는 문자 엔티티로 대체된다
+	- &엔티티명;
+	  &#엔티티_숫자;
+	- 공백 처리 : &nbsp;
+	- < : &lt;		less than
+	- > : &gt;		greater rhan
+	- & : &amp;	ampersand
+	- " : &quot;	double quotation mark
+	- ' : &quos;	single quotation mark
+	- @ : copy;	copyright
+
+6. hn 태그(요소)
+
+	heading 웹 페이지에 표시하려는 제목
+	h1 ~ h6
+	- 블럭 모드
+	- 굵게, 진하게
+	- 제목 앞뒤에 공백(여백)이 자동으로 추가

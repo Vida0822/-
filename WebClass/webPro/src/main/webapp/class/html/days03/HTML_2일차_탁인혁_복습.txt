@@ -1,0 +1,101 @@
+
+1. 요소( Tag ) 설명 및 예제 코딩
+  ㄱ. hn 태그 -
+  ㄴ. hr 태그 -
+  ㄷ. p  태그 - 
+  ㄹ. span 태그 -
+  ㅁ. xmp 태그 -
+  ㅂ. pre 태그 -
+  ㅅ. b  태그 -
+  ㅇ. strong 태그 -
+  ㅈ. em 태그 -
+  ㅊ. i 태그 -
+  ㅋ. mark 태그 -
+  ㅌ. small 태그 -
+  ㅍ. del 태그 -
+  ㅎ. ins 태그 -
+  ㄱ. sub 태그 -
+  ㄴ. sup 태그 -
+  ㄷ. blockquote 태그 -
+  ㄹ. q  태그 -
+  ㅂ. abbr 태그 -
+  ㅅ. address 태그 -
+  ㅇ. bdo 태그 -
+  ㅈ. cite 태그 -
+  ㅊ. font 태그 -
+  
+2-1. 문단을 p 태그를 사용해서 만들고
+   p 태그의 글자색과 테두리 스타일(style)을 지정하는 코딩을 하세요.
+
+<style>
+p {
+	color:red;
+	border:solid 1px gray;
+}
+</style>
+
+< p style="color:gray;border:solid 1px gray;">
+
+2-2. 첫 번째 p 태그만 스타일을 지정하는 코딩을 하세요.  ( 암기 ) 
+    
+3-1. a 태그에 4가지 기능에 대해서 설명하세요. 
+     ( 예를 들어 코딩도 추가하세요. )    
+
+1) 링크
+2) 책갈피
+3) javascript
+4) email
+           
+3-2. a 태그의 속성에 대해서 설명하세요.
+  ㄱ. href : url
+  ㄴ. target : 대상 ( _self, _blank )
+  ㄷ. title : 풍선도움말
+  
+3-3. a 태그의 target속성의 속성값을 적고 설명하세요. 
+         
+
+4-1. 절대 URL과 상대 URL에 대해 설명하세요.
+ 
+URL < URI
+스키마://prefix.domain[:port]/    path      /filename
+http://www.naver.com[:80]/board/images/ex01.html
+
+4-2. URL은 어떤 인코딩을 사용하는 가 ? 
+        그래서 한글문자는 어떻게 처리되는 가 ? 
+  
+5. [HTTP 상태 404] – 찾을 수 없음   에러 메시지에 대한 설명을 하세요.
+  
+6. img 태그와 [필수 속성]에 대해서 설명하세요.
+   
+7.   아래 링크 태그의 실제 요청 URL을 적으세요..
+                        s     ://     host:port        /path                                ?searchpart[#fragment]
+    현재 URL  :   http://www.kenik.com:80/html/sample/ex100.html 
+
+           ㄱ. <a href="ex05.html">ex05.html</a><br>    l
+             http://www.kenik.com:80/html/sample/ex05.html
+           ㄴ. <a href="/ex05.html">/ex05.html</a><br> 
+            http://www.kenik.com:80/ex05.html
+           ㄷ. <a href="../ex05.html">/ex05.html</a><br> 
+            http://www.kenik.com:80/html/ex05.html
+           ㄹ. <a href="../../ex05.html">/ex05.html</a><br> 
+            http://www.kenik.com:80/ex05.html
+           ㅁ. <a href="/html/sample/ex05.html">/ex05.html</a><br>
+            http://www.kenik.com:80/html/sample/ex05.html
+           ㅂ. <a href="./ex05.html">/ex05.html</a><br>
+            http://www.kenik.com:80/html/sample/ex05.html
+ 8. html 이미지 플로팅(float)에 대한 설명과 예제 코딩을 하세요 
+  
+ 9. html 파비콘(favicon)에 대해서 설명하고 코딩을 하세요. 
+ 
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+        

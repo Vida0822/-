@@ -1,0 +1,23 @@
+ <script>
+// 네이버 메인페이지에 이미지 출력 
+// alert(document.images.length); //130 
+
+/* for (var i = 0; i < document.images.length; i++) {
+	var src = dodocument.images[i].src; 
+	document.write((i+1)+":"+src+"<br>"); 
+	document.images[i].src="#";
+} */
+// 왜 안되지.......
+</script>
+
+<script>
+// 네이버 메인페이지에 링크태그 출력 
+let cnt = document.links.length;
+for (var i = 0; i < cnt; i++) {
+	let href = document.links[i].href;
+	let text = document.links[i].text;
+	document.write((i+1)+":"+href+"/"+text+"<br>")
+}
+
+
+</script> 

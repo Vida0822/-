@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ex06_02</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body onload="" onunload=""> <!-- ?? ?????? -->
+<table border="1" style="width:100%">
+  <tr>
+    <td>
+        검색할 동 입력 :
+        <input type="text" id="dong" name="dong" />
+        <input type="button" value="검색"  onclick="search_dong();"/> 
+    </td>
+  </tr>
+  <tr>
+     <td>
+       <div id="searchResult" class="box" style="visibility: hidden;"> <!--  visibility: hidden -> 바꿀거임  -->
+         <a href="javascript:sendAddr('123','451','서울 영등포구 당산 1동')">123-451</a>서울 영등포구 당산 1동<br>
+         <a href="javascript:sendAddr('123','452','서울 영등포구 당산 2동')">123-452</a>서울 영등포구 당산 2동<br>
+         <a href="javascript:sendAddr('123','453','서울 영등포구 당산 3동')">123-453</a>서울 영등포구 당산 3동<br>
+         <a href="javascript:sendAddr('123','454','서울 영등포구 당산 4동')">123-454</a>서울 영등포구 당산 4동<br>
+         <a href="javascript:sendAddr('123','455','서울 영등포구 당산 5동')">123-455</a>서울 영등포구 당산 5동<br>
+         <a href="javascript:sendAddr('123','456','서울 영등포구 당산 6동')">123-456</a>서울 영등포구 당산 6동<br>
+         <a href="javascript:sendAddr('123','457','서울 영등포구 당산 7동')">123-457</a>서울 영등포구 당산 7동<br>
+         <a href="javascript:sendAddr('123','458','서울 영등포구 당산 8동')">123-458</a>서울 영등포구 당산 8동<br>
+         <a href="javascript:sendAddr('123','459','서울 영등포구 당산 9동')">123-459</a>서울 영등포구 당산 9동<br>
+         <a href="javascript:sendAddr('123','461','서울 영등포구 당산 10동')">123-461</a>서울 영등포구 당산 10동<br>
+       </div>
+     </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="box" style="visibility: hidden;">
+         '당산' 검색 결과 10개 검색되었습니다. 
+      </div>
+    </td>
+  </tr>
+</table>
+
+<script>
+	// 주소목록 보여주는 코딩 
+	function search_dong() {
+		document.getElementById("searchResult").style.visibility = "visible"; 
+	}
+	// 링크클릭 -> ex06에 이 정보들 보내줘서 입력시켜야함 
+	function sendAddr(zip1 , zip2, addr1) {
+		// opener : 창을 새로 띄운 창 (먼저있던 창)
+		window.opener.document.getElementById("zip1").value = zip1; 
+		window.opener.document.getElementById("zip2").value = zip2; 
+		window.opener.document.getElementById("addr1").value = addr1; 
+		
+		self.close(); // 이 창 (ex06_02) <-> 새로 띄운창 닫기 
+		window.opener.document.getElementById("addr2").focus(); 
+	}
+	
+	// 새창이 열려져있으면 새창열기 버튼을 눌러도 창이 더 이상 뜨지않게 해줘야함 ! 
+
+</script>
+</body>
+</html>

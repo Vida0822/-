@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<style>
+#container{
+	width: 400px;
+	height: 400px;
+	position: relative;
+	background-color: yellow; 
+}
+
+#animate{
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	background-color: red;
+	border-radius: 50%; 
+}
+
+</style>
+
+</head>
+<body>
+
+<button onclick="myMove()"> Click me  </button>
+<br>
+<br>
+<div id = "container"> 
+	<div id = "animate"> </div> 
+</div>
+
+<script>
+function myMove() {
+	// button 'Click me'를 클릭하면 실행되는 함수 
+	// 그냥 왼쪽 대각선 위에서 오른쪽 대각선 아래로 가는 함수 
+	
+	var elem = document.getElementById("animate"); 
+	// 빨간공 요소를 가져와서 변수 elem에 담아줌 
+	var pos = 0; 
+	// 움직이는 거리 (뒤에서 따로 값 초기화 코딩이 없기 때문에 여기서 그냥 0으로 해준거 ) 이자 위치값! 
+	// 함수 밖에서 얘 참조불가  (애가 없으면 변수 다 일일히 해줘야했다?? )
+	var timer = setInterval(function() {
+		// 반복하는 타이머 생성해서 내부함수 실행 -> 이 내부함수에서 밖에 있는 '움직이는 거리'에 접근가능 
+		if(pos==350){
+			// div 공(50px)의 맨 오른쪽 아래가 상자모서리(400px)에 닿으면 멈춰야함 
+			clearInterval(timer); 
+			// 왜냐면 position을 찍는 온쪽 모서리가 350 만큼 이동하면 오른쪽 아래는 400에 위치함 
+			// 그래서 이 position 꼭지점이 350 이상 이동하면 공은 상자 밖으로 벗어나게됨 
+			// 그래서 if문을줘서 350이 되는 순간 타이머 멈춤 <-> 반복멈춤 
+			// 
+		} else{
+			pos++;  // 움직이는 거리이자 위치값 1씩 증가  
+			elem.style.left = pos + "px";  // 그 위치값 좌,위 속성에 넣어줌 -> 대각선으로 일정하게 움직임
+			elem.style.top = pos + "px"; 
+		} 
+	}, 10) // 10ms 마다 
+}
+
+</script>
+</body>
+</html>
+
+
+
+
+

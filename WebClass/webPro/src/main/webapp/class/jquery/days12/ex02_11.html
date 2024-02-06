@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+<table border="1">
+	<tr>
+		<td>Lorem.</td>
+		<td>A.</td>
+		<td></td>
+		<td>Odit.</td>
+	</tr>
+	<tr>
+		<td>Lorem.</td>
+		<td></td>
+		<td>Perspiciatis?</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Lorem.</td>
+		<td></td>
+		<td>Laborum.</td>
+		<td>A.</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td>Dolorum!</td>
+		<td>Rerum!</td>
+		<td>Alias.</td>
+	</tr>
+	<tr>
+		<td>Lorem.</td>
+		<td>Sunt.</td>
+		<td>Earum.</td>
+		<td>Dicta.</td>
+	</tr>
+</table>
+
+<script>
+$("td:empty").css("background-color", "red");
+// 내용이 비어있는 td 요소 
+
+// [문제] td중 내용이 비어있지 아닌 td -> blue 
+// $("td:not(':empty')").css("background-color", "blue"); 
+// $("td:not(:empty)").css("background-color", "blue"); 
+// 얜 '' 안써도댐 
+
+ $("td:parent").css("background-color", "green"); 
+// td 중 부모인, 즉 자식이 존재하는 td (이 경우 문자열) 
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

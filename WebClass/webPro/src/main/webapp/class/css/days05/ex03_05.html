@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+.flex-container {
+	background-color: DodgerBlue;
+	display: flex;
+	
+	flex-flow: row wrap;
+}
+
+.flex-container > div {
+	background-color: #f1f1f1;
+	margin: 10px;
+	font-size: 30px;
+	
+	width: 200px;
+	text-align: center;
+}
+</style>
+</head>
+<body>
+<pre>
+[플렉스 컨테이너]
+1. flex-direction 방향
+2. flex-wrap 포장
+3. flex-flow = flex-direction + flex-wrap
+4. justify-content 정렬(수평)
+5. align-items 정렬(수직)
+6. align-content 정렬(내용)
+</pre>
+
+<div class="flex-container">
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+	<div>5</div>
+	<div>6</div>
+	<div>7</div>
+	<div>8</div>
+	<div>9</div>
+	<div>10</div>
+	<div>11</div>
+	<div>12</div>
+</div>
+</body>
+</html>

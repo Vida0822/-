@@ -1,0 +1,140 @@
+
+2.  버튼 3개 선언 후 클릭 이벤트 처리해서 경고창을 띄우세요.. 
+  ㄱ. onclick 속성
+<button onclick="alert('첫 번째버튼')">버튼1</button>
+<button onclick="alert('두 번째버튼')">버튼2</button>
+<button onclick="alert('세 번째버튼')">버튼3</button>
+  ㄴ. js 동적으로 이벤트 등록
+  ㄷ. jquery 사용
+   
+3. 위의 버튼이 클릭되면 class 속성을 active 로 설정 후 임의의 스타일 지정
+
+
+4.   document.querySelectorAll("button")
+      document.querySelector("button") 
+    위의 두 함수와 코딩에 대해서 설명하세요.
+    querySelector는 선택자가 만족하는첫번쨰 요소 객체결과가없다면 null이나오고
+     선택자를 만족하는	모든 요소의목록이 필요할떄에 querySelectorAll을 사용함
+
+        querySelectorAll은 
+5. tr:hover:not(:first-child){
+     background-color: #4caf50;
+  }
+  코딩에 대해서 설명하세요.  
+
+ 마우스를 테이블에 첫번째 행에 올렸을 때의 반응하지 않는 코딩입니다/	 
+
+6. display="none"          
+    visibility="hidden"     
+   위의 두 속성의 차이점을 설명하세요.
+display="none"은 화면상 어떤 영역을 차지하고 않고 완전히 삭제된것 처럼 보임
+ visibility="hidden"은 해당요소가 보이지않을뿐 요소가 존재하는 영역은 확실히 보임
+  
+7. jquery  메서드 설명
+  ㄱ. css():선택 요소의 css속성값을 갖고옴. 또는 style속성 추가
+  ㄴ. show()  :선택 요소 보여짐
+  ㄷ. hide() : 선택 요소 사라짐
+  ㄹ. toggle() :선택 요소 .show .hide 메서드 두기능 
+  ㅁ. slideToggle():슬라이드 올라감, 내려감 두기능
+  ㅂ. addClass()   : 선택요소에 클래스를 지움
+  ㅅ. removeClass() : 선택요소에 클래스를 지움 
+  
+8.  position(위치) 속성에 대해 설명하세요.
+  ㄱ. static   : 기본값
+  ㄴ. relative :   원래 위치와 상관없이 위치를 지정할 수 있음
+  ㄷ. fixed    :   원래 위치와 상관없이 위치를 지정할 수 있음.
+  ㄹ. absolute  :  원래 위치와 상관없이 위치지정, 가까운 상위 요소를 기준으로위치 결정
+  ㅁ. sticky    :선언한 영역의 위치값을 고정시켜주는 역할
+  
+9-1. [ DOM ]을  사용해서 (js를 사용) <button> 요소를 10개 동적으로 생성하고
+      버튼을 클릭하면 숨기도록 코딩하세요..
+          
+9-2. 위의 문제8번을 jquery로 코딩해 보세요...
+
+10-1. 아래 코딩에 대해서 각 라인 별로 주석을 달아서 설명하세요 
+
+<div class="topnav">  클래스로 topnac 정의 
+   <a href="#"></a>
+   <a href="#"></a>
+   <a href="#"  class="active"></a>  
+   <a href="#"></a>
+</div>
+
+
+<script>   	
+                                                                      
+  var links = document.querySelectorAll(    "div.topnav a"    );  
+ 메서드를 사용하여 "topnav" div의 자식인 모든 <a> 태그를 선택,변수 "links"에 할당
+  links.length = 4
+  for (var i = 0; i < links.length; i++) { 변수 i 가0에서 4까지 for문이 돌고 
+	   links[i].onclick = function (){ 
+		   for (var i = 0; i < links.length; i++) { 
+			  links[i].classList.remove("active");
+		  }  link 안에있는 a 태그를 반복하고 각태그에서 active 크래스 제거
+		   this.classList.add("active");
+	   };   클래스 추가
+  }querySelectorAll()
+</script>
+
+10-2. 위의 10-1번 문제를 jquery로 코딩하세요. 
+
+11. 아래 js코딩에 대해서 각 라인 별로 주석을 달아서 설명하세요
+
+1 2 3 4 5 6 [7] 8 9 >  >>
+
+<style>
+   .active{ active 클래스의 background  설명
+      back
+      col
+   }
+</style>
+
+<div class="pagination">   
+   <a>1</a> 	
+   <a  class="active">[2]</a> 현재 보여지는 페이지를 나타내기위해 서 클래스 추가
+   :
+</div> 
+ 
+<script>
+
+
+    $(".pagination a").click(function(event) {  pagination a태그의 클릭이벤트가 발생하면 이벤트 실행
+    	$(".pagination a").not(this).removeClass("active");click() 메서드를 사용하여 페이지 번호를 클릭했을 때, 
+    	$(this).addClass("active");해당 요소에 active 클래스를 추가하고 나머지 요소에서는 active 클래스를 제거
+    });
+</script>
+
+12.  아래  css코딩을 설명하세요.
+  #mySidenav a{ 
+    transition:0.5s ease; 속도를 0.5로 설정 
+  }
+        
+    <button>버튼 1</button> 버튼 1로 설정 
+    
+    <style>
+	  button{                버튼의 너비는 1oopx 보더는 회색의 1px
+	    width:100px;
+	    border:1px solid gray;
+	    
+	    transition:0.5s ease;
+	  }
+	  
+	  button:hover{          커서가 올라갔을떄 너비는 200px
+	    width:200px; 
+	    
+	  }
+	</style>
+       
+13.  "문제01_결과.png"   css 적용하세요 .
+    - 수업 자료 참조하지 말고 html, css, 등 모든 코딩을 해 보세요~
+    - 마지막에 문제 푸세요~        
+        
+        저는 너무 졸려워서 코딩문제를 풀지 못하였어요 죄송해요ㅠㅠ
+        
+        
+        
+        
+        
+        
+        
+        

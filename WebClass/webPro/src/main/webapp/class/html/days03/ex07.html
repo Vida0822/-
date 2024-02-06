@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<style>
+span {
+	border: 1px solid gray;
+	display: inline-block;
+	width: 200px;
+	text-align: center;
+	margin: 2px;
+}
+</style>
+<script>
+ // js 주석처리
+ // js 대소문자 구분한다
+ 
+ // js 함수 선언
+function hide() {
+	// window.alert("hide() 호출됨");
+	// 모든 1조 팀원 span 요소를 숨기기
+	document.getElementById("sp01").style.display="none";
+	document.getElementById("sp02").style.display="none";
+	document.getElementById("sp03").style.display="none";
+	document.getElementById("sp04").style.display="none";
+	document.getElementById("sp05").style.display="none";
+	document.getElementById("sp06").style.display="none";
+	document.getElementById("sp07").style.display="none";
+}
+function show() {
+	// window.alert("show() 호출됨");
+	// 모든 1조 팀원 span 요소를 보이기
+	document.getElementById("sp01").style.display="inline-block";
+	document.getElementById("sp02").style.display="inline-block";
+	document.getElementById("sp03").style.display="inline-block";
+	document.getElementById("sp04").style.display="inline-block";
+	document.getElementById("sp05").style.display="inline-block";
+	document.getElementById("sp06").style.display="inline-block";
+	document.getElementById("sp07").style.display="inline-block";
+}
+</script>
+</head>
+<body>
+	<pre>
+ 1. html 모든 태그(요소)에는 유형에 따라 기본 표시(display)값이 있다
+ 2. 표시(display)
+ 	ㄱ. 블럭모드 : 전체 너비
+ 				   p, hn, dl, dt, dd, ol, ul, li, hr, blockquote, [div] 등등
+ 	ㄴ. 인라인모드 : 새 라인(줄)에서 시작 X, 필요한 너비만큼만 차지한다
+ 					 img, a, span, i, q, sub, sup, b, button, input 등등
+ 3. div 요소
+ 	1) 웹 페이지의 배치( layout )
+ 	2) 블럭 모드
+ 	3) 다른 html 요소의 컨테이너 역할
+</pre>
+	<!-- button[onclick]*2 -->
+	<!-- onXXX 속성은 이벤트를 처리하는 속성 -->
+	<button onclick="hide();">숨기기(hide)</button>
+	<button onclick="show();">보이기(show)</button>
+
+	<br>
+	<br>
+	<!-- (span[id=sp$$]+br)*7 -->
+	<!-- <br></br> == <br /> -->
+	<span id="sp01">설경인</span>
+	<br>
+	<span id="sp02" style="display: none;">이예진</span>
+	<br>
+	<span id="sp03">탁인혁</span>
+	<br>
+	<span id="sp04">신희민</span>
+	<br>
+	<span id="sp05">윤재민</span>
+	<br>
+	<span id="sp06">홍성철</span>
+	<br>
+	<span id="sp07">박진용</span>
+	<br>
+</body>
+</html>

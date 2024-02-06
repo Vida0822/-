@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<pre>
+[for of문]
+:배열, 문자열, 객체, nodeList 등과 같은 객체의 값을 반복하는 반복문 
+
+</pre>
+<script>
+
+let m = [3,5,2,4,1]; 
+let person = {fname : "john", lname : "doe", age:30}; 
+let msg = "hello world"; 
+
+for (let x of m) {
+	console.log(x) ; // 3,5,2,4,1 
+}
+
+for (let p of person) { // Uncaught TypeError: person is not iterable
+	console.log(p); 
+}
+
+for(let m of msg){
+	console.log(m); 
+}
+</script>
+
+<script>
+m=["aa","bb","cc"];
+const letters = new Set(m);
+for (let x of letters) {
+	console.log(x) ; // aa bb cc
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body onload="window_load()">
+이름 입력:<input type="text" autofocus="autofocus">
+<br>
+<button id="btnAdd">추가</button>
+<button id="btnReset">초기화</button>
+<br>
+<div></div>
+
+<script>
+var txt = document.querySelector("input[type=text]:first-of-type");
+var btnAdd = document.getElementById("btnAdd");
+var btnReset = document.getElementById("btnReset");
+var div = document.querySelector("div");
+// alert(txt);
+function window_load() {
+	// txt.focus();
+	div.style.border="1px solid gray";
+	div.style.width="200px";
+	div.style.height="150px";
+	div.style.overflow="auto";
+};
+
+var no = 1;
+/* 
+btnAdd.onclick = function() {
+	var name = txt.value;
+	div.innerHTML += (no++) + " : " + name + "<br>";
+	txt.select();
+	div.scrollTop = div.scrollHeight;
+};
+*/
+/* 
+btnAdd.onclick = (event) => {
+	var name = txt.value;
+	div.innerHTML += (no++) + " : " + name + "<br>";
+	txt.select();
+	div.scrollTop = div.scrollHeight;	
+};
+*/
+btnAdd.addEventListener("click", (event) => {
+	var name = txt.value;
+	div.innerHTML += (no++) + " : " + name + "<br>";
+	txt.select();
+	div.scrollTop = div.scrollHeight;		
+});
+
+btnReset.onclick = function() {
+	txt.value = "";
+	txt.focus();
+	div.innerHTML = "";
+};
+</script>
+</body>
+</html>

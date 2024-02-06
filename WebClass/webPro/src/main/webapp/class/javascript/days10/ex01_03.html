@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<h2> JavaScript HTMLDOM</h2>
+<p>Displaying document.body</p>
+
+<p id="demo" style="border : 1px solid gray"> demo </p> 
+
+<script>
+
+// document.getElementById("demo").innerText = 
+// = document.body.innerHTML ; 
+// document.documentElement.innerHTML ; // <html>
+// document.body.innerHTML // <body> 
+
+/* document.querySelector("p").nodeType // 1
++"/ "+  document.querySelector("p").nodeValue // null 
++"/ "+  document.querySelector("p").nodeName;  // P 
+// 첫번째 p태그  */
+
+</script>
+
+<script>
+// [문제]  부모자식탐색  -> 'demo'
+
+/*  1) parentNode 
+ 2) childNodes : 모든 자식 노드 목록(nodelist) **** 
+ 3) firstChild, lastChild 
+ 4) nextSibling, previousSibling  */
+ 
+demo = document.querySelector("h2").nextElementSibling.nextElementSibling; 
+alert(document.querySelector("h2").parentElement.lastElementChild.innerHTML) ; 
+// 주의 !! 이거 하면 script안의 내용 나옴 <-> script 이런거도 다 노드임 
+ /* console.log(demo.nodeName); // p
+console.log(demo.nodeValue); // null 
+console.log(demo.children) ; 
+
+console.log(demo.firstChild); // " demo " -> 이렇게 찍히긴 하지만 얜 텍스트가 아니라 그 노트 다체를 가져온것
+console.log(demo.firstChild.nodeName);  // #text
+console.log(demo.firstChild.nodeValue);  // demo  -> 이게 정답! innerhtml 텍스트 가져온 것 
+console.log(demo.childElement) ; // 'Html Collection' : 자식 html 요소 (태그들) 가져오는 것 
+ */
+
+console.log(demo.childNodes) ; // 'Nodelist' : 자식들 다가져오는거 (속성, 텍스트 등등 ) 
+console.log(demo.childNodes.length) ; // 1 
+// console.log(demo.childNodes.nodeName) ;
+console.log(demo.childNodes[0].nodeName) ; // childNodes는 list기 때문에 index 해줘야함 
+console.log(demo.childNodes[0].nodeValue) ;
+
+</script>
+
+// ?????????????왜 href가 형??? 먼저와?? 
+
+
+</body>
+</html>

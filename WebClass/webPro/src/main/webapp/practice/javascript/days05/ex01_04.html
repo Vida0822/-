@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+팀원입력 : 
+<input type ="text" value = "탁인역, 설경인, 이예진, 신희민, 윤재민 , 홍성철, 박진용">
+<!--  텍스트 박스 입력란을 만들고 기본적으로 나타날 값으로 탁인혁~박진용 설정  -->
+
+<p id="demo">
+<!--  키보드 눌렸을 때 출력값 넣을 p태그  -->
+
+<script>
+	document.querySelector("input[type=text]").onkeydown= function() {
+		// 텍스트 박스인 입력란 요소를 가져와 거기에 키보드를 누르는 이벤트 발생시, 익명함수 실행
+		// 키보드 아무거나 누를때마다 이 함수가 매번 실행되고 있는거임 
+		
+		if( event.keyCode==13){
+			// 만약 그렇게 치다가 입력된 값이 'enter'라면 (본격적인 함수 실행)
+			
+			const tlist = this.value.split(/\s*,\s*/); 
+			// 문자열함수 split(pattern) -> 정규표현식 기준으로 문자열 나눠 배열 반환 
+			// \s 공백 , 쉼표 \s 공백기준으로 나눔 -> 이름만 배열 값으로 들어가고 반환된 배열을 변수 tlist에 대입
+			console.log(tlist) ;   // Array(7), 배열인거 확인
+			
+			let content = "<h3> 1조 팀원 </h3>"; 
+			// 제목을 변수 content에 대입 (<h>는 블락모드 -> 자동개행) 
+			content +="<ul>"; 
+			// ul 태그 누적 
+		/* 	
+			for (let iterable_element of iterable) {
+				iterable_element(variable) 
+				: 각 반복에 서로 다른 속성값이 variable에 할당됩니다.
+				iterable
+				: 반복되는 열거가능(enumerable)한 속성이 있는 객체.
+				* 반복가능한 객체 (Array, Map, Set, String, TypedArray, arguments 객체 등을 포함)
+			} */
+			for (let name of tlist) {
+				// 그렇게 만들어진 팀원이름배열, tlist의 요소를 하나씩 꺼내와 변수 name에 담고 
+				content +=`<li>$(name)</li>`;				
+				// 그 name을 <li> 태그로 묶어 변수 content에 누적 
+			}
+			content += "</ul>";
+			// 반복이 끝나면 ul 태그 닫아주기 
+			
+			document.getElementById("demo").innerHTML = content; 
+			// 그렇게 완성된 html 텍스트를 html 서식 적용하여 id=demo인 p 태그에 출력
+		}
+	}
+</script>
+</body>
+</html>

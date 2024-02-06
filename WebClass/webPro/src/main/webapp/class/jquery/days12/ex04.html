@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+  div{
+    width:100px;
+    height:100px;
+    position: absolute;    /* 위치 이동 */ 
+    background-color: aqua;   
+  }
+</style>
+
+</head>
+<body>
+
+<pre>
+
+	animate() 메서드는 사용자가 지정하는 애니메이션을 만드는데 사용하는 메서드 
+	$("선택자").animate({params}, speed, callback) 
+
+	- {params} : 객체, 필수 => 여기에 css 속성을 정의
+
+</pre>
+
+<button> Run </button>
+<div ></div>
+
+<script>
+$("button").on("click", function() {
+/* 	$("div").animate({
+		left:"250px", //엥 부모에 relative 안줘도 되나?????????????
+		opacity :"0.5",
+		height:"150px",
+		width:"150px"
+	}) */
+	
+	//+=, -=: 상대적인 값을 정의한다 <-> 기준값이 있어야함 : 현재 요소의 값 
+/*  	$("div").animate({
+		left:"+=50px",  // 현재위치에서 +50 
+		height:"+=150px",  // 현재높이에서 +150 
+		width:"+=150px"  // 현재너비에서 +150 
+	}) 
+}) */
+
+	// 미리 정의된 값 사용 
+	// show 속성 : toggle, hide, "" 
+ 	$("div").animate({
+		height:"toggle",  // slideDown , slideUp 
+	}) 
+})
+</script>
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<h3> ex02_12 </h3>
+
+<p>Lorem ipsum dolor sit amet.</p>
+<p>Nulla perferendis repudiandae accusantium debitis!</p>
+<p style="display:none"> 3 . Atque quibusdam nulla facilis earum.</p>
+<!--  엥 display : none 하면 자리까지 사라지네..!  -->
+<p>Accusantium quidem molestiae nobis harum!</p>
+<p>Quae ratione cumque impedit amet.</p>
+
+<script>
+	
+	$(":root").css("background-color", "green"); 
+
+	$("p:hidden").show(5000, function() {	
+	// 함수의 매개변수로 다른 함수가 들어갈때 이걸 콜백 함수라고 함 (순차적 작업)
+	// 천천히 보여주기 가 완전히 처리된 후 콜백함수 실행
+		$("p:visible").css("background-color", "yellow"); 
+	}); 
+	
+	
+</script>
+</body>
+</html>

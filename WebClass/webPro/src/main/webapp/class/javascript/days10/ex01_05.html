@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<style>
+  *{
+      box-sizing: border-box;
+   }
+    .alert{
+      padding: 20px;
+      background-color: #f44336;
+      color:white;
+      opacity: 1; 
+      transition:opacity 0.6s, height 0.6s;
+      margin-bottom: 15px;
+   }
+   
+    .closebtn{
+     margin-left: 15px;
+     color:white;
+     font-weight: bold;
+     float:right;
+     font-size: 22px;
+     line-height: 20px;
+     cursor:pointer;
+     transition:0.3s;
+   }
+   .closebtn:hover{
+      color:black;
+   }
+   
+   .alert.success{     background-color: #4caf50;   }
+   .alert.info{      background-color: #2196f3;   }
+   .alert.warning{     background-color: #ff9800;   }
+   
+</style>
+
+
+</head>
+<body>
+
+<h2>알림(공지사항)</h2>
+공지사항 타입 : 
+<select name="type" id="type">
+   <option>type 없음</option>
+   <option>success</option>
+   <option>warning</option>
+   <option>info</option>
+</select>
+<br>
+내용  : <input type="text" />
+<button>공지사항 추가</button>
+<hr>
+
+<!-- 
+<div class="alert">
+  <span class="closebtn">&times;</span>
+  <strong>Danger!</strong>
+  Lorem ipsum dolor sit amet, consectetur adipisicing.
+</div>
+<div class="alert success">
+  <span class="closebtn">&times;</span>
+  <strong>Success!</strong>
+  Lorem ipsum dolor sit amet, consectetur adipisicing.
+</div>
+<div class="alert warning">
+  <span class="closebtn">&times;</span>
+  <strong>Warning!</strong>
+  Lorem ipsum dolor sit amet, consectetur adipisicing.
+</div>
+<div class="alert info">
+  <span class="closebtn">&times;</span>
+  <strong>Info!</strong>
+  Lorem ipsum dolor sit amet, consectetur adipisicing.
+</div>
+ -->
+ 
+ <script>
+ window.onload = function() {
+	// jquery ajax + JSON + DB Server 
+	
+	// 원래 db에서 받아오는 데이터를 임시로 배열에 넣어주고 거기서 가져오는 코딩 구현 
+	// db에서 데이터 얻어오는 로직? 과 유사하니 꼼꼼히 보기 
+			
+	 var data =
+         [ 	// ?? type로 뭐 한다했는데 뭐하겠다는거지...?? 
+                 {type:"success",  message:"Lorem ipsum dolor sit amet, consectetur adipisicing."},
+                 {type:"warning", message:"Lorem ipsum dolor sit amet, consectetur adipisicing."},
+                 {type:"info", message:"Lorem ipsum dolor sit amet, consectetur adipisicing."},
+                 {type:"success", message:"Lorem ipsum dolor sit amet, consectetur adipisicing."}
+          ];
+	
+	for (var i = 0; i < data.length; i++) {
+		let type = data[i].type;	//객체.type 
+		let message = data[i].message; 
+		
+		// <div class="alert success"></div>
+		let alertDiv = document.createElement("div"); 
+		alertDiv.classList.add("alert"); 
+		alertDiv.classList.add(type);
+		
+		//<span class="closebtn">&times;</span>
+		let spanBtn = document.createElement("span"); 
+		spanBtn.classList.add("closebtn"); 
+		spanBtn.innerHTML ="&times;";
+		
+		spanBtn.onclick = function() {
+			// 닫기 버튼 누르면 div 없애주기
+			let pdiv = this.parentElement; 
+			//pdiv.style.display = "none"; 
+			pdiv.style.opacity = 0; 
+			// 나중엔 jquery ajax를 활용해 DB 삭제 하는 작업까지 같이 해줌 
+			setTimeout(() => {
+				pdiv.style.display = "none"; 
+			}, 600);
+		}// onclick
+		alertDiv.appendChild(spanBtn); 
+		
+		//   <strong>DANGER!</strong>
+		let strong = document.createElement("strong"); 
+		strong.innerHTML = type.toUpperCase()+"!"; 
+		alertDiv.appendChild(strong); 
+		
+		let content = document.createTextNode(message);
+		alertDiv.appendChild(content);	
+		
+		// <hr> 전에 alertDiv 추가 
+		let hrElem= document.querySelector("hr"); 
+		
+		// document.body.insertBefore(newElt, before)
+		document.body.insertBefore(alertDiv, hrElem)
+		// insertAfter() 는 없음 
+	}
+}// onload 
+ 
+ 
+ 
+ document.querySelector("button").onclick = function() {
+		// options[selectedIndex].value; 
+		// $("#type").val()
+		let type = document.querySelector("#type").value; 
+		let message = document.querySelector("input[type=text]").value;
+		
+		
+		// <div class="alert"></div>
+		let alertDiv = document.createElement("div"); 
+		alertDiv.classList.add("alert"); 
+		alertDiv.classList.add(type); //?????????
+				
+		//<span class="closebtn">&times;</span>
+		let spanBtn = document.createElement("span"); 
+		spanBtn.classList.add("closebtn"); 
+		spanBtn.innerHTML ="&times;";
+		
+		spanBtn.onclick = function() {
+			// 닫기 버튼 누르면 div 없애주기
+			let pdiv = this.parentElement; 
+			//pdiv.style.display = "none"; 
+			pdiv.style.opacity = 0; 
+			// 나중엔 jquery ajax를 활용해 DB 삭제 하는 작업까지 같이 해줌 
+			setTimeout(() => {
+				pdiv.style.display = "none"; 
+			}, 600);
+		}// onclick
+		alertDiv.appendChild(spanBtn); 
+		
+		//   <strong>DANGER!</strong>
+		let strong = document.createElement("strong"); 
+		strong.innerHTML = type.toUpperCase()+"!"; 
+		alertDiv.appendChild(strong); 
+		
+		let content = document.createTextNode(message);
+		alertDiv.appendChild(content);	
+		
+		// <hr> 전에 alertDiv 추가 
+		let hrElem= document.querySelector("hr"); 
+		
+		
+		// document.body.insertBefore(newElt, before)
+		//document.body.insertBefore(alertDiv, hrElem); 
+		// insertAfter() 는 없음 
+		
+		// 나 여기에도 setTimeOut() 주고싶어!! 
+		setTimeout(() => {
+			document.body.insertBefore(alertDiv, hrElem);
+			}, 600); 
+		
+		
+}
+ 
+ </script>
+</body>
+</html>

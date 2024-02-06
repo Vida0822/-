@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	
+<style>
+.container {
+	width: 500px; /* 이거 설정해주니까 스크롤 생김 왜그랫더라??  */	
+}
+
+.collapsible{
+	background-color: #777;
+	color: white;
+	cursor: pointer;  /* 이 클래스를 가진 태그에 마우스 올리면 손가락 모양으로 바뀜 */ 
+	padding: 18px;
+	width: 100%;
+	border: none;
+	text-align: left;
+	outline: none;
+	font-size: 15px; 
+}
+
+.collapsible::after{
+/* 그려지고 난 후에 + 기호 붙이는거 */ 
+
+	content: '\002B';
+	color: white;
+	float: right;
+	font-weight: bold;
+	margin-left: 5px;
+}
+
+.active::after{
+	content :'\2212'; 
+}
+
+.content{
+	padding: 0 18px;
+	background-color: #f1f1f1;
+	max-height: 0;
+	overflow: hidden; 
+	
+	transition : max-height 0.2s ease-out; 
+}
+
+
+</style>
+</head>
+<body>
+
+	<div class="container">
+
+		<button class="collapsible">Section 1</button>
+		<div class="content">Lorem ipsum dolor sit amet, consectetur
+			adipisicing elit. Nulla iure aliquam soluta minima impedit ratione
+			laboriosam autem omnis. Doloribus eius incidunt totam iure deleniti a
+			officia blanditiis rem recusandae officiis.</div>
+
+		<button class="collapsible">Section 2</button>
+		<div class="content">Lorem ipsum dolor sit amet, consectetur
+			adipisicing elit. Nulla iure aliquam soluta minima impedit ratione
+			laboriosam autem omnis. Doloribus eius incidunt totam iure deleniti a
+			officia blanditiis rem recusandae officiis. Lorem ipsum dolor sit
+			amet, consectetur adipisicing elit. Nulla iure aliquam soluta minima
+			impedit ratione laboriosam autem omnis. Doloribus eius incidunt totam
+			iure deleniti a officia blanditiis rem recusandae officiis. Lorem
+			ipsum dolor sit amet, consectetur adipisicing elit. Nulla iure
+			aliquam soluta minima impedit ratione laboriosam autem omnis.
+			Doloribus eius incidunt totam iure deleniti a officia blanditiis rem
+			recusandae officiis.</div>
+
+		<button class="collapsible">Section 3</button>
+		<div class="content">Lorem ipsum dolor sit amet, consectetur
+			adipisicing elit. Nulla iure aliquam soluta minima impedit ratione
+			laboriosam autem omnis. Doloribus eius incidunt totam iure deleniti a
+			officia blanditiis rem recusandae officiis.</div>
+
+	</div>
+
+<script>
+// +를 누르면 내용이 펼쳐지고(max-height를 다르게줘서~! ), 버튼이 -로 바뀌고...
+
+$(".collapsible").one("click", function() {
+	$(this).toggleClass("active"); 
+	// toggleClass(className) : active클래스가 있으면 뺏어오고 없으면 추가하는 함수 
+	
+	// console.log($(this).next().prop("scrollHeight"));  // 85 235 85 
+	//$(this).next().css("max-height", "100px"); 
+	// $(this).next().css("max-height", $(this).next().prop("scrollHeight")+"px"); 
+
+	// 펼친거 접는 방법 <-> 펼쳐져있는지 확인하는 방법 
+	// : max-height가 0인지 아닌지 확인한다 
+	// if($(this).next().css("max-height") != 0){
+		// 이거 안되는 이유! px 속성값이 0 이 아니라 "0px" 즉 문자열이기 때문! 
+	if($(this).next().css("max-height") == "0px"){
+		$(this).next().css("max-height"
+				, $(this).next().prop("scrollHeight")+"px"); 
+	}else{
+		$(this).next().css("max-height", "0px"); 
+		// 이거 안접히뮤ㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠ
+	}
+	
+})
+
+</script>
+</body>
+</html>

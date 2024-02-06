@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+body {
+	background-color: lightblue;
+}
+
+h3 {
+	background-color: yellow;
+}
+
+div {
+	border: 1px solid gray;
+	width: 200px;
+	padding: 10px;
+	
+	background-color: rgba(0,255,0,0.1);
+}
+
+div.first {
+	/* 투명도 설정 : opacity 속성 사용 */
+	/* opacity 속성 : 자식(하위)요소도 동일한 투명도를 상속받는다 */
+	opacity: 0.5;
+}
+</style>
+</head>
+<body>
+<h3>css 배경</h3>
+<pre>
+[css 배경]
+1. 배경색
+2. 배경 이미지
+3. 배경 반복( repeat )
+4. 배경 첨부( attachment )
+5. 배경 위치( position )
+
+6. 배경 속기(약식) 속성
+</pre>
+
+<!-- .first>lorem3^div*4>lorem3 -->
+<div class="first">Lorem ipsum dolor.</div>
+<div>Lorem ipsum dolor.</div>
+<div>Et repudiandae quos!</div>
+<div>Eaque vero non.</div>
+<div>Voluptatibus nemo quia!</div>
+</body>
+</html>

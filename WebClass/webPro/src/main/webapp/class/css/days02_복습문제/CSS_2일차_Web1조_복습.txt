@@ -1,0 +1,289 @@
+--------------------------------------------------------------------------------
+2.  버튼 3개 선언 후 클릭 이벤트 처리해서 경고창을 띄우세요.. 
+  ㄱ. onclick 속성
+  ㄴ. js 동적으로 이벤트 등록
+  ㄷ. jquery 사용
+
+<body>
+<button id="button1" onclick="test()">button1</button>
+<button id="button2">button2</button>
+<button id="button3">button3</button>
+<script>
+function test() {
+	alert("test");
+}
+
+document.querySelector("#button2").onclick = function () {
+	alert("test");
+}
+
+$("#button3").click(function () {
+	alert("test");
+})
+</script>
+</body>
+--------------------------------------------------------------------------------
+3. 위의 버튼이 클릭되면 class 속성을 active 로 설정 후 임의의 스타일 지정
+
+<style>
+.active {
+	background-color: black;
+	color: white;
+}
+</style>
+</head>
+<body>
+<button id="button1" onclick="test()">button1</button>
+<button id="button2">button2</button>
+<button id="button3">button3</button>
+<script>
+function test() {
+	alert("test");
+}
+
+document.querySelector("#button2").onclick = function () {
+	alert("test");
+}
+
+$("#button3").click(function () {
+	alert("test");
+})
+
+$("button").click(function () {
+	$("button").not(this).removeClass("active");
+	$(this).addClass("active");
+})
+</script>
+</body>
+--------------------------------------------------------------------------------
+4.   document.querySelectorAll("button")
+      document.querySelector("button")
+    위의 두 함수와 코딩에 대해서 설명하세요.
+    
+- document.querySelectorAll("button") - <button> 요소 모두를 가져오는 함수
+- document.querySelector("button")  - <button> 요소 중 최상단의 위치한 요소 하나를 가져오는 함수
+                                                 <button> 요소가 없으면 null을 반환한다
+--------------------------------------------------------------------------------
+5. tr:hover:not(:first-child){
+     background-color: #4caf50;
+  }
+  코딩에 대해서 설명하세요.  
+
+- 첫 번째 <tr> 요소(행)를 제외한 <tr> 요소(행)에 마우스를 올리면 배경색을 #4caf50로 출력하는 코딩
+--------------------------------------------------------------------------------
+6. display="none"          
+    visibility="hidden"     
+   위의 두 속성의 차이점을 설명하세요.
+
+- display="none" : 해당 요소를 화면에서 삭제하는 속성이다. 원래 차지하던 공간(위치)도 함께 사라진다. 개발자 도구에서도 볼 수 없다.
+- visibility="hidden" : 해당 요소를 화면에서 보이지 않게하는 속성이다. 원래 차지하던 공간(위치)은 유지된다. 개발자 도구에서는 볼 수 있다.
+--------------------------------------------------------------------------------
+7. jquery  메서드 설명
+  ㄱ. css() : 선택한 요소의 css 속성을 설정하거나 반환하는 메서드
+  ㄴ. show() : display 속성을 block으로 바꿔주는 메서드( 보인다 )
+  ㄷ. hide() : display 속성을 none으로 바꿔주는 메서드( 숨긴다 )
+  ㄹ. toggle() : show() -> hide() / hide() -> show()로 바꿔주는 메서드( 보임/숨김 전환 )
+  ㅁ. slideToggle() : toggle 작업을 할 때 서서히 진행되도록 슬라이딩 효과를 주는 메서드
+  ㅂ. addClass() : 특정 요소에 새로운 class를 추가하는 메서드
+  ㅅ. removeClass() : 특정 요소에 기존 class를 제거하는 메서드
+--------------------------------------------------------------------------------
+8.  position(위치) 속성에 대해 설명하세요.
+  ㄱ. static : 기본값으로 top, bottom, left, right 속성 모두 적용되지 않는 정적 속성이다.
+  ㄴ. relative : top, right, bottom, left 속성을 사용하여 위치를 조정할 수 있다.
+                  static 상태가 기준이 되는 속성으로 자식 요소의 기준이 되기도 한다.
+  ㄷ. fixed : 고정된 위치를 의미하는 속성으로 스크롤을 움직여도 고정된 위치에 그대로 출력된다.
+  ㄹ. absolute : 가장 가까운 부모 요소를 기준으로 위치한다. / z축 이동이 가능해서 겹칠 수 있다.
+                    지정된 조상 요소가 없으면 body 요소가 기준이 된다.
+  ㅁ. sticky : 요소를 일반적인 문서 흐름에 따라 배치하다가 스크롤이 일정 위치를 지나면 지정된 위치에 고정된다.
+--------------------------------------------------------------------------------
+9-1. [ DOM ]을  사용해서 (js를 사용) <button> 요소를 10개 동적으로 생성하고
+      버튼을 클릭하면 숨기도록 코딩하세요..
+
+<script>
+for (var i = 1; i <= 10; i++) {
+    var button = document.createElement("button");
+    document.body.appendChild( button );
+    button.innerHTML = "btn - " +i;
+    button.onclick =  function() {
+	/* this.style.display = "none"; */
+	this.style.visibility = "hidden";
+    }
+}
+</script>
+--------------------------------------------------------------------------------
+9-2. 위의 문제9번을 jquery로 코딩해 보세요...
+
+<script>
+for (var i = 1; i <= 10; i++) {
+    var button = $("<button>");
+    $("body").append( button );
+    button.html("btn - " +i);
+    $("button").click( function() {
+    	/* $(this).hide(); */
+        /* $(this).css("display", "none"); */
+        $(this).css("visibility", "hidden");
+    });
+}
+</script>
+----------
+<div id="button"></div>
+
+<script>
+	for(var i = 1; i <= 10; i++) {
+		$("#button").append("<button>btn - " + i + "</button>");
+		
+		$("button").click( function() {			
+			$(this).hide();
+		} );
+	}
+</script>
+--------------------------------------------------------------------------------
+10-1. 아래 코딩에 대해서 각 라인 별로 주석을 달아서 설명하세요 
+
+<div class="topnav"> <!-- class가 topnav인 div 요소 -->
+   <a href="#"></a> <!-- a 요소 -->
+   <a href="#"></a> <!-- a 요소 -->
+   <a href="#"  class="active"></a> <!-- class가 active인 a 요소 -->
+   <a href="#"></a> <!-- a 요소 -->
+</div> <!-- div 요소 닫기 -->
+
+
+<script> // script(js) 요소
+                                                                      
+  var links = document.querySelectorAll(    "div.topnav a"    ); // class가 topnav인 div 요소의 자식 a 요소 모두를 담은 links 변수 선언
+  links.length = 4 // links의 길이 4로 설정
+  for (var i = 0; i < links.length; i++) { // links 길이만큼 반복
+	   links[i].onclick = function (){ // links[i]를 클릭할 때마다 발생하는 함수
+		   for (var i = 0; i < links.length; i++) { // links 길이만큼 반복
+			  links[i].classList.remove("active"); // 반복문을 돌면서 모든 links[i]의 active class를 제거한다
+		  }  
+		   this.classList.add("active"); // 클릭한 것에 active class를 추가한다
+	   };
+  }
+</script> <!-- script 요소 닫기 -->
+--------------------------------------------------------------------------------
+10-2. 위의 10-1번 문제를 jquery로 코딩하세요. 
+
+<div class="topnav">
+   <a href="#"></a>
+   <a href="#"></a>
+   <a href="#"  class="active"></a>
+   <a href="#"></a>
+</div>
+
+<script>   
+$(".topnav a").click( function() { 
+	$(".topnav a").not(this).removeClass("active"); 
+	$(this).addClass("active");
+});
+</script>
+--------------------------------------------------------------------------------
+11. 아래 js코딩에 대해서 각 라인 별로 주석을 달아서 설명하세요
+
+1 2 3 4 5 6 [7] 8 9 >  >>
+
+<style> /*  css style 요소 */
+   .active{ /* active class의 style 지정 */
+      back /* backgroud-color 배경색 설정(?) */
+      col
+   }
+</style> /* style 요소 닫기 */
+
+<div class="pagination"> <!-- pagination class의 div 요소 -->
+   <a>1</a> <!-- a 요소 -->
+   <a  class="active">[2]</a> <!-- active class의 a 요소 -->
+   :
+</div> <-- div 요소 닫기 -->
+ 
+<script> // script(js) 요소
+
+
+    $(".pagination a").click(function(event) { // pagination class의 자식 요소 a를 클릭할 때 발생하는 이벤트 함수
+    	$(".pagination a").not(this).removeClass("active"); // 클릭한 것을 제외한 모든 pagination class의 자식 요소 a의 active class를 제거한다
+    	$(this).addClass("active"); // 클릭한 것에 active class를 추가한다
+    });
+</script> <!-- script 요소 닫기 -->
+--------------------------------------------------------------------------------
+12.  아래  css코딩을 설명하세요.
+
+<style> /* css style 요소 */
+  #mySidenav a{ /* mySidenav id의 자식 요소 a의 스타일 지정 */
+    transition:0.5s ease; /* 이행할 때 0.5초 동안 등속도로 이행하도록 지정 */
+  }
+</style> <!-- style 요소 닫기 -->
+
+<style> /* css style 요소 */
+  button{ /* button 요소의 스타일 지정 */
+    width:100px; /* 너비 100px */
+    border:1px solid gray; /* 테두리 1px 실선 회색 */
+    
+    transition:0.5s ease; /* 이행할 때 0.5초 동안 등속도로 이행하도록 지정 */
+  }
+  
+  button:hover{ /* button 요소에 마우스를 올릴 때 스타일 지정 */
+    width:200px; /* 너비 200px */
+    
+  }
+</style> <!-- style 요소 닫기 -->
+</head>
+
+<body>
+    <button>버튼 1</button> <!-- button 요소 -->
+</body>
+--------------------------------------------------------------------------------
+13.  "문제01_결과.png"   css 적용하세요 .
+    - 수업 자료 참조하지 말고 html, css, 등 모든 코딩을 해 보세요~
+    - 마지막에 문제 푸세요~        
+        
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style type="text/css">
+	body {
+		margin: 0;
+		padding: 0;
+	}
+	
+	.icon-bar {
+		background-color: #555;
+		width: 90px;
+	}
+	
+	.icon-bar a {
+		display: block;
+		text-align: center;
+		color: white;
+		font-size: 36px;
+		padding: 16px;
+	}
+
+	.icon-bar a:hover {
+		background-color: #000;
+	}
+
+	.icon-bar a.active {
+		background-color: #4caf50;
+	}
+</style>
+
+</head>
+<body>
+
+<div class="icon-bar">
+	<a href="#" class="active"><i class="fa fa-home"></i></a>
+	<a href="#"><i class="fa fa-search"></i></a>
+	<a href="#"><i class="fa fa-envelope"></i></a>
+	<a href="#"><i class="fa fa-globe"></i></a>
+	<a href="#"><i class="fa fa-trash"></i></a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+	<pre> 
+ 그냥 바로 전역변수를 사용해주면되지 굳이 왜 이렇게 해줘야하나?!? 
+
+</pre>
+
+	<button>0</button>
+	<button>0</button>
+	<button>0</button>
+	<button>0</button>
+	<button>0</button>
+	<button>0</button>
+	<button>0</button>
+	<button>0</button>
+	<button>0</button>
+	<button>0</button>
+	<button>0</button>
+	<button>0</button>
+	<button>0</button>
+	<button>0</button>
+	<button>0</button>
+	<button>0</button>
+	<button>0</button>
+	<button>0</button>
+	<button>0</button>
+	<button>0</button>
+
+
+	<script>
+		// 버튼마다 누르면 1씩 증가하는 기능 부여 
+
+		//1) js 
+/* 		var btns = document.getElementsByTagName("button");
+		for (var i = 0; i < btns.length; i++) {
+			btns[i].onclick = function() {
+				let counter = event.srcElement.innerHTML;
+				event.srcElement.innerHTML = ++counter;
+			}
+		}
+
+		// 2) jquery 
+		$("button").on("click", function() {
+			//let counter = $(this).html(); 
+			//$(this).html();
+			$(this).html(function(index, oldHtml) {
+				return ++oldHtml;
+			})
+		}); */
+	</script>
+
+	<script>
+		// 각 버튼 20개의 count할 변수 선언 
+		/* let counter1 = 0;
+		 let counter2 = 0; 
+		 :
+		 :
+		 let counter20 = 0;  */
+
+		// 3) js 배열
+		let counts = [];
+		for (var i = 0; i < 20; i++) {
+			counts.push(0);
+		}
+		$("button").click(function() {
+			let idx = $(this).index();
+			// jquery' index()
+			// : Search for a given element from among the matched elements.
+			// 요소.index() : 요소타입이 일치하는 애들(button들) 중 이 요소의 순번을 반환한다  
+			
+			// alert(idx);
+			$(this).html(++counts[idx - 1]);
+			// 
+		})
+	</script>
+
+	<script>
+		//4) 함수 클로저 
+
+		// js 
+	/* 	var btns = document.getElementsByTagName("button");
+		for (var i = 0; i < btns.length; i++) {
+			btns[i].onclick = (function() {
+				// 함수를따로 실행안해줘도 알아서 실행되서 담겨져있음 
+				// => return event handler이어야함 : 버튼 20개에 각각 담겨져 있는! 
+				let counter = 0; // 전역변수 역할 ! (함수 클로저)
+				return function() { // 중첩함수 
+					event.srcElementinnerHtml = ++counter;
+				}
+			})()
+		}// for 	 
+ */
+		// jquery 
+		/* $("button").click((function() {
+			let counter = 0;
+			return function() {
+				event.srcElement.innerHTML = ++counter;
+			}
+		})()) */
+		
+		
+		$("button").each(function(i, element) {
+          element.onclick = ( function (){
+                               let counter = 0;
+                               return function (){
+                                  //alert( typeof this )
+                                  //event.srcElement.innerHTML = ++counter;
+                                  // this.innerHTML = ++counter;
+                                  $(this).html( ++counter )
+                               }
+                             } )() ;
+  }) 
+		
+	</script>
+</body>
+</html>

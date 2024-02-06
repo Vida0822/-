@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>2023. 5. 2. 오후 3:11:18</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<style>
+  table, th, td{
+    border: 1px solid gray;
+  }
+  
+  table{
+     width: 50%;
+     margin: 0 auto;
+  }
+</style>
+</head>
+<body>
+
+<!-- table>thead>tr>(td>lorem1)*3^^tbody>(tr>(td>lorem1)*3)*4^tfoot>tr>td>button -->
+ <table>
+ 	<thead>
+ 		<tr>
+ 			<td><input type="checkbox" class="all">모두 선택</td>
+ 			<td>Name</td>
+ 			<td>Loc</td>
+ 		</tr>
+ 	</thead>
+ 	<tbody>
+ 		<tr>
+ 			<td><input type="checkbox" id="ck1"></td>
+ 			<td>Animi</td>
+ 			<td>Hic</td>
+ 		</tr>
+ 		<tr>
+ 			<td><input type="checkbox" id="ck2"></td>
+ 			<td>Fuga.</td>
+ 			<td>Ducimus.</td>
+ 		</tr>
+ 		<tr>
+ 			<td><input type="checkbox" id="ck3"></td>
+ 			<td>Esse</td>
+ 			<td>Fuga</td>
+ 		</tr>
+ 		<tr>
+ 			<td><input type="checkbox" id="ck4"></td>
+ 			<td>Beatae..</td>
+ 			<td>Optio!</td>
+ 		</tr>
+ 	</tbody>
+ 	<tfoot>
+ 		<tr> 
+ 			<td  colspan="3" align="center">
+ 				<button>선택 확인</button>
+ 			</td>
+ 		</tr>
+ 	</tfoot>
+ </table> 
+ 
+ <p id="demo"></p>
+ 
+
+ 
+ <script>
+//  body > table > thead > tr > td:nth-child(1) > input
+// 개발자 도구에서 요소 우클릭 -> 'selector' 복사하면 이대로 나옴 -> 이거 그대로 넣어주면 요소 가져올 수 있음
+let h_ckb = document.querySelector(" body > table > thead > tr > td:nth-child(1) > input");
+// thead에 있는 '모두선택' 입력란(체크박스) 가져오기 
+let b_ckbs =document.querySelectorAll(" body > table > tbody > tr > td:nth-child(1) > input[type=checkbox]")
+// tbody안의 tr들 : 총 4개 => 그 안에 각각 td들 세개씩 들어있는데 그 중 input이 들어있는 첫번째 td -> 각각의 체크박스 input들 가져옴 
+// alert(b_ckbs.length); // 4 -> 잘 가져왔구나!
+ 
+ // 1) 
+h_ckb.onclick = function() {
+	// 모두 선택 체크박스를 클릭했을 때, 익명함수 실행 
+	// alert("x"); 이벤트 등록 잘 되었는지 확인
+	// alert(this.checked); // true : this, 즉 '모두선택' 체크박스가 선택되었니? 하고 묻는 속성 
+	for (var i = 0; i < b_ckbs.length; i++) {
+		// 밑에 내개의 input, 즉 체크박스 하나하나 검사하면서
+		b_ckbs[i].checked = this.checked; 
+		// 만약 this, 즉 '모두선택' 버튼이 체크되어있으면 검사하는 체크박스 족족 checked 속성 부여 
+		// => 모든 체크박스 전체 선택됨 !
+	}
+}
+ 
+ // 2) 
+ for (var i = 0; i < b_ckbs.length; i++) {
+	 // 프로그램 내내 하위 체크박스 하나하나 확인하면서'
+	 // (event handler안에 안넣어준건 그냥! 프로그램 돌아가는 내내 계속 확인한다는 의미인가?)
+	b_ckbs[i].onclick = function() {
+		 // 만약 하위요소버튼 중 하나를 클릭하면, 익명함수 실행
+		let b_ckbs_all_checked = true; 
+		// '체크박스가 모두 선택되었다' 라는 flag 변수를 true 값으로 설정해줌 
+		for (var j = 0; j < b_ckbs.length; j++) {
+			// 하위버튼 하나씩 클릭하면서 
+			b_ckbs_all_checked = b_ckbs[j].checked; 
+			// 이번턴에 검사하는 하위버튼의 체크 여부 boolean값을 flag변수에 대입
+			// 이번 턴 하위버튼이 체크되어있으면 flag변수 true로 유지(모두 선택되었다)
+			// 체크 안되어있으면 false로 바꿔줌 !
+			if(b_ckbs_all_checked == false) break; 
+			// 만약 직전에 하위요소 검사 후 대입한 flag변수가 false라면! 그 즉시 반복문 종료 > flag변수는 false인챌 빠져나감 
+		}
+		h_ckb.checked = b_ckbs_all_checked; 
+		// flag 변수가 true로 무사히 빠져나온다면 모두 선택된 것이므로 모두 선택버튼 true로 유지
+		// 하나라도 걸려서 false로 나온다면 모두 선택버튼 해제(false로 변환)
+	}
+}
+ 
+ // 3)  
+ let pdemo = document.querySelector("p#demo"); 
+ // 아이디가 demo인 p태그를 가져와 변수 pdemo에 대입 
+ 
+ document.querySelector("tfoot button").onclick = function() {
+	// tfoot요소의 자식 button 요소를 가져와, 그 요소에 클릭 발생시 익명함수실행 
+	let content = ""; 
+	// 버튼을 누를때마다 그 체크된 체크박스의 이름과 아이디만 새롭게출력해야하므로 기존의 출력값은 삭제해야함 (초기화) 
+	// 안그러면 버튼 누를때마다 기존 결과들이 누적되어서 쌓임 
+	
+	for (var i = 0; i < b_ckbs.length; i++) {
+		// 4개의 체크박스를 하나씩 돌면서 검사하는데 
+		if(b_ckbs[i].checked){
+			// 4개의 체크박스 중 이번에 검사하는 i번째 버튼이 체크되어있으면 
+			let id = b_ckbs[i].id; 
+			// 그 버튼 요소의 아이디 값을 변수 id에 대입 
+			// console.log(id); 선택한 체크박스의 아이디 값이 잘 나오는지 확인 (ck1,ck2...)
+			
+			 // <tr>		         
+			     //    <td><input type="checkbox" id="ck1"></td>
+			     //    <td>이름</td>
+			let name = b_ckbs[i].parentElement.parentElement.children[1].innerHTML; 
+			// 그 체크박스 요소(input)의 부모요소(td)의 부모요소(tr)의 두번째자식(<td>이름</td>)의 
+			// html 내용(태그안 내용), 즉 이름을 변수 name에 대입 
+			// let name = b_ckbs[i].parentElement.nextElementSibling.innerHTML   ;
+			// 그 체크박스 요소(input)의 부모요소(첫번째 td)의 다음 형제요소(두번째 td)의 내용을 변수 name에 대입
+			
+			content += "<li>"+id+"/"+name+"</li>"; 
+			// 해당 id와 name을 li태그로 묶어서 변수 content에 누적(그렇게 하나씩 돌면서 체크된 애들의 정보들을 li태그로 쌓는거임 )
+			// 이때까진 그냥 텍스트지만
+		}
+	}
+	pdemo.innerHTML = content; 
+	// 반복문이 종료한 후 , li태그가 쌓여있는 content변수의 내용을 'html'형식으로 변수 pdemo, 즉 p 태그에 삽입
+	// 여기서 html형식으로 넣어줘서 태그가 태그로서 기능하게됨 
+	
+	/*
+	   p1 = document.querySelector("#demo1");
+	   p2 = document.querySelector("#demo2");
+	   
+	   let content = "<b>홍길동</b>";
+	   
+	   p1.innerHTML = content;
+	   p2.innerText =  content;
+	 */ 
+}
+ 
+ </script>
+ 
+</body>
+</html>

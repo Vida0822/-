@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+div {
+	width: 100px;
+	height: 100px;
+	background-color: red;
+	display: inline-block;
+	
+	/* 전환(transition) : w:100->200, h:100->200, t:0->180deg */
+	transition: width 2s ease, height 2s ease, transform 2s ease;
+}
+
+div:hover {
+	width: 200px;
+	height: 200px;
+	
+	/* 변환(transform) : 이동, [2D회전], 크기, 기울기 */
+	transform: rotate(180deg);
+}
+</style>
+</head>
+<body>
+<h3>css 전환(transition)</h3>
+<pre>
+변환(transform) - 이동, 회전, 크기, 기울기
+전환(transition) - 지정된 기간동안 원활하게 변경
+</pre>
+
+<p>.</p>
+<p>.</p>
+<p>.</p>
+
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+
+<p>.</p>
+<p>.</p>
+<p>.</p>
+</body>
+</html>

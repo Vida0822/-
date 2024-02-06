@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<script>
+
+// Date 관련 메서드는 크게 : get / set / toXX 
+
+// 3. 날짜정보 가져오기 
+
+const d = new Date(); 
+console.log(d.getYear()); // 123
+// getYear() 함수는 -1900 해서 나옴 <-> 정상적인 값 얻고 싶으면 +1900 한 뒤 출력 
+console.log(d.getFullYear()); // 2023
+console.log(d.getMonth()); // 4 -> 1 더해야 정상적으로 5월 출력 
+console.log(d.getDate()); // 4
+
+const d = new Date(); 
+console.log(d.getHours()); // 14
+console.log(d.getMinutes()); // 19
+console.log(d.getSeconds()); //59
+console.log(d.getMilliseconds()); //532
+console.log(d.getDay()); //4 -> 목 (월:1 ~ 일:0)
+console.log("일월화수목금토"[d.getDay()]); // 목
+// 문자열도 배열처럼 [index]로 해당 위치의 값 가져올 수 있다 
+// 자바 : charAt(i)
+
+console.log(d.getTime()); // 1683177932585 ->1970.1.1~ ms 
+const d2 = new Date(1683177932585);  // 그 ms 값으로 오늘 날짜객체 만들 수 있음 
+console.log(d2.toLocaleString()); // 2023. 5. 4. 오후 2:25:32
+
+</script>
+
+<script>
+let ms = Date.now();  // 1970.1.1~  ms값 반환 
+console.log(ms);  //  1683178078744
+
+
+const minute = 60 * 1000; 
+const hour = minute * 60; 
+const day = hour * 24; 
+const year = day * 365; 
+
+console.log(ms/year); //  53.373230120655755 : 1970.1.1 부터 약 53년이 흐른거임
+</script>
+
+</body>
+</html>

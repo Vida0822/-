@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<pre>
+1. 산술 연산자 		+ - * / % **
+   증감 연산자 		++ --
+2. 할당 연산자 		=
+   복합 할당 연산자	+= -= *= /= %= **=
+3. 비교 연산자 		== === != !== > < >= <=
+4. 문자열 연산자	+ 
+5. 논리 연산자		&& || !
+6. 삼항 연산자		항1 ? 항2 : 항3
+7. 비트 연산자		X
+   등등
+</pre>
+<script>
+document.write( (3 == 5) + "<br>"); // false
+document.write( (5 == "5") + "<br>"); // true
+document.write( (5 === "5") + "<br>"); // false 값 + 타입 비교
+document.write( (5 === 5) + "<br>"); // true 값 + 타입 비교
+document.write( (3 != 5) + "<br>"); // true
+
+document.write( (3 > 5) + "<br>"); // false
+document.write( (3 < 5) + "<br>"); // true
+document.write( (3 >= 5) + "<br>"); // false
+document.write( (3 <= 5) + "<br>"); // true
+
+</script>
+<hr>
+<script>
+document.write( 3 + 5 + "<br>" ); // 8
+document.write( 3 - 5 + "<br>" ); // -2
+document.write( 3 * 5 + "<br>" ); // 15
+document.write( 3 / 5 + "<br>" ); // 0.6
+document.write( 3 % 5 + "<br>" ); // 3
+
+document.write( 3 / 0 + "<br>" ); // Infinity
+document.write( 3 % 0 + "<br>" ); // NaN( Not a Number )
+
+document.write( 3.0 / 0 + "<br>" ); // Infinity
+document.write( 3.0 % 0 + "<br>" ); // NaN( Not a Number )
+</script>
+<script>
+document.write( 5 ** 2 + "<br>" ); // ** 제곱 25( 5^2 )
+// Math 내장 객체 - pow() 함수
+document.write( Math.pow(5,2) + "<br>" ); // Math.pow() 제곱 25( 5^2 )
+</script>
+</body>
+</html>

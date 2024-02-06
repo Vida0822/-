@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 생일 입력받고 버튼에 따라 만나이, 세는나이 각각 출력 </title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+생일 입력받고 라디오 버튼에 따라 만나이, 세는나이 각각 출력
+
+<input type = "date" id = "birth" value = "2000-08-22"> 
+<!--  날짜 입력란 : 그 달력으로도 선택되고, 입력도 되던거 -->
+<!--  생일을 입력받음  -->
+<br>
+
+<!--  라디오 버튼 두개 만듬  : 세는나이 vs 만나이 -->
+<input type = "radio" name = "age" value ="1" id="a_age" checked ="checked"> 만나이 
+<br>
+<input type = "radio" name ="age" value ="0" id = "k_age"> 세는 나이
+<br> 
+
+<button> 나이 계산 </button>
+<p id = "demo"></p>
+
+<script>
+// 만나이 = 올해년도 - 생일년도 -1 (생일 지났는지 여부)
+// 세는나이 = 올해년도 - 생일년도 + 1 
+
+$("button").on("click", function() {
+	// 유일한 버튼인 '나이 계산' 버튼 요소를 가져와 클릭 발생시, 익명함수 실행 
+	let birth = $("#birth").val(); 
+	// id = "birth"인 날짜 입력란에 입력한 생일(날짜)을 가져와 그 value값을 변수 birth에 대입 
+
+	// 날짜객체 생성 
+	const b = new Date(birth); 
+	// 그 날짜정보로 날짜 객체 생성 -> 변수 b에 대입 
+	// console.log(b.toLocaleString());  // 1800. 2. 7. 오전 8:27:52
+	
+	const t = new Date(2023,5-1,4,9,0,0,0); 
+	// 날짜 매개변수들을 직접 하나하나 입력해 오늘 날짜객체 생성 (year,month,date,hour,minute,second,ms )
+	// console.log(t.toLocaleDateString());  // 2023. 5. 4.
+	
+	// 연도 얻어오기 
+	const byear = b.getFullYear();  
+	// 생일 날짜 객체에서 연도만 얻어와 byear에 대입 
+	const tyear = t.getFullYear(); 
+	// 오늘 날짜 객체에서 연도만 가져와 tyear에 대입 
+	
+	let content = ""; 
+	// 입력하고 버튼을 누를때마다 값이 계속 붙어서 출력되는게 아니라 
+	// 그 입력값에 해당하는 값만 출력외어야하기 때문에 onclick 함수에 초기화 코드 넣어줌 
+	
+	let age = 0; 
+	if ($("#a_age").prop("checked")) {
+		// 만약 id=a_age인 라디오 버튼의 "checked" 속성을 가져왔을 때 그 값이 true라면 
+		// <-> 만나이를 선택했다면 
+		
+		age = tyear - byear;  // -1: 생일 지남 여부에따라 더하거나 빼거나 
+		// 나이 = 현재연도 - 생일년도 
+		content += `만 나이 : ${age}살 `; 
+		// p태그 입력 내용변수에 해당 문자열 추가 
+	} else {
+		age = tyear - byear +1 ; 
+		content += `세는 나이 : ${age}살`; 
+	}
+	$("#demo").html(content); 
+	// id = demo인 p태그에 그 content에 담긴 내용 출력 
+}); 
+
+</script>
+
+</body>
+</html>

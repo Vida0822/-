@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+</head>
+<body>
+	<pre>
+ 1. https://emmet.io
+ 2. zen coding -> emmet : html, xml, xsl 편집을 빠르게 코딩
+ 3. Ctrl + E
+</pre>
+<!-- div -->
+<div></div>
+<!-- 중첩 연산자 >(자식) +(형제) ^(부모) () -->
+<!-- div>ul -->
+<div>
+	<ul></ul>
+</div>
+<!-- div>ul>li -->
+<div>
+	<ul>
+		<li></li>
+	</ul>
+</div>
+<!-- div+ul -->
+<div></div>
+<ul></ul>
+<!-- div+ul+ol+p -->
+<div></div>
+<ul></ul>
+<ol></ol>
+<p></p>
+<!-- div>ul+p -->
+<div>
+	<ul></ul>
+	<p></p>
+</div>
+<!-- div>ul^p -->
+<div>
+	<ul></ul>
+</div>
+<p></p>
+<!-- div+div>p>span^^em>bq -->
+<div></div>
+<div>
+	<p><span></span></p>
+</div>
+<em><blockquote></blockquote></em>
+<!-- div>ul*2>li*5 -->
+<div>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</div>
+<!-- div>header>ul>li*2>a^^^footer>p -->
+<!-- div>(header>ul>li*2>a)+footer>p -->
+<div>
+	<header>
+		<ul>
+			<li><a href=""></a></li>
+			<li><a href=""></a></li>
+		</ul>
+	</header>
+	<footer>
+		<p></p>
+	</footer>
+</div>
+<!-- div>dl>(dt+dd)*3 -->
+<div>
+	<dl>
+		<dt></dt>
+		<dd></dd>
+		<dt></dt>
+		<dd></dd>
+		<dt></dt>
+		<dd></dd>
+	</dl>
+</div>
+<!-- ul>li*5>{홍길동-$$} -->
+<ul>
+	<li>홍길동-01</li>
+	<li>홍길동-02</li>
+	<li>홍길동-03</li>
+	<li>홍길동-04</li>
+	<li>홍길동-05</li>
+</ul>
+<!-- ul>li*5>{item-$} -->
+<!-- .클래스명 -->
+<!-- ul>li.item*5>{item-$} -->
+<!-- ul>li.item$*5>{item-$} -->
+<!-- ul>li.item$@-*5>{item-$@-} -->
+<!-- ul>li.item$@-*5>{item-$@3} -->
+<ul>
+	<li class="item5">item-3</li>
+	<li class="item4">item-4</li>
+	<li class="item3">item-5</li>
+	<li class="item2">item-6</li>
+	<li class="item1">item-7</li>
+</ul>
+<!-- id 속성, class 속성, 기타 속성 -->
+<!-- div#demo.active -->
+<!-- #demo.active -->
+<div id="demo" class="active"></div>
+<!-- #demo.active.box.ss18 -->
+<div id="demo" class="active box ss18"></div>
+<!-- td[title="hello world~"][colspan=3] -->
+<!-- td[title="hello world~" colspan=3] -->
+<td title="hello world~" colspan="3"></td>
+<!-- a[href="http://www.sist.co.kr" class="16" target="_blank"]>{쌍용교육센터}^br -->
+<!-- a[href="http://www.sist.co.kr"].16[target=_blank]{쌍용교육센터}+br -->
+<a href="http://www.sist.co.kr" class="16" target="_blank">쌍용교육센터</a><br />
+<!-- {텍스트} -->
+<!-- a[href=""]{click}>b{here} -->
+<a href="">click<b>here</b></a>
+<!-- p{Click}>a{here}+{to continue} -->
+<p>Click<a href="">here</a>to continue</p>
+<hr>
+<!-- div.wrap>div.content -->
+<!-- .wrap>.content -->
+<div class="wrap">
+	<div class="content"></div>
+</div>
+<!-- em>span.info -->
+<!-- em>.info -->
+<em><span class="info"></span></em>
+<!-- ul>li.item*3 -->
+<!-- ul>.item*3 -->
+<ul>
+	<li class="item"></li>
+	<li class="item"></li>
+	<li class="item"></li>
+</ul>
+<!-- lorem -->
+<!-- ul>li*5>lorem5 -->
+<ul>
+	<li>Lorem ipsum dolor sit amet.</li>
+	<li>Non ducimus eaque nemo in.</li>
+	<li>Harum debitis ad distinctio ratione.</li>
+	<li>Et animi voluptate quos maxime.</li>
+	<li>Dolor repellendus temporibus dignissimos fugit.</li>
+</ul>
+<!-- ul.generic-list>lorem10.item*4 -->
+<ul class="generic-list">
+	<li class="item">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus ipsum?</li>
+	<li class="item">Libero odio nisi maiores provident harum asperiores explicabo eius magnam.</li>
+	<li class="item">Sapiente nam alias autem hic quaerat architecto animi ratione ipsa!</li>
+	<li class="item">Voluptatem minima blanditiis consequatur iure sunt commodi ab cumque impedit!</li>
+</ul>
+</body>
+</html>

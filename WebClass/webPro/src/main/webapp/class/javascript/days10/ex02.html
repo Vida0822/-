@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<pre>
+
+	htm5 		js Web Apis
+	Storage API, Worker API, 위치 API 등 
+	
+	js 쿠키(클) + JSP 쿠키(서버)  
+
+[js 쿠키 (클)]
+1. js 쿠키(클) : 클라이언트(사용자 컴퓨터)에 저장되는 데이터(정보) => 형식 : 텍스트 파일 
+(쿠키는 뭐다? 전부 데이터 / 어떤 데이터? 텍스트 파일 / 어디에저장? 클라이언트)
+
+2. 사용이유 
+: 나 클라이언트! 
+ex01.html 을 서버에 요청해 응답을 받았다고 가정 
+-> 데이터 (문서 뿌려짐)
+-> 그러다가 여기서 ex02.html 
+=> 이전 브라우저에 있던 모든 데이터는 유지되지 않는다! (다 날라감 )
+=> 이걸 막고 상태를 유지하기 위해 사용하는 것 : 쿠키
+ex) 인증정보 -> 페이지 이동할때마다 초기화되면 이동할때마다 로그인해야함...
+
+3. 장바구니 데이터를 관리하는 방법 
+	-> 클라이언트에서 관리 : 쿠키
+	-> 서버에서 관리 : DB 장바구니 테이블에 insert
+							세션(session) 
+	ㄴ 이거 어디서 해줄지는 필요, 상황에 따라 다름 
+	
+4. 요청url + (쿠키정보)저장
+	http://localhost/webPro/class/javascript/days10/ex02.html
+	=> 요청이 일어날때 그 url과 관련된 내가 서버에 정보를 보내지도 않았는데 자동적으로 url과 함께 서버에 전달되어짐 
+	=> 그 전달된 정보를 갖고 서버에서 처리
+
+5. js 쿠키는 어떻게 생성? 
+
+	쿠키 생성/ 읽기/ 삭제 - 모든 작업 : document.cookie 객체를 사용한다 
+
+6. 브라우저에서 환경설정에 가면 쿠키 사용여부를 결정할 수 있다  
+7. 쿠키형식 
+	이거 _언더바가 아니라 걍 공백표시한거임 / [] : 옵션 
+	
+	쿠키이름 = 쿠키값;_ [만료시점=날짜;_경로=경로값;_도메인=도메인명;_보안처리옵션] 
+	name = 쿠키값;_expires=날짜;_path=경로값;_domain=도메인명;_secure
+	
+	
+	* 만료시점을 정하지 않으면 기본적으로 쿠키는 브라우저를 닫으면 삭제된다 
+	* 경로를 생략하면 기본적으로 쿠키는 현재 페이지에 속하는 쿠키
+			path 뭔지 못들으뮤ㅠㅠㅠㅠㅠㅠ
+
+</pre>
+
+<script>
+
+</script>
+</body>
+</html>

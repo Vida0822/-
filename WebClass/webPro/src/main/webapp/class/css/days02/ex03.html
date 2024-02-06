@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+table {
+	width: 100%;
+	border-collapse: collapse;
+	border: 1px solid gray;
+}
+
+th, td {
+	text-align: left;
+	padding: 8px;
+	border: 1px solid gray;
+}
+
+tr:nth-child(even) {
+	background-color: #F2F2F2;
+}
+
+div {
+	border: 1px solid red;
+	/* overflow: hidden; */
+	overflow: auto;
+}
+</style>
+</head>
+<body>
+<!-- [반응형 테이블]
+화면이 너무 작아서 전체 테이블을 표시할 수 없는 경우
+반응형 테이블에 가로 스크롤 막대를 표시되도록 하고자 한다
+
+overflow: auto;
+컨테이너 요소에 자식 요소를 추가하여 반응형으로 만들 때 사용되는 속성
+-->
+<div>
+	<!-- table>(tr>th*10>lorem1)+(tr>td*10>lorem1) -->
+	<table>
+		<tr>
+			<th>Lorem.</th>
+			<th>Quod.</th>
+			<th>Totam.</th>
+			<th>Voluptas!</th>
+			<th>Tenetur!</th>
+			<th>Voluptas.</th>
+			<th>Quibusdam.</th>
+			<th>Dignissimos.</th>
+			<th>Veniam?</th>
+			<th>Animi!</th>
+		</tr>
+		<tr>
+			<td>Lorem.</td>
+			<td>Enim.</td>
+			<td>Velit!</td>
+			<td>Ipsa.</td>
+			<td>Esse!</td>
+			<td>Deserunt.</td>
+			<td>Vero.</td>
+			<td>Rerum?</td>
+			<td>Voluptas.</td>
+			<td>Fugit.</td>
+		</tr>
+	</table>
+</div>
+</body>
+</html>
+
+<!-- 
+css selector( 선택자 )
+:hover 의사클래스
+:not() 의사클래스
+:first-child 의사클래스
+
+tr:hover:not(:first-child) {
+	background-color: green;
+}
+-->

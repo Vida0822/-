@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+<p id="demo"></p>
+
+<script>
+// [js callback(콜백)함수 ]
+// 1. 다른 함수의 인자로 전달되는 함수 
+// 2. A 함수가 처리 완료된 후에 B함수가 처리해야함 
+// <-> A함수의 결과값을 리턴받아야 그걸 꼭 받아와야 B함수에서 처리가 가능하다  
+	// ㄱ. A함수 (  , B ) // 이거 괄호뒤에 B써있는거뭐임 ? -> 매개변수로 콜백함수를 쓴것 !! (마지막 매개변수에 B를 써줌으로써 처리를 끝나면 B함수를 실행한다는 ?????????????????????)
+	// ㄴ. B함수() 처리... 
+	// 보통 callback으로 먼저 처리하고 그 계산값으로 나머지 코딩을 진행하는게 보통의 순서 
+	// : 비동기?  ? ? 
+			// 보텅 먼저하는일에 콜백함수가 따라 붙는다?     ? -> 후작업을 콜백함수로 하진 않음 보통 
+
+function myDisplayer(some) {
+	document.getElementById("demo").innerHTML = some ;		// hello 
+}
+
+function myFirst() {
+	myDisplayer("hello");
+}
+
+function mySecond() {
+	myDisplayer("world");
+}
+
+// jd는 기본적으로 함수의 호출 순서대로 실행된다 (정의(선언)된 순서 x )
+mySecond(); // 먼저실행 (선언은 나중에 했지만)
+myFirst();  // 다음에 실행 
+
+
+
+</script>
+<script>
+
+//js는 기본적으로 호출하는 순서대로 실행된다
+//근데! js 함수가 실행되는 시점을 제어하고자 할 때가 있다 
+
+//EX) 
+//1) 계산기능 
+//2) 계산 결과 출력
+
+function myDisplayer(some) {  //  2) 계산 결과 출력
+	document.getElementById("demo").innerHTML = some ;	
+}
+
+function myCalculator(num1, num2) { //  1) 계산기능 
+	let sum = num1 + num2 ; 
+	// return sum ; 
+	myDisplayer(sum) // 해결시도1) 이렇게 하면 계산기능은 하지만 출력하는 기능까진 할 수 없다????????
+			
+}
+
+let result = myCalculator(10, 20); // 계산
+myDisplayer(result) // 출력
+//=> 이걸 ! 리턴시키지않고 바로 계산+ 출력 할 순 없을까? 28line 
+
+</script>
+
+
+<script>
+
+// 해결시도 2) 콜백함수 
+function myDisplayer(some) {  
+	document.getElementById("demo").innerHTML = some ;	
+}
+
+function myCalculator(num1, num2, callback) { 
+	// callback 매개변수에 myDisplay라는 함수를 인자값으로 받아 사용 => 함수를 그냥 넘겨받는거임 ('등록')  
+	let sum = num1 + num2 ; 
+	callback(sum) 	; 		
+}
+
+myCalculator(10, 20, myDisplayer); 
+// ※ callback 함수에 () 붙이지 않음  : () 는 함수를 실행한다는 의민데 여기선 그냥 전달만 해죽 실행은 따로 해주기 때문 
+
+// 사용장점 : A함수 -> B함수 라는 비동기적 처리 할때 콜백함수가 좋다 
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ex14.html</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<style>
+table {
+	width: 100%;
+	font-family: arial, sans-serif;
+	border: solid 1px gray;
+	border-collapse: collapse;
+	/* collapse 무너지다, 좌절(결렬)되다, 접다*/
+}
+
+td, th {
+	border: 1px solid #dddddd;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: #ddd;
+}
+
+tr:hover {
+	border: 1px solid red;
+}
+</style>
+</head>
+<body>
+	<h3>html 테이블 - table, tr, th, td, caption</h3>
+	<table>
+		<!-- Defines a table caption -->
+		<caption>Dept Info</caption>
+		<tr>
+			<th>deptno</th>
+			<th>dname</th>
+			<th>loc</th>
+		</tr>
+		<tr>
+			<td>10</td>
+			<td>ACCOUNTING</td>
+			<td>NEW YORK</td>
+		</tr>
+		<tr>
+			<td>20</td>
+			<td>RESEARCH</td>
+			<td>DALLAS</td>
+		</tr>
+		<tr>
+			<td>30</td>
+			<td>SALES</td>
+			<td>CHICAGO</td>
+		</tr>
+		<tr>
+			<td>40</td>
+			<td>OPERATIONS</td>
+			<td>BOSTON</td>
+		</tr>
+	</table>
+
+</body>
+</html>

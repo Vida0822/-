@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+	function hide() {
+		// window.alert("숨기기");
+		document.getElementById("demo").style.display = "none";
+	}
+</script>
+</head>
+<body>
+	<button onclick="hide()">숨기기</button>
+	<button>보이기</button>
+	<div id="demo"
+		style="background-color: black; color: white; padding: 20px;">
+		<h2>London</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+			Deleniti autem at officia laborum. Unde vitae ullam doloremque
+			praesentium libero! Sed dolorem illum nisi eligendi repellat
+			aspernatur nemo inventore vitae expedita?</p>
+		<p>Voluptate a necessitatibus dicta nostrum animi quasi
+			reprehenderit assumenda rerum alias maxime qui dolores id corporis
+			nam at enim soluta ipsam distinctio culpa nobis aut vero ab saepe
+			delectus eaque?</p>
+	</div>
+	<script>
+		// $("#아이디명")
+		// $("button").eq(2)
+		// $("button").first()
+		$("button").last().click(function() {
+			// window.alert("보이기");
+			$("#demo").show(5000); // 5초동안 서서히 보이기
+			// $("#demo").toggle(); // 토글 : 두번 누르면 원위치
+		});
+	</script>
+</body>
+</html>

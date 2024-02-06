@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<script>
+// [함수 매개변수]
+function myfunction(x,y) {
+	console.log("myfunction")
+}
+
+// 1. 매개변수에 자료형(타입)을 사용하지 않는다 <-> 뭘 집어넣던 자료형을 검사하지 않는다
+// 2. 수신돈 인자의 수를 확인하지 않는다
+myfunction(); // myfunction
+
+// 3. 수신된 인자의 수를 확인하지 않는다 - 누락된 인자는 undefined값으로 설정 
+//	 ㄴ 누락된 인자가 있다면 
+ myfunction(4); 
+ 
+// 4. '가변인자' : 갯수가 정해져 있지않은 인자-> 배열 args로 처리 
+function sum(...args) { // ...args는 그냥 변수명인거지? ???????????????????
+/* function sum(...xxx) { // ...args는 그냥 변수명인거지? ??????????????????? */
+	let sum=0;
+	for (let n of args) {
+		sum+=n;
+	}
+	return sum; 
+}
+console.log(sum(1,2,3,4,5,6,7,8,8)); // 44
+
+// --------------------
+
+hap(1,2,3,4); 
+function hap() {
+	let h = 0; 
+	// arguments//여기에 1,2,3,4에 자동으로 담겨져 있음 
+	for (var i = 0; i < arguments.length; i++) {
+		h+= arguments[i]; 
+	}
+}
+
+//????????????? arguments랑 args랑 다른거임??
+// argument는 객체, args는 배열이라는 차이밖에 없나 ? 
+		
+		
+		
+		 
+window.hap(); // 일반적으로(script 안에) 함수를 선언하면 최상위 객체인 window의 자식(멤버메서드)로 자동으로 설정됨
+let x = 10; // 일반적으로(script 안에)  변수를 선언하면 최상위 객체인 window의 자식(멤버메서드)로 자동으로 설정됨
+// this == window -> this.x == window.x 
+
+// ※ 일반적 x  : 중첩함수 -> 함수안의 함수 -> 부모가 다른 함수임 
+
+
+		
+		
+		
+		
+</script>
+
+</body>
+</html>

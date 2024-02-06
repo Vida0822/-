@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>2023. 5. 4. 오후 4:08:36</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+select {
+   width: 100px;
+   text-align: center;
+}
+
+* {
+   box-sizing: border-box;
+}
+
+ul {
+   list-style-type: none;
+}
+
+body {
+   font-family: Verdana, sans-serif;
+}
+
+.month {
+   padding: 70px 25px;
+   width: 100%;
+   background: #1abc9c;
+   text-align: center;
+}
+
+.month ul {
+   margin: 0;
+   padding: 0;
+}
+
+.month ul li {
+   color: white;
+   font-size: 20px;
+   text-transform: uppercase;
+   letter-spacing: 3px;
+}
+
+.month .prev {
+   float: left;
+   padding-top: 10px;
+}
+
+.month .next {
+   float: right;
+   padding-top: 10px;
+}
+
+.weekdays {
+   margin: 0;
+   padding: 10px 0;
+   background-color: #ddd;
+}
+
+.weekdays li {
+   display: inline-block;
+   width: 13.6%;
+   color: #666;
+   text-align: center;
+}
+
+.days {
+   padding: 10px 0;
+   background: #eee;
+   margin: 0;
+}
+
+.days li {
+   list-style-type: none;
+   display: inline-block;
+   width: 13.6%;
+   text-align: center;
+   margin-bottom: 5px;
+   font-size: 12px;
+   color: #777;
+}
+
+.days li .active {
+   padding: 5px;
+   background: #1abc9c;
+   color: white !important
+}
+</style>
+</head>
+<body>
+<h3>달력(일정관리)</h3>
+    
+<select id="cmbyear" onchange="changeDate()"></select>
+<select id="cmbmonth" onchange="changeDate()"></select>
+<select id="cmbdate"></select>
+    
+<div class="month">
+      <ul>
+         <li class="prev" onclick="changeCalendar(-1)">&#10094;</li>
+         <li class="next" onclick="changeCalendar(1)">&#10095;</li>
+         <li>
+              <span id="month">August</span><br> 
+              <span id="year"   style="font-size: 18px">2017</span>
+         </li>
+      </ul>
+</div>
+<ul class="weekdays">
+      <li>Su</li>
+      <li>Mo</li>
+      <li>Tu</li>
+      <li>We</li>
+      <li>Th</li>
+      <li>Fr</li>
+      <li>Sa</li>
+</ul>
+<ul class="days">
+ 
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+  <li>5</li>
+  <li>6</li>
+  <li>7</li>
+  <li>8</li>
+  <li>9</li>
+  <li><span class="active">10</span></li>
+  <li>11</li>
+  <li>12</li>
+  <li>13</li>
+  <li>14</li>
+  <li>15</li>
+  <li>16</li>
+  <li>17</li>
+  <li>18</li>
+  <li>19</li>
+  <li>20</li>
+  <li>21</li>
+  <li>22</li>
+  <li>23</li>
+  <li>24</li>
+  <li>25</li>
+  <li>26</li>
+  <li>27</li>
+  <li>28</li>
+  <li>29</li>
+  <li>30</li>
+  <li>31</li>  
+  
+</ul> 
+
+<script>
+var today = new Date(); 
+var tYear = today.getFullYear(); 
+var tMonth = today.getMonth(); // 0~11 주의! (5월이면 4가 들어감)
+
+// cmbyear 년도 1970~2050 option 추가 
+for (var i = 1970; i <= 2050; i++) {
+	$("#cmbyear").append($("<option></option>").text(i)); 
+	// $("#cmbyear").append($("<option>"+i+"</option>").text(i)); 
+}
+$("#cmbyear").val(tYear);  // 옵션을 선택하는 코딩 ? ?
+
+// cmbmonth 월 1~12 option 추가 
+for (var i = 1; i < 12; i++) {
+	$("#cmbmonth").append($("<option></option>").text(i)); 	
+}
+$("#cmbmonth").val(tMonth+1); 
+
+//  총 날짜는 고정된 값이 아님 ! (!= 년,월) => 앞에서 설정해준 년도, 월에 따라 총 일수가 달라짐 
+// cmdmonth에 따라서 1~28,29 , 30, 31 cmbdate 보류 ! (225line )
+
+</script>
+<script>
+printCalendar(2023, 5); 
+// 설정해준 연도와 월의 달력을 그리는 메서드 
+function printCalendar(year, month) {
+/* <span id="month">August</span><br> 
+     <span id="year"   style="font-size: 18px">2017</span> */
+     $("#month").text(month);
+     $("#year").text(year);
+     
+     // 달력 그리기 
+     // 1) 2023.01.01이 무슨 요일인지 (0~6)
+     let dayOfWeek = getDayOfWeek(year,month,1); 
+     // 2) 2023.1 마지막 날짜 며칠까지? 
+	 let lastDay = getLastDay(year,month); 
+    
+    // 1일의 요일 위치 맞춰주기 위해 건너뛴? 요일개수 만큼 빈 li 태그 추가해줌 
+     $("ul.days").html(""); 
+     for (var i = 0; i <dayOfWeek; i++) {
+		$("ul.days").append("<li></li>"); 
+//		$("ul.days").append($("<li></li>")); 
+	}
+     
+     // 날짜 만들어주기 + li로 묶어서 
+     let outputDay ; 
+     for (var i = 1; i < lastDay; i++) {
+    	 outputDay = new Date(year, month-1,i); 
+ //    	 !!여기부터 놓침!!!!!!
+    	 if(outputDay.toLocaleDateString() == today.toLocaleDateString()){
+	    	 $("ul.days").append("<li><span class='active'>"+i+"</span></li>");    // 마지막 날짜 li 추가 (먼저함)    		 
+	    	/*  $("ul.days").append(
+	    	 	$("<li></li>").append($("<span></span>").addClass("active")) 
+	    	 ) */
+    	 }else{
+    		 $("ul.days").append("<li>"+i+"</li>");    // 마지막 날짜 li 추가 (먼저함)    		     		 
+    	 }
+	}
+} // printCalendar
+
+function getDayOfWeek(year,month,date) {
+	let d = new Date(year, month-1, date); 
+	return d.getDay();
+}
+
+function getLastDay(year,month) {
+	let d = new Date(year, month, 1); // month-1  -> month 
+	d.setDate(d.getDate()-1); 
+	return d.getDate(); 
+}
+		
+</script>
+<script>
+//changeDate() 
+
+
+//총 날짜는 고정된 값이 아님 ! (!= 년,월) => 앞에서 설정해준 년도, 월에 따라 총 일수가 달라짐 
+//cmdmonth에 따라서 1~28,29 , 30, 31 cmbdate 보류 ! (225line )
+var year;  // 이렇게 전역변수로 선언해놓으면 <script> 밖에서도 유효한가? 
+var month; 
+
+function changeDate() {
+	year = $("#cmbyear").val(); 
+	month = $("#cmbmonth").val(); 
+	// console.log(year+"/"+month); //2023/5 -> 2006/3
+	var lastDay = getLastDay(year, month);
+	
+	$("#cmbdate").html(""); // 초기화 (기존 달력 날짜 쌓여있던거)
+	for (var i = 1; i <=lastDay; i++) {
+		$("#cmbdate").append($("<option></option>").text(i)); 	
+	} 
+	// 이거 날짜 안바뀜!!!   ㄴㄴ 지금 선택할 수 있는 총 날짜가 바뀌는 거니까 정상적으로 되고 있는 거임! 
+	
+	// 이렇게 바꾸고 달력까지 그리기 
+	printCalendar(year, month); 
+	
+} // changeDate
+	
+changeDate(); 
+</script>
+
+<script>
+// changeCalendar
+
+// year, month 전역변수 사용 
+function changeCalendar(value) {
+	// prev -> -1    next  -> 1  넘어옴
+	// 	month = month + value; 
+
+	// 문제1) 요렇게만 하면 1,11,null 만 나오는 문제 발생 왜 ??
+	// alert(typeof month); // string 
+	// 이때 month = "5" , value = "1"   -> 문자열 - 문자열 => 문자열이기 때문에 ??  : "5" - "1" = "5-1" 
+	month = Number(month) + value; 
+
+
+	// 문제2) 1월에서 한번 back하면 그 전년도 12월이 나와야하고! 12월에서 한번 prev하면 그 다음년도 1월이 나와야함 
+	
+	if(month==0){
+		year--;
+		month=12;
+	}else if (month==13) {
+		year++;
+		month=1; 
+	}
+	//!!!!!!!!!이거 이상함!!!!!!!!!!!!!!!!!!! 년도 안바뀌고+ 달 안넘어가짐 
+ 	
+	$("#cmbyear").val(year); // 새로운 연도, 일로 값 다시 
+	$("#cmbmonth").val(month);
+
+	
+	// 문제 3)  빈공간에 이전달 날짜(빈공간만큼) + 다음달 날짜(빈공간만큼) 넣어줘야함 
+	
+	
+	
+	
+	// 전체 날짜 바뀌고 
+	changeDate(); 
+	
+	// 그거에 맞춰 달력 그리기 
+	printCalendar(year, month); 
+}
+
+
+
+
+</script>
+</body>
+</html>

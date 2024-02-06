@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>2023. 5. 3. 오전 10:51:00</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+<pre>
+   [ js 문자열 메서드 ]
+   1.  indexOf()     lastIndexOf()
+   2. search()
+   3. match()    matchAll()
+   4. includes()
+   5. startsWith()  endsWith()
+</pre>
+<script>
+    // startsWith()  endsWith()  ES6 추가,대소문자 구분, IE X
+    var url = "http://www.naver.com";
+    // alert( url.startsWith("http://"))  // true
+    // alert( url.startsWith("http://" , 검사 시작 위치))  // true
+</script>
+<script>
+   // includes()  ES6  , 대소문자 구분, IE X
+   var text = "The rain in SPAIN\n stays mainly in the plain";
+   // 단지 포함 여부만 체크할 때 사용하는 메서드: includes
+   // alert( text.includes("rain") );  // [true], false
+   // alert( text.includes("rain", 12) );  // [true], false
+</script>
+<script> 
+  // 일치
+  // 배열 반환
+  var text = "The rain in SPAIN\n stays mainly in the plain";
+  const arr = text.match(/ain/igm);  //  배열을 반환
+  console.log(  arr );
+  //console.log(  arr.length );
+  //                        ES2020 추가된 메서드, IE 작동하지않아요.
+   const ir = text.matchAll(/ain/igm); // 반복자(iterator) 반환
+   console.log(  Array.from( ir ) );
+  
+  // --
+  var text = "Please visit Microsoft and Microsoft!";
+  var idx = text.indexOf("Microsoft") ; // 13  정규표현식 X
+  var idx = text.lastIndexOf("Microsoft") ; // 27
+  //                      search(string or pattern)
+  // var idx = text.search("Microsoft") ; // 13
+  var idx = text.search( /Microsoft/i ) ; // 13  정규표현식 O  
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

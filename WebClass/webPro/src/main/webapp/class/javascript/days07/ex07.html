@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<pre>
+[js Set 객체]
+1. new Set() 
+2. 특징 : 순서유지 o (!= java) , 중복허용 x 
+3. 요소추가 : add()
+	 크기 속성: size
+ 	delete()
+ 	has()
+ 	clear()
+ 	forEach()
+ 	values() : Set의 모든 값을 포함하는 새로운 반복자 객체를 반환하는 메서드 
+ 	
+ 
+
+
+
+</pre>
+<script>
+const letters = new Set(); 
+letters.add("a");
+letters.add("b");
+letters.add("c");
+
+letters.forEach(function(value, value2, set) {
+	console.log(value2); // a b c
+})
+
+console.log(letters.values());  // SetIterator {'a', 'b', 'c'}
+
+for (let x of letters.values()) {
+	console.log(x); // a b c
+}
+</script>
+</body>
+</html>

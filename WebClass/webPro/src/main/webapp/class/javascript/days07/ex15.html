@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<pre>
+https://www.json.org/json-ko.html
+1. JSON (JavaScript Object Notation)
+:  js의 객체를 표현하는 방법 중 하나 (자바스크립트를 객체화하는 표기법)  
+
+2. 경량의 DATA-교환 형식 <-> 가볍다 
+이전:xml <-> 무겁다 
+ex) 한 가족 정보 교환 -> 홍기수/ 김숙자
+								ㄴ 홍길동
+								ㄴ 홍인자
+								ㄴ 홍찬기
+		-> xml 데이터를 쓴다면 ? ex15_xml
+
+3. JSON 의 기본구조 
+	(name + value) 한쌍을 가지는 컬렉션 
+
+4. JSON 데이터 예 )
+{ <!--  공백여러개 올 수 있음  -->
+	"문자열이름":      값 
+   <!--  공백여러개 올 수 있음  -->	
+} 
+	*문자열이름 : ""안의 string)		
+	* value : "", [], boolean, {} 
+	
+5. ex15_xml -> json으로 
+
+let 가족관계 = '{
+"할아버지" : {이름 : 홍기수, 나이: 80} ,
+"할머니" : {이름: 홍기수, 나이:80} ,
+"장남":"홍길동",
+"차남": "홍길동",
+"장녀":"홍길동"
+}'; 
+
+alert(typeof 가족관계); 
+// json 표기법으로 만들어진 String (Object 아님!)
+**string -> js 객체로 변환해줘야함 : JSON.parse(가족관계) ; 
+(string안의 데이터를 떼올 수 없기때문에 객체로 변환해야 '쌍'을 가진 데이터임을 인식 )
+const obj = JSON.parse(가족관계)
+obj.장남 
+obj.할아버지.이름
+
+※ 
+let person = {name : "홍길동", age : 20}; 
+-> js Object 
+let person = '{"name" : "홍길동", "age" : 20}'; 
+-> String인데! (typeof) JSON 표기법을 따른 문자열 
+	<-> parse 함수를 쓰면 json 객체로 바꿀 수 있음 
+
+=> 이렇게 바꾸면 네트워크상으로 주고 받을 수 있음 (xml보다 훨씬 가볍고 간편하게)	
+
+</pre>
+
+
+<pre>
+[MVC 패턴에서 ajax 처리하는 방법] ****프로젝트****
+
+
+
+
+</pre>
+
+</body>
+</html>

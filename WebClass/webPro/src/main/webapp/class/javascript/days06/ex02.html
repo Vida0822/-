@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>2023. 5. 3. 오후 4:56:25</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+	<script>
+	   /*
+	   1. forEach()
+	   2. map()
+	   3. filter()
+	   4. reduce()
+	   5. every()
+	   6. som()
+	   7. indexOf()/lastIndexOf()
+	   8. find() / findIndex()
+	   9. from()
+	   10. keys()
+	   
+	   //  내일 복습 시험 ~~ 
+	   */
+// <for문을 대체해서 쓰는 배열함수들> 
+	
+const m = [45,4,8,16,25] ; 
+   //1. forEach()
+  m.forEach(function(elt, i, array) {
+  	console.log(elt+"/"+i+"/"+array.toString()); 
+  })
+   
+   //2. map()
+   // 배열의 각 요소에 함수를 실행해서 새로운 배열을 생헝하는 함수 
+   	// m 배열의 각 요소를 *2를 해서 새로운 배열 생성 
+   let n =[]; 
+  
+   /*
+   m.forEach(function(elt, i, array) {
+   	n.push(elt*2)
+   }); 
+   얘를 map()으로! */ 
+ 
+   n = m.map(function(elt, i, array) {
+	   // array에 m 담기고, 그 각각의 요소가 반복되면서 elt에 대입 
+	   // -> 그 요소에 2를 곱해서 (함수) 반환하는게 그게 새로운 배열임 -> n에 담기
+   	return elt*2 ; 
+   }); 
+   console.log(n.toString());  //  90,8,16,32,50
+   
+   
+   
+   //3. filter() + ex02_02
+	var m = [45,4,8,16,25] ;
+	var n = []; 
+	
+	m.forEach(function(elt, i, array) {
+		if(elt>18) n.push(elt);  
+	}); 
+	console.log(n.toString()); //45,25
+	 
+	 n = m.filter(function(elt, i, array) {
+		return elt>18; 
+	}) 
+	console.log(n.toString()); //45,25
+	
+	n = m.filter((elt)=> elt>18); 
+	console.log(n.toString()); //45,25
+
+   //4. reduce()
+
+   //[문제] 각 요소의 합 
+	var m = [45,4,8,16,25] ;
+	//let sum = 0; 
+	m.forEach(function(elt, i, array) {
+		sum += elt; 
+	}) ; 
+	console.log(sum);  // 98 
+	
+	//요걸 함수로 -> reduce() : 배열의 각 요소에서 함수를 실행하여 단일값을 생성(축소) 
+	/* 
+	m.reduce(combine);
+	m.reduce(combine, init);
+	m.reduceRight(combine, init);  -> 오른쪽부터 진행 
+	 */
+	m.reduce(function(sum, elt, i, array) {
+		return sum + elt; 
+	}, 0) ;
+	 console.log(sum); 
+ 
+   
+   
+   //5. every()
+   // 배열의 모든 요소가 테스트를 통과하는지 여부를 true/ false 로 나타냄 
+
+	// [문제] 배열의 모든 요소가 20보다 큰지 체크하는 함수  (true, false)
+	var m = [45,4,8,16,25] ;
+	
+	// every() x
+	 m.forEach(function(elt, i, array) {
+		if(elt<20) {
+			return false ; 
+			break; 
+		}
+		return true;
+	}); 
+	
+	var result = m.every(function(elt, i, array) {
+		return elt>20;
+	}); 
+	console.log(result);  // false 
+	// 이 함수로 복습문제 4-1 수정 
+
+
+   
+   //6. some()
+	// 배열의 요소중 하나라도 테스트를 통과하면 true 
+	// [문제] 배열의 모든 요소가 20보다 큰지 체크하는 함수  (true, false)
+	var m = [45,4,8,16,25] ;
+	var result = m.some(function(elt, i, array) {
+		return elt>20; 
+	}); 
+	console.log(result);  // true 
+
+	// 7. find() / findIndex()
+	// : 배열 요소 중 조건을 만족하는 첫번째 요소를 찾는 메서드  -> find는 요소를, findIndex는 인덱스값을 돌려줌 
+
+	 	var m = [45,4,8,16,25] ;
+		// m.find(callback);
+		// let n = m.find(function(elt, i, array) {   // 45
+		let n = m.findIndex(function(elt, i, array) { // 20 
+			return elt>20;
+		}); 
+		console.log(n);  
+
+	// 8. from()
+	// : 길이(length) 속성이 있는 객체에서 배열을 반환하는 메서드 
+	// ex) 길이속성이 있는 객체 : 문자
+	//    => 문자 각각을 배열요소로 받아 배열 반환 
+	
+	let text = "hello world~"; 
+	console.log(text.length);  // 12 
+	
+	let m = Array.from(text); 
+	console.log(m.toString()); //  h,e,l,l,o, ,w,o,r,l,d,~
+   
+	//9. includes()
+	var m = ["aaa", "bbb","ccc", "ddd"]; 
+	// includes(searchString, position)
+	console.log(m.includes("ccc")); // true
+	console.log(m.includes("eee")); // false 
+	
+	
+	//10. ES6추가  (배열의 확장)
+	var m = [1,2,3]; 
+	const n = [4,5,6]; 
+	const s = [7,8,9]; 
+
+	const t = [...m,...n,...s]; 
+	// = m.concate(n,s)
+	console.log(t.toString()) ;  // 1,2,3,4,5,6,7,8,9 
+	
+	
+	
+	//11. keys() -> 이거 하셨나???????????????????????
+   
+   
+</script>
+</body>
+</html>

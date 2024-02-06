@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+
+<style>
+#container{
+	width: 400px; 
+	height: 400px;
+	position: relative; /*부모로 삼기 위함 */ 
+	background-color: yellow;
+}
+
+#animate{
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	 /* 박스 안에서 돌아다녀야하기 때문에 위치 기준값을 부모로 설중해줌
+	 : 부모기준 왼쪽벽에서 100px , 아래서 -100px.... */ 
+	background-color: red;
+	border-radius: 50% ; 
+}
+</style>
+
+
+<body>
+
+<!-- button>{Click Me}^br*2+#container>#animate -->
+<button onclick = "myMove();"> Click me </button> 
+<br> 
+<br> 
+<div id= "container"><!--  상자  -->
+	<div id = "animate"></div> <!--  공  -->
+</div>
+
+
+<script> 
+
+function myMove() { 
+	var elem = document.getElementById("animate");  // 빨간공 
+	// left , top 이동 
+	var pos = 0; 
+	// 움직이는 거리 (movex, movey)했던거 그냥 이 변수 하나로 처리하겠다는 뜻인듯 
+	
+	var timer = setInterval(function() {
+		// 변수를 받는건 그냥 timer를 멈출 용도로 사용 -> 변수로 받지 않아도 함수 실행되는듯?? 
+				
+			if (pos==350) {
+				clearInterval(timer); 
+				// 움직인 거리가 350 , 즉 귀퉁이 길이? 인 350이 되면 타이머객체 삭제 (이동멈춤)
+				// 350 = 400(사각형) - 50(원) 
+			} else {
+
+			pos++; 
+			elem.style.left = pos+"px"; 
+			elem.style.top = pos+"px"; 
+			}
+	}, 10)
+}
+
+
+
+</script>
+</body>
+</html>

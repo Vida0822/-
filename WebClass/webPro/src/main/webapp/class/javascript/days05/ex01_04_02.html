@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>2023. 5. 3. 오전 11:22:09</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+팀원 입력 : 
+<input type="text"  value="탁인혁  , 설경인  ,  이예진, 신희민, 윤재민, 홍성철, 박진용 ">
+<p id="demo">
+</p>
+<pre>
+</pre>
+<script>
+  $(":text").on("keydown", function(event) {
+  	  if( event.which == 13 ){
+  		  // alert("ok");
+  		  const tlist = $(this).val().split(/\s*,\s*/);
+  		  // console.log( tlist);
+  		  
+  		  // 1. htmlString   "<ul><li>홍길동</li></ul>"
+  		  /* 2. Element
+  		  let ultag = document.createElement("ul");
+	  		  let litag =  document.createElement("li");
+	  		  litag.innerHTML = "김길동";
+  		   ultag.appendChild(litag);  		  
+  		 $("p#demo").append( ultag );
+  		 */
+  		
+  		 /*
+  		 let $names =  $("<ul></ul>")
+  		     .append( $("<li>탁인혁</li>") )
+  		     .append( $("<li>설경인</li>") );
+  		 */  		 
+  		 
+  		let content = "<h3>1조 팀원</h3>";
+ 		content += "<ul>";
+ 		for (let name of tlist) { 
+ 			content += `<li>${ name }</li>`;
+ 		}
+ 		content += "</ul>";
+  		$("p#demo").append(  content );
+  	  }
+  });   
+</script> 
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

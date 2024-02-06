@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+jquery css 조작 - addClass() ,removeClass() ,toggleClass() , css()
+
+
+<script>
+
+// $ : jquery, window.$, window.jQuery
+// $.fn == $.prototype
+// prototype 속성 : 객체 생성자에게 + 속성, 메서드를 추가할때 사용한다 
+
+// jquery 객체에 내가 필요한 메서드를 등록해서 사용하겠다 
+$.fn.myAlert = function (msg) {
+	alert(msg); 
+} 
+
+$("h3").myAlert("사용자 경고창"); 
+//Uncaught TypeError: $(...).myAlert is not a function
+// -> line22 주석시, jquery에 등록된 메서드가 아니라 생기는 문제 ! 
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

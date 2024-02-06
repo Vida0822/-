@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+.flex-container {
+	background-color: DodgerBlue;
+	display: flex;
+	
+	/* flex-direction: row; ( 기본값 ) 가로 좌 -> 우 */
+	/* flex-direction: column; 세로 상 -> 하 */
+	/* flex-direction: row-reverse; 가로 우 -> 좌 */
+	/* flex-direction: column-reverse; 세로 하 -> 상 */
+	
+}
+
+.flex-container > div {
+	background-color: #f1f1f1;
+	margin: 10px;
+	font-size: 30px;
+	
+	width: 100px;
+	text-align: center;
+}
+</style>
+</head>
+<body>
+<pre>
+[플렉스 컨테이너]
+1. flex-direction 방향 						ex03_03.html
+2. flex-wrap 포장 							ex03_04.html
+3. flex-flow = flex-direction + flex-wrap 	ex03_05.html
+4. justify-content 정렬(수평) 				ex03_06.html
+5. align-items 정렬(수직) 					ex03_07.html
+6. align-content 정렬(내용) 				ex03_08.html
+</pre>
+
+<div class="flex-container">
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+</div>
+</body>
+</html>

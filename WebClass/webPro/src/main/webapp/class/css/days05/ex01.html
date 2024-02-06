@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+body {
+	text-align: center;
+}
+
+.tooltip {
+	position: relative;
+	display: inline-block;
+	border-bottom: 1px dotted black;
+}
+
+.tooltip:hover .tooltiptext {
+	visibility: visible;
+}
+
+.tooltip .tooltiptext {
+	visibility: hidden;
+	
+	position: absolute;
+	z-index: 1;
+	bottom: 150%;
+	/* top: 150%; */
+	left: 50%;
+	margin-left: -60px;
+	
+	background-color: black;
+	color: #fff;
+	width: 120px;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 0;
+}
+
+/* ::의사요소 - 특정 부분 */
+.tooltip .tooltiptext::after {
+	content: "";
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: black transparent transparent transparent;
+}
+</style>
+</head>
+<body>
+<h3>툴팁기능(Tooltip) - 풍선 도움말</h3>
+<div class="tooltip">Hover over me
+	<span class="tooltiptext">Tooltip Text</span>
+</div>
+</body>
+</html>

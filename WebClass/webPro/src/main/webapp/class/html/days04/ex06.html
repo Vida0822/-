@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<pre>
+ 1. &lt;head&gt; 태그
+  - 웹 페이지의 정보를 나타내는 태그
+  - 화면 표시 X
+ 2. &lt;head&gt; 태그의 자식태그
+  - title 태그
+  - meta 태그
+  - link 태그 - 외부 자원(리소스)과 연결하는 태그( css 파일 )
+  - script 태그
+  - style 태그
+  		:
+  - base 태그 : 페이지의 모든 상대주소에 대한 기본주소 및 대상을 지정하는 태그
+</pre>
+<pre>
+ 1. 반응형 웹
+  - 모든 장치(화면크기)에서 웹페이지가 보기 좋게 만드는 것
+  - 반응형 웹 디자인 : html, css를 사용해서 웹 사이트의 크기를 자동으로 조정, 숨기기, 축소, 확대하여
+    모든 장치(폰, 데스크탑, 태블릿)에서 보기 좋게 만드는 것
+ 2. 뷰포트 설정
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+ 3. 반응형 이미지 처리
+  너비(width)속성 : %
+  max-width : 100% - 이미지가 원래 크기보다 크게 확대할 수 없다( 축소는 가능 )
+  [                       ] 600px
+  [                       ] 100% 600px
+  max-width:100%
+  [  이미지  ] 100% 300px
+ 4. 반응형 텍스트 처리
+  '한'
+  [_        ] 뷰포트너비 1vw = 해당 장치 너비의 1%
+  [__                ]
+  <h1 style="font-size: 10vw;">test</h1>
+  장치 : 50cm => 1vw == 0.5cm
+         100cm => 1vw == 1cm
+ 5. 미디어 쿼리
+  이미지, 텍스트는 장치에 따라 크기 조정 가능
+  그 외의 크기 조정은 @media로
+  @media (조건식) {
+  	div.nav   div.article
+  	  30%         70%
+  	 100%        100%
+  }
+</pre>
+</body>
+</html>

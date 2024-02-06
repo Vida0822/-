@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body onload="window_load();">
+
+<input type="text" name="txtMessage" value="배고프다">
+<!-- <button onclick="btn_click()">입력</button> -->
+<button>입력</button>
+<br>
+<div id="demo"></div>
+
+<script>
+var btn = document.querySelector("button");
+var demo = document.getElementById("demo");
+var txtMsg = document.querySelector("input[name=txtMessage]");
+
+btn.onclick = function() {
+	// alert("button");
+	// alert(txtMsg.value);
+	demo.innerHTML = "RESULT : " + txtMsg.value;
+	// txtMsg.value = "";
+	txtMsg.select();
+}
+
+function window_load() {
+	// [window.]alert("window_load");
+	// BOM 브라우저 오브젝트 모델
+	// 요소(element) : <div id="demo">결과:</div>
+	// alert(demo);
+	demo.innerHTML = "RESULT : ";
+	
+	// 2. hungry
+	// console.log(txtMsg); // <input type="text" name="txtMessage" value="배고프다">
+	txtMsg.value = "hungry";
+}
+</script>
+</body>
+</html>

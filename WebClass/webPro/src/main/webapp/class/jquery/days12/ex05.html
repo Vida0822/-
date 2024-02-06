@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <style>
+  button {
+    margin: 5px;
+  }
+  button#theone {
+    color: red;
+    background: yellow;
+  }
+  </style>
+
+</head>
+<body>
+
+<pre>
+
+	on( ) 이벤트 등록 (지금까지 하던거)
+	one( ) 이벤트 등록
+	off( ) 이벤트 제거
+
+</pre>
+
+<button id="theone"> Does nothing... </button>
+<button id="bind">Add click </button>
+<button id="unbind"> Remove Click </button>
+
+<div style="display:none">Click ! </div>
+
+<script>
+
+// .click( ) : 클릭 이벤트 발생하는 경우만 적용 가능 
+// vs on( ): 여러개의 이벤트를 등록할 수 있따 
+
+// ***** jquery로 ajax 반드시 이벤트는 on("click")으로 등록해야한다!  
+// .click( ) => 이거 안댐 ! 
+/* $("button").on({
+	click: function() {	}, 
+	mousemove: function() {	}, 
+	mousedown: function() {	}, 
+	mouseout: function() {	}, 
+	keydown: function() {	}, 
+});
+ */
+</script>
+
+<script>
+	function flash() {
+		$("div")
+		.show()
+		.fadeOut("slow"); 
+	}
+	
+	// 두번째 버튼 클릭시 첫번째 버튼에게 이벤트를 binding
+	// 이벤트를 binding: 이벤트를 '연결한다, 등록한다'
+	$("#bind").on("click", function() {
+		// $("#theone").on("click", flash) ;  // 바인딩 
+		$("body")
+			.on("click", "#theone", flash)//**
+/* 		$("body").on("click", 대상, flash); 
+			body 안에 있는 id명이 theone인 객체에 클릭 발생시 함수 flash 실행 
+		*/
+			.find("#theone")
+				.text("Can Click"); 
+	});
+	
+	$("#unbind").on("click", function() {
+		$("body")
+			.off("click", "#theone", flash) // 이벤트 삭제 
+			.find("#theone")
+				.text("Does nothing... "); 
+	});
+	// 동적으로 이벤트 등록, 삭제 > 왜 동적이라고 하지?????????
+	
+			// one() : 클릭 이벤트를 한번만 등록할 수 있따 (두번째 클릭부턴 콜백함수를 실행하지 않는다)
+// 	$("button").one("click", function() {	})
+	
+	
+</script>
+</body>
+</html>

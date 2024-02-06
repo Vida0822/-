@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<p id="demo"></p>
+
+
+<script>
+	
+	// [js 3가지 팝업상자 - 경고 , 확인 , 프롬포트]
+	// 1. window.alert("경고상자") ; 
+	
+	// 2. 확인상자 - 확인(true)/ 취소(false) 
+	let message = "정말 종료할까요?" ; 
+	let result = window.confirm(message);  // boolean 
+
+	alert(result);
+	
+	if(result){
+		// self.close(); 
+		$("#demo").html("닫기");
+	}else{
+		$("#demo").html("열기");
+	}
+
+	// 3. 프롬포트 
+	message = "나이를 입력하세요?" ; 
+	let value = 20; 
+	result = window.prompt(message, value ); 
+	alert(result); 
+	// ※ 모든 입려값은 string("20") , 취소 클릭시 result=null  
+	
+	
+</script>
+
+</body>
+</html>

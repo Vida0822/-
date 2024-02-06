@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+.st {
+	color: red;
+	display: inline-block;
+	border: 1px solid gray;
+}
+
+input[type=text] {
+	width: 100%;
+}
+</style>
+</head>
+<body>
+<fieldset>
+	<legend>html 적용 여부</legend>
+	<input type="radio" name="htmlapply" id="a" checked="checked"><label for="a">적용</label>
+	<input type="radio" name="htmlapply" id="b"><label for="b">미적용</label>
+</fieldset>
+<input type="text" id="msg" value="<span class='st'>홍길동</span>">
+<br>
+<button>실행</button>
+<br>
+<div id="demo"></div>
+
+<script>
+$("button").click(function(event) {
+	// jquery selector :radio == input[type=radio]
+	/*
+	$(":radio[name=htmlapply]").each(function(i, element) {
+		console.log(i + " : " + element.checked);
+	});
+	*/
+	// "checked" : $( elem ).attr( "checked" ), elem.getAttribute( "checked" )
+	// true/false : $( elem ).prop( "checked" ), $( elem ).is( ":checked" ), elem.checked
+	// if ($(":radio[name=htmlapply]").first().is(":checked")) {
+	if ($(":radio[name=htmlapply]")[0].checked) {
+		$("#demo").html($("#msg").val());
+	} else {
+		$("#demo").text($("#msg").val());
+	};
+	/*
+	var listVar = $('input[name=htmlapply]:checked').val();
+	if ($("input[id=a]").is("checked")) {
+		$("#demo").html($("#msg").val());
+	} else {
+		$("#demo").text($("#msg").val());
+	}
+	*/
+});
+/* 
+document.querySelector("button").onclick = () => {
+	// alert("test");
+	// 라디오 버튼 적용/미적용 확인
+	var radioAll = document.querySelectorAll("fieldset [type=radio][name=htmlapply]");
+	// alert(radioAll.length); // 2
+	// for (var i = 0; i < radioAll.length; i++) {
+		// console.log(radioAll[i].checked);
+	// };
+	var msg = document.querySelector("#msg").value;
+	
+	// [innerHTML 속성 : html 적용 / innerText 속성 : html 미적용]
+	if (radioAll[0].checked) { // 적용
+		document.querySelector("#demo").innerHTML = msg;
+	} else { // 미적용
+		document.querySelector("#demo").innerText = msg;
+	};
+};
+*/
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+
+<script>
+// [자체호출함수]
+// 1. 함수 표현식은 '자기 호출'로 만들 수 있다
+// 함수 표현식 
+let sum = function (a,b) {
+	return a+b; 
+}
+// => 변수로 받아야함 ! 
+
+// 2. 자기호출? 자동으로 호출한다 (함수를 다른 곳에서 호출하지 않아도 자기가 스스로 함수를 호출, 실행한다)
+// => 변수로 받지 않고 함수 표현식, 즉 익명함수를 실행할 수 있따 
+		
+(function () { alert( "hello world") ; 	})(); 
+	
+/* () : 함수를 호출할 때 쓰는거  -> 익명 함수 선언부 뒤에 이걸 붙인다는거 자체가 이 함수를 호출한다는 뜻 ! 
+= */
+// 1) function () { alert( "hello world")  이 함수를 선언하고 
+// 2) 바로 ( 함수 ) () 로 묶어서 실행해준다 
+
+
+var hi = (function () {
+	return "hello world"; 
+})(); 
+// 이 안에있는 함수를 실행해서 바로 변수 hi에 담아줌 
+//	<-> 함수 표현식 : 함수 자체를 변수에 담아 그 변수를 함수처럼 다뤄주는것 (그냥 함수명을 지정해주는거라고 생각하면 될듯)
+
+function sum() {
+	return 10; 
+}
+alert(typeof sum);  // function 
+
+let text = sum.toString(); 
+console.log(text);  //function sum() {	return 10;  }
+
+</script>
+</body>
+</html>

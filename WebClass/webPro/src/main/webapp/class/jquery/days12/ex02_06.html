@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<h3> ex02_06 </h3>
+<p>Lorem ipsum dolor sit amet.</p>
+<p class="intro">Adipisci porro dolorem doloremque expedita.</p>
+<p>Impedit eius nobis praesentium corporis.</p>
+<p>Veritatis asperiores voluptatum ea quisquam.</p>
+<p>Iure at voluptate sapiente aperiam.</p>
+
+
+<script>
+// .intro 클래스를 가진 p 태그는 제외시키고 싶다 
+$("p:not(.intro)").css("background-color", "yellow"); // 속성 , 2번째 p태그만 스타일 x 
+$("p").not(".intro").css("background-color", "yellow"); // 메서드  
+
+
+
+</script>
+</body>
+</html>

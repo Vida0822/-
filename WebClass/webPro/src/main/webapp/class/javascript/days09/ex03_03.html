@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<p id = "demo"></p>
+
+<script>
+// 실제로 콜백은 비동기 함수와 자주 사용된다 
+// js 대표적인 비동기함수 : setTimeout() 
+//어떤일을 하고 있으면 다른 일을 동시에 진행할 수 있는 함수 -> '비동기'
+
+/*동기 방식은 서버에서 요청을 보냈을 때 응답이 돌아와야 다음 동작을 수행할 수 있다.
+즉 A작업이 모두 진행 될때까지 B작업은 대기해야한다.
+비동기 방식은 반대로 요청을 보냈을 때 응답 상태와 상관없이 다음 동작을 수행 할 수 있다. 
+즉 A작업이 시작하면 동시에 B작업이 실행된다. A작업은 결과값이 나오는대로 출력된다.
+*/ 
+
+function myFunc() {
+	// 자동완성에 f 가 콜백함수라는 뜻임 
+	$("#demo").html("아이러브진우"); 
+}
+
+setTimeout(function() {
+	$("#demo").html("아이러브진우"); 
+}, 3000)
+
+setTimeout(myFunc , 3000); 
+
+</script>
+</body>
+</html>

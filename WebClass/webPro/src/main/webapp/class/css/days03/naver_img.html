@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+div {
+	width: 200px;
+	height: 120px;
+	overflow: hidden; /* 확대해도 화면 사이즈 변함 없도록 */
+}
+
+img {
+	transition: 0.5s ease; /* 부드러운 움직임 */ 
+}
+
+img:hover {
+	transform: scale(1.1); /* 마우스 올리면 1.1배 확대 */
+}
+</style>
+</head>
+<body>
+<div>
+	<img width="100%" src="../images/img_5terre.jpg" alt="">
+</div>
+</body>
+</html>

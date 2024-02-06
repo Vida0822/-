@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<pre>
+
+$ 의미? 변수명 js $
+
+jQuery.fn = jQuery.prototype 
+window.jQuery = window.$ = jQuery;
+
+=> jQuery : 객체 =  $
+</pre>
+
+<script>
+//window.$("pre").css("color", "red"); 
+$("pre").css("color", "red"); 
+jQuery("pre").css("color", "red"); 
+
+</script>
+
+<pre>
+다른 js 라이브러리 (프레임워크)를 함께 jquery를 사용 
+<-> $ 변수를 다른 의미로 사용하고 있다 
+=> 충돌발생 
+ㄴ 해결 : jquery noConflict() : 충돌을 해제하는 메서드 제공
+	= jquery 라이브러리에선 $기호 사용 x(해제) 
+</pre>
+
+<script>
+$.noConflict(); // 난 이제 jquery사용할때 더이상 $안쓸거임 => jQuery 
+
+jQuery(document).ready(function() {
+	jQuery("button").click(function() {
+		
+	})
+})
+</script>
+
+<script>
+var jq = $.noConflict(); 
+// 1) 난 이제 jquery사용할때 더이상 $안쓸거임 
+// 2) 대신 변수 jq를 $처럼 사용할거임 
+
+jq(document).ready(function() {
+	jq("button").click(function() {
+	})
+})
+</script>
+
+<script>
+$.noConflict(); // 난 이제 jquery사용할때 더이상 $안쓸거임 => jQuery 
+
+jQuery(document).ready(function($) {  // 이 함수안에선 jQuery요소로 $ 사용할거임 
+	jQuery("button").click(function() {
+	})
+}) // ready () 
+</script>
+
+
+
+</body>
+</html>

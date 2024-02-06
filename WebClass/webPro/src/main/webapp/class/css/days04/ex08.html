@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+p {
+	width: 200px;
+	border: 1px solid black;
+}
+
+p.test1 {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: clip; /* 잘라내다( 기본값 ) */
+}
+
+p.test2 {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis; /* 생략하다( ... ) */
+}
+
+p.test2:hover {
+	overflow: visible;
+}
+
+p.test3 {
+	word-wrap: break-word;
+	word-break: break-all;
+}
+</style>
+</head>
+<body>
+<h3>css 텍스트효과</h3>
+<pre>
+1. text-overflow
+2. word-wrap(자동줄바꿈)
+   - 하나의 단어가 너무 길어서 너비보다 오버플로우 발생
+   - 강제줄바꿈
+3. word-break(줄바꿈규칙)
+4. writing-mode(쓰기모드)
+</pre>
+
+<p class="test1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur a.</p>
+<p class="test2">Repellat porro sequi perferendis ratione vel reiciendis? Labore nobis facere.</p>
+<p class="test3">Facilis quos fuga eveniet reprehenderit mollitia sunt deleniti corrupti assumenda.</p>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<pre>
+[this 정리]
+1. 객체 안에서의 this - person 객체 자기자신
+2. 이벤트 핸들러에서의 this 
+
+※ 프로젝트 때 this 많이 틀림! 주의 
+
+</pre>
+
+
+<script>
+// 1. 객체 안에서의 this - person 객체 자기자신
+var person = {
+		name : "admin"
+		, age : 20 
+		, info : function() {
+			return this.name + "/" + this.age; 
+		}
+}
+// 2. 이벤트 핸들러에서의 this : 
+// 	: 이벤트를 받은 객체 자체, 즉 h3을 의미 
+document.querySelector("h3").onclick = function() {
+	alert(this) // [object HTMLHeadingElement
+}
+
+/* +) 태그안의 this => 자기자신
+<h3 onclick = "this.style.display"></h3> 
+=> this == h3  */
+	
+// 3. 일반 함수안에서 this => object window 
+function name() {
+	alert(this); //object window 객체 
+}
+// 3-2) 
+function test2() {
+	"use strict"; // 엄격모드 
+	alert(this); // undefined 
+}
+test2(); 
+
+
+// 4. script 태그안에 this 
+var x = this; 
+alert(x); // object window 객체 
+	
+</script>
+
+
+<h2> test </h2>
+<h3 onkeydown="kdown(this)" onclick="this.style.display = 'none'"></h3>
+
+<script>
+$("h2").click(function() {
+	alert(this); // [object HTMLHeadingElement]
+})
+
+// 위에거 람다로~ 
+$("h2").click((event) => alert(this) );  // object window 
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+.myDiv {
+	background-color: #f1f1f1;
+	text-align: center;
+	border: 1px solid #d3d3d3;
+	position: absolute;
+	z-index: 9;
+}
+
+.myDivHeader {
+	padding: 10px;
+	cursor: move;
+	z-index: 10;
+	background-color: #2396F3;
+	color: #fff;
+}
+</style>
+
+</head>
+<body>
+	<div id="myDiv1" class="myDiv">
+		<div id="myDiv1Header" class="myDivHeader">Click Here</div>
+		<!-- p*3>lorem1 -->
+		<p>Lorem.</p>
+		<p>Nesciunt.</p>
+		<p>Reiciendis.</p>
+	</div>
+	<div id="myDiv2" class="myDiv">
+		<div id="myDiv2Header" class="myDivHeader">Click Here</div>
+		<!-- p*3>lorem1 -->
+		<p>Lorem.</p>
+		<p>Nesciunt.</p>
+		<p>Reiciendis.</p>
+	</div>
+
+	<script>
+	function draggable(elemt) { // 드래그 하고자하는 요소를 매개변수로 받음 
+	 	var elemtX = 0, elemtY = 0;  // 드래그할 요소의 현재 위치값(x,y 좌표값)
+		var moveX = 0, moveY = 0;  // 움직인 거리 x,y 값 
+		
+		if(  document.getElementById(   elemt.id +"Header"  ) ){
+			// div id = myDiv1 -> 자식 div id = myDiv1Header
+	          document.getElementById(   elemt.id +"Header"  )
+	          			.onmousedown = dragMouseDown; // 이벤트 핸들러 등록
+	          			
+	          function dragMouseDown( e ){
+	              e = window.event || e; 
+	              // event 객체를 받아오겠다 (브라우저 따라 다르기때문에 )
+	              // console.log( e.clientX + " / " + e.clientY );
+	              // 이벤트 발생한 객체의 왼쪽 모서리? 암튼 위치값(x,y 좌표)를 갖고 있는 속성 : client 
+	            		 
+	              // divHeader 위에서 마우스다운 할 때 의 X,Y 좌표 저장
+	              elemtX = e.clientX ;
+	              elemtY = e.clientY ;
+	              
+	              document.onmousemove = elementDrag ;
+	              // 
+	              document.onmouseup = closeDragElement;
+	              
+	          } // dragMouseDown
+	       } //if 
+		// mousemove
+	       function elementDrag(){
+	          e = window.event || e;           // event
+	           // console.log( e.clientX + " / " + e.clientY );
+	          moveX = elemtX - e.clientX;  // - 음수
+	          moveY = elemtY - e.clientY;
+	          
+	          // elemt.left;             -> "10px" 문자열
+	          // elemt.offsetLeft; -> 10 
+	          elemt.style.left = (  elemt.offsetLeft - moveX    )+"px";
+	          // 현재위치 - 이동한 거리만큼 elemt를 이동시키면 따라오니까 결과적으로 드래그 
+	          elemt.style.top =  (  elemt.offsetTop - moveY    )+"px";
+	          
+	          // 움직인 위치가 다시 요소의 시작 위치.
+	          elemtX = e.clientX;
+	          elemtY = e.clientY;
+	          
+	       }
+	       
+	       // mouseup
+	       function closeDragElement(){
+	          // 마우스 이벤트 제거
+	          document.onmousemove = null ; // 이벤트를 제거하는 코드 
+	           document.onmouseup = closeDragElement; 
+	       }
+		
+	} // draggable
+	
+	draggable(document.getElementById("myDiv1"))
+	draggable(document.getElementById("myDiv2"))
+
+</script>
+</body>
+</html>

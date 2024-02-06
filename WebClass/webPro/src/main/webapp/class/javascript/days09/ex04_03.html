@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+      <!-- <a onclick="reStyle(0);return false" href="#">Stylesheet1</a>,-->
+<!--       <a onclick="test();" href="http://www.naver.com">Stylesheet1</a>, -->
+      <a onclick="return test();" href="http://www.naver.com">Stylesheet1</a>,
+<!--     3) return test ()는 false가 되므로 이 태그의 원래기능은 실행되지 않음  -->
+
+<script>
+      // 이벤트 (클릭) 발생시 원래 기능은 하지 않고 test() 만 실행시키고 싶음 
+      // => 'return false'  
+      function test() {
+		alert("test");  // 1) 클릭을 하면 일단 이 함수는 실행하고 
+		
+		// event.preventDefault () -> jquery쓸땐 그냥 얘 쓰면됨 ()
+		// event.stopPropagation() : 이벤트 버블링 
+
+		return false;  // 2) false를 반환 
+	}
+</script>
+</body>
+</html>

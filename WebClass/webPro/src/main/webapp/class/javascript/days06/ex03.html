@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<script>
+// [js 날짜] Date 
+// java : Date , Calendar, LocalDate, LocatTime, LocalDateTime 등 
+
+// 날짜 객체를 생성하는 9가지 방법
+// 1) new Date() - 현재 
+var d = new Date (); 
+// hu May 04 2023 14:04:01 GMT+0900 (한국 표준시)
+
+// 2) new Date - 날짜형식의 문자열  
+var d = new Date ("2023-01-25"); 
+//Wed Jan 25 2023 09:00:00 GMT+0900 (한국 표준시)
+/* 
+// 3) 
+var d = new Date(year,month);
+var d = new Date(year,month,day);
+var d = new Date(year,month,day,hours);
+var d = new Date(year,month, day, hours,minutes);
+var d = new Date(year,month, day, hours,minutes,seconds);
+var d = new Date(year,month, day, hours,minutes,seconds, ms);
+// ※ 월 (month) : 0 (1월) ~ 11(12월)
+var d = new Date (2023,10,35) // 날짜 오버플로우 -> 다음달의 날짜로 출력됨
+
+var ms = 32424234234; 
+var d = new Date (ms) ; // 1970.1.1 이후 ms
+var d = new Date(2023)  // ms로 인식함!! 
+var d = new Date(0)  // 1970.1.1 
+ d.toString() // 문자열  */
+
+// 4) 
+var d = new Date ("2023-01-25"); 
+
+console.log(d);  // Wed Jan 25 2023 09:00:00 GMT+0900 (한국 표준시)
+console.log(d.toString()); //  Wed Jan 25 2023 09:00:00 GMT+0900 (한국 표준시)
+console.log(d.toDateString());  //  Wed Jan 25 2023
+console.log(d.toISOString());                               //  2023-01-25T00:00:00.000Z -> ISO 표준 어쩌구
+console.log(d.toLocaleString()); // 2023. 1. 25. 오전 9:00:00 ** 
+console.log(d.toLocaleTimeString()); // 오전 9:00:00  ** 
+console.log(d.toLocaleDateString()); // 2023. 1. 25. ** 
+</script>
+</body>
+</html>

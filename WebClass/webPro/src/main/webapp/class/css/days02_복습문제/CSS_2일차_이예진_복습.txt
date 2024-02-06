@@ -1,0 +1,374 @@
+
+2.  버튼 3개 선언 후 클릭 이벤트 처리해서 경고창을 띄우세요.. 
+  ㄱ. onclick 속성
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" type="image/x-icon" href="../images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+<button onclick="alert('button1')">버튼1</button>
+<button onclick="alert('button2')">버튼2</button>
+<button onclick="alert('button3')">버튼3</button>
+</body>
+</html>
+
+  ㄴ. js 동적으로 이벤트 등록
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" type="image/x-icon" href="../images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+<button id="button1">버튼1</button>
+<button id="button2">버튼2</button>
+<button id="button3">버튼3</button>
+</body>
+<script>
+
+	var btn1 = document.getElementById('button1');
+	var btn2 = document.getElementById('button2');
+	var btn3 = document.getElementById('button3');
+
+	btn1.onclick = function(){
+		alert('button1');
+	}
+	btn2.onclick = function(){
+		alert('button2');
+	}
+	btn3.onclick = function(){
+		alert('button3');
+	}
+
+</script>
+</html>
+
+  ㄷ. jquery 사용
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" type="image/x-icon" href="../images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+<button id="button1">버튼1</button>
+<button id="button2">버튼2</button>
+<button id="button3">버튼3</button>
+</body>
+<script>
+
+	$("#button1").click(function(){
+		alert('버튼1');
+	});
+	$("#button2").click(function(){
+		alert('버튼2');
+	});
+	$("#button3").click(function(){
+		alert('버튼3');
+	});
+</script>
+</html>
+    
+3. 위의 버튼이 클릭되면 class 속성을 active 로 설정 후 임의의 스타일 지정
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" type="image/x-icon" href="../images/SiSt.ico">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+	#button1:active{
+		background-color: aqua;
+	}
+	#button2:active{
+		background-color: fuchsia;
+	}
+	#button3:active{
+		background-color: teal;
+	}
+</style>
+</head>
+<body>
+<button id="button1">버튼1</button>
+<button id="button2">버튼2</button>
+<button id="button3">버튼3</button>
+</body>
+<script>
+
+	$("#button1").click(function(){
+		alert('버튼1');
+	});
+	$("#button2").click(function(){
+		alert('버튼2');
+	});
+	$("#button3").click(function(){
+		alert('버튼3');
+	});
+</script>
+</html>
+
+4.   document.querySelectorAll("button")
+      document.querySelector("button") 
+    위의 두 함수와 코딩에 대해서 설명하세요.
+    
+document.querySelectorAll("button")
+-> button element 의 첫번째 값이 선택.
+
+document.querySelector("button") 
+-> 모든  button  element 가 선택
+
+
+5. tr:hover:not(:first-child){
+     background-color: #4caf50;
+  }
+  코딩에 대해서 설명하세요.  
+
+-> 테이블의 첫번째 행을 제외한 나머지 자식행에 마우스를 올리면 background-color 색이 변하게 하는 코드
+
+6. display="none"          
+    visibility="hidden"     
+   위의 두 속성의 차이점을 설명하세요.
+
+display="none" 
+-> 사라지면 할당된 위치의 크기가 사라진다.
+
+visibility="hidden"
+-> 사라지더라도 위치의 크기는 그대로 남아있다.
+
+
+7. jquery  메서드 설명
+  ㄱ. css() 
+	-> css("속성명", "속성값") 이렇게 적는다.
+	ex)
+	.css("display", "none"); 이런식으로..
+  ㄴ. show()  
+	-> 보여지게한다.
+  ㄷ. hide() 
+	-> 사라지게한다.
+  ㄹ. toggle()  
+	-> show()랑, hide() 두 기능이 있음.
+  ㅁ. slideToggle()
+	-> toggle()과 기능이 같은데, 추가로 
+	슬라이드 되면서 보여지는 기능이 있음.
+  ㅂ. addClass() 
+	-> ()에 클래스 추가  
+  ㅅ. removeClass()   
+  	=> ()에서 클래스를 지움.
+
+8.  position(위치) 속성에 대해 설명하세요.
+  ㄱ. static   
+	-> 속성을 별도로 지정해주지 않으면 기본값인 static이 적용된다.
+HTML 문서 상에서 원래 있어야하는 위치에 배치.
+
+  ㄴ. relative 
+	-> 요소를 원래 위치에서 벗어나게 배치할 수 있게 해준다. 요소를 원래 위치 기준으로 상대적으로 배치
+top, bottom, left, right 속성을 이용해서 위치를 지정해준다.
+
+  ㄷ. fixed    
+	-> 페이지가 스크롤 되더라도 항상 같은 위치를 유지한다.
+
+  ㄹ. absolute   
+	-> 가장 가까운 부모요소를 기준으로 top, bottom, left, right 속성을 적용한다.
+지정된 조상 요소가 없으면 body 요소가 기준이 된다.
+  ㅁ. sticky    
+  	-> 스크롤 위치에 따라 배치.
+	스크롤을 내릴 때 상단에 고정시킨다.
+
+9-1. [ DOM ]을  사용해서 (js를 사용) <button> 요소를 10개 동적으로 생성하고
+      버튼을 클릭하면 숨기도록 코딩하세요..
+
+	for (var i = 1; i <= 10; i++) {
+		var button = document.createElement('button');
+		document.body.appendChild(button);
+		button.innerHTML = 'btn - ' +i;
+		
+		button.onclick =  function() {
+				button.style.display = "none";
+		}
+
+	}	//for
+          
+9-2. 위의 문제8번을 jquery로 코딩해 보세요...
+
+<script>
+
+for (var i = 1; i <= 10; i++) {
+    var button = $('<button>');
+    $('body').append(button);
+    button.html('btn - ' +i);
+    $("button").click(function() {
+    	$(this).hide();
+    });
+
+    
+}
+</script>
+
+10-1. 아래 코딩에 대해서 각 라인 별로 주석을 달아서 설명하세요 
+
+<div class="topnav">	
+   <a href="#"></a>
+   <a href="#"></a>
+   <a href="#"  class="active"></a>		<!-- a 태그 중 하나에 active 클래스를 따로 지정 해둠.  -->
+   <a href="#"></a>
+</div>
+
+
+<script>   
+                                                                      
+  var links = document.querySelectorAll(    "div.topnav a"    );  	// div태그의 topnav 클래스의 a태그 모두를 선택한다고 선언해줌.
+  links.length = 4 						// 길이는 4로 지정
+  for (var i = 0; i < links.length; i++) {		// 0,1,2,3 까지  4번 반복
+	   links[i].onclick = function (){ 		// 클릭하면 함수 실행.
+		   for (var i = 0; i < links.length; i++) { 
+			  links[i].classList.remove("active");		//클릭하면 active 클래스를 제거한다.
+		  }  
+		   this.classList.add("active");			//  active라는 클래스를 추가한다는 의미
+	   };
+  }
+</script>
+
+10-2. 위의 10-1번 문제를 jquery로 코딩하세요. 
+
+<div class="topnav">	
+   <a href="#"></a>
+   <a href="#"></a>
+   <a href="#"  class="active"></a>		<!-- a 태그 중 하나에 active 클래스를 따로 지정 해둠.  -->
+   <a href="#"></a>
+</div>
+
+
+<script>   
+
+$(document).ready(function(){
+	var links = $("div.topnav.a");
+	links.click(function(){
+			links.removeClass("active");
+			$(this).addClass("active");
+	});
+	
+});
+        
+
+11. 아래 js코딩에 대해서 각 라인 별로 주석을 달아서 설명하세요
+
+1 2 3 4 5 6 [7] 8 9 >  >>
+
+<style>
+   .active{	/* active 클래스의 css 나타내기  아마 background-color 를 나타내려고 하시는 듯 함.... */
+      back
+      col
+   }
+</style>
+</head>
+<body>
+
+
+<div class="pagination">
+   <a>1</a>
+   <a  class="active">[2]</a>		<!-- a 태그에 active 클래스를 2페이지에 선언 -->
+   :
+</div> 
+ 
+<script>
+
+
+    $(".pagination a").click(function(event) { 		// pagination 클래스의 a태그를 클릭하면 이벤트 함수가 실행된다.
+    	$(".pagination a").not(this).removeClass("active"); 	//선택되지 않은 a태그들은 active 클래스가 제거된다.
+    	$(this).addClass("active");	// 선택된 것은 active클래스가 추가된다.
+    });
+</script>
+
+12.  아래  css코딩을 설명하세요.
+#mySidenav a{		/* id값이 mySidenav 라는 a태그가 */
+    transition:0.5s ease;
+  }
+  
+  
+  button{
+	    width:100px;		/* 버튼의 가로 길이는 100px */
+	    border:1px solid gray;		/* 테두리는 1px 실선에 회색.*/
+	    
+	    transition:0.5s ease;	/* 0.5초 동안 진행 되며 ,, 처음에 빨라지고 점점 느려진다. */
+	  }
+	  
+	  button:hover{	/*	버튼에 마우스를 올리면 width 크기가 200px로 늘어난다. */
+	    width:200px; 
+	    
+	  }
+</style>
+
+</head>
+<body>
+   
+    <button>버튼 1</button>
+        
+13.  "문제01_결과.png"   css 적용하세요 .
+    - 수업 자료 참조하지 말고 html, css, 등 모든 코딩을 해 보세요~
+    - 마지막에 문제 푸세요~    
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" type="image/x-icon" href="../images/SiSt.ico">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+	.nav{
+		background-color: gray;
+		width: 100px;
+	
+	}
+	.nav a{
+		display: block;
+		color: white;
+		font-size: 40px;
+		text-align: center;
+		padding: 20px;
+	}
+	.nav a:hover{
+		background-color: black;
+	}
+	.nav a.active{
+		background-color: green;
+	}
+
+</style>
+</head>
+<body>
+<!-- div.nav>(a[href=#]>i.fa)*5 -->
+<div class="nav">
+	<a href="#" class="active"><i class="fa fa-home"></i></a>
+	<a href="#"><i class="fa fa-search"></i></a>
+	<a href="#"><i class="fa fa-envelope"></i></a>
+	<a href="#"><i class="fa fa-globe"></i></a>
+	<a href="#"><i class="fa fa-trash"></i></a>
+</div>
+
+</body>
+</html>    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        

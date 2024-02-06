@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>2023. 5. 3. 오후 12:46:02</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+<pre>
+    [ js 숫자  메서드 ]
+    1. toString()    숫자 -> 문자열 변환
+    2. toExponential() 지수표기법으로 작성된 숫자를 반환
+    3. toFixed() 소수점 이하 자릿수로 작성된 숫자를 반환.
+        반올림
+     4. toPrecision()  지정된 길이로 쓰여진 숫자와 함께 
+                               문자열을 반환   
+                               
+      [js 숫자 형변환 메서드]
+      1. Number()              숫자(정수,실수) 변환-> 반환
+      2. parseInt()             숫자(정수) 변환->반환
+      3. parseFloat()         숫자(실수==부동소수점) 변환->반환
+</pre>
+
+<script>
+     // [Number 속성]
+     console.log(   Number.MAX_VALUE );
+     console.log(   Number.MIN_VALUE );
+</script>
+
+<script>
+    var n = 10;
+    // alert( typeof n );  // number
+    // alert(   Number.isInteger( n )  );  // true
+    n = 10.33;
+    // alert(   Number.isInteger( n )  ); // false
+</script>
+<script> 
+   /*
+    console.log(   parseFloat("10")  );  // 10
+    console.log(   parseFloat("-10")  ); // -10
+    console.log(   parseFloat("10.33")  ); // 10.33 ***
+    console.log(   parseFloat("-10.33")  ); // -10.33
+    //                  Float                첫번째 숫자
+    console.log(   parseFloat("10 20 30")  ); // 10  공백허용
+    console.log(   parseFloat("10 admin")  ); // 10 공백허용
+    console.log(   parseFloat("admin 10")  ); // NaN
+    */
+</script>
+<script>
+    /*
+    console.log(   parseInt("10")  );  // 10
+    console.log(   parseInt("-10")  ); // -10
+    console.log(   parseInt("10.33")  ); // 10
+    console.log(   parseInt("-10.33")  ); // -10
+    //                                     첫번째 숫자
+    console.log(   parseInt("10 20 30")  ); // 10  공백허용
+    console.log(   parseInt("10 admin")  ); // 10 공백허용
+    console.log(   parseInt("admin 10")  ); // NaN
+    */
+</script>
+<script>
+  // (참고) 1683090863144
+  // 1970.1.1 이후   ms 
+  /*
+  console.log(  Number(  new Date()  ) );
+
+  console.log(Number( true ));  // 1
+  console.log(Number(false ));  // 0
+  console.log(Number("10"));     // 10
+  console.log(Number("   10"));  // 10
+  console.log(Number("10    "));  // 10
+  console.log(Number("   10    "));  // 10
+  console.log(Number("10.33")); // 10.33
+  // Number()변환을 시킬 수 없으면 NaN 반환
+  console.log(Number("10,33")); // NaN
+  console.log(Number("10 33"));  // NaN
+  console.log(Number("admin")); // NaN
+  */
+</script>
+
+<script>
+   let n = 9.656;
+   // 1~100
+   /*
+   console.log(  n.toPrecision() );   // 9.656
+   console.log(  n.toPrecision(2) );  // 9.7
+   console.log(  n.toPrecision(4) );  // 9.656
+   console.log(  n.toPrecision(6) );  // 9.65600
+   */
+   /*
+   console.log(  n.toFixed(0) ); // 10
+   console.log(  n.toFixed(2) );  // 9.66
+   console.log(  n.toFixed(4) );  // 9.6560
+   console.log(  n.toFixed(6) );  // 9.656000
+   */
+   
+   /*
+   console.log( n.toExponential(0));  //  1e+1
+   console.log( n.toExponential(2));  // 9.66e+0
+   console.log( n.toExponential(4));  // 9.6560e+0
+   console.log( n.toExponential(6));  // 9.656000e+0
+    */
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+
+<body>
+<pre>
+[js에서의 클래스] 
+
+1. js 에서도 class 키워드 사용 (ES6~ )
+2. 항상 constructor() 생성자 메서드 추가 
+3. 선언부 형식 
+* 선언부 : 실제 객체 생성 x 아직 설계도(탬플릿 단계)
+class className{
+	constructor(){
+	// java처럼 클래스 이름과 또같이 줄 필요없이 이 키워드로 선언해줌 
+	}
+}
+</pre>
+
+<script>
+
+class Car{
+	// 필드 -> js 따로는 따로 선언 x ex) private String name x 
+	
+	constructor (name,year){
+		// 필드 생성하지 않고 생성자에서 바로 초기화해줘서 사용 
+		// 차의 이름과 제작년도를 매개변수로 받아 객체 생성 
+		this.name = name; 
+		this.year = year; 
+	}
+	
+	// 메서드 
+	age(){
+		const d = new Date();
+		return d.getFullYear()-this.year(); 
+	}
+	
+	age(year){
+		return year - this.year; 
+		// 입력받은 년도 - 차 제작년도 = 차 만든지 얼마나 ? 
+	}	
+}
+	var myCar = new Car("K9",2020);
+	myCar.age(); 
+	
+	
+</script>
+
+</body>
+</html>

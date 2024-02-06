@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+body {
+	/* background-color: green; */
+	/* images/paper.gif 67*57 */
+	/* 기본 가로 반복, 세로 반복 */
+	/* background-image: url('../images/paper.gif'); */
+	/*
+	background-image: url('../images/img_tree.gif');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: right top;
+	*/
+	
+	/* background: color image repeat attachment position */
+	background: url('../images/img_tree.gif') no-repeat fixed right top
+}
+</style>
+<style>
+div#top {
+	border-width: 1px;
+	border-style: solid;
+	border-color: gray;
+	/*
+	테두리 속기(약식)
+	border: 1px solid gray;
+	*/
+	
+	width: 25px;
+	height: 25px;
+	
+	position: fixed;
+	right: 5px;
+	bottom: 5px;
+}
+
+/* :의사클래스( 상태 ) */
+#top:hover {
+	background-color: black;
+	color: yellow;
+	font-weight: bold;
+	cursor: pointer;
+}
+</style>
+</head>
+<body>
+<h3>ex05_02.html</h3>
+<!-- #top{top}+h3{css 배경 이미지}+lorem+p*50>{.} -->
+<div id="top" onclick="top_click()">top</div>
+<h3>css 배경 이미지</h3>
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure iste dicta corporis illum voluptates earum ex possimus suscipit cum atque. Eaque illo aspernatur quasi eos incidunt nemo animi officia rerum.
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+
+<script>
+function top_click() {
+	/* alert("test"); */
+	document.body.scrollTop=0;
+	document.documentElement.scrollTop=0;
+}
+</script>
+</body>
+</html>

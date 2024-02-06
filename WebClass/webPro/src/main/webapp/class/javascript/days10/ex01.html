@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<pre>
+
+BOM : Browser Object Model 
+
+1. Dom : Document Object Model 
+				문서			객체 	모델 
+				
+	- 문서를 객체화 시켜 사용 
+	- 어떤문서? 웹 페이지를 요청하면 요청된 웹페이지가 서버로부터 응답이 되어지고 , 브라우저에 로딩됨 
+					-> 그렇게 로딩된 웹페이지를 객체화 시켜 생성한 객체가 dom! 
+					=> 그 문서를 생성, 수정 하는 작업이 이 Dom을 갖고 하는것 ! 왜냐면 복사본 갖고 해야한
+					ex_ createElement -> 복사된 문서 객체위에 새로운 웹페이지를 올리는 거니까 우리가 배운 요소들도 다 dom 객체 
+
+2. DOM 3가지 
+	- Core DOM : 모든 유형의 문서에 대한 표준 DOM 
+	- [HTML DOM] 
+	- XML DOM 
+
+3. DOM (html 웹페이지 -> 로딩 -> 생성된 객체 )
+	- html 요소 변경 (추가, 수정, 삭제) 
+	- html 속성 변경 
+	- css 스타일 변경 
+	- html 이벤트 처리 
+	
+4. html DOM 구성 : 돔트리 
+ 
+	<Dom Tree>
+	사각형 하나하나 -> Node 
+	근데 그게 다 요소(element)인건 아님 ! 
+	-  요소 (그중 태그인거) : <body>, <a> , <h1>  
+	- 노드 (모든 사각형) : <body>, <a> , <h1>   ,  text , href (요소 + Attribute + text + comment ) 
+	↓
+	얘네들을 가져오는거 : DOM method 
+	
+	previousSibling : href 가져옴 (앞에있는 노드 가져오는거니까) 
+	previousElementSibling : 못가져옴 
+	
+	=> Document : root Node , <html> : root Element 	
+	
+	
+5. Node 
+	ㄴ Element 
+	ㄴ Attribute 
+	ㄴ text 
+	ㄴ comment 
+		: 
+		: 
+
+6. DOM 메서드 정리 
+1) html 요소 찾는 메서드 
+document.getElementById(id)
+document.getElementsByTagName(tagName)
+document.getElementsByName(name) 
+document.getElementsByClassName(name)
+document.querySelector(selectors)
+document.querySelectorAll(selectors)
+
+
+2) html 요소 변경 메서드 
+element.getAttribute(name); // get 
+element.setAttribute(name, value); // get 
+element.속성명 = 속성값 ; 
+element.id="admin"; 
+element.src = "item01.jpg";
+element.style.속성명= 속성값; 
+element.innerHTML = 속성값; 
+element.innerText = 속성값; 
+
+3) 요소 생성, 추가, 삭제 
+
+document.createElement(tagName)
+document.appendChild(newNode) // 얘는 기존에 있떤 애면 원래 위치에 있떤 애들 제거하고 다시 생성 , 즉 오려넣기 
+document.write("<div></div>") // 얘도 요소 추가 가능*** 
+document.removeChild(oldNode)
+document.replaceChild(newChild, oldChild) // *** 
+
+
+4) html 객체  ??  이거 돔객체 아냐?? 같은 말인가 ? 
+document.links 컬렉션
+document.images 컬렉션 
+document.forms 컬렉션 
+			: 
+document.scripts 컬렉션 
+
+document.body == <dody>요소
+document.documentElement == <html>요소 
+document.title == <title>요소 
+document.doctype == <!DOCTYPE> 요소 
+document.cookie 쿠키
+document.head = <head> 요소 
+</pre>
+<script>
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

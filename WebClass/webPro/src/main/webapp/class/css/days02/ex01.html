@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+* {
+	/* width가 영향받지 않도록 */
+	box-sizing: border-box;
+}
+
+.pagination {
+	width: 50%;
+	/* background-color: red; */
+	margin: 0 auto; /* 가운데 정렬 */
+	text-align: center;
+
+	overflow: auto;
+}
+
+.pagination a {
+	text-decoration: none;
+	color: black;
+
+	float: left;
+	width: 8.3%;
+	
+	text-align: center;
+}
+
+/* :의사클래스(특정상태)*/
+.pagination a:hover {
+	background-color: #DDD;	
+}
+
+.pagination a.active {
+	background-color: dodgerblue;
+	color: white;
+}
+</style>
+</head>
+<body>
+<h3>css 페이징 처리</h3>
+
+<!-- .pagination>a[href=#]*12>{$} -->
+<div class="pagination">
+	<a href="#">1</a>
+	<a href="#">2</a>
+	<a href="#" class="active">3</a>
+	<a href="#">4</a>
+	<a href="#">5</a>
+	<a href="#">6</a>
+	<a href="#">7</a>
+	<a href="#">8</a>
+	<a href="#">9</a>
+	<a href="#">10</a>
+	<a href="#">&gt;</a>
+	<a href="#">&raquo;</a>
+</div>
+<script>
+// jquery click() 메서드
+// jquery not() 메서드
+$(".pagination a").click(function () {
+	// alert("test");
+	$(".pagination a").not(this).removeClass("active")
+	$(this).addClass("active");
+});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

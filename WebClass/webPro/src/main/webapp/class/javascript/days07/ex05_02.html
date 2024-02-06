@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+
+<script>
+// [for in문]
+// : 객체의 속성을 반복하는 반복문 
+//for ( var iterable_element in iterable) {
+	// var ( 반복요소 in 배열, 컬렉션 )
+//}
+
+let m = [3,5,2,4,1] ; 
+for ( var n in m) {
+	console.log(n); // 0,1,2,3,4 -> 배열의 속성 : index값 
+}
+
+let person = {fname : "john", lname :"doe", age : 30};
+for ( var p in person) {
+	console.log(p); // fname, lname, age -> 객체의 속성 : name 
+	// 값을 얻고 싶다면? 
+	console.log(person[p]); // 객체[속성] => 값이 나옴  doe, 30 
+	
+	// ※ for in 구문은 순서가 정해져 있지 않다 (순서유지 x) 
+	// => 만약 순서가 중요한 반복문일 경우 for, for of문, Array.forEach문을 사용한다 ~ 
+	
+}
+
+</script>
+</body>
+</html>

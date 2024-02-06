@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<!-- 어떤 코드를 반복해서 실행하고 싶을 때 사용
+=> 인자값으로 실행할 함수 , 반복주기를 ms 단위로 받는다 -->
+
+<h3>  setInterval()/ clearInterval() </h3>
+
+<h1 id = "out"></h1>
+<button> setInterval </button>
+<button> clearInterval </button>
+
+
+<script>
+//setInterval(실행할 함수, 반복주기;몇초마다 반복?);
+// ex) 웹페이지의 특정 부분을 주기적으로 업데이트해줘야 하거나, 
+//    어떤 API로 부터 변경된 데이터를 주기적으로 받아와야 하는 경우
+
+$("button").first().on("click", function() {
+	timer1 = setInterval(dispTime, 1000); 
+	// 1초마다 dispTime 함수를 반복하는 타이머 객체를 생성(반복작업까지 포함한 날짜객체) 해 timer1에 담아줌 
+	// 그 안의 코드(함수)가 실행되면 멈추는 setTimeOut() 와 달리 얜 멈춰줄때까지 계속 반복 
+
+})
+
+let timer1; 
+function dispTime() {
+	const now = new Date(); 
+	$("#out").html(now.toLocaleString()); 
+	// 날짜객체 생성 -> 출력 
+	
+	// set함수엔 그냥 지연속성만 있어서 자기자신을 다시 호출해 1초마다 날짜객체생성 -> 출력 반복해줘야함 
+	// 근데 setInterval은 함수 자체에 반복속성이 있어서 그냥 진짜 실행할 코드만 해주면 됨 
+}
+
+$("button").last().on("click", function() {
+	clearInterval(timer1); 
+	// 그렇게 지혼자 반복하고 있는 setInterval 멈춰줌 
+})
+
+
+</script>
+</body>
+</html>

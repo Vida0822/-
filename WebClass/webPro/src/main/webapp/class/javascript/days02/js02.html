@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body onload="window_load()">
+<button>Turn on</button>
+<button>Turn off</button>
+<br>
+<img src="" alt="">
+<br>
+<button></button>
+<script>
+var btnOn = document.querySelector("button:first-of-type");
+var btnOff = document.querySelector("button:nth-of-type(2)");
+var img = document.querySelector("img");
+var btnOnOff = document.querySelector("button:last-of-type");
+
+function window_load() {
+	// btnOff.disabled = "true";
+	btnOff.setAttribute("disabled", "disabled");
+	// img.src = "../images/pic_bulboff.gif";
+	img.setAttribute("src", "../images/pic_bulboff.gif");
+	btnOnOff.innerHTML = "Turn on";
+};
+
+var sw = false;
+btnOnOff.onclick = function() {
+	/* 
+	if (!sw) {
+		bulb_on();
+		btnOnOff.innerHTML = "Turn off";
+	} else {
+		bulb_off();
+		btnOnOff.innerHTML = "Turn on";
+	}
+	*/
+	sw ? bulb_off() : bulb_on();
+	btnOnOff.innerHTML = sw ? "Turn on" : "Turn off";
+	sw = !sw;
+};
+
+function bulb_on() {
+	// btnOn.disabled = true;
+	// btnOff.disabled = false;
+	btnOn.setAttribute("disabled", "disabled");
+	btnOff.removeAttribute("disabled");
+	// img.src = "../images/pic_bulbon.gif";
+	img.setAttribute("src", "../images/pic_bulbon.gif");
+};
+
+function bulb_off() {
+	// btnOff.disabled = "1";
+	// btnOn.disabled = "";
+	btnOff.setAttribute("disabled", "disabled");
+	btnOn.removeAttribute("disabled");
+	// img.src = "../images/pic_bulboff.gif";
+	img.setAttribute("src", "../images/pic_bulboff.gif");
+}
+
+btnOn.onclick = (event) => { // function() {this} == btnOn
+	bulb_on();
+};
+
+btnOff.onclick = function() { // () => {this} != btnOff (== window)
+	bulb_off();
+};
+
+img.onmouseover = function() {
+	bulb_on();
+};
+
+img.addEventListener("mouseout", function() {
+	bulb_off();
+});
+</script>
+</body>
+</html>

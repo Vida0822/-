@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> ex06</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+
+<body>
+
+<table border="1" style="width: 500px;margin: 0 auto">
+  <tr>
+    <td>우편번호</td>
+    <td>
+          <!-- 우편번호 input 태그는  zip1/zip2  readonly 속성에 의해 읽기 전용 -->
+        <input type="text" id="zip1" name="zip1" size="3" readonly="readonly" />-
+        <input type="text" id="zip2" name="zip2" size="3" readonly="readonly"/>
+        <input type="button" value="우편번호 검색"  onclick="search_zipcode();"  />
+    </td>
+  </tr>
+  <tr>
+    <td>주소</td>
+    <td><input type="text" id="addr1" name="addr1" style="width:90%" /></td>
+  </tr>
+  <tr>
+    <td>상세주소</td>
+    <td><input type="text" id="addr2" name="addr2" style="width:90%" /></td>
+  </tr>
+</table>
+
+<script>
+
+let zipWin ; 
+function search_zipcode() {
+	 
+/* 	 if(zipWin != null){ // 틀린코딩 아니지만 정확한건 아님 : undefined != null 이므로 
+	        win.close();
+	  } 
+	const windowFeatures = "left=100,top=100,width=600,height=500";
+	zipWin = window.open(
+	 "ex06_02.html",
+	 "",
+	 windowFeatures
+	); */
+	
+	// 얘 안됨 ㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠ~~~~~~~~~~~~~~~~~~~~~~~~
+	if (!zipWin||zipWin.closed) {
+		zipWin =window.open(
+				 "ex06_02.html",
+				 "",
+				 windowFeatures
+				);
+	} else {
+		zipWin.focus();  
+		// 새창열기 버튼을 눌렀을 때 새창이 뜨는게 아닌 포커스를 받아 맨앞으로 빼줌 
+	}
+} // search_zipcode
+
+</script>
+</body>
+</html>

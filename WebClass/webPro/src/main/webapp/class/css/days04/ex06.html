@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+#grad1 {
+	width: 200px;
+	height: 150px;
+	
+	/* 선형 linear-gradient */
+	/* 방향 생략( 기본값 ) : 위 -> 아래 */
+	/* background-image: linear-gradient(red,yellow); */
+	/* background-image: linear-gradient(to right,red,yellow); */
+	/* background-image: linear-gradient(to bottom right,red,yellow); */
+	
+	/* 각도 사용해서 방향 표현 */
+	/* 0deg   : to top */
+	/* 90deg  : to right */
+	/* 180deg : to bottom */
+	/* 270deg : to left */
+	/* background-image: linear-gradient(180deg,red,yellow,green); */
+	
+	/* 방사형 radial-gradient */
+	/* shape 기본값 타원 */
+	/* background-image: radial-gradient(red,yellow,green); */
+	background-image: radial-gradient(circle,red 5%,yellow 10%,green 60%);
+}
+</style>
+</head>
+<body>
+<h3>그라디언트(gradient) 효과</h3>
+<pre>
+최소 2개 이상의 색상 간 부드러운 변화(전환)
+예) 빨 -> 노
+1) 선형   : background-image: linear-gradient(방향,색1,색2,...);
+2) 방사형 : background-image: radial-gradient(shape size 위치,색1,색2,...);
+3) 원추형
+</pre>
+
+<div id="grad1"></div>
+</body>
+</html>

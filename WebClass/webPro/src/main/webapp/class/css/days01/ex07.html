@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+body {
+	margin: 0;
+	padding: 0;
+}
+
+div {
+	/* 
+	top bottom 겹쳐서 결과적으로 큰값 적용
+	border: 1px solid black;
+	margin-top: 25px;
+	margin-right: 50px;
+	margin-bottom: 75px;
+	margin-left: 100px;
+	*/
+	
+	/* margin: top right bottom left; 시계방향 */
+	/* margin: 25px 50px 75px 100px; */
+	
+	/* margin: 25px; */
+	/* margin: 25px 25px 25px 25px; */
+	
+		     /* t/b  l/r */
+	/* margin: 25px 50px; */
+	
+		   	/*   t 	 l/r   b */
+	/* margin: 25px 50px 75px; */
+	/* 
+	주의) 여백 붕괴(축소)
+	bottom: 75px;
+	top: 25px;
+	두 요소 사이의 여백은 100 X -> 75 O
+	*/
+}
+</style>
+</head>
+<body>
+<h3>여백( margin )</h3>
+<pre>
+	여백( margin )
+	테두리
+	패딩( padding )
+	
+	margin-top, right, bottom, left
+	margin 속기(약식)
+	
+	여백( margin ) 속성값
+	1) 길이 단위 : px, pt, cm 등등
+	2) %( 기준 부모요소의 % )
+	3) auto - 브라우저가 여백을 자동으로 설정
+	4) inherit(상속) - 부모 여백 -> 자식 여백 설정
+</pre>
+
+<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga omnis suscipit nemo nisi eius adipisci sapiente quibusdam cum natus harum quaerat ipsa numquam? Alias molestias debitis est necessitatibus numquam quisquam.</div>
+<div>Similique dicta repudiandae impedit quaerat quo eaque modi ex ratione aperiam ullam dolorem accusamus laudantium repellat tempora ab distinctio nemo maxime dolores mollitia veniam fuga facere fugiat possimus repellendus culpa.</div>
+<div>Quia voluptatibus alias nobis rerum eos est quod inventore quasi error excepturi reprehenderit ratione aliquid possimus quisquam accusantium nostrum tempora facilis delectus doloribus natus nisi praesentium dolore consequuntur corporis tenetur.</div>
+</body>
+</html>

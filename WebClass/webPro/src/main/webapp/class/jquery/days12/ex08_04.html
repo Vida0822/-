@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<h3> ex08_04 </h3>
+
+<h1>Welcome to My Homepage</h1>
+
+<p>This is a paragraph.</p>
+
+<div style="border: 1px solid black;">
+  <p>A paragraph in a div.</p>
+  <p>Another paragraph in a div.</p>
+</div>
+<br>
+
+<div style="border: 1px solid black;">
+  <p>A paragraph in another div.</p>
+  <p class="info">Another paragraph in another div.</p>
+</div>
+<br>
+
+<div style="border: 1px solid black;">
+  <p>A paragraph in another div.</p>
+  <p>Another paragraph in another div.</p>
+</div>
+
+<script>
+	$("div")
+		.css("background-color","yellow")
+		.first() // div 중 첫번째만! 
+			.css("color", "red")
+		.end() // 다시 체이닝 대상 div가 됨 ! ** 
+		.last()
+			.css("color", "blue") 
+			.children("p")
+				//.filter(".info") // 그 자식들 중에 클래스 이름이 info 인 애한테 css 적용 
+				.not(".info") // 그 자식들 중에 클래스 이름이 info 인 애한테 css 적용 
+				 	.css("color", "green") ; 
+	
+				
+
+			
+		
+
+</script>
+</body>
+</html>

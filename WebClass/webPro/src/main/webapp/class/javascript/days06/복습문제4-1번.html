@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>로또 번호 발생기</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+<pre>
+
+4-1. 로또 번호 발생기 버튼을 클릭하면 로또 번호가 p 태그에 출력되도록 js 코딩 하세요
+ ( 조건 : 오름차순 정렬 해서 출력 )
+ 
+</pre>
+<button>로또 번호  발생기</button>
+<p id="demo"></p>
+
+<script>
+$("button").click(function(event) {
+	let lotto = []; 
+	while (lotto.length < 6) {
+		let n = Math.floor(Math.random()*45 + 1); // 숫자를 하나 랜덤으로 뽑고 
+		// if(!isDuplicateLotto(lotto,n)) lotto.push(n) // 이 숫자가 이전 배열 값들과 중복되는지 확인하고 중복 아니면 push 
+		if(isDuplicateLotto(lotto,n)) lotto.push(n) //every() 적용시 ! 빼줘야함 
+		// isDuplicateLotto(lotto,n) -> true/ false  -> false(중복x)면 숫자 넣기
+	}// while 
+		
+	// 오름차순으로 정렬 
+/* 	lotto.sort(function(a, b) {
+		return a-b; 
+	}) */
+	// 람다식으로도 가능 ! 
+	lotto.sort((a,b)=> a-b); 
+	
+	// 출력 
+	let content = "<ul><li>";
+	content += lotto.join("</li><li>"); 
+	content += "</li></ul>";
+	$("p#demo").html(content);  
+}); 
+
+/* function isDuplicateLotto(lotto, n) {
+	for (var i = 0; i < lotto.length; i++) {
+		if (lotto[i]==n) return true; 
+	}
+} */
+
+// every() 
+function isDuplicateLotto(lotto, n) {
+	lotto.every(function(elt, i, array) {
+		return elt != n;
+	})
+}
+
+
+</script>
+</body>
+</html>

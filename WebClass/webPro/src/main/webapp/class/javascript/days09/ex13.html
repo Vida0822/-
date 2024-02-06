@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<style>
+.box{
+	position: absolute;
+}
+
+</style>
+
+</head>
+<body>
+
+<img src = "../images/item01.gif" alt=""> 
+
+<script>
+// item01.gif~item21.gif 
+
+function getRandom(min,max) {
+	return Math.floor(Math.random()*(max-min+1)+min); 
+}
+
+document.onmousedown = function () {
+	//console.log(event.button);  // 왼쪽 마우스(0), 오른쪽마우스(2) , 휠마우스(1) 
+	if (event.button==0) {
+		document.title = event.clientX+","+event.clientY + "/"+$("img").width() ; 
+		
+		// 클릭한 위치에 img 생성해서 추가 :   item01.gif~item21.gif  랜덤하게 주소주기 
+//		<img src="" class ="box"> 
+		var imgNo = getRandom(1,21).toString().padStart(2,0) ; // 숫자 임의로 하나 발생 (1~21)
+		let img = document.createElement("img");
+		var src = `../images/item${imgNo}.gif` ; 
+		img.setAttribute("src", src); 
+		img.classList.add("box"); //트릭? ? 
+						
+		// 문서에 이미지 추가 
+		// 어디에? 마우스를 클릭한 x,y좌표 
+// 		let left = event.clientX  ;  위치가 찍히면 왼쪽 모서리가 가운데 찍히기 때문에 이미지 자체는 가운데가 x  -> 이미지 너비와 높이/2 를 각각 빼줘야함 
+		let left = event.clientX - $("img").width()/2;
+		let top = event.clientY  - $("img").height()/2;
+		img.setAttribute("style", `left:${left}px ; top:${top}px`); 
+		// 나 위치ㅏ 마우스 한데서 안나옴 ㅠㅠㅠㅠㅠㅠㅠ => px 빼먹지말기........
+		
+		
+		 
+		document.body.appendChild(img); 
+		
+	} else if(event.button==1) {
+		// 모든 이미지 한번에 제거 
+		var imgs = document.querySelectorAll("img.box"); 
+		for (let img of imgs) {
+			img.remove(); 
+		}
+	} else if(event.button==2){
+		
+		// document.body.removeChild(event.srcElement);
+		document.body.removeChild(event.srcElement);
+		// 이미지 제거 => 이거 안댐....		
+		//ex13.html:63 Uncaught DOMException: Failed to execute 'removeChild' on 'Node': 
+		// The node to be removed is not a child of this node.
+	}
+}
+
+		// 컨텍스트메뉴 : 오른쪽 마우스 눌렀을때 뜨는 메뉴 
+/* 		document.ontextmenu = function() {
+			alert("오른쪽 마우스는 사용할 수 없늡니다");  // 얘는 실행되니까 
+			return false // 이벤트 취소  (오른쪽 마우스 안뜨게 함 )
+		}*/
+		
+		
+		
+		
+</script>
+</body>
+</html>

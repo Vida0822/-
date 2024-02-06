@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<pre>
+[js html DOM 탐색] ******
+
+부모자식형제 관계통해 요소 찾는 경우 많을거임 -> 이걸 '돔탐색'이라고 한다 
+=> jquery html DOM 탐색 (같은 개념 함수 형태만 다른거 기억)
+
+1. Document 노드 ( root Node) : 전체 문서 
+<!-- 	<html> : root Element 	 -->
+	 
+2. html 문서의 모든 것은 노드(Node)들 이다 
+3. html 요소(Element) 노드 : 요소노드 
+4. html 내부 문자열(텍스트) : 텍스트(Text) 노드 
+5. html 요소의 속성 : 속성(Attribute) 노드
+6. 주석 : 주석(Comment)노드 
+7. 모든 노드들은 관계 맺고 있다 .
+ 	1) 부모(parentNode) - 자식 관계(childNode)
+ 		+) 첫번째 자식 : firstChild
+   			 마지막 자식 : lastChild 
+ 		
+ 		+) 손자관계도 자식노드라고 해도 되는가? 
+ 		ㄴㄴ childnode에 포함안됨 (직계자식만 됨) 
+ 		
+ 	2) 형(previousSibling) - 동생 (nextSibling)
+ 		ㄴ nextElementSibling : 다음 형제 요소
+ 		ㄴ nextSibling : 다음 형제 노드 (요소 , 텍스트, 속성, 주석 )
+ 		 
+ * 노드들 간의 탐색할때 자주 사용되는 속성 
+ 1) parentNode 
+ 2) childNodes : 모든 자식 노드 목록(nodelist) **** 
+ 3) firstChild, lastChild 
+ 4) nextSibling, previousSibling 
+ 
+ 8. 각 노드(Node) 속성 *** 
+ => 내가 가져온 노드가 어떤 타입인지 확인해야할 때 많음 : 예상치 못하게 여러 노드를 섞어받을 수 있기때문에
+
+ 1) nodeType 속성 **  	
+ 	=> 정수값 반환 
+ 	1- element 노드
+ 	2- attribute 노드
+ 	3- text 노드
+ 	4- comment 노드 
+ 	5- html 노드 
+ 	6- html 선언문 노드 
+ 
+  2) nodeValue 속성
+ 	text 노드 - 문자열 자체 반환 
+ 	element 노드 - null  ?????????????????????????
+ 	attribute 노드 - 속성값 
+ 	
+ 3) nodeName 속성
+ 	 text 노드 - #text 
+ 	 element 노드 - 태그명 ex) h1 
+     attribute 노드 - 속성명 ex) background-color 
+ 	 element 노드 - #comment 
+ 	 
+ 	 
+</pre>
+</body>
+</html>

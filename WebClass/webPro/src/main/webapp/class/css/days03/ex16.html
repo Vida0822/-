@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+button {
+	background-color: red;
+}
+/* 
+button:hover {
+	background-color: blue;
+}
+*/
+</style>
+</head>
+<body>
+<button>마우스 롤오버효과</button>
+<button>마우스 롤오버효과</button>
+<button>마우스 롤오버효과</button>
+
+<script>
+// js 처리
+// 1. documane.getElementById("아이디명");
+// 2. document.querySelector("#아이디명"); // 첫번째 버튼
+
+// var btns = document.querySelectorAll("button"); // 모든 버튼
+var btns = document.getElementsByTagName("button"); // 모든 버튼
+// alert("btn 수 : " + btns.length); // 3( 모든 버튼 )
+
+for (var i = 0; i < btns.length; i++) {
+	/* 
+	btns[i].onclick = function() {
+		// alert(i);
+	}
+	*/
+	// mouseover 이벤트
+	btns[i].onmouseover = function () {
+		// console.log("마우스 오버 이벤트 발생"); // 디버깅 할 때 사용
+		// js 이벤트가 발생할 때 모든 이벤트 정보를 event 객체가 갖고있다
+		event.srcElement.style.backgroundColor = "blue";
+	}
+	// mouseout 이벤트
+	btns[i].onmouseout = function () {
+		// console.log("마우스 아웃 이벤트 발생"); // 디버깅 할 때 사용
+		event.srcElement.style.backgroundColor = "red";
+	}
+}//for
+</script>
+</body>
+</html>

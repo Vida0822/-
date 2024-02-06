@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<style>
+/* input { */
+/* [type] { 1. [속성명] */
+[type=text] { /* 2. [속성명=속성값] */
+	width: 200px;
+	border: 1px solid red;
+}
+
+/* a[title^=flower] { 3. [속성명^=속성값] */ /* WHERE title LIKE 'flower%' */
+/* a[title$=flower] { 4. [속성명$=속성값] */ /* WHERE title LIKE '%flower' */
+/* a[title*=flower] { 5. [속성명*=속성값] */ /* WHERE title LIKE '%flower%' */
+a[title~=flower] { /* 6. [속성명~=속성값] */ /* 단어 */
+	color: red;
+	background-color: yellow;
+}
+</style>
+</head>
+<body>
+<h3>속성을 선택자(selector)로 사용하기</h3>
+<pre>
+1. [속성명]
+2. [속성명=속성값]
+3. [속성명^=속성값]
+4. [속성명$=속성값]
+5. [속성명*=속성값]
+6. [속성명~=속성값]
+7. [속성명|=속성값] X
+</pre>
+
+<a href="#" title="klematis flower">naver</a><br>
+<a href="#" title="flower">daum</a><br>
+<a href="#" title="kbsflower">sist</a><br>
+<a href="#" title="kbs-flower">taeyo</a><br>
+<a href="#" title="flowers">admin</a><br>
+<hr>
+<!-- input 태그의 type 속성이 생략되면 기본값 type="text" -->
+<input><br>
+<input><br>
+<input type="text"><br>
+<input type="text"><br>
+<input type="text"><br>
+<input type="submit"><br>
+<input type="reset"><br>
+</body>
+</html>

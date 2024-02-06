@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+	<button>TypeWriter</button>
+	<p id="demo"></p>
+
+	<script>
+		let content;
+		let contentLength;
+		let timer1;
+
+		$("button").on("click", function() {
+			// 'document.documentElement' : 루트 요소, 즉 <html>태그를 뜻한다
+			 //content += document.documentElement.innerHTML;
+			// <html></html>안의 html문서, 즉 문서 전체를 출력한다 
+			// alert(content);
+			content = $("html").html();
+			contentLength = content.length;
+
+			typeWriter(); 
+			timer1 = setInterval(typeWriter, 10);
+			// 함수를 매개변수로 받는 함수 
+
+			// 10/1000초 간격으로 계속 호출된다
+			// 이거 안댐 ㅠㅠㅠㅠㅠㅠ -> 45 line 코딩 문제였음 확인해보기
+
+		});
+
+		let i = 0;
+		function typeWriter() {
+//			if (i <= contentLength) { // undefined 뜸 !
+			if (i < contentLength) {
+
+				// 	let oneChar = content.charAt(i++) // 한문자씩 계속 읽어올거임
+				let oneChar = content[i++];
+				//	let oldHtml = $("demo").html(); 
+				/* 	$("#demo").html(oldHtml
+							+oneChar =='\n'? '<br>': oneChar); */
+				$("#demo").html(function(index, oldHtml) {
+					return oldHtml + (oneChar == '\n' ? '<br>' : oneChar) 
+// 				$("#demo").html(oldHtml+oneChar == '\n' ? '<br>':oneChar); \// 삼항연산자는 항상 괄호 주의 ! 
+				})
+				// 개행작업  
+				// window.scrollTop(0,0) // 맨 위로 스크롤 올리겠다 
+				window.scrollTo(0, document.body.scrollHeight);
+			} else {
+				clearInterval(timer1);
+				alert("출력완료")
+			}
+		}
+	</script>
+
+</body>
+</html>

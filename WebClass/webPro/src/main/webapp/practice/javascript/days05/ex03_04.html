@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+<script>
+
+const m = [[1,2],[3,4],[5,6]]; 
+const n =[]; 
+// 하위 배열 요소들을 담을 새로운 배열 선언 
+
+m.forEach(function(elt, i, array) {
+  // 배열 m의 인자값를 하나씩 조회하면서 그 인자값의 요소, 인덱스, 배열 자체를 매개변수로 주면서 함수 실행 
+  // [1,2]  , [3,4] , [5,6 ] 를 순서대로 조회(3개)
+  	console.log(Array.isArray(elt)); 
+	//  true : m의 인자값은 [1,2]  , [3,4] , [5,6 ] 즉 배열임을 확인 
+	elt.forEach(function(elt2, i2, array2) {
+		// 검사하는 elt 배열을 다시 foreach로 하나씩 조회하면서 그 인자값의 요소,인덱스, 배열자체를 매개변수로 받는 익명함수 실행
+		console.log(elt2);
+		// 1,2 ,3,4,5,6 하나씩 얻어오고 
+		n.push(elt2); 
+		// 그 얻어온 하위배열요소 값을들 n에 반복적으로 넣기 -> 완성 
+	})
+}); 
+
+
+</script>
+</body>
+</html>
