@@ -1,0 +1,336 @@
+
+1. (if문 사용해서)
+    국어점수(kor)를 입력받아서 수,우,미,양,가 출력
+    
+    if( 조건식 ) {}
+    else if( 조건식 ) {}
+    else if( 조건식 ) {}
+    else if( 조건식 ) {}
+    else if( 조건식 ) {}
+    else{}
+          
+2. (switch문 사용해서)
+    국어점수(kor)를 입력받아서 수,우,미,양,가 출력
+     
+     key = 변수, 수식 ,   리터럴 X
+     value  = 변수 X , 리터럴..
+    switch( key ){
+       case value:
+          break;
+       default:
+         break;
+    }  
+    
+3. (for문 사용해서 코딩)       
+    "헬로우 월드" 문자열을 10번 출력하는 코딩
+   
+    for (int i = 1; i <= 10; i++) {
+			System.out.printf( "%02d - %s\n", i ,  "헬로우 월드");
+	} // for
+   
+   실행결과)
+   01 - 헬로우 월드  
+   02 - 헬로우 월드  
+   03 - 헬로우 월드  
+   04 - 헬로우 월드  
+   05 - 헬로우 월드  
+   06 - 헬로우 월드  
+   07 - 헬로우 월드  
+   08 - 헬로우 월드  
+   09 - 헬로우 월드  
+   10 - 헬로우 월드  
+
+4. (while문 사용해서 코딩)   
+    "헬로우 월드" 문자열을 10번 출력하는 코딩
+    
+    int i = 1;
+		while ( i<= 10) { 
+			System.out.printf( "%02d - %s\n", i ,  "헬로우 월드");
+			i++;
+		} // while
+    
+5. (for문 사용해서 코딩) 
+   1~10까지의 [홀수의 합]을 구해서 출력 
+   실행결과)
+       1 + 3 +  5 + 7 + 9  = 25
+       
+       int sum = 0;
+		for (int i = 1; i <= 10; i += 2) { // 2씩 증가  
+			System.out.printf("%d+", i);
+			sum += i;
+		} // 
+		System.out.printf("=%d\n", sum );
+		
+       
+       int sum = 0;
+		for (int i = 1; i <= 10; i++) {  // for   1/2/3/4/5/6/7/8/9/10     
+			// 만약에 i 가 짝수라면 출+누 하지 말고 바로 증감식으로 가세요.  contiune 문
+			if( i % 2 == 0 ) continue;   // 10번
+			System.out.printf("%d+", i);
+			sum += i;
+		} // 
+		System.out.printf("=%d\n", sum );
+       
+       /*
+		int sum = 0 ;
+		for (int i = 1; i <=10 ; i++) {
+			if( i % 2 != 0 ) {
+				System.out.printf("%d+", i); // 출력
+				sum += i;           // 누적
+			} // if
+		} // for
+		System.out.printf("=%d\n", sum );
+		*/
+       
+       i % 2 != 0
+       
+       //  질문1)  for 안에 초기식 int i=1 선언
+		//             for 밖에            int i=1 선언   차이점 ? 
+		/*
+		// 
+		int sum = 0;
+		int i = 1;
+		for (          ;         ;         ) {
+			if( i > 10 ) break;
+			System.out.printf("%d+", i);
+			sum += i;			
+			i++;
+		}
+		// Unreachable code
+		System.out.printf("=%d\n", sum );
+		*/
+		
+		/*
+		int sum = 0; 
+		for ( int i = 1 , x = 100 ; i <= 10 ; i++  ) {
+			System.out.printf("%d+", i);
+			sum += i;	
+		} //  for
+		System.out.printf("=%d\n", sum );
+		// i cannot be resolved to a variable
+		// System.out.println(  i  );
+		*/
+		
+		/*
+		// 초기식 , 증감식
+		int sum = 0;
+		for (int i = 10; i > 0; i--) {
+			System.out.printf("%d+", i);
+			sum += i;	
+		} // 
+		System.out.printf("=%d\n", sum );
+		*/
+   
+6. (while문 사용해서 코딩) 
+   1~10까지의 [홀수의 합]을 구해서 출력
+   // 이유 ? 1+2+3+4+5+6+7+8+9+10+=65
+		// 연필 / 종이      +  [디버깅]  F11
+		int i = 1;
+		int sum = 0;
+		while ( i <= 10 ) {
+			System.out.printf("%d+", i);
+			i++;
+			sum += i;
+		}
+		System.out.printf("=%d\n", sum );
+		
+		
+		int sum = 0 , i = 1;
+		while (  true   ) {  //   for(;;) 무한루프
+			if( i > 10 ) break;
+			System.out.printf("%d+", i);
+			sum += i;
+			i++;
+		}
+		// Unreachable code
+		System.out.printf("=%d\n", sum );
+		
+		
+		int sum = 0 , i = 1;
+		while (  i <= 10   ) {
+			System.out.printf( "%d+", i);
+			// System.out.printf( i==10?"%d":"%d+", i);
+			/*
+			if ( i == 10 ) {
+				System.out.printf("%d", i);
+			} else {
+				System.out.printf("%d+", i);
+			}
+			*/
+			sum += i;
+			i++;
+		}		 
+		System.out.printf("\b=%d\n", sum );
+		
+		// 1) if 
+		// 2) continue
+		int sum = 0 , i = 1;
+		while (  i <= 10   ) {
+			if ( i %2 != 0 ) {
+				System.out.printf( "%d+", i);
+				sum += i;
+			} // if
+			i++;
+		}	// while	 
+		System.out.printf("\b=%d\n", sum );
+		
+		// 2) continue
+		int sum = 0 , i = 1;
+		while (  i <= 10   ) {
+            // Ctrl + A -> Ctrl + I
+			if( i % 2 == 0 ) continue;  //  while문에서 continue문을 만나면 조건식으로 이동. 
+			System.out.printf( "%d+", i);
+			sum += i;
+			i++;
+		}	// while	 
+		System.out.printf("\b=%d\n", sum );
+		
+		// 2) continue
+		int sum = 0 , i = 1;
+		while (  i <= 10   ) {
+           
+			if( i % 2 == 0 ) {
+				i++;
+				continue;  
+			}
+			
+			System.out.printf( "%d+", i);
+			sum += i;
+			i++;
+		}	// while	 
+		System.out.printf("\b=%d\n", sum );
+		
+		// 2) continue
+		/*
+		int sum = 0 , i = 1;
+		while (  i <= 10   ) {
+			System.out.printf( "%d+", i);
+			// sum += i++;   // 1+2+3+4+5+6+7+8+9+10+=55
+			sum += ++i;        // 1+2+3+4+5+6+7+8+9+10+=65
+		}	// while	 
+		System.out.printf("\b=%d\n", sum );
+		*/
+		
+		// [2] 12:02 + 5  아래 코딩 이해.. 
+		int sum = 0 , i = 0;                 // i=1
+		// while (  i++ <= 10   ) {        // 2+3+4+5+6+7+8+9+10+11+=65  연산자 우선 순위(암기)
+		while (  ++i <= 10   ) {           // 2+3+4+5+6+7+8+9+10+=54
+			if( i % 2 == 0 ) continue;
+			System.out.printf( "%d+", i);  // 2+
+			sum += i;
+		}	// while	 
+		System.out.printf("\b=%d\n", sum );
+		
+		// 1)  
+		int sum = 0 , i = 1;     
+		while (  i <= 10   ) {   
+			System.out.printf( "%d+", i);  // 2+
+			sum += i;
+			i+=2 ;  // i = i + 2;
+		}	// while	 
+		System.out.printf("\b=%d\n", sum );
+		
+		// while 조건 반복문  :  한 번도 수행(반복)하지 않을 경우가 있다. 
+		// do~while 조건 반복문 :  최소한 한 번은  실행이 되고 나서 ~
+		/*
+		int sum = 0 , i = 1;     
+		while (  i > 10   ) {   //    1 > 10 거짓
+			System.out.printf( "%d+", i);  // 2+
+			sum += i;
+			i++ ;  
+		}	// while	 
+		System.out.printf("\b=%d\n", sum );
+		*/
+		
+		int sum = 0 , i = 1;     
+		
+		// 
+		do {
+			System.out.printf( "%d+", i);    // 1+
+			sum += i;  // 1
+			i++ ;           // 2
+		} while (  i > 10  );  // 1 > 10  처음 부터 거짓
+		
+		System.out.printf("\b=%d\n", sum );
+		
+    
+7. 10명의 국어점수를 저장할 kors 배열을 선언하고 
+    0~100 점 사이의 랜덤한 값을 발생시켜 배열을 초기화하고
+    출력하는 코딩을 하세요..
+    ( Math.random() 사용, 반복문 사용 )
+    
+    // 1. 배열의 정의 ?  동일한 자료형이 메모리 상에 연속적으로 놓이게 한 것. 
+		// 2. 배열 선언 형식?  자료형 [] 배열명 = new 자료형[배열 크기];
+		//     그림) [][][][][][][][][][]          ->   [0x100]   참조타입,       변수, 참조변수, 배열명
+		// int kor;
+		int [] kors = new int[10];
+		
+		kors[0] = (int)(Math.random() * 101)  ;
+		kors[1] = (int)(Math.random() * 101)  ;
+		kors[2] = (int)(Math.random() * 101)  ;
+		kors[3] = (int)(Math.random() * 101)  ;
+		kors[4] = (int)(Math.random() * 101)  ;
+		kors[5] = (int)(Math.random() * 101)  ;
+		kors[6] = (int)(Math.random() * 101)  ;
+		kors[7] = (int)(Math.random() * 101)  ;
+		kors[8] = (int)(Math.random() * 101)  ;
+		kors[9] = (int)(Math.random() * 101)  ;
+		
+		// Alt + Shit + A ( 토글 )
+		System.out.printf("kors[0]=%d\n", kors[0]);
+		System.out.printf("kors[1]=%d\n", kors[1]);
+		System.out.printf("kors[2]=%d\n", kors[2]);
+		System.out.printf("kors[3]=%d\n", kors[3]);
+		System.out.printf("kors[4]=%d\n", kors[4]);
+		System.out.printf("kors[5]=%d\n", kors[5]);
+		System.out.printf("kors[6]=%d\n", kors[6]);
+		System.out.printf("kors[7]=%d\n", kors[7]);
+		System.out.printf("kors[8]=%d\n", kors[8]);
+		System.out.printf("kors[9]=%d\n", kors[9]);
+
+// 1. 배열의 정의 ?  동일한 자료형이 메모리 상에 연속적으로 놓이게 한 것. 
+		// 2. 배열 선언 형식?  자료형 [] 배열명 = new 자료형[배열 크기];
+		//     그림) [][][][][][][][][][]          ->   [0x100]   참조타입,       변수, 참조변수, 배열명
+		// int kor;
+		int [] kors = new int[10];
+		
+		for (int i = 0 , kor ; i < 10 ; i++) {
+			// <----------------------------------
+			kor = kors[i] = (int)(Math.random() * 101)  ; 
+			// System.out.printf("kors[%d]=%d\n", i,  kors[i]);
+			System.out.printf("kors[%d]=%d\n", i,  kor );
+		} 
+		
+		// Alt + Shit + A ( 토글 )
+		/*
+		for (int i = 0; i < 10; i++) {
+			System.out.printf("kors[%d]=%d\n", i,  kors[i]);
+		} 
+		*/     
+
+2:00 수업 시작~~~
+8. 제어문의 형식과 처리 과정에 대한 설명을 하세요 
+    1) if 
+    2) if  ~ else
+    3) if ~ else if ~ else if ~ else
+    4) switch
+    5) break 문 ? 제어문 빠져나올 때 사용하는 문
+    6) for
+    7) while
+
+9. 한 문자를 입력받아서 알파벳, 한글, 숫자, 특수문자( #, @,%, ! ) 출력
+
+> 한 문자 입력 ? a 엔터
+one='a' 
+> 한 문자 입력 ? b 엔터
+one='b'
+
+          
+10.  두 정수 n, m을 입력받아서 
+      두 정수 사이의 합을 구해서 출력
+      예) 입력형식)
+                                두 정수 입력 ? 3 5 엔터
+            출력형식)       
+                                3+4+5=12
+      
+      

@@ -1,0 +1,47 @@
+package days19;
+
+/**
+ * @author dlsgu
+ * @date 2023. 2. 21. 오후 2:22:34
+ * @subject ***[클래스 객체]를 얻는 방법 ***
+ * @content	class != [Class]
+ */
+public class Ex06 {
+
+	public static void main(String[] args) {
+		Card c1 = new Card();
+		// System.out.println(c1.toString()); // days19.Card@5aaa6d82 -> SPADE : 1
+		// System.out.println(c1);
+		
+		// [객체로부터 Class 객체를 얻어오는 방법 3가지]
+		// 1) 첫번째 방법 - getClass() 메서드
+		Card c = new Card("HEART", 3);
+		
+		Class cls = c.getClass();
+		System.out.println(cls.getName()); //
+		
+	}//main
+
+}//class
+
+final class Card {
+	String kind; // 카드 종류
+	int num; // 카드 번호
+	// 디폴트 생성자
+	Card() {
+		this("SPADE", 1);
+	}
+	// 생성자
+	Card(String kind, int num) {
+		this.kind = kind;
+		this.num = num;
+	}
+	
+	// Object.toString() 재정의하겠다	패키지명
+	@Override
+	public String toString() {
+
+		return String.format("%s : %d", this.kind, this.num);
+	}
+	
+}

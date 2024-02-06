@@ -1,0 +1,77 @@
+1.  년도 year를 입력받아서 
+    입력받은 년도의 1월~12월 까지의 마지막 날짜를 출력하는 코딩을 하세요. 
+    ( 조건 : Calendar 클래스 사용 )
+    ( 조건 : Scanner 클래스 사용 + try~with~resource문 사용)
+    
+    실행결과 예제)
+    2005년 
+    
+	1월 : 31일
+	2월 : 28일
+	3월 : 31일
+	4월 : 30일
+	5월 : 31일
+	6월 : 30일
+	7월 : 31일
+	8월 : 31일
+	9월 : 30일
+	10월 : 31일
+	11월 : 30일
+	12월 : 31일
+	
+		Calendar c = new GregorianCalendar();
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("> 년도 입력 : ");
+		int n = scanner.nextInt();
+		c.set(Calendar.YEAR, n);
+		int lastDate;
+		for (int i = 0; i < 12; i++) {
+			c.set(Calendar.MONTH, i);
+			lastDate = c.getActualMaximum(Calendar.DATE); 
+			System.out.printf("%d월 : %d일\n", i+1, lastDate);
+		}
+ 
+2. Calendar 클래스를 사용해서 
+    오늘 날짜를 기준으로 주민등록번호 앞자리 6자리가 "980220" 인 사람이 
+    생일의 지남 여부를 체크하는 코딩을 하세요. 
+    
+    	Calendar c = Calendar.getInstance();
+		String rrn = "980220";
+		int t_md = (c.get(Calendar.MONTH)+1) * 100 + c.get(Calendar.DATE);
+		int b_md = Integer.parseInt(rrn.substring(2,6));
+		System.out.println(b_md < t_md ? "생일 지남" : "생일 안지남");
+    
+3. Calendar 클래스를 사용해서 
+    오늘이 무슨 요일인지를 출력하세요. 
+    
+    실행결과)
+    오늘은 "금요일"입니다.
+    
+    	Calendar c = Calendar.getInstance();
+		System.out.printf("오늘은 \"%s요일\"입니다", "일월화수목금토".charAt(c.get(Calendar.DAY_OF_WEEK)-1));
+    
+4. 개강일(2023.1.26)로 부터 오늘까지 지난 일수 계산을 하세요.. 
+
+		Calendar c = new GregorianCalendar();
+		int now = c.get(Calendar.DAY_OF_YEAR);
+		c.set(2023, 1-1, 26);
+		int start = c.get(Calendar.DAY_OF_YEAR);
+		System.out.println(now - start);
+
+5. 설문조사 기간이 
+   시작일 2023.2.17    00:00:00
+   종료일  2023.2.26  18:00:00
+   일 때  오늘 현재 설문이 가능/불가능한지를 체크해서 출력하세요.
+
+		Calendar c = new GregorianCalendar();
+		int now = c.get(Calendar.DAY_OF_YEAR);
+		c.set(2023, 2-1, 17);
+		int start = c.get(Calendar.DAY_OF_YEAR);
+		c.set(2023, 2-1, 26, 18, 0, 0);
+		int end = c.get(Calendar.DAY_OF_YEAR);
+		System.out.println(start <= now && now <= end ? "설문 가능" : "설문 불가능");
+
+
+
+
+

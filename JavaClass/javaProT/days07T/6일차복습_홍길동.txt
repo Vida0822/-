@@ -1,0 +1,138 @@
+1. foreach 문의 선언 형식, 처리 과정 이해..을 적으세요.
+    - 확장 for문 
+    - 반복문 for/foreach
+    for(  초기식; 조건식; 증감식 ){
+    }
+   
+   for(자료형   변수명    : 배열 또는 컬렉션 객체){            
+      //   
+   }
+
+1-2.  국어 점수를 10개 저장할 kors 배열을 선언하고, 
+        임의의 국어점수 (0~100 점)로 초기화하고 
+        foreach문을 사용해서 출력하세요.  
+        
+        int [] kors = new int[10];
+        
+        for(){
+            kors[i] =   (int)(Math.random()*101);
+        }
+        
+        for(int  kor  : kors){
+            syso(kor);
+        }
+
+2. ASCII 문자코드값을 0~255 아래와 같이 출력하세요.
+ '문자'(코드값) 
+  : 
+   'A'(65)
+   :
+   
+            ASCII  문자코드표    7bit          128 가지 문자 코드
+     확장ASCII                      8bit          256
+ 
+        // 0~30 제어문자  -   '13==\r'   CR    '10==\n'   LF          9 '\t'
+		// 31~128 일반문자 - 숫자, 대,소문자  [] () 등등
+		// 129~255
+		for (int i = 0; i < 256; i++) {
+			System.out.printf("'%c'(%d)\n", (char)i, i);
+		}
+	
+	10:12 수업 시작~~	
+   
+3.  아래 코딩의 [ ] 대괄호를 채워 넣으시고,  이유에 대해서 설명하세요. 
+        int  i ;
+		char one;
+		System.out.print("> 한 문자 입력 ? "); 
+		i = System.in.read();                 13, 10 
+		one = (char)i;
+		System.out.printf("one = '%c'\n", one); 
+		[                  System.in.skip( 2 );                                               ]
+		System.out.print("> 한 문자 입력 ? "); 
+		i = System.in.read();   
+		one = (char)i;
+		System.out.printf("one = '%c'\n", one);
+
+       이유 ? 엔터 에의한 '13','10' 2바이트가 버퍼(입력 스트림)에 남아 있기때문에 제거.. 할 목적
+        
+4. 아래 코딩에 대해서 설명하세요 . 
+    1)  Character.isDigit( char one)                                  boolean  isXXXX()
+        기본형 char -> 래퍼(Wrapper)클래스 Character
+         isDigit ()     1. 기능 : 숫자인지 체크하는 함수(메서드)
+                             2. 매개변수 :   char 한문자
+                             3. 리턴값    :  숫자 true,   숫자Xfalse   boolean
+                             
+    2) boolean Character.isUpperCase(one)  대문자 true     / false
+	3) boolean Character.isLowerCase(one) 소문자  true      / false
+	4) char  String.charAt(index)              문자열 -> 특정 위치(index)의 한 문자를 반환하는 함수(메서드)
+	5) int String.length()                         문자열의 길이를 반환하는 함수( 메서드 )
+	
+	11:10 수업 시작~ 
+5. 문자열 메시지를 입력받아서 입력받은 문자열의 한 문자씩 출력하세요. 
+    String message;
+    예) 
+    [입력형식]
+     > message input ? hello world ~
+     [출력형식]
+     'h'
+     'e'
+     'l'
+     'l'
+     ' '
+     'w'
+     'o'
+     'r'
+     'l'
+     'd'
+     ' '
+     '~'
+     
+     String message;
+		System.out.print("> message input ? "); //  hello world ~
+		Scanner scanner = new Scanner(System.in);
+		// X   scanner.next();
+		message = scanner.nextLine();
+		
+		for (int i = 0; i < message.length();  i++) {
+			System.out.printf("'%c'\n", message.charAt(i));
+		}
+
+6.   아래와 같은  별찍기  중첩 for 문  사용해서 코딩하고,  [ 처리 과정 ] X 에 대해서 설명하세요.
+	 // ****
+	 // ****
+	 // ****
+	 // ****
+     
+7. 두 정수 x, y을 입력받아서 두 정수 사이의 합 출력. 
+  int x, y;
+  Scanner sc =   ;
+  syso("> x, y input ? );  // 3 5
+  int max = Math.max(3,5);
+  int min = Math.min(3,5);
+  
+  int sum = 0;
+  for(  int i=min; i<=max; i++  ){
+      sum += i;
+  }
+  
+   
+
+8. 별찍기
+	 // *
+	 // **
+	 // ***
+	 // **** 		      
+          
+
+
+
+
+
+
+
+
+
+
+
+
+

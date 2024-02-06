@@ -1,0 +1,122 @@
+ 1. [ String 클래스의 메서드 활용 ]
+     String path = "C:\\SS18Class5\\JavaClass\\javaPro\\src\\days20\\SS18교육생명단.txt";
+    위의 절대경로에서 순수 파일명만  String fileName 변수에 저장하고            SS18교육생명단
+    파일명의 확장자만  String extender 변수에 저장하세요.                            .txt
+    
+    	String path = "C:\\SS18Class5\\JavaClass\\javaPro\\src\\days20\\SS18교육생명단.txt";
+		
+		int a = path.lastIndexOf("\\");
+		int b = path.lastIndexOf(".");
+		
+		String fileName = path.substring(a+1,b);
+		String extender = path.substring(b);
+		
+		System.out.printf("fileName : %s, extender : %s\n", fileName, extender);
+ 
+ 2. 객체로 부터 [Class 객체]를 얻어오는 3가지 방법에 대해서 설명하세요 .
+     Class 객체 얻어오는 이유 ? 
+   ㄱ. getClass() 메서드
+   ㄴ. 클래스명.class
+   ㄷ. Class.forName() 메서드
+ 
+ 3. String 클래스의 메서드 설명 - 기능, 매개변수, 리턴값(리턴자료형)
+ ㄱ. length() - 문자열의 길이를 출력, X, int
+  ㄴ. charAt() - 문자열의 특정 위치의 문자를 출력, int, char
+  ㄷ. compareTo() - 두 문자열을 비교해서 같으면 0 / 다르면 양수 또는 음수 출력, String, int
+  ㄹ. equals() / equalsIgnoreCase() - 두 문자열을 비교해서 같으면 true / 다르면 false 출력, String, boolean
+  ㅁ. concat() - 두 문자열을 연결, String, String
+  ㅅ. startsWith() - 특정 문자열로 문자열이 시작하는지 확인, String, boolean
+  ㅇ. endWith() - 특정 문자열로 문자열이 끝나는지 확인, String, boolean
+  ㅈ. indexOf() - 특정 문자가 문자열의 어느 위치에 존재하는지 앞에서부터 찾아서 출력, String, int
+      lastIndexOf() - 특정 문자가 문자열의 어느 위치에 존재하는지 뒤에서부터 찾아서 출력, String, int
+  ㅊ. replace() - 특정 문자열을 다른 문자열로 변경, (String(전), String(후)), String
+      replaceAll(regex) - 특정 문자 형식들을 다른 문자열로 모두 변경, (String regex, String), String
+      replaceFirst(regex) - 첫번째 것만 다른 문자열로 변경
+  ㅋ. String [] split() - 문자열의 특정 부분을 제거하고 String 배열로 저장, String, String []
+  ㅌ. toUpperCase() / toLowerCase() - 문자열의 소문자를 대문자로 / 대문자를 소문자로 변환, X, String
+  ㅍ. trim() - 공백 제거하기, X, String
+  ㅎ. valueOf() - 문자열로 변환, char/int, String
+  ㄱ. join() - 배열을 구분자를 통해 문자열로 결합, (string, String []), String
+  ㄴ. format() - 문자열을 원하는 형식으로 출력, (String format, Object...args), String
+  ㄷ. matches() - 문자열이 형식에 맞는 문자열인지 확인, String, boolean
+  ㄹ. substring() - 특정 위치부터 특정 위치까지의 문자열만 출력, int(, int), String
+  :
+  :    
+  
+  5. 기본형을 String 으로 변환하는 코딩을 하세요..
+  
+ 6.   아래 코딩을 이해하는 만큼 주석을 달아서 설명하세요.  
+	public static void main(String[] args) throws UnsupportedEncodingException { // UnsupportedEncodingException 예외에 대한 예외 선언(처리 넘김)
+		String str = "가"; // 문자열 "가"를 str에 저장
+		byte [] bArr = str.getBytes("UTF-8"); // str에 저장된 문자열 "가"를 byte 배열 bArr에 저장
+	 		
+		System.out.println("UTF-8 : " + new String(bArr,"UTF-8")); // "UTF-8 : 가"로 출력되도록 bArr을 다시 문자열 "가"로 변환
+	} 
+	
+ 7. [Object 클래스]의  equals() 메서드와   == 연산자를 비교해서 차이점을 설명하세요.
+ 	equals() 메서드와 == 연산자 모두 비교하는 데 사용하지만,
+ 	두 문자열의 비교에서는 == 연산자를 사용할 수 없고, equals() 메서드만 사용해야 한다
+ 
+ 8. String 클래스의 메서드 사용
+    String str1 = "안녕하세요. 홍길동입니다."; 
+    1)  안녕 문자열 뒤에 (Hello) 문자열을  삽입(insert) =>  "안녕(Hello)하세요. 홍길동입니다."
+    str1.replace("안녕", "안녕(Hello)");
+    2)  홍길동을 찾아서 "김동현"으로 수정.
+    str1.replace("홍길동", "김동현");
+    3)  홍길동 찾아서 삭제                                             => "안녕하세요. 입니다.";
+    str1.replace("홍길동", "");
+    
+    
+    
+    
+ 9. days01.Ex01.java  자바 파일을 읽어서 라인단위로 출력하는 코딩을 하세요. 
+ 
+ 		String fileName = "C:\\Class\\Workspace\\Javaclass\\javaPro\\src\\days01\\Ex01.java";
+		
+		FileReader fr = null;
+		BufferedReader br = null;
+		
+		try {
+			fr = new FileReader(fileName);
+			br = new BufferedReader(fr);
+			String line;
+			while ((line=br.readLine()) != null) {
+				System.out.println(line);
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				fr.close();
+				br.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+ 
+ 10. 
+  String s = "[팀장]하동호(*), 박진용(*), 이혜진(*), 김수민, 신희민, 진예림, 박현주 (수요일)";
+  문자열 s 에서 팀원명만 얻어와서..아래와 같이 실행되도록 코딩하세요. 
+  
+         실행결과)
+	<ol>
+		<li>하동호</li>
+		<li>박진용</li>
+		<li>이혜진</li>
+		<li>김수민</li>
+		<li>신희민</li>
+		<li>진예림</li>
+		<li>박현주 </li>
+	</ol>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

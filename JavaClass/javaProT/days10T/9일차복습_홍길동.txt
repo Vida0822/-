@@ -1,0 +1,64 @@
+1.  함수( 메서드 ) 를 매개변수를 가지고 호출하는 방법에 대해서 설명하세요 . 
+  1)  Call by Name
+  2)  Call by Value
+  3)  Call By Reference
+  
+       콜     By   이름,값,참조
+       
+      [ 매개변수를 가지고 함수(메서드)를 호출하는 방법 ]
+      - 매개변수 X ->   이름      drawLine(); // 호출부분  Call by Name
+      - 매개변수 O  ->        test( 10 ); // 호출   Call By Value
+      int a = 100;
+      test( a  );    Call By Value
+      
+      int [] arr = new int[3];
+      스택                            힙(동적)
+      
+      [  0x100번지 ]                        [ int][ int][ int]
+      arr                             0x100번지
+      
+      swap(  arr  ) ;  // 참조타입의 매개변수를 사용해서 함수를 호출하면  Call By Reference
+      
+      // 매개변수  : 배열 == 참조타입
+      public static void swap( int [] m ){     int [] m = 0x100번지
+      } 
+      
+      public static void test( int x ){   // int x = 100
+      }
+      // 함수 선언부분
+      public static void drawLine(){
+      }
+  
+ 2. 1 ~ n 까지의 합을 구해서 반환하는   [재귀함수]를 선언하세요.
+   public static int recursiveSum( int n){
+     if( n == 1 )  return 1;
+      else return   n +  recursiveSum( n-1 );
+   } 
+ 
+ 3.  로또 중복체는 하는 isDuplicateLotto 함수를 선언하세요. ( 조건 잘 보세요 )
+     ( 조건 : 중복되면 false를 반환,  중복되지 않으면 true 반환 )   
+     
+     1. 기능  :  로또 중복체크  isDuplicateLotto
+     2. 매개변수 : [][][][][][] 배열,    n ,   위치(index)
+     3. 리턴값( 리턴자료형 )  :  중복되면 false를 반환,  중복되지 않으면 true
+     
+     public static boolean isDuplicateLotto(  int [] lotto, int n, int index ){
+             for(int i=0; i< index ; i++){
+                 if(   lotto[i] == n  ) return  false;
+             }
+             return true;
+     } 
+     
+     // 10:02 수업 시작~~~ 
+4.  로또 번호를 발생해서 출력하는 전체 코딩을 하세요. 
+     fillLotto( lotto );
+     dispLotto( lotto );
+     
+5. 주민등록 번호 14자리를 입력받아서
+   1) 년도
+   2) 월
+   3) 일
+   4) 성별 
+   출력....           
+   
+6. 1/2+2/3+3/4+ ... +8/9+9/10= ???

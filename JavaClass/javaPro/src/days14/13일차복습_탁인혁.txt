@@ -1,0 +1,78 @@
+1. ***  로또 게임 ( 게임횟수 ) ( 15분 ) *** 
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		int [][] lottos;
+		System.out.print("> 게임 횟수 입력 ? ");
+		int gameNumber = scanner.nextInt();
+		lottos = new int[gameNumber][6];
+		fillLottos(lottos);
+		dispLottos(lottos);
+
+	}//main
+	
+	private static void fillLottos(int[][] lottos) {
+		for (int i = 0; i < lottos.length; i++) {
+			fillLotto(lottos[i]);
+		}
+		
+	}
+	
+	public static void dispLottos(int [][] lottos) {
+		for (int i = 0; i < lottos.length; i++) {
+			System.out.printf("[%d]번 로또\t", i+1);
+			dispLotto(lottos[i]);
+		}
+		
+	}
+
+	public static void fillLotto (int [] lotto) {
+		int idx = 0, n;
+		lotto[idx++] = (int)(Math.random()*45+1);
+		while (idx <= 5) {
+			n = (int)(Math.random()*45+1);
+			if (!duplicateLotto(lotto, idx, n)) lotto[idx++] = n;
+		}
+	}
+
+	public static boolean duplicateLotto (int [] lotto, int idx, int n) {
+		for (int i = 0; i < idx; i++) {
+			if (lotto[i] == n) return true;
+		}
+		return false;
+	}
+	
+	public static void dispLotto (int [] lotto) {
+		for (int i = 0; i < lotto.length; i++) {
+			System.out.printf("[%d]", lotto[i]);
+		}
+		System.out.println();
+	}
+
+
+2.  int [] m = {  6, 0, 9, 2, 9, 7, 9, 6, 3, 2, 3, 6, 0, 6, 8, 2, 3, 4, 2, 7, 6, 1, 5, 2, 3, 9, 0, 1, 4, 1 };
+     0~9정수의 갯수를 출력하세요. ( 5분 )
+     
+     	int [] m = {  6, 0, 9, 2, 9, 7, 9, 6, 3, 2, 3, 6, 0, 6, 8, 2, 3, 4, 2, 7, 6, 1, 5, 2, 3, 9, 0, 1, 4, 1 };
+		System.out.println(Arrays.toString(m));
+		int [] counts = new int[10];
+		for (int i = 0; i < m.length; i++) {
+			counts[m[i]]++;
+		}
+		for (int i = 0; i < counts.length; i++) {
+			System.out.printf("%d : %d개\n", i, counts[i]);
+		}
+     
+     
+3. 4행 3열 2차원 배열(m)을    6행 2열 2차원 배열(n)로 변환하세요.  ( 10분 )
+   int [][] m = {
+                              				{ 1,2,3 }, 
+                              				{ 4,5,6 }, 
+                              				{ 7,8,9 }, 
+                              				{ 10,11,12 } 
+		                      };
+		                      
+    int [][] n = new int[6][2];
+
+
+

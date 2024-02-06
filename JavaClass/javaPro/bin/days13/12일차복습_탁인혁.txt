@@ -1,0 +1,70 @@
+1.      한 반에 30명인 학생의 성적 관리                       ( 이름, 총점, 평균, 등수 )
+          1) 각각의 학생 정보를 입력 : 이름, 총점         (자동)
+          2) 평,등수 처리
+          3) 입력받은 학생 정보를 출력.
+          
+          ( 이름은 알파벳대,소문자 무작위 3문자로 자동 처리 )
+          ( 총점은 0~300점  자동 처리 )
+          
+          	public static void main(String[] args) {
+
+		final int STUDENT_COUNT = 30;
+		
+		String [] names = new String[STUDENT_COUNT];
+		int [] tots = new int[STUDENT_COUNT];
+		double [] avgs = new double[STUDENT_COUNT];
+		int [] ranks = new int[STUDENT_COUNT];
+		String name;
+		int tot, rank;
+		double avg;
+		
+		for (int i = 0; i < STUDENT_COUNT; i++) {
+			name = getName();
+			tot = getTot();
+			avg = (double)tot/3;
+			rank = getRank(i+1, tots);
+		}
+		
+	}//main
+
+	private static int getRank(int number, int [] tots) {
+		int tot = tots[number-1];
+		int rank = 1;
+		for (int i = 0; i < tots.length; i++) {
+			if (tot < tots[i]) rank++;
+		}
+		return rank;
+	}
+
+	private static int getTot() {
+		return (int)(Math.random()*301);
+	}
+
+	private static String getName() {
+		Random rnd = new Random();
+		char [] nameArr = new char[3];
+		for (int i = 0; i < nameArr.length; i++) {
+			nameArr [i] = (char)(rnd.nextInt('Z'-'A'+1) + 'A');
+		}
+		String name = new String(nameArr);
+		return name;
+	}
+
+2. 선택정렬 함수를 선언하세요... ( selectionSort ) 
+
+	public static void selectionSort(int [] m) {
+
+		for (int i = 0; i < m.length-1; i++) {
+			int minIndex = i;
+			for (int j = i+1; j < m.length; j++) {
+				if(m[minIndex] > m[j]) minIndex = j;
+			}
+
+			int temp = m[i];
+			m[i] = m[minIndex];
+			m[minIndex] = temp;
+		}
+		System.out.println( Arrays.toString(m) );
+	}
+ 
+( 30분 )

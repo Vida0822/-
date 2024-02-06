@@ -1,0 +1,77 @@
+1. ASCII ( 0 ~255 ) 를  한 라인에 15개씩 출력하는 코딩을 하세요.
+
+	for (int i = 0; i < 256; i++) {
+		System.out.printf("'%c'(%d) ", (char)i, i);
+		if (i % 15 == 14) {
+			System.out.println();
+		}
+	}
+ 
+2. 구구단 가로 출력
+
+	for (int i = 2; i <= 9; i++) {
+		for (int j = 1; j <= 9; j++) {
+			System.out.printf("%d*%d=%d\t", i, j, i*j);
+		}
+			System.out.println();
+	}
+
+2-2. 구구단 세로 출력
+
+	for (int i = 1; i <= 9; i++) {
+		for (int j = 2; j <= 9; j++) {
+			System.out.printf("%d*%d=%d\t", j, i, i*j);
+		}
+			System.out.println();
+	}
+
+3. 이등변 삼각형 별찍기.
+__*
+_***
+*****
+
+	for (int i = 1; i <= 3; i++) {
+		for (int j = 1; j <= 5; j++) {
+			if (i+j>=4 && j-i<=2) {
+				System.out.print("*");
+			} else {
+				System.out.print("_");
+			}
+		}
+			System.out.println();
+	}
+
+4.  int [] m 배열 선언
+     배열 크기는 20
+     각 요소에 5~150 사이의 임의의 정수를 채워 넣고
+     max, min 값을 구해서 출력하세요. 
+     
+   		int [] m = new int[20];
+	for (int i = 0; i < m.length; i++) {
+		m[i] = (int)(Math.random()*146+5);
+	}
+	
+	int max = m[0];
+	int min = m[0];
+	for (int i = 1; i < m.length; i++) {
+		if (max<m[i]) {
+			max = m[i];
+		} else if (min>m[i]) {
+			min = m[i];
+		}
+	}
+	System.out.printf("max=%d, min=%d\n", max, min);
+      
+5.  1-2+3-4+5-6+7-8+9-10=-5 출력하는 코딩을 하세요. ( 반복문 사용 )
+
+	int sum = 0;
+	for (int i = 1; i <= 10; i++) {
+		if (i%2!=0) {
+			System.out.printf("%d-", i);
+			sum+=i;
+		} else {
+			System.out.printf("%d+", i);
+			sum -=i;
+		}
+	}
+	System.out.printf("\b=%d\n", sum);

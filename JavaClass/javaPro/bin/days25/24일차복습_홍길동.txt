@@ -1,0 +1,111 @@
+***** 1.  지금까지 배운 컬렉션 클래스의  특징에 대해서 설명하세요 . 
+   C             특징
+     ㄴ L                   ArrayList/Vector/LinkedList/Stack,Queue,Deque/PriorityQueue
+     ㄴ S                   HashSet
+     
+  M   
+
+2. 열거자와 반복자에 대해서 설명하세요. 
+   - Enumeration (구)   X
+   - Iterator          (신)   예외발생
+
+3. "tiger", "cat" , "Dog", "lion" 문자열을 ArrayList 컬렉션 클래스에 추가하고
+   대소문자 구분 없이 내림차순으로 정렬해서 
+   반복자를 사용해서 출력하세요. 
+
+//  "tiger", "cat" , "Dog", "lion"
+		// <E> == (E)lement == 요소
+		/*
+		ArrayList list = new ArrayList();
+		list.add("tiger");
+		list.add("cat");
+		list.add("Dog");
+		list.add("lion");
+		*/ 
+		//System.out.println(  list.toString()  );
+		// System.out.println(  list  );
+		
+		String [] animals = {  "tiger", "cat" , "Dog", "lion" };
+		List   list =  Arrays.asList(animals);  // ArrayList
+		System.out.println(  list  );
+		//  대소문자 구분 X + 내림차순 정렬
+		//  대소문자 구분 O + 오름차순 정렬
+		// list.sort(null);
+		
+		// 클래스 선언 + 객체 생성 => 익명클래스
+		// DescendingComaprator c = new DescendingComaprator();
+		// list.sort( c );
+		
+		/*
+		list.sort(new Comparator() { 
+			@Override
+			public int compare(Object o1, Object o2) {
+				String s1  = (String)o1;
+				String s2  = (String)o2; 
+				return  -1 * s1.toUpperCase().compareTo(   s2.toUpperCase()  );
+			}
+		});
+		*/
+		// list.sort( (s1, s2) ->  -1 * ((String) s1).toUpperCase().compareTo(   ((String) s2).toUpperCase()  ));
+		
+		list.sort( String.CASE_INSENSITIVE_ORDER );
+		
+		// 반복자 출력
+		Iterator  ir = list.iterator();
+		while (ir.hasNext()) {
+			String animal = (String) ir.next();
+			System.out.println( animal );
+		}   
+   
+  
+  class DescendingComaprator implements Comparator{
+
+	@Override
+	public int compare(Object o1, Object o2) {
+		String s1 = null ; 
+		 if (   o1 instanceof String  ) {
+			s1 = (String) o1;
+		}
+		String s2 = (String)o2; 
+		return   -1 * s1.toUpperCase().compareTo(   s2.toUpperCase()  );
+	}
+	
+}
+   
+4. 로또번호를 HashSet을 사용해서 출력하는 코딩을 하세요 . 
+
+
+public static void main(String[] args) {
+		// 9:45 제출
+		// [공지사항] 4/1 부터 대면 수업~
+		HashSet lotto = new HashSet(6);
+		fillLotto( lotto );
+		dispLotto( lotto );
+		
+	} // main
+
+	private static void dispLotto(HashSet lotto) {
+		 Iterator  ir =  lotto.iterator();
+		 while (ir.hasNext()) {
+			int n = (int) ir.next();
+			System.out.printf("[%d]", n);
+		}
+		 System.out.println();
+	}
+
+	private static void fillLotto(HashSet lotto) {
+		 // Set 인터페이스를 구현한 컬렉션 클래스 : 중복 허용 X, 순서 유지 X
+		 while( lotto.size() < 6 ) {
+			 int n = (int)(Math.random()*45)+1 ;
+			 System.out.println(  n  );
+			 lotto.add (   n   );  
+		 }
+	}
+	
+
+5. 게임횟수를 입력받아 로또 번호를 출력하는 코딩을 하세요 . 
+   		게임 횟수 입력 ? 3
+		 
+		1게임 : [17][9][4][15][16][38]   
+		2게임 : [17][9][4][15][16][38]   
+		3게임 : [17][9][4][15][16][38]   

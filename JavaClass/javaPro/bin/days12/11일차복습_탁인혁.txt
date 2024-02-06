@@ -1,0 +1,68 @@
+1. 년도와 월을 입력받아서 달력 출력
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("> year, month input ? ");
+		int year = scanner.nextInt();
+		int month = scanner.nextInt();
+		
+		printCalender(year, month);
+
+	}//main
+	
+	
+
+	private static void printCalender(int year, int month) {
+		int dayOfWeek = getDayOfWeek(year, month, 1);
+		int lastDay = getLastDay(year, month);
+		System.out.printf("\t\t\t[%d년 %d월]\n", year, month);
+		System.out.println("-".repeat(65));
+		String date = "일월화수목금토";
+		for (int i = 0; i < date.length(); i++) System.out.printf("\t%c", date.charAt(i));
+		System.out.println();
+		System.out.println("-".repeat(65));
+		for (int i = 0; i < dayOfWeek; i++) System.out.print("\t");
+		for (int i = 1; i <= lastDay; i++) {
+			System.out.printf("\t%d", i);
+			if ((i +dayOfWeek) % 7 == 0) {
+				System.out.println();
+			}
+		}
+		System.out.println();
+		System.out.println("-".repeat(65));
+		
+	}
+
+
+
+	private static int getDayOfWeek(int year, int month, int day) {
+		int totalDays = getTotalDays(year, month, day);
+		int dayOfWeek = totalDays % 7;
+		return dayOfWeek;
+	}
+
+
+
+	private static int getTotalDays(int year, int month, int day) {
+		int totalDays = (year-1)*365 + (year-1)/4 - (year-1)/100 + (year-1)/400;
+		int [] months = {31,28,31,30,31,30,31,31,30,31,30,31};
+		for (int i = 0; i < month-1; i++) totalDays += months[i];
+		if (month >=3 && days08.Ex04.isLeapYear(year)) totalDays++;
+		totalDays += day;
+		return totalDays;
+	}
+
+	private static int getLastDay(int year, int month) {
+		int [] months = {31,28,31,30,31,30,31,31,30,31,30,31};
+		if (days08.Ex04.isLeapYear(year)) months[1] = 29;
+		return months[month-1];		
+	}
+
+2. 머니(money)를 입력받아서 화폐단위 갯수 출력 
+    ( 조건 : 스위치 변수 사용 )
+    
+    
+    
+3. 10진수 정수(int)를 입력받아서 16진수로 출력.
+
+(30분)

@@ -1,0 +1,27 @@
+1-1. Date 타입을 Calendar 타입으로 변환하는 방법에 대해서 설명하세요.    
+1-1. Calendar 타입을  Date 타입으로 변환하는 방법에 대해서 설명하세요.    
+
+2. SimpleDateFormatter 클래스에 대해서 설명하세요. 
+
+3-1. java.time 패키지에 대해서 설명하세요. 
+3-2. java.time패키지의 4가지 하위 패키지에 대해서 설명하세요 .
+3-3. java.time 패키지의 핵심 클래스에 대해서 설명하세요. 
+3-4. Period, Duration 클래스에 대해서 설명하세요.
+3-5. TemporalUnit 인터페이스와  ChronoUnit 열거형에 대해서 설명하세요 . 
+3-6. TemporalField 인터페이스와 ChronoField 열거형에 대해서 설명하세요 .
+3-7.   java.time 패키지의 핵심 클래스의 객체 생성 방법에 대해서 설명하세요 . 
+
+4. 개강일(2023.1.26)로부터 100일 되는 날짜를 출력하세요. 
+   (조건: LocalDate 클래스 사용.) 
+		LocalDate odate = LocalDate.of(2023, 1, 26);
+	    // LocalDate rdate =  odate.plusDays(100);
+		LocalDate rdate =  odate.plus(100, ChronoUnit.DAYS);
+		
+		// odate.withDayOfMonth(1);
+		// odate.with(ChronoField.DAY_OF_MONTH, 1);
+				
+		System.out.println( odate.toString() );
+		System.out.println( rdate.toString() );   
+
+
+

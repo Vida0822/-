@@ -1,0 +1,208 @@
+1. 단일 상속과 다중 상속에 대해서 설명하세요 .
+   1) 상속 : 기존 클래스 -> 재사용하여 -> 새로운 클래스를 선언하는 것.
+                super,상위,부모,기초                sub,하위,자식,파생 
+   2) 장점 : _
+   3) 선언 형식 : extends 키워드 사용.
+   
+   // 단일상속
+   class A enxteds B{
+   } 
+   // 다중 상속
+   class A enxteds B, C, D{
+   }      
+   
+   4) 자바는 다중 상속을 지원하지 않는다. 
+   5) 왜 ? 지원하지 않는 이유 ? _        
+    
+10:07 수업 시작~ 
+2. [@Override] 애노테이션(Annotation)에 대해서 설명하세요.
+   1) 애노테이션(Annotation) 용어 정의 X
+   2) @애노테이션명
+   3) @Override 의미 ? 
+   
+   class A{
+       public void disp() throw IOException{
+          // 구현 코딩.
+       } 
+   }
+   
+   class B extends A{
+       // disp() 물려받아졌습니다.
+       // 재정의 함수
+       // 컴파일러에게 밑에 있는 메서드는 오버라딩한 메서드이다라고 알려줘서
+       // 컴파일러가 체크를 해서 컴파일 에러 발생시켜요.
+       @Override
+       public void disp() throw IOException{
+           // 다른 코딩 수정 
+       }
+   }
+   
+   
+   void main(){
+       B obj = new B();
+       obj.disp();  // 호출됨.
+   }
+   
+
+3. [오버라이딩 조건]에 대해서 설명하세요 .
+   1) 부모의 접근지정자 보다 범위 같거나 커야 한다.
+   2)
+   3)
+   4)
+   5)
+
+4. super 키워드에 대해서 설명하세요 .
+    super   부모객체 참조변수     super의 용도
+    this      자기자신 참조변수     this의    용도
+
+5. final 키워드에 대해서 설명하세요. 
+    - 클래스 앞에
+    public final SalesMan extends Regular{
+    }
+    - 메서드 앞에
+    - 필드 앞에
+        지역변수 앞에
+        매개변수 앞에
+
+6. abstract 키워드에 대해서 설명하세요.
+    1) 왜 ?   메서드, 클래스 
+    2) 추상메서드 : 몸체가 선언이 안된 메서드를 불완전한 메서드라고 하고  앞에 abstract 키워드를 붙인다. 
+    3) 추상 클래스 : 
+            - 여러 클래스에 공통적으로 사용될 수 있는 클래스를 추상클래스로 만든다.
+     4) 추상화 :   클래스 간의 공통점(멤버)을 찾아내서 공통의 조상으로 만드는 작업.
+        예)  모든 사원들의 공통적 멤버를 선언한 Employee 클래스를 추상클래스로 만드는 작업.        
+
+   - 지난 금요일 수업할 때 abstract 키워드 어떤 경우에 어떤 곳에 abstract 키워드 사용했던가요? 
+   
+   - 사원이라면 공통적으로 갖고 있어야 할 멤버들을 선언한
+   // 객체를 생성할 수 없는 불완전한 클래스 
+   abstract class Employee{
+       // 가상(virtual) 메서드 선언
+       // {} 몸체를 구현하지 않은 불완전 메서드를 선언
+       // 추상(abstract) 메서드
+       abstract void getPay(); // 왜 ? 
+       //{
+       //  return 0;
+       //}
+   }
+   
+   class Regular extends Employee{
+         // 기본급 필드
+         // 급여계산해서 반환하는 메서드 
+         @Override
+         getPay(){}
+   }
+   
+   final class SalesMan extends Regular{
+       // 판매량, 커미션 필드
+       @Override
+       getPay(){}
+   }
+   
+   class Temp extends Employee{
+      // 하루일당, 근무일수 필드
+      @Override
+      getPay(){}
+   }
+   
+   // 자식 객체를 생성해서 부모 타입에 참조할 수 있다.
+   // 클래스 간의 형변환
+   // 업캐스팅
+   // 다형성
+   E  emp  = new R();
+      emp.
+   E  emp  = new S();
+      emp.급여계산X
+
+7. 클래스(OOP)의 특징에 대해서 상세히 설명하세요. 
+   1) 캡슐화( 은닉화 )   접근지정자를 통해서 멤버를 보이지 않도록 하는 것.( 숨기는 것 )
+   3) 상속성  - ~~
+   4) 추상화  -  클래스 간의 공통점(멤버)을 찾아내서 공통의 조상으로 만드는 작업.
+   5) 다형성  -
+
+8. [] 대괄호 안에 있다. 없다 골라서 적으세요.
+  1) 메서드에 static과 abstract를 함께 사용할 수 [  X , O ].
+          static 키워드 의미 
+          abstract 키워드 의미 
+  2) 클래스에 static과 final을 동시에 사용할 수 [  ]. 
+  3) abstract메서드의 접근 제어자가 private일  수 [  ]. 
+  4) 메서드에 private과 final을 같이 사용할 필요 [  ].
+  
+9. 다형성에 대해서 설명하세요 . 
+
+10. 참조형( 클래스 )의 형변환에 대해서 설명하세요. 
+      클래스 간의 형변환
+      업캐스팅( upcastring) , 자동 형변환
+      다운 캐스팅( downcastring ) , 강제 형변환 ( cast 연산자 )
+      
+      
+      Employee emp = new Employee(이,주,연,입);
+      Regular emp2 = emp;
+
+11. instanceof 연산자에 대해서 설명하세요. 
+
+12. [매개변수 다형성]에 대해서 설명하세요 .  ***
+   E  emp1 = new R();
+   E  emp2 = new S();
+   E emp3 = new T();
+   
+   사원정보출력(   emp1 );  // 정규직
+   사원정보출력(   emp2 );  // 영업직
+   사원정보출력(   emp3 );  // 임시직
+   
+   void 사원정보출력(   E    emp   ){  // emp 매개변수  다형성.
+   }
+
+
+
+13. 여러 타입의 객체 배열에 대해서 설명하세요. 
+
+   E  emp1 = new R();
+   E  emp2 = new S();
+   E emp3 = new T();
+   
+   // 여러 타입의 객체 배열
+   E[] emps = {
+                               new R(),
+                               new S(),
+                               new T()
+                          };
+
+
+14. "싱글톤 클래스"를 구현하는 방법에 대해서 설명하세요...
+
+    1)  접근지정자 + 생성자
+         pu blic 
+         protected
+         default
+         private
+    
+    2) 생성자 앞의 접근지정자 == 메서드 앞의 접근지정자 의미 
+    
+    
+    3) private 생성자(){} 의미 :        외부에서    객체 절대 생성 X
+        객체가 꼭 1개만 생성되도록하는 것 : 싱글톤
+        
+    4) 싱글톤 의미.    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

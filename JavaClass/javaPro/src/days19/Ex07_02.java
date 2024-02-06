@@ -1,0 +1,37 @@
+package days19;
+
+/**
+ * @author dlsgu
+ * @date 2023. 2. 21. 오후 3:20:59
+ * @subject
+ * @content
+ */
+public class Ex07_02 {
+
+	public static void main(String[] args) {
+
+		String msg = "안녕하세요. InHyeok 입니다";
+		// 문제) msg 문자열 속에서 한글은 제거하고 알파벳만을 얻어와서 name 변수에 저장해서 출력하세요
+		// 11. 문자열 변경 메서드 : replace()
+		// System.out.println(msg.replace("안녕", "XXX"));
+		// System.out.println(msg.replace('안', 'X'));
+		// msg.replace(new StringBuffer(), new StringBuilder());
+		
+		//String name = msg.replaceAll("[가-힣]|\\.|\\s", "");
+		String name = msg.replaceAll("[^A-Za-z]", "");
+		System.out.println(name);
+		/*
+		String name = "";
+		for (int i = 0; i < msg.length(); i++) {
+			char one = msg.charAt(i);
+			// if ((one >= 'A' && one <= 'Z') || (one >= 'a' && one <= 'z')) {
+			if ((Character.isUpperCase(one)) || (Character.isLowerCase(one))) {
+				name += one;
+			}
+		}
+		System.out.println(name);
+		*/
+
+	}//main
+
+}//class

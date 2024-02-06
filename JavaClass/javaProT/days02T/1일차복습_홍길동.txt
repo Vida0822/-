@@ -1,0 +1,197 @@
+
+1. JDK 설치 확인 방법에 대해서 설명하세요.
+  ㄱ. 
+   cmd
+   >java -version         java.exe 자바 인터프리터
+   >javac -version       자바 컴파일러
+   
+   ㄴ. 자바 홈
+    c:\p f\java\jdk11.0.17 폴더 확인.
+
+2. 설치된 JDK 제거하는 방법에 대해서 설명하세요.
+   프로그램 추가/삭제
+   java 검색 후 제거.. 
+
+10:05 수업시작~
+3. JDK 를 설치 후 환경변수 설정에 대해서 설명하세요. 
+  파일 탐색기 > 내 PC > 속성 >                  "환경변수" 창
+  [시스템변수] 
+  1) 변수이름 : [     JAVA_HOME             ]
+      변수값    : [    c:\p f\java\jdk11x.x              ]
+      
+                           CLASSPATH
+  2) 변수이름 : [    Path              ]  편집
+      변수값    : [   %JAVA_HOME%\bin               ]
+      변수값    : [   c:\p f\java\jdk11.x.xbin               ]
+                                                         java.exe
+                                                         javac.exe
+                                                         javaw.exe
+                                                         :
+                                                         :
+    
+4. 자바에서 
+  1) 클래스 선언 형식을 적으세요.
+  [접근지정자] [기타제어자] class 클래스명{
+  } 
+  
+  2) 함수(메서드) 선언 형식을 적으세요.
+  [접근지정자] [기타제어자]  리턴자료형  함수명( [매개변수...]) {
+  
+      return 리턴값;
+      [return 리턴값;]
+      return [리턴값];
+  }
+  3) 변수 선언 형식을 적으세요.
+  자료형 변수명;
+  
+  4) 상수 선언 형식을 적으세요.
+  final 자료형 상수명;
+  
+5. 용어 정리
+
+  1) JDK     자바 개발 도구              [Java SE 11],ME,EE,FX
+      = (1) JRE + (2) 자바 실행 파일( java.exe, javac.exe 등등 )
+             = (1)JVM + (2) Java API 클래스 라이브러리
+  2) JRE  
+  3) JVM
+  4) Java API
+
+6. 자바 프로그램의 기본 구조에 대해서 설명하세요.
+    - 자바는 객체 지향적 프로그래밍 언어이기 때문에 
+        프로그램 시작하고 종료하는 main() 함수를 가지는 클래스가 하나 필요하다. ( 시작 개체 )
+    -    Hello   World
+    -    첫소소소대소소소
+          대       
+    public class Test{               클래스명는 반드시  첫문자는 대문자로 시작한다. 
+          public static void main(String [] args){
+               // 이름 저장 변수 선언
+               // 문자열    "문자열"         String
+               String firstName;
+              firstName = "이창익";  // = 대입연산자   
+                      좌측항       우측항  할당(대입)
+              System.out.println(   firstName );        
+          }
+       }
+       
+
+7. 메모장을 사용해서 
+   1) 소스파일( Test.java ) : 본인의 이름을 변수로 선언해서 출력하기.
+       X package   ;
+       public class Test{
+          public static void main(String [] args){
+             
+          }
+       }
+   
+   2) 자바 컴파일러( javac.exe )로 컴파일하고
+       javac Test.java
+   3) 자바 인터프리터( java.exe)로 실행하세요.
+       java Test
+   
+8. 어제 배운 이클립스 단축키를  적어주세요.
+	1) 단축키 목록 : Ctrl + Shift + L
+    2) 단일행       :   Ctrl + /        주석처리 해제
+	3) 다중행       :   Ctrl + Shift + / , \
+	4) 실행          :   Ctrl + F11
+	                          F11 ( 디버깅 )
+	5) 자동 완성   :   Ctrl + Space
+	        syso Ctrl + Space
+	          System.out.println(   ); 
+	6)type comment :  Alt + Shift + J
+	7) 들여쓰기
+	   Ctrl + A 모든 선택
+	   Ctrl + I   들여쓰기
+	
+	[복습] 자주 사용한 이클립스의 단축키 정리.. 
+
+9. 키워드(keyword)와 식별자( identifier) 설명하세요
+   키워드 : 예약어
+   식별자 : 개발자  부여하는 이름( 변수명, 클래스명, 함수명 등등 )
+   [복습] 자바의 예약어  정리
+   
+10.  [변수, 상수, 리터럴]에 대해서 설명하세요.
+   ㄱ. 변수 ? 값을 저장하는 저장공간, 변하는 수
+            String name;
+            name  ="이창익";
+            syso( name );
+            name = "홍길동";
+            syso( name);              
+   ㄴ. 상수 ? 값을 저장하는 저장공간
+                  초기화( 값을 처음 할당 )
+                  재할당X
+                
+           final String  NAME;   // 상수명은 전부 대문자를 사용한다.( 권장 )
+           변수 :  first name  => firstName
+           상수 :                       => FIRST_NAME
+           MAX_VALUE , MIN_VALUE   
+           NAME = "이창익";
+           NAME = "홍길동";  // [오류, 에러], 예외     에러메시지 확인/ 번역
+              
+          상수는 왜 필요한가 ? 
+          // 대표적인 정수 저장하는 자료형 : int 
+		// 대표적인 실수 저장하는 자료형 : double
+		final double PI = 3.141592;
+		
+		원반지름 * pi;
+		원반지름 * pi;
+		원반지름 * pi;
+		원반지름 * pi;
+		원반지름 * pi;
+		원반지름 * pi;
+		원반지름 * pi;
+		pi 변경 X
+		원반지름 * pi;
+		원반지름 * pi;
+		원반지름 * pi;
+		원반지름 * pi;
+		원반지름 * pi;
+		원반지름 * pi;
+		원반지름 * pi;
+		원반지름 * pi;
+		원반지름 * pi;
+		원반지름 * pi;
+		원반지름 * pi;
+		원반지름 * pi;
+		        
+   ㄷ. 리터럴 ? 값 자체
+        3            정수 리터럴
+        3.14       실수 리터럴
+        true        
+        'X'            문자 리터럴
+        "홍길동"  문자열 리터럴
+   
+ 11. 식별자(변수,클래스명, 패키지명 등등)를 명명하는 규칙에 대해서 설명하세요. 
+    - 첫 문자는 숫자 X
+    - $ _ 사용가능 
+     String _name;  //  클래스의 멤버변수를 선언할 때 _변수명;
+     String  $name;
+    - 한글사용.
+        String 이름;
+		이름 ="홍길동";
+		System.out.println(이름); 
+ 
+ 12. 함수(메서드)를 사용할 때 중요한 3가지 사항에 대해서 설명하세요. 
+     1) 기능(일)
+     2) 매개변수  
+     3) 리턴값( 리턴자료형 )
+              X          void
+ 
+ 13. 이클립스로  java project 생성 후 설정한 것 모두 설명하세요.. 
+    ( Window > Preperences )  
+    enc                          MS949 -> UTF8 인코딩 변경
+    font                        Verdana 설정   
+    개발자가 선호하는 글꼴 
+    I J -  plugin JRE X ->   JDK11.x
+    C       11
+    
+       
+       
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    
+      

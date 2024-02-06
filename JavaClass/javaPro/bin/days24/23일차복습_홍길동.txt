@@ -1,0 +1,212 @@
+1.   현재 날짜와 시간 정보를   LocalDateTime 클래스를 사용해서 
+     아래와 같은 형식으로 출력하세요 .     
+     출력 형식 ) 2023/02/28 화요일   12:17:57.356 
+
+       // 출력 형식 ) 2023/02/28 화요일   12:17:57.356
+		// 1.  객체 생성 : now(), of()
+		// 2.  출력 형식  : 형식화 클래스 DateTimeFormatter
+		LocalDateTime dt = LocalDateTime.now();
+		System.out.println( dt );  // 2023-02-28T09:48:35.144031700
+		
+		String pattern = "yyyy/MM/dd E요일   hh:mm:ss.SSS";
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
+		String s = formatter.format(dt);
+		System.out.println( s ); // 2023/02/28 화요일   09:51:52.823
+		
+		String s2 =  dt.format(formatter);
+		System.out.println( s2  );
+
+2.  String s = "2023.02.28 (화)" 문자열을 LocalDate 클래스로 변환시키세요.
+String s = "2023.02.28 (화)";
+		// String s = "2023-02-28";  // ISO 
+		
+		String pattern = "yyyy.MM.dd (E)";
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
+		
+		LocalDate d  = LocalDate.parse(s , formatter); 
+		System.out.println( d );
+
+
+3. 용어 정리
+  1)  프레임워크( framework ) 정의에 대해서 설명하세요. 
+  2) 컬렉션 프레임워크 정의에 대해서 설명하세요. 
+  3) 컬렉션 프레임워크의 핵심 인터페이스( 3가지 타입 ) 에 대해서 설명하세요. 
+        Collection 인터페이스 
+              ㄴ List 인터페이스 : 순O, 중O
+              ㄴ Set 인터페이스 : 순X, 중X               
+        
+       Map 인터페이스  : 키(key)+값(value)  한 쌍으로 관리
+                                      엔트리(Entry)   
+                                    순서 유지 X
+                                    키 중 O, 값 중 X     
+            
+  
+
+4. ArrayList 컬렉션 클래스를 사용하여 
+  1) 팀원들 이름을 요소로 추가하기
+  2) 반복자(iteratror)를 사용해서 모든 요소 출력하기      ***
+  3) 팀원 한명을 검색해서 있다면 "홍길동"으로 수정하기
+  4) "홍길동"을 검색해서 있다면 삭제하기.
+  
+ArrayList list = new ArrayList();
+		list.add("이태규"); // 0
+		list.add("김지은");  // 1
+		list.add("김씨");	  // 4	
+		list.add("설경인");  // 2
+		list.add("윤재민");  // 3
+		list.add("홍김씨");  // 5	
+		System.out.println(  list );
+		/*
+		// 반복자 사용해서 출력.
+		Iterator ir = list.iterator();
+		// hasNext()
+		// next() 
+		while (ir.hasNext()) {
+			String name = (String) ir.next();
+			System.out.println( name  );
+		}
+		System.out.println( "-".repeat(40));
+		*/
+		/*
+		// boolean list.contains("김지은")
+		int idx =  list.indexOf("김지은");
+		// list.lastIndexOf("김지은");
+	    if( idx != -1 ) {
+	    	list.set(idx, "홍길동");
+	    }
+	    System.out.println(   list  );
+	    System.out.println( "-".repeat(40));
+	    */
+	    /*
+	   idx =  list.indexOf("홍길동"); 
+	    if( idx != -1 ) {
+	       list.remove(idx);
+	      //  list.remove("홍길동");
+	    }
+	    System.out.println(   list  );
+	    System.out.println( "-".repeat(40));
+	    */
+	    
+	    // [문제] 목록 안에 "김"씨 학생은 모두 삭제(제거)
+		//  size()
+		//  get()
+		//  startsWith()
+		/*
+		for (int i = list.size()-1; i >=0    ; i--) {
+			 String name =   (String) list.get(i);
+			 // if( name            .contains("김") ) {
+			 // if(  name.charAt(0) == '김' ) {
+			 // name.matches("김.+")
+			 if(  name.startsWith("김")  ) {
+				 // System.out.println(  name  );
+				 list.remove(i);
+			 } 
+		}
+		*/
+		
+		/*
+		list.removeIf(  new Predicate<String>() { 
+			@Override
+			public boolean test(String t) { 
+				return t.startsWith("김");
+			}
+		}  );
+		*/
+		
+		list.removeIf(  (t)  -> ((String) t).startsWith("김")  );
+		
+		System.out.println(  list );  
+  
+  
+5. 이름, 나이 필드를 가진 Person 클래스를 선언하고
+   ArrayList 컬렉션 클래스에  Person 객체를 요소로 추가하고 
+   이름으로 오름차순 정렬해서    출력하는 코딩을 하세요 .. 
+   1) Person 클래스 선언
+   2) Person 객체 요소 추가
+   
+   11:03 수업 시작~~~ 
+   3) list 정렬
+   4) interator 반복자 사용 출력.
+
+
+class Person  implements Comparable<Person>{
+	// field
+	private String name;
+	private int age;
+	
+	// constructor
+	public Person() {
+		super(); 
+	}
+	public Person(String name, int age) {
+		super();
+		this.name = name;
+		this.age = age;
+	}	
+	// getter, setter
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	
+	@Override
+	public String toString() {
+		return "Person [name=" + name + ", age=" + age + "]";
+	}
+	
+	@Override
+	public int compareTo(Person o) {
+		// return  this.name.compareTo(o.name); // 0 , 양수, 음수
+		return this.age - o.age; 
+	}
+	
+}
+
+ArrayList  list = new ArrayList();
+		
+		list.add(new Person("이혜진", 20));
+		list.add(new Person("박진용", 25));
+		list.add(new Person("박현주", 24));		
+		list.add(new Person("김수민", 23));
+		
+		// 오름차순 정렬
+		// 나이순으로 오름차순 정렬.  코딩 수정.. 
+		list.sort(null);
+		
+		// System.out.println(  list  );
+	    Iterator  ir =  list.iterator();
+	    while (ir.hasNext()) {
+			Person  p = (Person) ir.next();
+			System.out.println(  p  ); 
+		}
+
+6.  java.time 패키지 클래스 사용. (   LocalDateTime )
+    1) 설문 시작일 23.2.15  09:00:00
+    2) 설문 종료일 23.2.28 09:00:00
+   오늘 현재 설문 가능한여부를 출력하세요.
+
+		LocalDateTime s = LocalDateTime.of(2023, 2, 15,  9,0, 0);
+		LocalDateTime e = LocalDateTime.of(2023, 2, 28,  9,0, 0);
+		
+		LocalDateTime t = LocalDateTime.now();
+		
+		if(  t.isBefore(s) || t.isAfter(e) ) System.out.println("설문 X");
+		else System.out.println("설문 O");
+
+
+
+
+
+
+
+
+
+  

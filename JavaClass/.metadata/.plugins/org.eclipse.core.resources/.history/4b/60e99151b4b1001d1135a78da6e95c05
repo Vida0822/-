@@ -1,0 +1,26 @@
+package days19;
+
+/**
+ * @author dlsgu
+ * @date 2023. 2. 21. 오후 3:20:59
+ * @subject
+ * @content
+ */
+public class Ex07_02 {
+
+	public static void main(String[] args) {
+
+		String msg = "안녕하세요. InHyeok 입니다";
+		// 문제) msg 문자열 속에서 한글은 제거하고 알파벳만을 얻어와서 name 변수에 저장해서 출력하세요
+		String name = "";
+		for (int i = 0; i < msg.length(); i++) {
+			char one = msg.charAt(i);
+			if ((one >= 'A' && one <= 'Z') || (one >= 'a' && one <= 'z')) {
+				name += one;
+			}
+		}
+		System.out.println(name);
+
+	}//main
+
+}//class

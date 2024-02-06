@@ -1,0 +1,111 @@
+1. 1/2+2/3+3/4+4/5+5/6+6/7+7/8+8/9+9/10=7.071032
+
+		double sum = 0;
+		for (int i = 1; i <= 9; i++) {
+			System.out.printf("%d/%d+", i, i+1);
+			sum += (double)i/(i+1);
+		}
+		System.out.printf("\b=%f\n", sum);
+
+2. 피보나치(fibonacci) 수열
+   1+1+2+3+5+8+13+21+34+55+89+...+???=???
+  (조건 : 항의 갯수가 20개 까지의 합 출력)
+
+		int firstTerm = 1;
+		int secondTerm = 1;
+		int nextTerm;
+		int sum = firstTerm + secondTerm;
+		System.out.printf("%d+%d+", firstTerm, secondTerm);
+		for (int i = 3; i <= 20; i++) {
+			nextTerm = firstTerm + secondTerm;
+			System.out.printf("%d+", nextTerm);
+			sum += nextTerm;
+			firstTerm = secondTerm;
+			secondTerm = nextTerm;
+		}
+		System.out.printf("\b=%d\n", sum);
+
+3. 주민등록번호를 검증(check)하는 함수를 선언하세요
+   1) 기능 : isRRNCheck
+   2) 매개변수 : String rrn
+   3) 리턴값 및 리턴자료형 : boolean
+      올바른 주민등록번호일 때 true 반환
+      잘못된 주민등록번호일 때 false 반환
+
+	public static boolean isRRNCheck(String rrn) {
+		int [] mul = {2,3,4,5,6,7,0,8,9,2,3,4,5};
+		int tot = 0;
+		for (int i = 0; i < rrn.length()-1; i++) {
+			tot += (rrn.charAt(i)-48)*mul[i];
+		} 
+		if (Integer.parseInt(rrn.substring(13))==(11-tot%11)%10) return true;
+		else return false;
+	}
+
+추가1. 10진수 정수(int)를 입력받아서 2바이트 2진수 형태로 출력
+
+		Scanner scanner = new Scanner(System.in);
+		int n;
+		int count = 0;
+		do {
+			if (count !=0) System.out.println("잘못된 입력값입니다");
+			System.out.print("정수를 입력해주세요(-32768~32767) : ");
+			n = scanner.nextInt();
+			count++;
+		} while (n < -32768 || n >=32768 );
+		int [] change = new int[16];
+		int r;
+		for (int i = 0; i < 16; i++) {
+			r = 1;
+			for (int j = 0; i+j<15; j++) {
+				r *= 2;
+			}//for j
+			if (n>=r) {
+				n = n-r ;
+				change[i] = 1;
+			} else change[i] = 0;
+		}// for i
+		for (int i = 0; i < change.length; i++) {
+			System.out.printf("[%d]", change[i]);
+		}
+
+추가2. 머니를 입력받아서 각 화폐 단위의 갯수 출력
+
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("> 머니 입력 ? ");
+		int money = scanner.nextInt();
+		int per = 50000;
+		int n;
+		for (int i = 0; i < 10; i++) {
+			n = money/per;
+			System.out.printf("%d원 : %d개\n",per, n);
+			money = money-n*per;
+			if (i %2 == 0) per = per/5;
+			else per = per/2;
+		}
+
+추가3. 막대기 자르기 - 취업문제
+각각 0이상의 정수를 길이로 하는 N개의 막대기가 있다
+이 막대기들 중 가장 짧은 막대기의 길이로 모든 막대기를 자르는 것을 [cut operation]이라고 하자
+예를 들어 6개의 막대기가 있고 그 길이가 다음과 같다면
+5 4 4 2 2 8
+이 경우 [Cut Operation]을 한 번 수행하면 다음과 같다
+3 2 2 6
+(가장 짧은 길이인 2로 6개의 막대기를 잘라내고 길이가 0이 되어버린 2개의 막대기는 버려진다)
+N개의 막대기와 그 각각의 길이가 주어졌을 때 [Cut Operation]을 모든 막대기가 버려질 때(길이가 0이 될 때)까지 반복하고
+수행 시 마다 남은 막대기의 수를 출력하는 프로그램을 작성하라
+
+제한
+1<=N<=1000
+1<=막대기의 길이<=1000
+
+입력 예제
+6
+5 4 4 2 2 8
+
+출력 예제
+6
+4
+2
+1
+
