@@ -1,0 +1,226 @@
+1.  TO_CHAR( ,  'format') 함수에서 'format'에 사용되는 기호를 적으세요.
+  ㄱ. 년도 : 'YYYY', 'YY', 'RRRR', 'RR'
+  ㄴ. 월 : 'MM', 'MONTH', 'MON'
+  ㄷ. 월의 일 : 'DD'
+      주의 일 : 'D'
+      년의 일 : 'DDD'
+  ㄹ. 요일 : 'DY', 'DAY'
+  ㅁ. 월의 주차 : 'W'
+      년의 주차 : 'WW'
+  ㅂ. 시간/24시간 : 'HH'/'HH24'
+  ㅅ. 분 : 'MI'
+  ㅇ. 초 : "SS"
+  ㅈ. 자정에서 지난 초 : 'SSSSS'
+  ㅊ. 오전/오후 : 'AM', 'PM'
+  
+2. 본인의 생일로부터 오늘까지 살아온 일수, 개월수, 년수를 출력하세요..
+
+SELECT TO_CHAR( SYSDATE - 1996/06/29 )
+FROM dual;
+
+3. IW와 WW 의 차이점.
+
+IW : 월요일~일요일이 한 주차
+WW : 1일~7일이 한 주차
+
+4-1. 이번 달이 몇 일까지 있는 확인.
+SELECT TO_CHAR( LAST_DAY( SYSDATE ), 'DD' ) last_day
+FROM dual;
+
+4-2. 오늘이 년중 몇 째 주, 월중 몇 째주인지 확인. 
+
+SELECT TO_CHAR( SYSDATE, 'WW' ) y_week , TO_CHAR( SYSDATE, 'W' ) m_week
+FROM dual;
+
+5. emp 에서  pay 를 NVL(), NVL2(), COALESCE()함수를 사용해서 출력하세요.
+
+SELECT sal+NVL(comm,0) n_pay, NVL2( sal+comm, sal+comm, sal ) n2_pay, COALESCE( sal+comm, sal, 0 ) c_pay
+FROM emp;
+
+5-2. emp테이블에서 mgr이 null 인 경우 -1 로 출력하는 쿼리 작성
+      ㄱ. nvl()
+      
+      SELECT NVL( mgr, -1 )
+      FROM emp;
+      
+      ㄴ. nvl2()
+      
+      SELECT NVL2( mgr, mgr, -1 )
+      FROM emp;
+      
+      ㄷ. COALESCE()
+      
+      SELECT COALESCE( mgr, -1 )
+      FROM emp;
+
+6. insa 에서  이름,주민번호, 성별( 남자/여자 ) 출력 쿼리 작성-
+    ㄱ. DECODE()
+    
+    SELECT name, ssn
+         , DECODE( MOD( SUBSTR( ssn, -7, 1 ), 2 ), 1, '남자', 0, '여자' ) gender
+    FROM insa;
+    
+    ㄴ. CASE 함수
+    
+        SELECT name, ssn
+             , CASE MOD( SUBSTR( ssn, -7, 1 ), 2 )
+                WHEN 1 THEN '남자'
+                WHEN 0 THEN '여자'
+               END gender
+    FROM insa;
+
+7. emp 에서 평균PAY 보다 같거나 큰 사원들만의 급여합을 출력.
+  ( DECODE, CASE 사용해서 풀이 ) 
+  
+SELECT SUM( DECODE( SIGN( pay - avg_pay ), 1, pay, 0 ) ) sum_pay
+FROM (
+        SELECT ename, sal+NVL(comm,0) pay, ( SELECT AVG( sal+NVL(comm,0) ) FROM emp ) avg_pay
+        FROM emp
+    ) t;
+
+SELECT SUM( CASE SIGN( pay - avg_pay ) WHEN 1 THEN pay ELSE 0 END ) sum_pay
+FROM (
+        SELECT ename, sal+NVL(comm,0) pay, ( SELECT AVG( sal+NVL(comm,0) ) FROM emp ) avg_pay
+        FROM emp
+    ) t;
+
+8. emp 에서  사원이 존재하는 부서의 부서번호만 출력
+
+SELECT DISTINCT( DECODE( deptno, 10, 10, 20, 20, 30, 30, 40, 40 ) )
+FROM emp;
+
+9. 아래 코딩을  DECODE()를 사용해서 표현하세요.
+    ㄱ. [자바]
+        if( A == B ){
+           return X;
+        }
+    
+    SELECT DECODE( 'A', 'B', 'X' )
+    FROM dual;
+    
+    ㄴ. [자바]
+        if( A==B){
+           return S;
+        }else if( A == C){
+           return T;
+        }else{
+           return U;
+        }
+        
+     SELECT DECODE( 'A', 'B', 'S', 'C', 'T', 'U' )
+     FROM dual;   
+    
+    ㄷ.  [자바]
+        if( A==B){
+           return XXX;
+        }else{
+           return YYY;
+        }
+     
+      SELECT DECODE( 'A', 'B', 'XXX', 'YYY' )
+      FROM dual;
+
+10. insa테이블에서 1001, 1002 사원의 주민번호의 월/일 만 오늘 날짜로 수정하는 쿼리를 작성 
+SELECT *
+FROM insa;
+
+UPDATE insa
+SET ssn = REPLACE( ssn, SUBSTR( ssn, 3, 4 ), TO_CHAR( SYSDATE, 'MMDD' ) )
+WHERE num IN (1001, 1002);
+ROLLBACK;
+COMMIT:
+
+10-2. insa테이블에서 오늘('2023.03.21')을 기준으로 아래와 같이 출력하는 쿼리 작성.  
+   ( DECODE, CASE 함수 사용 )
+   
+SELECT name, ssn
+     , DECODE( SIGN( TRUNC( SYSDATE ) - TO_DATE( SUBSTR( ssn, 3, 4 ), 'MMDD' ) ), -1, '생일 전', 1, '생일 후', '오늘 생일' ) d_result
+     , CASE SIGN( TRUNC( SYSDATE ) - TO_DATE( SUBSTR( ssn, 3, 4 ), 'MMDD' ) )
+        WHEN -1 THEN '생일 전'
+        WHEN 1 THEN '생일 후'
+        WHEN 0 THEN '오늘 생일'
+       END c_result
+FROM insa;
+   
+결과)
+장인철	780506-1625148	생일 후
+김영년	821011-2362514	생일 전
+나윤균	810810-1552147	생일 후
+김종서	751010-1122233	오늘 생일
+유관순	801010-2987897	오늘 생일
+정한국	760909-1333333	생일 후
+
+10-3. insa테이블에서 오늘('2023.03.21')기준으로 이 날이 생일인 사원수,지난 사원수, 안 지난 사원수를 출력하는 쿼리 작성. 
+
+SELECT 
+      COUNT( DECODE( SIGN( TRUNC( SYSDATE ) - TO_DATE( SUBSTR( ssn, 3, 4 ), 'MMDD' ) ), -1, 'O' ) ) "생일 전 사원수"
+    , COUNT( DECODE( SIGN( TRUNC( SYSDATE ) - TO_DATE( SUBSTR( ssn, 3, 4 ), 'MMDD' ) ), 1, 'O' ) ) "생일 후 사원수"
+    , COUNT( DECODE( SIGN( TRUNC( SYSDATE ) - TO_DATE( SUBSTR( ssn, 3, 4 ), 'MMDD' ) ), 0, 'O' ) ) "오늘 생일 사원수"
+FROM insa;
+
+[실행결과]
+  생일 전 사원수   생일 후 사원수  오늘 생일 사원수
+---------- ---------- ----------
+        48         12          0
+
+11.  emp 테이블에서 10번 부서원들은  급여 15% 인상
+                20번 부서원들은 급여 10% 인상
+                30번 부서원들은 급여 5% 인상
+                40번 부서원들은 급여 20% 인상
+  하는 쿼리 작성.     
+
+SELECT deptno, empno, ename
+     , COALESCE( sal+comm, sal, 0 ) pay
+     , '+' || DECODE( deptno, 10, 15, 20, 10, 30, 5, 40, 20, 0 ) || '%' "%"
+     , COALESCE( sal+comm, sal, 0 ) * DECODE( deptno, 10, 1.15, 20, 1.10, 30, 1.05, 40, 1.20, 1 ) update_pay
+FROM emp
+ORDER BY deptno;
+          
+12. emp 테이블에서 각 부서의 사원수를 조회하는 쿼리
+  ( 힌트 :  DECODE, COUNT 함수 사용 )
+
+SELECT 
+      COUNT( DECODE( deptno, 10, 'O' ) ) "10번 부서 사원수"
+    , COUNT( DECODE( deptno, 20, 'O' ) ) "20번 부서 사원수"
+    , COUNT( DECODE( deptno, 30, 'O' ) ) "30번 부서 사원수"
+    , COUNT( DECODE( deptno, 40, 'O' ) ) "40번 부서 사원수"
+    , COUNT( DECODE( deptno, NULL, 'O' ) ) "부서가 없는 사원수"
+FROM emp;
+
+13. emp, salgrade 두 테이블을 참조해서 아래 결과 출력 쿼리 작성.
+
+ENAME   SAL     GRADE
+----- ----- ---------
+SMITH	800	    1
+ALLEN	1900	3
+WARD	1750	3
+JONES	2975	4
+MARTIN	2650	4
+BLAKE	2850	4
+CLARK	2450	4
+KING	5000	5
+TURNER	1500	3
+JAMES	950	    1
+FORD	3000	4
+MILLER	1300	2
+
+
+14. emp 테이블에서 급여를 가장 많이 받는 사원의 empno, ename, pay 를 출력.
+14-2. emp 테이블에서 각 부서별 급여를 가장 많이 받는 사원의 pay를 출력
+ 1) UNION ALL 사용해서 풀기
+ 2) GROUP BY  사용해서 풀기
+ 3) 상관 서브쿼리 사용해서 풀기
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

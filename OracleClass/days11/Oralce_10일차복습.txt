@@ -1,0 +1,123 @@
+1. 오라클 각 DataType 에 대해 상세히 설명하세요
+
+문자 : char - 고정길이, 영어 1바이트, 한글 3바이트, 최대 2000바이트
+      nchar - 고정길이, 영어와 한글 모두 2바이트, 최대 2000바이트
+      varchar2 - 가변길이, 영어 1바이트, 한글 3바이트, 최대 4000바이트
+      nvarchar2 - 가변길이, 영어와 한글 모두 2바이트, 최대 4000바이트
+      varchar - varchar2의 시노님
+      long - 가변길이, 최대 2GB
+숫자 : number(p,s) - p : 전체 자리수, s : 소수점 자리수
+      float - number로 처리
+날짜 : date - 날짜 + 시간, 고정길이 7바이트
+      timestamp - 날짜 + 시간, 소수점자리 초까지
+이진데이터 : raw - 가공되지 않은, 2000바이트
+           longraw - 가공되지 않은, 2GB
+           bfile - 외부파일 형태
+LOB( Large OBject ) - blob(이진), clob(char), nclob(nchar)
+
+2.  emp 테이블에서 [년도별] [월별] 입사사원수 출력.( PIVOT() 함수 사용 )
+
+SELECT *
+FROM (
+    SELECT EXTRACT( YEAR FROM hiredate ) hire_year, EXTRACT( MONTH FROM hiredate ) hire_month
+    FROM emp
+    )
+PIVOT( COUNT( hire_month ) FOR hire_month IN (1,2,3,4,5,6,7,8,9,10,11,12) );
+
+    [실행결과]
+    1982	1	0	0	0	0	0	0	0	0	0	0	0
+    1980	0	0	0	0	0	0	0	0	0	0	0	1
+    1981	0	2	0	1	1	1	0	0	2	0	1	2
+    
+2-2.   emp 테이블에서 각 JOB별 입사년도별 1월~ 12월 입사인원수 출력.  ( PIVOT() 함수 사용 ) 
+
+SELECT *
+FROM (
+    SELECT JOB, EXTRACT( YEAR FROM hiredate ) hire_year, EXTRACT( MONTH FROM hiredate ) hire_month
+    FROM emp
+    )
+PIVOT( COUNT( hire_month ) FOR hire_month IN (1,2,3,4,5,6,7,8,9,10,11,12) )
+ORDER BY job;
+
+    [실행결과]
+    ANALYST		1981	0	0	0	0	0	0	0	0	0	0	0	1
+    CLERK		1980	0	0	0	0	0	0	0	0	0	0	0	1
+    CLERK		1981	0	0	0	0	0	0	0	0	0	0	0	1
+    CLERK		1982	1	0	0	0	0	0	0	0	0	0	0	0
+    MANAGER		1981	0	0	0	1	1	1	0	0	0	0	0	0
+    PRESIDENT	1981	0	0	0	0	0	0	0	0	0	0	1	0
+    SALESMAN	1981	0	2	0	0	0	0	0	0       
+    
+3. emp테이블에서 입사일자가 오래된 순으로 3명 출력 ( TOP 3 )
+
+SELECT ROWNUM, t.*
+FROM ( SELECT * FROM emp ORDER BY hiredate ASC ) t
+WHERE ROWNUM <= 3;
+
+    [실행결과]
+    1	7369	SMITH	CLERK	    7902	80/12/17	800		    20
+    2	7499	ALLEN	SALESMAN	7698	81/02/20	1600	300	30
+    3	7521	WARD	SALESMAN	7698	81/02/22	1250	500	30    
+    
+4. SMS 인증번호  임의의  6자리 숫자 출력 ( dbms_random  패키지 사용 )
+
+SELECT TRUNC( DBMS_RANDOM.VALUE(100000,1000000) ) sms
+FROM dual;
+
+4-2. 임의의 대소문자 5글자 출력( dbms_random  패키지 사용 )
+
+SELECT DBMS_RANDOM.STRING('A',5)
+FROM dual;
+
+5. 게시글을 저장하는 테이블 생성
+   ㄱ.   테이블명 : tbl_board
+   ㄴ.   컬럼                     자료형  크기    널허용여부    고유키
+         글번호    seq            
+         작성자    writer     
+         비밀번호 passwd      
+         글제목    title       
+         글내용    content
+         작성일    regdate   
+    ㄷ.  글번호, 작성자, 비밀번호, 글 제목은 필수 입력 사항으로 지정
+    ㄹ.  글번호가  기본키( PK )로 지정
+    ㅁ.  작성일은 현재 시스템의 날짜로 자동 설정    
+    
+5-2. 조회수    read   컬럼을 추가 ( 기본값 0 으로  설정 ) 
+
+5-3. 테이블 구조 확인 
+5-4. CRUD  ( insert, select, update, delete ) 
+   ㄱ. 임의의 게시글 5개를 추가 insert
+   ㄴ. 게시글 조회 select
+   ㄷ. 3번 게시글의 글 제목, 내용 수정 update
+   ㄹ. 4번 게시글 삭제 delete
+5-5. tbl_board 테이블 삭제  
+
+6-1. 오늘의 날짜와 요일 출력 
+
+SELECT SYSDATE "오늘날짜", TO_CHAR( SYSDATE, 'D' ) "숫자요일", TO_CHAR( SYSDATE, 'DY' ) "한자리요일", TO_CHAR( SYSDATE, 'DAY' ) "요일"
+FROM dual;
+
+ [실행결과]
+오늘날짜  숫자요일  한자리요일       요일
+-------- ---        ------   ------------
+22/04/15  6             금      금요일      
+
+6-2. 이번 달의 마지막 날과 날짜만 출력 
+
+SELECT SYSDATE "오늘날짜", LAST_DAY( SYSDATE ) "이번달마지막날짜", EXTRACT( DAY FROM LAST_DAY( SYSDATE ) ) "마지막날짜(일)"
+FROM dual;
+
+ [실행결과]
+오늘날짜  이번달마지막날짜                  마지막날짜(일)
+-------- -------- -- ---------------------------------
+22/04/15 22/04/30 30                                30
+
+6-3.
+
+SELECT SYSDATE "오늘날짜", TO_CHAR( SYSDATE, 'W' ) "월의주차", TO_CHAR( SYSDATE, 'WW' ) "년의주차", TO_CHAR( SYSDATE, 'IW' ) "년의 주차"
+FROM dual;
+
+ [실행결과]
+오늘날짜    월의주차 년의주차 년의 주차
+--------    -       --      -- 
+23/03/24      4     12       12 
