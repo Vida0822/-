@@ -1,0 +1,16 @@
+[notice.htm] 요청 URL
+Ctrl + F11
+
+[p.512] 전파방식 
+
+p. 512 표12.1 스프링 지원하는 전파방식 - REQUIRED 
+
+	@Transactional 
+	[계좌이체 트랜잭션]
+	[ 1. 출금   +  1.5 로그기록  +   2. 입금]
+						ㄴ 별도로 트랜잭션 처리가 된 함수 호출 
+	
+	@Transactional 
+	[로그 메서드]
+	
+	

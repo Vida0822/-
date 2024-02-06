@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;DeptDTO.java&apos; to &apos;SL10_Rest_Test/src/main/java/org.doit.ik.domain&apos;&#x0D;&#x0A;- Original project: &apos;SL01_MVC&apos;&#x0D;&#x0A;- Destination element: &apos;SL10_Rest_Test/src/main/java/org.doit.ik.domain&apos;&#x0D;&#x0A;- Original element: &apos;org.doit.ik.domain.DeptDTO.java&apos;" description="Copy compilation unit" destination="=SL10_Rest_Test/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;org.doit.ik.domain" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;org.doit.ik.domain{DeptDTO.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1688350013910" units="1" version="1.0"/>
+</session>

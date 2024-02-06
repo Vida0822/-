@@ -1,0 +1,9 @@
+package org.doit.ik.service;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public interface ViewProjectService {
+	
+	// 프로젝트 얻어오기 
+}

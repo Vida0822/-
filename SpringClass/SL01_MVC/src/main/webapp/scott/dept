@@ -1,0 +1,9 @@
+/scott/dept 요청 url (index.jsp 대신) 
+ㄴ 파일 구조 자체가 이 요청 url 앞에 얘가 붙음 
+
+mybatis 
+org.doit.ik.mapper 패키지 
+	ㄴ SampleMapper.java 복사 붙이기 -> DeptMapper.java 
+	
+/scott/dept.do?dept=10 
+=> /scott/dept/10 => 그냥 직접 만들어준 url 패턴 

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.doit.ik.mapper.ProjectMapper">
+
+	<!--  상세보기용 프로젝트 조회  -->
+	<select id="getProject" resultType="org.doit.ik.domain.Project">
+		<![CDATA[
+			SELECT *
+			FROM project
+			WHERE pro_cd = #{pro_cd}
+		]]>
+	</select>
+
+	<!--  세부 카테고리 객체 얻어오기 -->	
+	<select id="getDetailCategory" resultType="org.doit.ik.domain.DetailCategory">
+		<![CDATA[
+			SELECT d.* 
+			FROM PROJECT p JOIN DTL_CTG d ON p.dtl_ctg_code = d.dtl_ctg_code 
+			WHERE PRO_CD = #{pro_cd}
+		]]>
+	</select>	
+	
+		
+	<select id="getImageFiles" resultType="org.doit.ik.domain.File">
+		<![CDATA[
+			SELECT * 
+			FROM ATT_FILE 
+			WHERE  PRO_CD = #{pro_cd}
+		]]>
+	</select>
+		
+</mapper>

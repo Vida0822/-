@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 	RecordImpl record = new RecordImpl() ;  -->
+	<!--  객체 생성하겠다는 태그 (똑같은 코딩) => 빈즈 컬렉션은 풀네임을 줘야함 -->
+	<bean id="record" class="org.doit.ik.di.RecordImpl"></bean> 
+	
+	<!-- 
+	RecordViewImpl rvi = new RecordViewImpl();
+	rvi.setRecord(record); 
+	 -->
+	<bean id="rvi" class="org.doit.ik.di.RecordViewImpl">
+		<!-- 	[setter DI]  -->
+<!--  <property name="setRecord" ref="record"/> - 오류 	 -->
+<!-- 	<property name="record" ref="record"/> - ref : 참조하는 객체 / name : setter 함수 이름  -->
+<!-- 	<property name="record">                               
+			<ref bean="record"/> 
+		</property> -->
+		
+		<!-- 	[생성자 DI]   -->
+		<constructor-arg ref="record"/>
+	</bean> 
+	
+</beans>

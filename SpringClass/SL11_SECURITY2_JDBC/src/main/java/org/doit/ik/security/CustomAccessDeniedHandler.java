@@ -1,0 +1,29 @@
+package org.doit.ik.security;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.web.access.AccessDeniedHandler;
+import org.springframework.stereotype.Component;
+
+import lombok.extern.log4j.Log4j;
+
+@Component("customAccessDeniedHandler")
+@Log4j
+public class CustomAccessDeniedHandler implements AccessDeniedHandler {
+
+	@Override
+	public void handle(HttpServletRequest request, HttpServletResponse response,
+			AccessDeniedException accessDeniedException) throws IOException, ServletException {
+		log.error("> Access Denied Handler");
+		log.error("> Redirect ");
+		
+		response.sendRedirect("/common/accessError.htm");
+		// 바로 이 응답페이지로 보내는게 아니라 이 컨트롤러에 handle 함수를 거쳐서 응답하겠다는 코딩 
+	} // handle
+
+} // CustomAccessDeniedHandler

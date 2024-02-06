@@ -1,0 +1,731 @@
+
+Oracle 7일차 복습 
++ 8일수업내용 ( Decode - Case - Group By / Join / Top-N, Rank ) 
+
+1.  TO_CHAR( ,  'format') 함수에서 'format'에 사용되는 기호를 적으세요.
+  ㄱ. 년도 : Y,YY,YYY, YYYY, IY, IYY,IYYY, IYYYY, YEAR, SYEAR, RR, RRRR  
+  ㄴ. 월 : MM, MON,MONTH 
+  ㄷ. 월의 일 : DD
+      주의 일 : D
+      년의 일 : DDD
+  ㄹ. 요일 : DY, DAY 
+  ㅁ. 월의 주차 : W
+      년의 주차 : WW, IW  
+  ㅂ. 시간/24시간 : HH, HH12, HH24 
+  ㅅ. 분 : MI 
+  ㅇ. 초 : SS
+  ㅈ. 자정에서 지난 초 : SSSSS
+  ㅊ. 오전/오후 : AM/PM 
+  
+2. 본인의 생일로부터 오늘까지 살아온 일수, 개월수, 년수를 출력하세요..
+
+1) 일
+Select 
+ABS(Trunc(Sysdate) -To_Date('2000.08.22')) 일 수 --  8246 
+
+2) 월 
+, Round(ABS(Trunc(Sysdate) -To_Date('2000.08.22'))/30,2 ) 월수 -- 275
+, Ceil(Months_Between(Sysdate, To_Date('1993.12.19')) ) 월수 -- 275  * 소수점 있으면 왠만하면 올림 ! 
+
+3) 년 
+, Round(ABS(Trunc(Sysdate) -To_Date('2000.08.22'))/30/12 ) 년수 -- 23 
+, Ceil(Months_Between(Sysdate, To_Date('1993.12.19'))/12 , 2 ) 
+
+From dual; 
+
+*날짜-날짜 = 일수 
+※ Sysdate - '1993.12.19' --  error: invalid number ! > '1993.12.10' 을 날짜로 형변환 
+
+
+3. IW와 WW 의 차이점. ex) 2022.01 
+
+IW: 일요일을 기준으로 주차 표시  --> 1/2~1/9 : 1주차 , 1/1 : 그전년도의 마지막 주차 
+WW: 1일~7일을 기준으로 주차 표시  --> 1/1~1/7 : 1주차 
+
+
+4-1. 이번 달이 몇 일까지 있는 확인.
+
+Select 
+1) To_Char (Last_Day(Sysdate) , 'DD')  -- 문자를 반환 
+2) Extract (Day From Last_Day (Sysdate )  ) -- 숫자를 반환 	
+3) 다음달 1일에서 하루 빼기
+To_Date (To_Char (Sysdate, 'YYYY.MM' ) 
+To_Char (Sysdate, 'YYYY.MM' ) 
+Add Months (Sysdate,1) 
+To_Char (Add Months (Sysdate,1) ,'YYYY.MM') 
+↓
+To_Date(To_Char(Add_Months(Sysdate,1) , 'YYYY.MM'), 'YYYY.MM') -1 
+
+From dual; 
+
+4-2. 오늘이 년중 몇 째 주, 월중 몇 째주인지 확인. 
+
+Select To_Char( Sysdate, 'W') -- 3 
+    ,To_Char( Sysdate, 'WW')  --12 
+    , To_Char( Sysdate, 'IW')  --12
+From dual; 
+
+
+5. emp 에서  pay 를 NVL(), NVL2(), COALESCE()함수를 사용해서 출력하세요.
+(= 널처리하세용) 
+
+Select NVL(sal+comm, sal) pay  -- = sal+NVL(comm,0) 
+    , NVL2(sal+comm,sal+comm,sal) pay
+    , Coalesce (sal+comm,sal,0) pay -- = sal + Coalesce(comm,0) 
+From emp ; 
+
+5-2. emp테이블에서 mgr이 null 인 경우 -1 로 출력하는 쿼리 작성 
+      ㄱ. nvl() > NVL(mgr, -1)
+      ㄴ. nvl2() > NVL2(mgr, mgr, -1)
+      ㄷ. COALESCE() > Coalesce (mgr,-1)  
+
+
+6. insa 에서  이름,주민번호, 성별( 남자/여자 ) 출력 쿼리 작성-
+
+    ㄱ. DECODE()
+Select name, ssn 
+    , Decode(MOD(Substr(ssn,-7,1) ,2),1,'남자', '여자') gender 
+From insa; 
+
+※ Decode(MOD(Substr(ssn,-7,1) ,2),1,'남자') gender 
+> **여자인 경우 null이 나옴 !** -> Count : null을 세지 않음 --> 남자만 셈! 
+
+  
+    ㄴ. CASE 함수
+
+Select name, ssn 
+1) , Case MOD(Substr(ssn,-7,1) ,2)
+        When 1 Then '남자' 
+        Else '여자' 
+    End gender 
+
+2) , Case 
+	When MOD(Substr(ssn,-7,1) ,2) = 1 Then '남자' 
+	Else 	'여자' 
+End gender 
+
+From insa 
+
+7. emp 에서 평균PAY 보다 같거나 큰 사원들만의 급여합을 출력.
+  ( DECODE, CASE 사용해서 풀이 ) 
+
+Select Sum(t.pay)
+From (
+        Select NVL(sal+comm,sal) pay
+            , Decode( Sign(  NVL(sal+comm,sal) - AVG(NVL(sal+comm,sal))  ),1,'o',0,'o',-1,'') 
+        From emp 
+        ) t
+
+Select Sum(t.pay)
+From (
+        Select NVL(sal+comm,sal) pay
+        ,Case 
+            When NVL(sal+comm,sal) - AVG(  NVL(sal+comm,sal)) >=0 Then 'o' 
+            When NVL(sal+comm,sal) - AVG(  NVL(sal+comm,sal)) <0 Then '' 
+        End 
+        From emp 
+        ) t
+
+--> 둘다 오류 : ORA-00937: not a single-group group function 이거떠요..! 
+
+1) 
+-- 전체 사원들의 급여합
+Select Sum(sal+NVL(comm,0) ) tot_pay  *Tip : 괄호 닫아놓고 안에 코딩 
+From emp ; 
+
+-- 평균 pay 
+Select AVG ( sal+NVL(comm,0) ) avg_pay 
+From emp ; 
+
+-- 평균 pay보다 많이 받는 사원조회 
+With 
+temp As(
+Select empno, ename, sal+NVL(comm,0) pay 
+From emp 
+Where sal+NVL(comm,0) >= (
+			Select AVG(sal + NVL(comm,0) ) avg_pay --2260.41... 
+			From emp 
+			)
+) 
+Select Sum( t.pay ) -- 18925
+From temp t;  
+
+
+2) Decode 사용 
+With 
+temp As(
+Select empno, ename, sal+NVL(comm,0) pay 
+    , (Select AVG(sal+NVL(comm,0)) From emp)  avg_pay
+From emp 
+) 
+Select Sum (Decode ( Sign(t.pay - t.avg_pay), -1, Null, t.pay) ) -- 음수가 나오면 평균 pay보다 작다 > 그걸 null로 바꿔줌 
+From temp t;  
+
+3) Case 사용 
+With 
+temp As(
+Select empno, ename, sal+NVL(comm,0) pay 
+    , (Select AVG(sal+NVL(comm,0)) From emp)  avg_pay
+From emp 
+) 
+Select Sum (
+_1_        Case Sign(t.pay-t.avg_pay) 
+            When -1 Then Null
+            Else t.pay
+            End 
+
+_2_        Case 
+	 When t.pay-t.avg_pay>=0 Then t.pay
+            --Else Null
+            End 
+            ) 
+From temp t; 
+
+
+
+[문제] insa 테이블에서 남자사원수, 여자사원수 출력 (조회) 
+
+1) Union All 사용 
+Select '총사원수', Count(*) 
+From insa 
+
+Union All 
+-- 남자사원수조회 
+Select '남자 사원수', Count(*) 
+From insa 
+Where Mod(Substr(ssn,-7,1) ,2) =1 
+
+Union All -- 같은 값이라도 두개 다 나오려면 Union All을 써야한다 
+-- 여자사원수 조회 
+Select '여자 사원수' , Count(*) 
+From insa 
+Where Mod(Substr(ssn,-7,1) ,2) =0 
+
+2) Decode 
+Select Count (*) "총 사원수" 
+    , Count (Decode ( Mod(Substr(ssn,-7,1) ,2),1,100) ) "남자 사원수" 
+    -- 남자는 100이 들어가고 여자는 null 값이 들어감 > Count ! : 남자 사원수만 세어짐 
+    , Count (Decode ( Mod(Substr(ssn,-7,1) ,2),0,100) ) "여자 사원수" 
+     -- 여자는 100이 들어가고 남자는 null 값이 들어감 > Count ! : 여자 사원수만 세어짐  
+From insa ; 
+
+3) Case 
+Select Count (*) "총 사원수" 
+   ,Count ( 
+   Case Mod(Substr(ssn,-7,1),2)
+   When 0 Then 'F' 
+   Else Null 
+   End 
+   )
+From insa ; 
+
+4) Group By 
+Select Count(*), Decode(Mod(Substr(ssn,-7,1),2) ,1,'남자','여자') "성별"  
+From insa 
+Group By Mod(Substr(ssn,-7,1),2)
+
+
+
+[문제] emp 테이블에서 각 부서별 사원수 조회 (출력) 
+
+1) Union All 
+
+--Select '전체사원수' deptno, Count(*) 
+-- ※ 컬럼 개수 맞춰줘야함 ! / 자료형도 맞춰줘야함 
+Select 0 deptno, Count(*)
+From emp 
+
+Union All 
+Select deptno, Count (*) 
+From emp
+Group By deptno 
+--Order By deptno > 항상 제일 마지막에 와야함 
+
+Union All 
+Select 40 deptno, Count(*)  
+--Select deptno, Count(*)  
+--ORA-00937: not a single-group group function
+-- : ?? 
+From emp 
+Where deptno=40
+-- 사원이 존재하지 않는 부서 정보(40번)는 출력(조회)되지 않는다 
+Order By deptno
+-- ORA-00904: "DEPTNO": invalid identifier > 모든 칼럼에 deptno가 포함된게 아니기 때문에 정렬 할 수 없음 
+=> 모든 칼럼에 deptno라고 alias 붙여줌 ! 
+
+
+2) Decode 
+Select Count( Decode(deptno, 10 , '100' ) ) "10번부서" -- 이거 안묶어주면 에러 ORA-00923: FROM keyword not found where expected
+    ,Count(Decode(deptno, 20 , '100' ) ) "20번부서" 
+    ,Count(Decode(deptno, 30 , '100' ) ) "30번부서" 
+    ,Count(Decode(deptno, 40 , '100' ) ) "40번부서"
+    ,Count(Decode(deptno, null , '100' ) ) "부서없음"
+From emp
+
+
+3) Group By 
+[확인] 각 부서별 전체 사원수 , 총 급여합, 최고 급여액, 최저 급여액  
+-- 부서별 사원수 
+Select deptno
+    , Count(*) 
+-- 부서별 급여합
+    , Sum(sal + NVL(comm,0))  "총급여합" 
+    , Max (sal + NVL(comm,0)) "최고급여합" 
+    , Min (sal + NVL(comm,0)) "최저급여합"
+    , AVG (sal + NVL(comm,0)) "평균급여합
+From emp 
+Group By deptno 
+Order By deptno
+
+
+
+
+8. emp 에서  사원이 존재하는 부서의 부서번호만 출력
+
+Select distinct deptno
+From emp 
+Where deptno is Not NUll
+Order By deptno 
+-- 여기 40번 부서도 나와줘야함 ...?
+
+Select deptno
+From dept 
+Minus 
+Select Distinct deptno 
+From emp; 
+
+
+<Join (조인 : 결합하다, 합치다) > 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*부모테이블: 먼저 만들어져야 -> 자식테이블:을 만들 수 있음 
+(자식 -> 부모 참조하는 키 : 참조키 ) 
+ㄴ 정규화에 의해 쪼개진(+관계가 맺어진) 두 테이블의 칼럼들을 다시 모으기 위해선 합쳐야함 -> 'join' 
+
+
+[문제] emp 테이블에서 사원정보조회 (부서번호, 부서명, 사원번호 , 사원명, 입사일자) 
+
+Select deptno, empno, ename, hiredate
+From emp  
+-- emp 에 부서명 없음 ! dept(부서)테이블에 dname 컬럼으로 부서명이 존재 
+=> dept와 emp를 결합해야 우리가 원하는 컬럼정보를 조회할 수 있다. 
+(dept : deptno, dname + emp : deptno, empno, ename, hiredate  => '조인') 
+
+-형식-
+Select ~ 
+From 테이블명, 테이블명...
+Where 조인조건 - 부모.PK와 자식.FK 조인 
+
+-- Select deptno, dname, empno, ename, hiredate 
+-- ORA-00918: column ambiguously defined > deptno 칼럼이 애매모호하게 정의(선언)되어있다?
+--    ㄴ 왜? dept에도 deptno가 있고, emp 테이블에도 deptno가 있으니 어느쪽인지 알 수 없음
+--    > 공통적으로 존재하는 칼럼은 어느 테이블건지 명시해줘야함 
+
+Select d.deptno, d.dname, e.empno, e.ename, e.hiredate
+From emp e, dept d -- 순서는 상관없음 
+Where d.deptno = e.deptno ; -- join 조건 
+
+-- 애매한 deptno만 바꿔줘도 ㄱㅊ > d인지 e인지 상관없음 : EQUI JOIN이기 때문에?  
+Select d.deptno, dname, empno, ename, hiredate
+From dept d Join dep e ON d.deptno = e.deptno 
+
+
+
+
+9. 아래 코딩을  DECODE()를 사용해서 표현하세요.
+    ㄱ. [자바]
+        if( A == B ){
+           return X;
+        }
+
+Select Decode(A,B, X)  
+From dual;  	    
+
+    ㄴ. [자바]
+        if( A==B){
+           return S;
+        }else if( A == C){
+           return T;
+        }else{
+           return U;
+        }
+
+Select Decode(A,B, S, C, T, U)  
+From dual;   
+
+    ㄷ.  [자바]
+        if( A==B){
+           return XXX;
+        }else{
+           return YYY;
+        }
+
+Select Decode(A,B, XXX, YYY)  
+From dual;   
+
+
+10. insa테이블에서 1001, 1002 사원의 주민번호의 월/일 만 오늘 날짜로 수정하는 쿼리를 작성 
+
+Update insa 
+Set ssn = Substr(ssn,0,2) || To_Char(Sysdate, 'MMDD' ) || Substr (ssn,7) 
+-- 왼쪽에는 다른거 들어가면 x !  칼럼명은 바꾸면 안됨 -> 오른쪽에 작업하기 ! 
+Where num IN (1001,1002) 
+ 
+
+
+10-2. insa테이블에서 오늘('2023.03.21')을 기준으로 아래와 같이 출력하는 쿼리 작성.  
+   ( DECODE, CASE 함수 사용 )
+결과)
+장인철	780506-1625148	생일 후
+김영년	821011-2362514	생일 전
+나윤균	810810-1552147	생일 후
+김종서	751010-1122233	오늘 생일
+유관순	801010-2987897	오늘 생일
+정한국	760909-1333333	생일 후
+
+Select name, ssn 
+    Select name, ssn, 
+  
+1) Decode ( Sign ( Trunc(Sysdate) - To_Date ( Substr (ssn,3,4), 'MMDD') ) ,-1, '지나지 않았다', 1, '지났다', 0, '오늘이다' ) 
+    Decode ( Sign (Substr(ssn,3,4) - To_Char(Sysdate, 'MMDD') )   , 0 , '오늘 생일' , 1, '생일전', -1, '생일후' ) 
+					   ㄴ MMDD로하면 시간, 연도는 자동으로 초기화 
+2) Case 
+        When Trunc(Sysdate) - To_Date (Substr(ssn,3,4) , 'MMDD') < 0
+        Then '생일 후' 
+        When Trunc(Sysdate) - To_Date (Substr(ssn,3,4) , 'MMDD') > 0 
+        Then '생일 전' 
+        Else '오늘 생일' 
+    End case_birth2 
+From insa 
+
+
+
+10-3. insa테이블에서 오늘('2023.03.21')기준으로 이 날이 생일인 사원수,지난 사원수, 안 지난 사원수를 출력하는 쿼리 작성. 
+
+[실행결과]
+  생일 전 사원수   생일 후 사원수  오늘 생일 사원수
+---------- ---------- ----------
+        48         12          0
+
+1) Decode 
+Select Count (Decode(s,0,'o') ) "오늘 생일 사원수" 
+	, Count (Decode(s,-1,'o') ) "생일 후 사원수" 
+	, Count (Decode(s,1,'o') ) "생일 전 사원수" 
+From ( 
+	Select num, name, ssn, Sign(Substr(ssn,3,4) -To_Char(Sysdate, 'MMDD') ) s
+	From insa 
+        ) t 
+
+2) Case 
+Select name, ssn 
+    Select name, ssn 
+    ,Case 
+        When Trunc(Sysdate) - To_Date (Substr(ssn,3,4) , 'MMDD') < 0
+        Then '생일 후' 
+        When Trunc(Sysdate) - To_Date (Substr(ssn,3,4) , 'MMDD') > 0 
+        Then '생일 전' 
+        Else '오늘 생일' 
+    End case_birth2 
+From insa 
+
+3) Group By 
+Select 
+	Case s 
+	When 0 Then '오늘생일' 
+  	When 1 Then '생일전' 
+	When -1 Then '생일후' 
+	End
+From (
+	Select num, name, ssn, Sign(Substr(ssn,3,4) - To_Char(Sysdate, 'MMDD') 
+	From insa 
+         ) t 
+Group By s;
+ 
+11.  emp 테이블에서 10번 부서원들은  급여 15% 인상
+                20번 부서원들은 급여 10% 인상
+                30번 부서원들은 급여 5% 인상
+                40번 부서원들은 급여 20% 인상
+  하는 쿼리 작성.     
+ 
+Select deptno, empno, ename
+    , Coalesce (sal+comm, sal, 0) 
+1) * Decode (deptno, 10, 0.15, 20,0.1, 30,0.05, 40, 0.2) "Decode_인상액" 
+2) * Case deptno 
+        When 10 Then 1.15
+        When 20 Then 1.1 
+        When 30 Then 1.05
+--      Else    1.2   > 이렇게하면 부서가 없는 사람도 올라감 > When 40으로 따로 줘야함 
+        When 40 Then 1.2
+    End case_인상액 
+From emp
+Order By deptno ASC; 
+
+    
+12. emp 테이블에서 각 부서의 사원수를 조회하는 쿼리
+  ( 힌트 :  DECODE, COUNT 함수 사용 )
+
+Select Count( Decode(deptno, 10, 'o') )
+From 
+
+1) Group By + Join 
+Select deptno, Count(*)
+From emp 
+Group By deptno ; 
+ㄴ 문제점 : 40번 부서 X 
+
+ㄴ Equi Join == Inner Join 
+Select d.deptno, Count(*)
+From dept d, emp e -- dept 테이블과 emp을 조인 
+Where d.deptno = e.deptno
+=> 여전히 40 안나옴  
+
+ ㄴOuter Join -> Left [Outer] Join, Right [Outer] Join, Full [Outer] Join
+Select d.deptno, Count(ename) -- Count(*)로하면 null도 개수로 세버림 
+-- From dept d Left Join emp e On d.deptno= e.deptno 
+From dept d Full Join emp e On d.deptno= e.deptno 
+Group By d.deptno
+
+
+2) Decode 
+Select Count( Decode(deptno, 10, 'o') ) "10번 부서원"
+    ,Count( Decode(deptno, 20, 'o') ) "20번 부서원" 
+    ,Count( Decode(deptno, 30, 'o') ) "30번 부서원" 
+    ,Count( Decode(deptno, 40, 'o') ) "40번 부서원" 
+From emp 
+
+
+13. emp, salgrade 두 테이블을 참조해서 아래 결과 출력 쿼리 작성.
+
+ENAME   SAL     GRADE
+----- ----- ---------
+SMITH	800	   1
+ALLEN	1900	3
+WARD	1750	3
+JONES	2975	4
+MARTIN	2650	4
+BLAKE	2850	4
+CLARK	2450	4
+KING	5000	5
+TURNER	1500	3
+JAMES	950	    1
+FORD	3000	4
+MILLER	1300	2
+
+-- salgrade-- 
+1	700	1200
+2	1201	1400
+3	1401	2000
+4	2001	3000
+5	3001	9999
+
+
+1) Case  
+Select ename, sal 
+	, Case
+		When sal Between 700 And 1200 Then 1  
+		When sal Between 1201 And 1400 Then 2 
+		When sal Between 1401 And 2000 Then 3 
+		When sal Between 2001 And 3000 Then 4 
+		When sal Between 3001 And 9999 Then 5 
+	End grade 
+From emp; 
+
+2) Non-Equi Join (암기) 
+: 관계되는 컬럼이 정확히 일치하지 않는 경우에 사용하는 컬럼 
+Select ename, sal
+	, losal || '~' || hisal grade_range 
+	, grade
+From emp e, salgrade s
+Where e.sal Between s.losal And s.hisal  
+
+
+
+
+14. emp 테이블에서 급여를 가장 많이 받는 사원의 empno, ename, pay 를 출력.
+
+Select t.empno, t.ename, t.pay 
+From emp 
+1) Where sal >= All(Select sal + NVL(comm,0) ) max_pay From emp)  
+2) Where sal = (Select Max(sal+NVL(comm,0))max_pay From emp) 
+
++) Rank 순위함수. Top-N 방식 
+
+<Top-N 방식> 
+-  최대값이나 최소값을 가진 컬럼을 질의할 때 유용하게 사용되는 분석방법
+- inline view에서 ORDER BY 절을 사용할 수 있으므로 데이터를 원하는 순서로 정렬도 가능하다
+- ROWNUM 컬럼은 subquery에서 반환되는 각 행에 순차적인 번호를 부여하는 pseudo(의사;가짜) 컬럼이다.
+n값은 < 또는 >=를 사용하여 정의하며, 반환될 행의 개수를 지정
+
+【형식】
+	SELECT 컬럼명,..., ROWNUM
+	FROM (SELECT 컬럼명,... from 테이블명
+	      ORDER BY top_n_컬럼명)
+      	WHERE ROWNUM <= n;
+
+[문제] emp 테이블에서 pay를 많이 받는 3명 정보를 조회 (Top-N 방식) 
+Select Rownum , t.*              -- Rownum : 가짜 칼럼 > 자동적으로 순번이 매겨짐 
+From (            
+    Select empno, ename, hiredate, sal+NVL(comm,0) pay, deptno
+    From emp 
+    Order By pay Desc 
+    ) t  
+Where Rownum <= 3 -- 3등까지 가져옴  ※중간에 있는값은 못가져옴 
+
+*ROWNUM  
+- 오라클 내부적으로 사용되는 칼럼 (우리가 선언한적 없음) > 가짜칼럼, 의사칼럼 'pseudo column' 
+
+
+
+<Rank 순위함수> 
+1) Row_Number 
+- 분석(analytic) 함수 : 분할별로 정렬된 결과에 대해 순위를 부여
+ ㄴ 분할은 전체 행을 특정 컬럼을 기준으로 분리하는 기능으로 GROUP BY 절에서 그룹화하는 방법과 같은 개념이다
+
+【형식】
+      ROW_NUMBER () 
+                   OVER ([query_partition_clause] order_by_clause )
+
+
+[문제] emp 테이블에서 pay를 많이 받는 3명 정보를 조회 (Rank 순위함수) 
+Select t.*
+From (
+Select deptno, ename, sal+NVL(comm,0) pay 
+    , Row_Number() Over(Order By sal+NVL(comm,0) DESC ) 순위 -- 반드시 내부적으로 순위를 매겨야함 > Order By
+    --> 자동적으로 순위 1~ 매겨짐 > Where로 조건주기 
+From emp 
+)t
+--Where 순위 <= 3 ; 
+Where 순위 Between 3 And 5 ; -- 중간순위도 가져올 수 있다. 
+
+
+[문제] 각 부서별로 최고 급여를 받는 사원 1명을 조회 (Rank 함수 사용) 
+Select t.*
+From (
+Select buseo, name, basicpay+sudang pay 
+    , Row_Number() Over( Partition By buseo Order By basicpay+sudang Desc )순위 -- pay는 못들어옴
+                        -- 부서별로 파티션을 나눠 (= Group By) 그 안에서 각각 순위 매겨짐 
+From insa  
+) t 
+Where 순위 = 1 
+-- Where 순위 <=3 , 순위=2 
+
+
+2) Rank
+: 그룹 내에서 순위를 계산하여 숫자로 반환 / 중복순위 계산 
+
+【Aggregate 형식】
+        RANK(expr[,...]) WITHIN GROUP
+            (ORDER BY {expr [DESC ¦ ASC] [NULLS {FIRST ¦ LAST}]
+                      } )
+
+【Analytic 형식】
+	RANK() OVER( [query_partition_clause] order_by_clause
+                   ) 
+
+3) Dense_Rank 
+: 그룹 내에서 순위를 계산하여 숫자로 반환/ 중복 순위 계산 안함
+
+【Aggregate 형식】
+      DENSE_RANK ( expr[,expr,...] ) WITHIN GROUP
+        (ORDER BY expr [[DESC ¦ ASC] [NULLS {FIRST ¦ LAST} , expr,...] )
+   
+
+【Analytic 형식】
+      DENSE_RANK ( ) OBER ([query_partion_clause] order_by_clause )
+
+
+[문제] pay 기준 등수매기기 
+Select empno, ename, sal
+	, Rank() Over(Order By sal Desc ) rank_순위 -- 중복순위 계산 o  
+	, Dense_Rank() Over (Order By sal Desc ) dense_rank_순위  -- 중복 순위 계산 x 
+    , Row_Number() Over (Order By sal Desc ) row_number_순위  -- 같아도 그냥 순위 매겨버림  
+From emp ; 
+
+1250	9	9	9
+1250	9	9	10
+950	    11	10	11
+800 	12	11	12
+
+
+[문제] 부서별 pay 기준 등수 
+Select deptno, empno, ename, sal
+	, Rank() Over(Partition By deptno Order By sal Desc ) rank_순위 -- 중복순위 계산 o  
+	, Dense_Rank() Over (Partition By deptno Order By sal Desc ) dense_rank_순위  -- 중복 순위 계산 x 
+    , Row_Number() Over (Partition By deptno Order By sal Desc ) row_number_순위  -- 같아도 그냥 순위 매겨버림  
+From emp ; 
+
+2850	1	1	1
+1600	2	2	2
+1500	3	3	3
+1250	4	4	4
+1250	4	4	5
+950	6	5	6
+
+
+
+
+14-2. emp 테이블에서 각 부서별 급여를 가장 많이 받는 사원의 pay를 출력
+ 1) UNION ALL 사용해서 풀기
+
+Select '10번부서', Max(NVL(sal+comm,sal) ) pay
+From emp 
+Where deptno = 10 
+Union All 
+Select '20번부서',Max(NVL(sal+comm,sal) ) pay
+From emp 
+Where deptno = 20 
+Union All 
+Select '30번부서',Max(NVL(sal+comm,sal) ) pay
+From emp 
+Where deptno = 30 
+Union All 
+Select '부서 없음',Max(NVL(sal+comm,sal) ) pay
+From emp 
+Where deptno IS Null 
+
+
+2) GROUP BY  사용해서 풀기 + Join
+
+Select d.deptno, Max(NVL(sal+comm,sal) ) max_pay
+From emp e Full Outer Join dept d On d.deptno = e.deptno 
+Group By deptno 
+Order By deptno 
+
+
+3) 상관 서브쿼리 사용해서 풀기
+
+Select deptno, ename , sal+NVL(comm,0) pay
+From emp a
+Where sal+NVL(comm,0) = (
+                        Select Max(sal+NVL(comm,0))deptno_max_pay 
+                        From emp b 
+                        Where b.deptno = a.deptno 
+                        ) ; 
+
+
+
+
+
+
+
+
+  

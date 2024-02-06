@@ -1,0 +1,44 @@
+[notice.htm] 요청 URL
+Ctrl + F11
+
+[1] 실제 프로젝트 
+	인증 사용자 정보 (username, password) -> 이것만으로는 완전부족! 
+	+ 추가정보 (이메일, 연락처... + 권한들)
+
+[2] 해결) 직접 UserDetailsService 구현하는 방법 
+=> 실제 업무를 담당하는 애! 자동으로 등록되어서 일을 하는데 기본적으로 username, password 만 사용함 (스프링에서 제공해주는 애는)
+	(* security:authentication-provider  => 일하는 객체? )
+=> 그래서 직접 구현을 해서 내가 원하는 정보들을 담을 수 있게 해야하는거임 
+	
+	ㄴ 1개의 메서드 
+		UserDetails loadUserByUsername(String username) 
+
+[3] UserDetails 리턴타입 		
+	ㄴ  memberVO -> User -> UserDetails 리턴타입
+	: 가장 일반적으로 많이 사용되는 방법이 User 클래스를 상속하는 형태
+	
+[4] 실습
+	(1)  로그인 사용자 id로 글쓰기할 때 작성자로 설정 
+	noticeReg()		admin --> 글쓰기 
+
+	(2) org.doit.ik.domain 패키지
+		ㄱ. AuthVO.java 권한 정보 
+		ㄴ. MemberVO.java 필드추가 
+		
+	(3) 회원 + 권한들 MemberMapper.java 
+	 // 회원정보 + 권한정보들 얻어오는 메서드 
+   public MemberVO read(String userid) ; 
+   
+   (4) MemberMapper.xml 
+   
+   (5) UserDetailsService 직접 구현 -> 'CustomUserDetailsService' 
+   
+	
+	
+	
+	
+	
+
+
+
+	

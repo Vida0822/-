@@ -1,0 +1,10 @@
+package org.doit.ik.security.domain;
+
+import org.springframework.security.core.userdetails.User;
+
+import lombok.Getter;
+
+@Getter
+public class CustomUser extends User {
+
+}

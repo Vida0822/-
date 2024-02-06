@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.doit.ik.mapper.scott.EmpMapper">
+
+<!-- 	List<EmpDTO> selectEmp(ArrayList<Integer> deptnos) ;  -->
+<select id="selectEmp" resultType="org.doit.ik.domain.EmpDTO">
+	SELECT * 
+	FROM emp
+	<!-- 조건에 따라 달라지는 매개변수 (쿼리작성문)  => 매개변수가 lsit로 담긴 deptnos 자체를 where 조건절에 그때그때 다르ㅔ 해줌 
+	WHERE deptno IN (10, 20, 30) 
+	WHERE deptno IN (10, 20)
+	WHERE deptno IN (10, 20, 30, 40)  -->
+	<where>
+		<foreach collection="list" item="deptno" index="index"
+		 open="deptno IN ( " separator=", " close=") ">
+			#{deptno}
+		</foreach>
+	</where>
+	ORDER BY deptno ASC <!-- ; 찍으면 안됨 !  -->
+</select>
+</mapper>

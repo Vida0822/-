@@ -1,0 +1,69 @@
+[notice.htm] 요청 URL
+Ctrl + F11
+
+1. NOTICES, MEMBER 테이블 생성
+2. org.doit.ik.domain
+	ㄴ MemberVO.java
+	ㄴ NoticeVO.java
+3. org.doit.ik.persistence ( mybatis X, mapper X )
+	ㄴ MemberDao.java
+	ㄴ NoticeDao.java
+4. src/main/webapp/css, customer(공지사항), images, joinus(회원관리), index.css, index.jsp
+5. customer/notice.htm 요청 URL
+6. web.xml
+	<url-pattern>*.htm</url-pattern>
+7. org.doit.ik.controller
+	ㄴ NoticeController.java
+	ㄴ NoticeDetailController.java
+8. /customer/notice.htm 요청 -> NoticeController 객체 -> notice.jsp 응답
+8-2. servlet-context.xml beans로 매핑
+
+-----------------------------------------------------------------------------------------
+
+공지사항
+	ㄴ 목록		/customer/notice.htm -> NoticeController.java
+	ㄴ 상세보기	/customer/noticeDetail.htm -> NoticeDetailController.java
+
+servlet-context.xml
+	<bean> 스프링 빈 객체를 생성 + DI
+
+
+공지사항 관련 하나의 컨트롤러를 선언( CustomerController.java )
+	ㄴ 목록		"컨트롤러 메서드" 선언
+	ㄴ 상세보기	"컨트롤러 메서드" 선언
+
+servlet-context.xml 수정
+	객체 자동 생성 + DI
+	
+<context:component-scan base-package="org.doit.ik"/>
+@Component
+@Repository		DAO 빈
+@Service		서비스 빈
+@Controller		컨트롤러 빈
+
+
+---------------------------------------------------------------------
+	[스프링 파일업로드/ 다운로드] p.438
+--------------------------------------------------------------------
+
+1) 공지사항 수정 
+2) 다운로드 
+
+스프링 JDBC -> mybatis 
+스프링 트랜젝션 
+스프링 타일즈 
+
+AJAX - RESTFULLL 
+스프링 시큐리티 
+
+
+
+
+
+
+
+
+
+
+
+
