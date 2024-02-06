@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+<!-- <form action="ex03_ok.jsp" method="get"> -->
+
+<form action="ex03_el_ok.jsp" method="get">
+책 제목 : <input type="text" id="title" name="title" autofocus><br>
+저자 : <input type="text" id="author" name="author"><br>
+
+<input type="submit">
+<!-- <button type="button">제출</button> -->
+<input type="reset">
+</form>
+
+<script>
+$(function() {
+	/*
+	$("form").submit(function() {
+		//alert("submit test");
+		alert("유효성검사 실패하면 submit 취소");
+		event.preventDefault();
+		$("#title").focus();
+	});
+	*/
+	
+	/*
+	$("form button").on("click", function() {
+		alert("입력 유효성검사 한 후 submit");
+		$("form").submit();
+	});
+	*/
+});
+</script>
+</body>
+</html>

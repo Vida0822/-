@@ -1,0 +1,126 @@
+
+5월 22, 2023 09:08:06.549 NEW SESSION
+5월 22, 2023 09:08:06.549 [3440:6372:0522/090806.547:ERROR:device_event_log_impl.cc(222)] [09:08:06.548] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+
+5월 23, 2023 08:24:09.679 NEW SESSION
+5월 23, 2023 08:24:09.679 [6348:12232:0523/082409.677:ERROR:device_event_log_impl.cc(222)] [08:24:09.677] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+5월 23, 2023 11:59:28.140 [13356:13536:0523/115928.140:ERROR:device_event_log_impl.cc(222)] [11:59:28.140] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+
+5월 24, 2023 14:00:54.603 NEW SESSION
+5월 24, 2023 14:00:54.603 [7832:10328:0524/140054.600:ERROR:device_event_log_impl.cc(222)] [14:00:54.600] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+5월 25, 2023 15:47:22.73 [13416:10124:0525/154722.072:ERROR:device_event_log_impl.cc(222)] [15:47:22.072] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+
+5월 26, 2023 14:00:29.959 NEW SESSION
+5월 26, 2023 14:00:29.959 [1744:5896:0526/140029.943:ERROR:device_event_log_impl.cc(222)] [14:00:29.941] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+
+5월 28, 2023 20:37:25.393 NEW SESSION
+5월 28, 2023 20:37:25.393 [13552:8980:0528/203725.390:ERROR:device_event_log_impl.cc(222)] [20:37:25.390] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+
+5월 30, 2023 09:09:22.330 NEW SESSION
+5월 30, 2023 09:09:22.331 [12080:13932:0530/090922.328:ERROR:device_event_log_impl.cc(222)] [09:09:22.328] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+5월 30, 2023 11:03:52.263 [4404:1616:0530/110352.263:ERROR:device_event_log_impl.cc(222)] [11:03:52.263] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+5월 30, 2023 21:49:16.795 [11628:3240:0530/214916.787:ERROR:device_event_log_impl.cc(222)] [21:49:16.786] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+5월 31, 2023 09:01:32.510 [13960:2776:0531/090132.510:ERROR:device_event_log_impl.cc(222)] [09:01:32.509] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+6월 01, 2023 22:01:00.98 [4036:4992:0601/220100.082:ERROR:device_event_log_impl.cc(222)] [22:01:00.081] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+
+6월 02, 2023 22:26:05.46 NEW SESSION
+6월 02, 2023 22:26:05.48 [14028:4852:0602/222605.010:ERROR:device_event_log_impl.cc(222)] [22:26:05.009] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+
+6월 06, 2023 19:06:07.607 NEW SESSION
+6월 06, 2023 19:06:07.626 [11340:8996:0606/190607.402:ERROR:device_event_log_impl.cc(222)] [19:06:07.401] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+
+6월 07, 2023 08:25:32.109 NEW SESSION
+6월 07, 2023 08:25:32.109 [5752:6704:0607/082532.107:ERROR:device_event_log_impl.cc(222)] [08:25:32.106] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+6월 07, 2023 10:24:46.929 [5752:6704:0607/102446.928:ERROR:CONSOLE(6)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/panels/console/console.js (6)
+6월 07, 2023 10:24:46.937 [5752:6704:0607/102446.928:ERROR:CONSOLE(6)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/panels/console/console.js (6)
+6월 07, 2023 10:24:46.937 [5752:6704:0607/102446.928:ERROR:CONSOLE(6)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/panels/console/console.js (6)
+6월 07, 2023 10:24:46.938 [5752:6704:0607/102446.928:ERROR:CONSOLE(6)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/panels/console/console.js (6)
+6월 07, 2023 10:24:46.938 [5752:6704:0607/102446.928:ERROR:CONSOLE(6)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/panels/console/console.js (6)
+6월 07, 2023 10:24:46.938 [5752:6704:0607/102446.928:ERROR:CONSOLE(6)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/panels/console/console.js (6)
+6월 07, 2023 10:24:46.938 [5752:6704:0607/102446.928:ERROR:CONSOLE(6)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/panels/console/console.js (6)
+6월 07, 2023 10:24:46.938 [5752:6704:0607/102446.929:ERROR:CONSOLE(6)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/panels/console/console.js (6)
+6월 07, 2023 10:24:46.938 [5752:6704:0607/102446.929:ERROR:CONSOLE(6)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/panels/console/console.js (6)
+6월 07, 2023 10:24:46.939 [5752:6704:0607/102446.929:ERROR:CONSOLE(6)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/panels/console/console.js (6)
+6월 07, 2023 10:24:46.939 [5752:6704:0607/102446.929:ERROR:CONSOLE(6)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/panels/console/console.js (6)
+6월 07, 2023 10:24:46.981 [5752:6704:0607/102446.981:ERROR:CONSOLE(6)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/panels/console/console.js (6)
+6월 07, 2023 10:24:46.982 [5752:6704:0607/102446.981:ERROR:CONSOLE(6)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/panels/console/console.js (6)
+6월 07, 2023 10:24:46.982 [5752:6704:0607/102446.981:ERROR:CONSOLE(6)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/panels/console/console.js (6)
+6월 07, 2023 10:24:46.983 [5752:6704:0607/102446.981:ERROR:CONSOLE(6)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/panels/console/console.js (6)
+6월 07, 2023 10:24:46.983 [5752:6704:0607/102446.981:ERROR:CONSOLE(6)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/panels/console/console.js (6)
+6월 07, 2023 10:24:46.983 [5752:6704:0607/102446.981:ERROR:CONSOLE(6)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/panels/console/console.js (6)
+6월 07, 2023 10:24:46.985 [5752:6704:0607/102446.981:ERROR:CONSOLE(6)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/panels/console/console.js (6)
+6월 07, 2023 10:24:46.985 [5752:6704:0607/102446.981:ERROR:CONSOLE(6)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/panels/console/console.js (6)
+6월 07, 2023 10:24:46.985 [5752:6704:0607/102446.981:ERROR:CONSOLE(6)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/panels/console/console.js (6)
+6월 07, 2023 10:24:46.992 [5752:6704:0607/102446.982:ERROR:CONSOLE(6)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/panels/console/console.js (6)
+6월 07, 2023 10:24:46.994 [5752:6704:0607/102446.982:ERROR:CONSOLE(6)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/panels/console/console.js (6)
+6월 07, 2023 12:05:33.478 [5752:6704:0607/120533.477:ERROR:CONSOLE(6)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/panels/console/console.js (6)
+6월 07, 2023 12:05:33.479 [5752:6704:0607/120533.477:ERROR:CONSOLE(6)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/panels/console/console.js (6)
+6월 07, 2023 12:05:33.479 [5752:6704:0607/120533.478:ERROR:CONSOLE(6)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/panels/console/console.js (6)
+6월 07, 2023 12:05:33.480 [5752:6704:0607/120533.479:ERROR:CONSOLE(6)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/panels/console/console.js (6)
+6월 07, 2023 12:05:33.480 [5752:6704:0607/120533.480:ERROR:CONSOLE(6)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/panels/console/console.js (6)
+6월 07, 2023 12:05:33.480 [5752:6704:0607/120533.480:ERROR:CONSOLE(6)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/panels/console/console.js (6)
+6월 07, 2023 12:05:33.481 [5752:6704:0607/120533.480:ERROR:CONSOLE(6)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/panels/console/console.js (6)
+6월 07, 2023 12:05:33.481 [5752:6704:0607/120533.480:ERROR:CONSOLE(6)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/panels/console/console.js (6)
+6월 07, 2023 12:05:33.481 [5752:6704:0607/120533.481:ERROR:CONSOLE(6)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/panels/console/console.js (6)
+6월 07, 2023 12:05:33.481 [5752:6704:0607/120533.481:ERROR:CONSOLE(6)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/panels/console/console.js (6)
+6월 07, 2023 12:05:33.482 [5752:6704:0607/120533.481:ERROR:CONSOLE(6)] "console.assert", source: devtools://devtools/bundled/devtools-frontend/front_end/panels/console/console.js (6)
+6월 07, 2023 22:28:21.259 [10184:6696:0607/222821.258:ERROR:device_event_log_impl.cc(222)] [22:28:21.258] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+
+6월 08, 2023 13:50:10.931 NEW SESSION
+6월 08, 2023 13:50:10.933 [1288:12380:0608/135010.873:ERROR:device_event_log_impl.cc(222)] [13:50:10.872] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+
+6월 09, 2023 16:23:21.897 NEW SESSION
+6월 09, 2023 16:23:21.898 [10028:10768:0609/162321.893:ERROR:device_event_log_impl.cc(222)] [16:23:21.894] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+6월 09, 2023 18:56:18.467 [10544:5824:0609/185618.466:ERROR:device_event_log_impl.cc(222)] [18:56:18.466] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+
+6월 10, 2023 16:31:14.641 NEW SESSION
+6월 10, 2023 16:31:14.641 [9708:10380:0610/163114.639:ERROR:device_event_log_impl.cc(222)] [16:31:14.639] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+
+6월 12, 2023 24:08:18.421 NEW SESSION
+6월 12, 2023 24:08:18.421 [704:10788:0612/000818.399:ERROR:device_event_log_impl.cc(222)] [00:08:18.398] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+
+6월 12, 2023 13:59:58.06 NEW SESSION
+6월 12, 2023 13:59:58.06 [5812:2096:0612/135957.967:ERROR:device_event_log_impl.cc(222)] [13:59:57.967] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+
+6월 13, 2023 15:10:59.899 NEW SESSION
+6월 13, 2023 15:10:59.899 [14680:12968:0613/151059.897:ERROR:device_event_log_impl.cc(222)] [15:10:59.897] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+
+6월 14, 2023 08:33:40.725 NEW SESSION
+6월 14, 2023 08:33:40.726 [11012:9244:0614/083340.722:ERROR:device_event_log_impl.cc(222)] [08:33:40.721] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+
+6월 14, 2023 22:07:07.742 NEW SESSION
+6월 14, 2023 22:07:07.742 [9624:9060:0614/220707.740:ERROR:device_event_log_impl.cc(222)] [22:07:07.740] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+
+6월 16, 2023 10:17:13.800 NEW SESSION
+6월 16, 2023 10:17:13.800 [12100:10156:0616/101713.797:ERROR:device_event_log_impl.cc(222)] [10:17:13.796] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+
+6월 16, 2023 23:58:25.994 NEW SESSION
+6월 16, 2023 23:58:25.994 [13700:12128:0616/235825.991:ERROR:device_event_log_impl.cc(222)] [23:58:25.990] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+
+6월 17, 2023 14:50:13.123 NEW SESSION
+6월 17, 2023 14:50:13.124 [7436:6096:0617/145013.120:ERROR:device_event_log_impl.cc(222)] [14:50:13.120] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+
+6월 18, 2023 13:39:51.268 NEW SESSION
+6월 18, 2023 13:39:51.268 [4788:14236:0618/133951.267:ERROR:CONSOLE(1)] "Request Network.enable failed. {"code":-32601,"message":"'Network.enable' wasn't found"}", source: devtools://devtools/bundled/devtools-frontend/front_end/core/protocol_client/protocol_client.js (1)
+6월 18, 2023 13:39:51.269 [4788:14236:0618/133951.267:ERROR:CONSOLE(1)] "Request Network.setAttachDebugStack failed. {"code":-32601,"message":"'Network.setAttachDebugStack' wasn't found"}", source: devtools://devtools/bundled/devtools-frontend/front_end/core/protocol_client/protocol_client.js (1)
+6월 18, 2023 13:39:51.269 [4788:14236:0618/133951.268:ERROR:CONSOLE(1)] "Request Emulation.setEmulatedMedia failed. {"code":-32601,"message":"'Emulation.setEmulatedMedia' wasn't found"}", source: devtools://devtools/bundled/devtools-frontend/front_end/core/protocol_client/protocol_client.js (1)
+6월 18, 2023 13:39:51.270 [4788:14236:0618/133951.268:ERROR:CONSOLE(1)] "Request Emulation.setEmulatedVisionDeficiency failed. {"code":-32601,"message":"'Emulation.setEmulatedVisionDeficiency' wasn't found"}", source: devtools://devtools/bundled/devtools-frontend/front_end/core/protocol_client/protocol_client.js (1)
+6월 18, 2023 13:39:51.270 [4788:14236:0618/133951.268:ERROR:CONSOLE(1)] "Request Network.clearAcceptedEncodingsOverride failed. {"code":-32601,"message":"'Network.clearAcceptedEncodingsOverride' wasn't found"}", source: devtools://devtools/bundled/devtools-frontend/front_end/core/protocol_client/protocol_client.js (1)
+6월 18, 2023 13:39:51.270 [4788:14236:0618/133951.268:ERROR:CONSOLE(1)] "Request Network.enable failed. {"code":-32601,"message":"'Network.enable' wasn't found"}", source: devtools://devtools/bundled/devtools-frontend/front_end/core/protocol_client/protocol_client.js (1)
+6월 18, 2023 13:39:51.270 [4788:14236:0618/133951.268:ERROR:CONSOLE(1)] "Request Network.setAttachDebugStack failed. {"code":-32601,"message":"'Network.setAttachDebugStack' wasn't found"}", source: devtools://devtools/bundled/devtools-frontend/front_end/core/protocol_client/protocol_client.js (1)
+6월 18, 2023 13:39:51.284 [4788:14236:0618/133951.284:ERROR:CONSOLE(1)] "Request Emulation.setEmulatedMedia failed. {"code":-32601,"message":"'Emulation.setEmulatedMedia' wasn't found"}", source: devtools://devtools/bundled/devtools-frontend/front_end/core/protocol_client/protocol_client.js (1)
+6월 18, 2023 13:39:51.284 [4788:14236:0618/133951.284:ERROR:CONSOLE(1)] "Request Emulation.setEmulatedVisionDeficiency failed. {"code":-32601,"message":"'Emulation.setEmulatedVisionDeficiency' wasn't found"}", source: devtools://devtools/bundled/devtools-frontend/front_end/core/protocol_client/protocol_client.js (1)
+6월 18, 2023 13:39:51.285 [4788:14236:0618/133951.285:ERROR:CONSOLE(1)] "Request Network.clearAcceptedEncodingsOverride failed. {"code":-32601,"message":"'Network.clearAcceptedEncodingsOverride' wasn't found"}", source: devtools://devtools/bundled/devtools-frontend/front_end/core/protocol_client/protocol_client.js (1)
+6월 18, 2023 13:41:54.975 [4788:14236:0618/134154.975:ERROR:CONSOLE(1)] "Request Network.enable failed. {"code":-32601,"message":"'Network.enable' wasn't found"}", source: devtools://devtools/bundled/devtools-frontend/front_end/core/protocol_client/protocol_client.js (1)
+6월 18, 2023 13:41:54.976 [4788:14236:0618/134154.975:ERROR:CONSOLE(1)] "Request Network.setAttachDebugStack failed. {"code":-32601,"message":"'Network.setAttachDebugStack' wasn't found"}", source: devtools://devtools/bundled/devtools-frontend/front_end/core/protocol_client/protocol_client.js (1)
+6월 18, 2023 13:41:54.976 [4788:14236:0618/134154.976:ERROR:CONSOLE(1)] "Request Emulation.setEmulatedMedia failed. {"code":-32601,"message":"'Emulation.setEmulatedMedia' wasn't found"}", source: devtools://devtools/bundled/devtools-frontend/front_end/core/protocol_client/protocol_client.js (1)
+6월 18, 2023 13:41:54.977 [4788:14236:0618/134154.976:ERROR:CONSOLE(1)] "Request Emulation.setEmulatedVisionDeficiency failed. {"code":-32601,"message":"'Emulation.setEmulatedVisionDeficiency' wasn't found"}", source: devtools://devtools/bundled/devtools-frontend/front_end/core/protocol_client/protocol_client.js (1)
+6월 18, 2023 13:41:54.977 [4788:14236:0618/134154.977:ERROR:CONSOLE(1)] "Request Network.clearAcceptedEncodingsOverride failed. {"code":-32601,"message":"'Network.clearAcceptedEncodingsOverride' wasn't found"}", source: devtools://devtools/bundled/devtools-frontend/front_end/core/protocol_client/protocol_client.js (1)
+6월 18, 2023 13:41:54.977 [4788:14236:0618/134154.977:ERROR:CONSOLE(1)] "Request Network.enable failed. {"code":-32601,"message":"'Network.enable' wasn't found"}", source: devtools://devtools/bundled/devtools-frontend/front_end/core/protocol_client/protocol_client.js (1)
+6월 18, 2023 13:41:54.978 [4788:14236:0618/134154.977:ERROR:CONSOLE(1)] "Request Network.setAttachDebugStack failed. {"code":-32601,"message":"'Network.setAttachDebugStack' wasn't found"}", source: devtools://devtools/bundled/devtools-frontend/front_end/core/protocol_client/protocol_client.js (1)
+6월 18, 2023 13:41:54.981 [4788:14236:0618/134154.980:ERROR:CONSOLE(1)] "Request Emulation.setEmulatedMedia failed. {"code":-32601,"message":"'Emulation.setEmulatedMedia' wasn't found"}", source: devtools://devtools/bundled/devtools-frontend/front_end/core/protocol_client/protocol_client.js (1)
+6월 18, 2023 13:41:54.981 [4788:14236:0618/134154.981:ERROR:CONSOLE(1)] "Request Emulation.setEmulatedVisionDeficiency failed. {"code":-32601,"message":"'Emulation.setEmulatedVisionDeficiency' wasn't found"}", source: devtools://devtools/bundled/devtools-frontend/front_end/core/protocol_client/protocol_client.js (1)
+6월 18, 2023 13:41:54.981 [4788:14236:0618/134154.981:ERROR:CONSOLE(1)] "Request Network.clearAcceptedEncodingsOverride failed. {"code":-32601,"message":"'Network.clearAcceptedEncodingsOverride' wasn't found"}", source: devtools://devtools/bundled/devtools-frontend/front_end/core/protocol_client/protocol_client.js (1)
+
+6월 19, 2023 04:11:56.696 NEW SESSION
+6월 19, 2023 04:11:56.696 [9248:2160:0619/041156.635:ERROR:gpu_process_host.cc(953)] GPU process exited unexpectedly: exit_code=34

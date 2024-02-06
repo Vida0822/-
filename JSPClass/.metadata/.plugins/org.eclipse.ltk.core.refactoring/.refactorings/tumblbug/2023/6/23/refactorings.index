@@ -1,0 +1,52 @@
+1685956612701	Delete element
+1685956615332	Delete element
+1685957304760	Delete element
+1685957344284	Delete element
+1685957385189	Delete element
+1685957493229	Rename type 'memberDTO'
+1685957553394	Rename resource 'join'
+1685960352401	Delete element
+1685960598121	Delete element
+1685961528311	Delete element
+1685961561801	Delete element
+1685961857680	Delete element
+1685962190044	Delete element
+1685962441435	Rename type 'MemberDTO'
+1686023340811	Move 'index.jsp' to 'webapp'
+1686026381613	Move 'index.jsp' to 'WEB-INF'
+1686026407739	Move 'index.jsp' to 'webapp'
+1686033585510	Delete element
+1686033593565	Copy file
+1686037912779	Delete element
+1686038022142	Move 'filter' to 'java'
+1686038087266	Move 'filter' to 'com'
+1686038112378	Move 'filter' to 'java'
+1686038115971	Move 'util' to 'java'
+1686038387221	Delete element
+1686101177945	Move 'projectStart.jsp' to 'webapp'
+1686101210311	Move 'projectStart.jsp' to 'view'
+1686101382792	Move 'projectStart.jsp' to 'webapp'
+1686101935253	Move 'projectStart.jsp' to 'publicWeb'
+1686104242375	Delete element
+1686121679106	Delete element
+1686145369506	Move 'projectForm.jsp' to 'webapp'
+1686145406193	Move 'projectForm.jsp' to 'view'
+1686175708131	Move 'projectForm.jsp' to 'WEB-INF'
+1686176424204	Move 'projectForm.jsp' to 'webapp'
+1686179911484	Move 'projectForm.jsp' to 'view'
+1686179915168	Copy file
+1686180049862	Delete element
+1686193841495	Delete element
+1686193854116	Delete element
+1686206738812	Copy file
+1686236678342	Move 'paymentForm.jsp' to 'webapp'
+1686236699370	Move 'paymentForm.jsp' to 'view'
+1686239603399	Delete element
+1686281424156	Delete element
+1686284486876	Delete element
+1686284512310	Delete element
+1686302722353	Delete element
+1686319895868	Copy file
+1686367939188	Move 'ListProjectService.java' to 'service'
+1686369196049	Rename resource 'ProjectHandler.java'
+1686383091495	Delete element

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/SiSt.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+<h3>ex01.html</h3>
+
+<pre>
+  1. JSPClass 작업 폴더 생성
+  2. Dynamic Web Project  생성 
+     ㄱ. 프로젝트명 : jspPro  
+  3. encoding : UTF-8
+     html, css 등 모든 encoding : UTF-8
+  4. Installed JREs : jdk-11.0.17 설정
+  5. Web Brower : Chrome 설정
+  6. days01 폴더 생성
+     ㄴ  ex01.html 추가  
+     ㄴ viewport 템플릿 설정.
+     ㄴ 구글CDN    템플릿 설정.
+   7. ex01.html 실행 후 확인.  
+</pre>
+
+<pre>
+1. JSP/Servlet ? Java의 웹기술
+	ㄱ. Servlet
+	ㄴ. JSP
+
+2. 웹 프로그래밍
+웹서버 <- 요청 <- 클라이언트
+	   -> 응답 ->
+전송 데이터를 생성해주는 프로그램
+
+3. Java Server Page
+자바 언어 + 서버 + 웹페이지
+JSP : 서버에서 실행
+
+4. 처리 과정
+클라이언트			   웹서버		WAS(웹 어플리케이션 서버)
+ex01.jsp -> 요청 -> 아파치 + 톰캣, 웹로직, 제티, Jboss EAP 등등
+					아파치톰캣
+							자바 코딩
+							컴파일
+							실행
+										응답 데이터 생성
+							[웹컨테이너]
+							jsp -> 제스퍼(jasper) -> 자바클래스 생성
+													 서블릿클래스 -> 서블릿 객체
+5. JDK 설치
+JAVA_HOME 환경 설정
+CATALINA_HOME = C:\apache-tomcat-8.5.XX
+Path = %CATALINA.HOME%\bin
+6. WAS(톰캣)가 지원하는 버전
+JSP 2.3
+Servlet 4.0
+EL 3.0
+
+7. ex01.html 정적 자원
+   ex01.jsp  동적 자원
+
+8. 2~3주 JSP 수업 내용
+	1) jsp 페이지의 구성 요소
+	2) jsp 지시자 - page
+	3) 스크립트 요소 - 스크립트릿, 표현식
+	4) jsp 기본 내장 객체
+	5) jsp 처리 과정
+	6) 웹 애플리케이션 배포
+	7) 페이지 모듈화
+	8) 자바빈(javabean)과 액션태그
+	9) jsp 쿠키 - 상태관리
+	10) jsp 세션(session) - 상태관리
+	11) EL 3.0( 표현 언어 ) [E]xpression [L]anguage
+	12) JSTL( 표준 태그 라이브러리 )
+	13) 커넥션 풀( Connection Pool )
+	14) 서블릿(Servlet)
+	15) MVC 패턴 *** 프로젝트 구현
+	16) 필터
+	17) ServletContextListener 구현
+	18) 방명록, 게시판, 답변형 게시판, 자료실( 파일첨부 ), 회원가입, 로그인 처리( 인증 ) 등등
+</pre>
+</body>
+</html>

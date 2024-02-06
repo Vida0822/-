@@ -1,0 +1,5 @@
+0:0:0:0:0:0:0:1 - - [28/May/2023:20:37:15 +0900] "GET /jspPro/days07/ex02.jsp HTTP/1.1" 200 2376
+0:0:0:0:0:0:0:1 - - [28/May/2023:20:38:04 +0900] "GET /jspPro/days07/ex02_02.jsp HTTP/1.1" 200 893
+0:0:0:0:0:0:0:1 - - [28/May/2023:20:41:20 +0900] "GET /jspPro/days07/ex02_02_ok.jsp?cookieName=name&cookieValue=%ED%99%8D%EA%B8%B8%EB%8F%99 HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [28/May/2023:20:41:20 +0900] "GET /jspPro/days07/ex02.jsp HTTP/1.1" 200 2376
+0:0:0:0:0:0:0:1 - - [28/May/2023:20:43:30 +0900] "GET /jspPro/days07/ex02_03.jsp HTTP/1.1" 200 1938
