@@ -30,19 +30,18 @@
 * 2023.03.13 ~ 03.31
 * 참고 교재: Oracle 11g 프로그래밍 (성윤정)
 
-PL/SQL (필기)
+PL/SQL ([필기](https://vida0822.github.io/database/Plsql/))
 
 
 
 <br>
 
 
-
 ### Part 3. JDBC
 
 * 2023.04.10 ~ 04.16
 
-JDBC (필기)
+JDBC ([필기](https://vida0822.github.io/java/Jdbc/))
 
 <br>
 
@@ -53,20 +52,20 @@ JDBC (필기)
 * 2023.04.17 ~ 05.12
 * 참고 교재: HTML + CSS + 자바스크립트 웹 표준의 정석 (고경희)
 
-1. HTML : HTML 구조 
-2. HTML : 태그
-3. HTML : 폼
-4. CSS : 스타일 시트
-5. CSS : 태그별 스타일 속성
-6. CSS : 레이아웃(박스모델)
-7. CSS : 배경
-8. CSS : 고급 선택자
-9. CSS : 변화시키기 
-10. JS : 기본문법
-11. JS : 함수와 이벤트
-12. JS : 객체 
-13. JS : JSON 
-14. JS : BOM, DOM
+1. HTML : HTML 구조 ([필기](https://vida0822.github.io/web/html-ch1/))
+2. HTML : 태그 ([필기](https://vida0822.github.io/web/html-ch2/))
+3. HTML : 폼 ([필기](https://vida0822.github.io/web/html-ch3/))
+4. CSS : 스타일 시트 ([필기](https://vida0822.github.io/web/css-ch1/))
+5. CSS : 태그별 스타일 속성 ([필기](https://vida0822.github.io/web/css-ch2/))
+6. CSS : 레이아웃(박스모델) ([필기](https://vida0822.github.io/web/css-ch3/))
+7. CSS : 배경 ([필기](https://vida0822.github.io/web/css-ch4/))
+8. CSS : 고급 선택자 ([필기](https://vida0822.github.io/web/css-ch5/))
+9. CSS : 애니메이션 ([필기](https://vida0822.github.io/web/css-ch6/))
+10. JS : 기본문법 ([필기](https://vida0822.github.io/web/js-ch1/))
+11. JS : 함수와 이벤트 ([필기](https://vida0822.github.io/web/js-ch2/))
+12. JS : 객체 ([필기](https://vida0822.github.io/web/js-ch3/))
+13. JS : JSON ([필기](https://vida0822.github.io/web/js-ch4/)) 
+14. JS : BOM, DOM ([필기](https://vida0822.github.io/web/js-ch5/))
 
  <br>
 
@@ -97,11 +96,11 @@ JDBC (필기)
 * 2023.06.19 ~ 2023.07.11
 * 참고 교재: Spring 4.0 프로그래밍 (최범균)
 
-1. 스프링과 프레임워크 
-2. DI 
-3. AOP
-4. 응용 : 게시판
-5. Security 
+1. 스프링과 프레임워크 ([필기](https://vida0822.github.io/spring/springframework-ch1/))
+2. DI ([필기](https://vida0822.github.io/spring/springframework-ch2/))
+3. AOP ([필기](https://vida0822.github.io/spring/springframework-ch3/))
+4. 응용 : 게시판 ([필기](https://vida0822.github.io/spring/springframework-ch4/))
+5. Security ([필기](https://vida0822.github.io/spring/springframework-ch5/))
 
 <br>
 
