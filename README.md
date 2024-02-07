@@ -84,8 +84,7 @@ JDBC ([필기](https://vida0822.github.io/java/Jdbc/))
 6. EL과 JSTL ([필기](https://vida0822.github.io/java/자바1/))
 7. Ajax : 비동기적 처리 ([필기](https://vida0822.github.io/java/자바1/))
 8. 자바빈즈, 커넥션풀 ([필기](https://vida0822.github.io/java/자바1/))
-9. 응용: 게시판 ([필기](https://vida0822.github.io/java/자바1/))
-10. MVC ([필기](https://vida0822.github.io/java/자바1/))
+
 
 <br>
 
