@@ -76,14 +76,15 @@ JDBC ([필기](https://vida0822.github.io/java/Jdbc/))
 * 2023.05.15 ~ 05.31 
 * 참고 교재: 성낙현의 JSP 자바 웹 프로그래밍 (성낙현)
 
-1. 웹 개발이란? ([필기](https://vida0822.github.io/java/자바1/))
-2. 요청과 응답 ([필기](https://vida0822.github.io/java/자바1/))
-3. JSP의 영역 ([필기](https://vida0822.github.io/java/자바1/))
-4. 상태관리 : 쿠키, 세션, 필터 ([필기](https://vida0822.github.io/java/자바1/))
-5. 서블릿? ([필기](https://vida0822.github.io/java/자바1/))
-6. EL과 JSTL ([필기](https://vida0822.github.io/java/자바1/))
+1. 웹 개발이란? ([필기](https://vida0822.github.io/spring/jsp-ch1/))
+2. 요청과 응답 ([필기](https://vida0822.github.io/spring/jsp-ch2/))
+3. JSP의 영역 ([필기](https://vida0822.github.io/spring/jsp-ch3/))
+4. 상태관리 : 쿠키, 세션, 필터 ([필기](https://vida0822.github.io/spring/jsp-ch4/))
+5. 서블릿? ([필기](https://vida0822.github.io/spring/jsp-ch5/))
+6. EL과 JSTL ([필기]())
 7. Ajax : 비동기적 처리 ([필기](https://vida0822.github.io/java/자바1/))
 8. 자바빈즈, 커넥션풀 ([필기](https://vida0822.github.io/java/자바1/))
+9. 응용 : 게시판 ([필기](https://vida0822.github.io/java/자바1/))
 
 
 <br>
