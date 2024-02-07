@@ -5,7 +5,7 @@
 - 2023.01.26 ~ 03.06
 - 참고 교재 : 자바의 정석 (남궁성)
 
-1. What is Java ([필기](https://vida0822.github.io/java/자바1/))
+1. What is Java ([필기](https://vida0822.github.io/java/Java-ch1/))
 2. Variable ([필기](https://vida0822.github.io/java/Java-ch2/))
 3. 자바의 연산자 ([필기](https://vida0822.github.io/java/Java-ch3/))
 4. 조건문과 반복문 ([필기](https://vida0822.github.io/java/Java-ch4/))
@@ -15,11 +15,11 @@
 8. 객체지향 프로그래밍2 ([필기](https://vida0822.github.io/java/Java-ch8/))
 9. 예외처리 ([필기](https://vida0822.github.io/java/Java-ch9/))
 10. 유용한 클래스들 ([필기](https://vida0822.github.io/java/Java-ch10/))
-11. 컬렉션 프레임워크 (필기)
-12. 지네릭스, 열거형, 애너메이션 (필기)
-13. 쓰레드 (필기)
-14. 람다와 스트림 (필기)
-15. 입출력 IO (필기)
+11. 컬렉션 프레임워크 ([필기](https://vida0822.github.io/java/Java-ch11/))
+12. 지네릭스, 열거형, 애너메이션 ([필기](https://vida0822.github.io/java/Java-ch12/))
+13. 쓰레드 ([필기](https://vida0822.github.io/java/Java-ch13/))
+14. 람다와 스트림 ([필기](https://vida0822.github.io/java/Java-ch14/))
+15. 입출력 IO ([필기](https://vida0822.github.io/java/Java-ch15/))
 
 <br>
 
